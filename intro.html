@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Welcome! &#8212; Introduction to Computation for the Physics Sciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Basic syntax, variables, functions" href="chapters_ipynb/scicomp_00_basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/wj_horiz_color.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Computation for the Physics Sciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  I. Python basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_00_basics.html">
+   1. Basic syntax, variables, functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_01_controlstructs.html">
+   2. Control structures, numerical integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_02_typescontainers.html">
+   3. Types, random numbers, lists, dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_03_fileio.html">
+   4. File I/O
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  II. Techniques for the physical sciences
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_04_datavis.html">
+   1. Data visualization with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_05_fitting.html">
+   2. Fitting models to data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_07_ODEs.html">
+   3. Simulating solutions to differential equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_08_montecarlo.html">
+   4. Monte Carlo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_09_pandas.html">
+   5. Manipulating tabular data with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Pandas
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  III. Optional (but fun)
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_06_textasdata.html">
+   1. Text as data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_10_circuitpython.html">
+   2. Python on microcontrollers with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     circuitpython
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  IV. Projects
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapters_ipynb/scicomp_z0_ll_analysis.html">
+   Di-lepton mass spectrum from the Compact Muon Solenoid
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/intro.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#who-is-the-student">
+   Who is the student?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-these-resources">
+   How to use these resources
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-the-lessons">
+     Accessing the lessons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-files">
+     Data files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#software">
+     Software
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#live-demos">
+     Live demos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-collaborate">
+   Let’s collaborate!
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgements">
+   Acknowledgements
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Welcome!</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-goals">
+   Learning goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#who-is-the-student">
+   Who is the student?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-these-resources">
+   How to use these resources
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-the-lessons">
+     Accessing the lessons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-files">
+     Data files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#software">
+     Software
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#live-demos">
+     Live demos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-collaborate">
+   Let’s collaborate!
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgements">
+   Acknowledgements
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="welcome">
+<h1>Welcome!<a class="headerlink" href="#welcome" title="Permalink to this headline">#</a></h1>
+<p>This book contains lessons from PHY 220 Introduction to the Physical Sciences course taught in the Physics Major at Washington &amp; Jefferson College.  In the context of our curriculum, these materials are intended to prepare undergraduate students to use computation in upper-level lecture and courses, as well as in research settings in the department and beyond.  They should also be useful to students who need to develop some programming proficiency to apply to studies or research in quantitive, data-driven fields.</p>
+<section id="learning-goals">
+<h2>Learning goals<a class="headerlink" href="#learning-goals" title="Permalink to this headline">#</a></h2>
+<p>The over-arching theme of this course is that computation (or more generally computer programming) is an essential skill in science, one that has made possible new ways of investigating the physical and social systems that make our Universe worth studying. Our physics curriculum centers programming and data analysis as core skills.</p>
+<p>These materials are not designed to make students expert programmers, and we don’t really delve into many core computer-science concepts.  Rather, the emphasis is on introducing the types of problems that are amenable to computation and helping the student become comfortable reading, modifying, and writing code.</p>
+<p>The topics covered are chosen to get students up to speed with techniques necessary to start doing research.  I’m biased, of course; these materials focus on the things that high-energy physicists usually do: cleaning big datasets, exploratory data analysis and visualization, fitting, <em>etc.</em>  That said, the core ideas here have allowed our students to apply computation to course work and research in condensed matter physics, astronomy and astrophysics, mathematics, and engineering.  The process seems to work: students who have completed this course have hit the ground running in REUs and in careers in data science.</p>
+<p>This work has an epi-objective of making students more comfortable with quantitative information.  These materials engage with concepts like data <em>vs</em> results, experimental uncertainties and their propagation, interpreting graphs, and statistical thinking.</p>
+</section>
+<section id="who-is-the-student">
+<h2>Who is the student?<a class="headerlink" href="#who-is-the-student" title="Permalink to this headline">#</a></h2>
+<p>We require our physics majors to take the PHY 220 course in (or before) their fourth semester of study.  That said, the course is open to students from all majors, with prerequisites of Calculus I and an introductory course from <em>one</em> of the following disciplines: physics, chemistry, biology, or economics.  The second of these prerequisites is intended to ensure that the student has <em>some</em> scientific context in which to do programming.</p>
+<p>The materials are structured for students who are new to programming – like new new.  I’ve tried to provide enough explanatory text that a new programmer can make it through the tutorials with little guidance.  With an instructor available to walk students through the lessons, do live demos, and answer questions the materials seem to work pretty well for newbies.</p>
+<p>That said, roughly half of the students who take this course have some robust prior programming experience, typically in another language like C or Java.  These students are able to move through the lessons in Part I quickly, <em>but</em> I’ve found that the applications in Parts II and beyond are, in most cases, novel.  Said another way, scientific computation is complementary to the prior programming experience, which typically focuses on web, app, or game development.</p>
+<p>If you’d like to use the materials for a similar semester-long credit-bearing course, please contact me for other materials like syllabus and final-project assignments.</p>
+</section>
+<section id="how-to-use-these-resources">
+<h2>How to use these resources<a class="headerlink" href="#how-to-use-these-resources" title="Permalink to this headline">#</a></h2>
+<section id="accessing-the-lessons">
+<h3>Accessing the lessons<a class="headerlink" href="#accessing-the-lessons" title="Permalink to this headline">#</a></h3>
+<p>The book format that you’re reading now is really just a way of gathering all of these lessons into one semi-coherent package.  If you actually want to use these notebooks (modify code, work on the homework problems) you’ll want to download the notebook (.ipynb) files and work on them locally (or on a cloud platform like Google Colab).  You can download using the appropriate icon in the upper-right of this window.</p>
+</section>
+<section id="data-files">
+<h3>Data files<a class="headerlink" href="#data-files" title="Permalink to this headline">#</a></h3>
+<p>Some of the lessons rely on data files that I’ve generated or that freely available online.  I’ve cited sources and provided links where appropriate.  Most of the files are available on my <span class="xref myst">github</span>.  When you download these data files, you will either need to place them in the right directory (<code class="docutils literal notranslate"><span class="pre">&lt;location</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">.ipynb&gt;/data_files/</span></code>) or change the file path in the notebooks to point python to the correct location.  Note that these lessons were written on a Unix-derivative OS; if you’re using Windows your file paths might look a bit different.</p>
+</section>
+<section id="software">
+<h3>Software<a class="headerlink" href="#software" title="Permalink to this headline">#</a></h3>
+<p>To run these notebooks locally, you will need to have <code class="docutils literal notranslate"><span class="pre">python</span></code> and several common packages installed on your computer.  An easy way to get all of the necessary software is to install <a class="reference external" href="https://www.anaconda.com/">Anaconda</a>, an open-source distribution of python, R, and a bunch of other industry-standard data science tools.  This is a great solution for new programmers (who have enough disk space), as it’s pretty self-contained and will give you access to many of the resources you need for taking the next steps beyond these lessons.</p>
+<p>There are only two packages referenced in these lessons that aren’t included in base Anaconda.  <code class="docutils literal notranslate"><span class="pre">rich</span></code>, which gives some really nice terminal print formatting, is completely unnecessary – if you don’t want to or can’t install it, just comment out any references to it.  The packages necessary for microcontroller programming are a bit more difficult to install, but instructions are linked in the lesson on this topic.</p>
+</section>
+<section id="live-demos">
+<h3>Live demos<a class="headerlink" href="#live-demos" title="Permalink to this headline">#</a></h3>
+<p>If you’re an instructor or a research advisor, please consider working through these materials <em>with</em> your students.  Most of the lessons include “warm-up” problems or “live demos”.  In class, I take a Socratic approach to these, having students guide me through coding up a solution while I’m sharing or projecting my screen.  This is a great, interactive way to get students to make guesses and test ideas… and they <em>love</em> seeing me screw things up and have to debug.  Showing students how a professional breaks software and then works through the steps of fixing it is a high-impact teaching practice.  I like to reinforce that I rarely know exactly how to solve a problem when I start coding.  Getting from A to B is rarely linear for me, and refactoring is an important process.</p>
+<p>Dan Shiffman’s approach at <a class="reference external" href="https://thecodingtrain.com/">The Coding Train</a> is an excellent model, IMO!</p>
+</section>
+</section>
+<section id="let-s-collaborate">
+<h2>Let’s collaborate!<a class="headerlink" href="#let-s-collaborate" title="Permalink to this headline">#</a></h2>
+<p>Want to contribute to this project?  Please <a class="reference external" href="mailto:mmccracken&#37;&#52;&#48;washjeff&#46;edu">get in touch with me</a>!  I’d love to collaborate to keep these materials fresh: fixing bugs, expanding tutorials, or building more projects in other scientific fields.</p>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">#</a></h2>
+<p>Enormous thank you to the <a class="reference external" href="https://www.python.org">Python Software Foundation</a>!</p>
+<p>Most of the materials provided here are</p>
+<p>The book format that you’re looking at right now is powered by the excellent <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter Book</a></p>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/logo.png"><img alt="_images/logo.png" class="bg-primary mb-1 align-center" src="_images/logo.png" style="width: 300px;" /></a>
+<p>These materials are provided under the <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.  Enjoy!</p>
+<!--
+***
+
+These materials are offered under the MIT License
+
+Copyright 2022 Michael McCracken
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+<!--
+```{tableofcontents}
+```
+-->
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="chapters_ipynb/scicomp_00_basics.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Basic syntax, variables, functions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mike McCracken<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

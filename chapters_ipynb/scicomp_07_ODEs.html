@@ -1,0 +1,1187 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Simulating solutions to differential equations &#8212; Introduction to Computation for the Physics Sciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Monte Carlo" href="scicomp_08_montecarlo.html" />
+    <link rel="prev" title="2. Fitting models to data" href="scicomp_05_fitting.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/wj_horiz_color.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Computation for the Physics Sciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  I. Python basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_00_basics.html">
+   1. Basic syntax, variables, functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_01_controlstructs.html">
+   2. Control structures, numerical integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_02_typescontainers.html">
+   3. Types, random numbers, lists, dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_03_fileio.html">
+   4. File I/O
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  II. Techniques for the physical sciences
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_04_datavis.html">
+   1. Data visualization with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_05_fitting.html">
+   2. Fitting models to data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Simulating solutions to differential equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_08_montecarlo.html">
+   4. Monte Carlo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_09_pandas.html">
+   5. Manipulating tabular data with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Pandas
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  III. Optional (but fun)
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_06_textasdata.html">
+   1. Text as data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_10_circuitpython.html">
+   2. Python on microcontrollers with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     circuitpython
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  IV. Projects
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_z0_ll_analysis.html">
+   Di-lepton mass spectrum from the Compact Muon Solenoid
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapters_ipynb/scicomp_07_ODEs.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_07_ODEs.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapters_ipynb/scicomp_07_ODEs.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap">
+   3.1. Recap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   3.2. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ordinary-differential-equations">
+   3.3. Ordinary Differential Equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#odes-by-example">
+   3.4. ODEs by example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#odes-again">
+   3.5. ODEs, again
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-odes-numerically">
+   3.6. Solving ODEs numerically
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warm-up-completely-context-free-example">
+     Warm up: Completely context-free example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warm-up-rumor-spread-through-a-population">
+     Warm up: Rumor spread through a population
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#does-this-look-familiar">
+     Does this look familiar?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higher-order-odes-and-the-euler-algorithm">
+   3.7. Higher-order ODEs and the Euler Algorithm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warm-up-problem">
+     Warm-up problem.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problems">
+   3.8. Problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regulars">
+     Regulars
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-0">
+       Problem 7.0
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-1">
+       Problem 7.1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-2">
+       Problem 7.2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-3">
+       Problem 7.3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#meanies">
+     Meanies
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-4">
+       Problem 7.4
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-5">
+       Problem 7.5
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-6">
+       Problem 7.6
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-7">
+       Problem 7.7
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chemistry-super-meanie">
+     Chemistry super-meanie
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Simulating solutions to differential equations</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap">
+   3.1. Recap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   3.2. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ordinary-differential-equations">
+   3.3. Ordinary Differential Equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#odes-by-example">
+   3.4. ODEs by example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#odes-again">
+   3.5. ODEs, again
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-odes-numerically">
+   3.6. Solving ODEs numerically
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warm-up-completely-context-free-example">
+     Warm up: Completely context-free example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warm-up-rumor-spread-through-a-population">
+     Warm up: Rumor spread through a population
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#does-this-look-familiar">
+     Does this look familiar?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higher-order-odes-and-the-euler-algorithm">
+   3.7. Higher-order ODEs and the Euler Algorithm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warm-up-problem">
+     Warm-up problem.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problems">
+   3.8. Problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regulars">
+     Regulars
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-0">
+       Problem 7.0
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-1">
+       Problem 7.1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-2">
+       Problem 7.2
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-3">
+       Problem 7.3
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#meanies">
+     Meanies
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-4">
+       Problem 7.4
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-5">
+       Problem 7.5
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-6">
+       Problem 7.6
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-7-7">
+       Problem 7.7
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chemistry-super-meanie">
+     Chemistry super-meanie
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="simulating-solutions-to-differential-equations">
+<h1><span class="section-number">3. </span>Simulating solutions to differential equations<a class="headerlink" href="#simulating-solutions-to-differential-equations" title="Permalink to this headline">#</a></h1>
+<section id="recap">
+<h2><span class="section-number">3.1. </span>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">#</a></h2>
+<p>Does the knowledge ever stop? (No.) Allow me to remind you of our amazing toolbox of science-relevant PHY 220 computation competencies:</p>
+<ul class="simple">
+<li><p>basic mathematical operations, comparison operators</p></li>
+<li><p>iteration and recursion with loop control structures <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p>keeping track of variables outside of loops (i.e., counting and summing)</p></li>
+<li><p>function definition and using functions <em>inside</em> of loops</p></li>
+<li><p>conditionals with <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, and <code class="docutils literal notranslate"><span class="pre">elif</span></code></p></li>
+<li><p>types: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p>containers such as <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
+<li><p>randm number generation</p></li>
+<li><p>accessing and iterating over elements in lists and dicts</p></li>
+<li><p>file I/O</p></li>
+<li><p>basic (and semi-advanced) data visualization: histograms, scatter plots, higher-dimensions in 2-d</p></li>
+<li><p>fitting models to data and extracting results (with uncertainties)</p></li>
+<li><p>text analysis, asking questions with unstructured data</p></li>
+<li><p>DEBUGGING!</p></li>
+</ul>
+<p><strong>Wow</strong>, that’s a LOT of stuff.  Holy moly, are these skills marketable!</p>
+</section>
+<hr class="docutils" />
+<section id="motivation">
+<h2><span class="section-number">3.2. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<p>In this lesson, we’ll be studying the simulation of solutions to differential equations.  <strong>Wait, no – don’t run out the door screaming!</strong> This will be a gentle reminder/introduction to what differential equations are/do, and then we’ll present a fairly general approach to simulating their solutions.  Why?  Well, check out:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=o72GGxQqWt8">The Belousov-Zhabotinsky (BZ) chemical reaction</a> or <a class="reference external" href="https://www.youtube.com/watch?v=jRQAndvF4sM">another video</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Physics_engine">Video-game physics engines</a>!  <a class="reference external" href="https://www.youtube.com/watch?v=3jt__MP4IzE&amp;ab_channel=RetroGame.Stream">For example</a></p></li>
+<li><p><a class="reference external" href="https://physicsworld.com/a/a-model-approach-to-climate-change/">Climate modeling based on Navier-Stokes equation</a></p></li>
+</ul>
+<p>In a very real way, differential equations <em>are</em> our understanding of the <em>dynamic</em> natural world!</p>
+</section>
+<hr class="docutils" />
+<section id="ordinary-differential-equations">
+<h2><span class="section-number">3.3. </span>Ordinary Differential Equations<a class="headerlink" href="#ordinary-differential-equations" title="Permalink to this headline">#</a></h2>
+<p>An <strong>ordinary differential equation</strong> (ODE) is an equation that relates a function of one variable, <span class="math notranslate nohighlight">\(f(x)\)</span>, to its derivatives, <span class="math notranslate nohighlight">\(f'(x)\)</span>, <span class="math notranslate nohighlight">\(f''(x)\)</span>, <span class="math notranslate nohighlight">\(f'''(x)\)</span>, …</p>
+<p>That’s it! Thanks for stopping by!</p>
+<p>Next section, please!</p>
+</section>
+<hr class="docutils" />
+<section id="odes-by-example">
+<h2><span class="section-number">3.4. </span>ODEs by example<a class="headerlink" href="#odes-by-example" title="Permalink to this headline">#</a></h2>
+<p>Ok, so the previous section wasn’t that helpful.  The point that I want to make in this lesson is that differential equations arise very naturally in the analysis of physical, chemical, financial, biological, social, and many other types of systems.  Let’s see what differential equations can do for us by examining a “simple” example.  Even if you’ve not worked with differential equations before, let alone taken a DE course, you should be able to follow with this notebook. We’ll work with DEs as <em>algebraic</em> rather than <em>calculus</em> entities.</p>
+<p>Let’s consider the case of a colony of bacteria growing in a petri dish.  Assume that we know the initial conditions of our experiment: the number of bacteria <span class="math notranslate nohighlight">\(N_0\)</span> at time <span class="math notranslate nohighlight">\(t=0\)</span>.  We want to do some analysis to determine a functional dependence of the number of bacteria on time, <span class="math notranslate nohighlight">\(N(t)\)</span> – the outcome of this analysis will be a <strong>function</strong>!  We know that in some amount of time <span class="math notranslate nohighlight">\(\Delta t\)</span>, the population grows by some <em>relative</em> rate, <span class="math notranslate nohighlight">\(\gamma\)</span>.  Let me write out what this means in an equation:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta N = \gamma \; (\Delta t)\; N(t)\]</div>
+<p>We call this a “difference equation” because it relates finite differences in the quantities <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(N\)</span>.  This equation tells us how we expect <span class="math notranslate nohighlight">\(N\)</span>, the number of bacteria to change in any given time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>: <span class="math notranslate nohighlight">\(\Delta N\)</span> is proportional to the rate <span class="math notranslate nohighlight">\(\gamma\)</span>, the amount of time elapsed <span class="math notranslate nohighlight">\(\Delta t\)</span>, and the current number of bacteria <span class="math notranslate nohighlight">\(N(t)\)</span>.</p>
+<p>Please think about these dependencies for a moment.  The change in <span class="math notranslate nohighlight">\(N\)</span> depends on how long we wait, how fast the bacteria reproduce, and <strong>how many bacteria</strong> there are.  The latter of these is the interesting one – a larger population will increase more!</p>
+<p>Let’s rearrange our difference equation a bit:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\Delta N}{\Delta t} = \gamma N(t) \]</div>
+<p>OK, looking interesting.  Now, what happens to the difference equation if we consider <span class="math notranslate nohighlight">\(\Delta t\)</span> to be short?  You know, like infinitesimal?  A slight change in notation, <span class="math notranslate nohighlight">\(\Delta t \rightarrow dt\)</span> and <span class="math notranslate nohighlight">\(\Delta N \rightarrow dN\)</span> yields</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dN(t)}{dt} = \gamma N(t) \]</div>
+<p>Wow, that’s one of those differential equations things!  This is an equation that relates the first-order time derivative of <span class="math notranslate nohighlight">\(N(t)\)</span> to the function itself!  Solving this differential equation means finding a function <span class="math notranslate nohighlight">\(N(t)\)</span> that satisfies the equation.  In words, this DE tells us that <span class="math notranslate nohighlight">\(N(t)\)</span> is a function that is equal to <span class="math notranslate nohighlight">\(1/\gamma\)</span> of its derivative.</p>
+<p>Thinking for a few moments yields the solution <span class="math notranslate nohighlight">\(N(t) = ae^{\gamma t}\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> is some constant.  Exponential growth!  To match the initial conditions, we would set <span class="math notranslate nohighlight">\(a = N_0\)</span>.  So, the solution to this DE that also satisfies the initial conditions is</p>
+<div class="math notranslate nohighlight">
+\[ N(t) = N_0 e^{\gamma t} \]</div>
+<p>If you’re interested in techniques for solving differential equations (other than just magically thinking up a solution) consider taking a course in Mathematical Physics, or Differential Equations offered by your friendly local Mathematics Department.</p>
+</section>
+<hr class="docutils" />
+<section id="odes-again">
+<h2><span class="section-number">3.5. </span>ODEs, again<a class="headerlink" href="#odes-again" title="Permalink to this headline">#</a></h2>
+<p><strong>So</strong>, what is a differential equation?  It’s an equation that relates a function to its derivatives.  What is the <strong>solution to a differential equation</strong>?  It’s a function!  In the example above, our solution is the <em>function</em> <span class="math notranslate nohighlight">\(N(t)\)</span>.  When we have this solution, we can know the behavior of the system at all future times.  In this example and many other situations, the differential equation arises naturally from the properties of a system.</p>
+</section>
+<hr class="docutils" />
+<section id="solving-odes-numerically">
+<h2><span class="section-number">3.6. </span>Solving ODEs numerically<a class="headerlink" href="#solving-odes-numerically" title="Permalink to this headline">#</a></h2>
+<p>The above example was an easy one.  Very rarely does an interesting physical system present a differential equation with a “nice” solution.  In many branches of science, we have to rely on computers to <em>simulate</em> the behavior of a system from the differential equation that describes it.</p>
+<p>Let’s return to the exponential growth example from above.  Recall the difference equation:</p>
+<div class="math notranslate nohighlight">
+\[ \Delta N = \gamma N(t) (\Delta t)\]</div>
+<p>To “solve” for <span class="math notranslate nohighlight">\(N(t)\)</span> numercially, we wish to predict the value of <span class="math notranslate nohighlight">\(N(t)\)</span> at all future times.  We’ll do this incrementally.  Let’s put some numbers into our system.  Let our growth constant <span class="math notranslate nohighlight">\(\gamma = 10^{-4}\)</span> s<span class="math notranslate nohighlight">\(^{-1}\)</span> and <span class="math notranslate nohighlight">\(N(t = 0) = N_0 = 10^4\)</span>.</p>
+<p>If we choose a small value for <span class="math notranslate nohighlight">\(\Delta t\)</span>, we can <em>approximate</em> the value of <span class="math notranslate nohighlight">\(N\)</span> at <span class="math notranslate nohighlight">\(t = 0 + \Delta t\)</span> using the difference equation:</p>
+<div class="math notranslate nohighlight">
+\[N(0 + \Delta t) = \gamma N(0) (\Delta t)\]</div>
+<p>In fact, we can generalize this relationship to calculate <span class="math notranslate nohighlight">\(N\)</span> at any <span class="math notranslate nohighlight">\(t+\Delta t\)</span> from <span class="math notranslate nohighlight">\(N\)</span> at <span class="math notranslate nohighlight">\(t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ N(t + \Delta t) = \gamma N(t) (\Delta t)\]</div>
+<p>Well, heck!  This just sounds like recursion!  Let’s choose <span class="math notranslate nohighlight">\(\Delta t = 10^{-1}\)</span> s and code this process to approximate the value of <span class="math notranslate nohighlight">\(N(t)\)</span> for a total of 6 hours.  In the code below, I’m going to use <code class="docutils literal notranslate"><span class="pre">dt</span></code> as the variable shorthand for <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gamma</span> <span class="o">=</span> <span class="mf">1e-4</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tf</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span>
+<span class="n">n0</span> <span class="o">=</span> <span class="mf">1e4</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">n0</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-1</span>
+
+<span class="n">t_vals</span><span class="p">,</span> <span class="n">n_vals</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="n">t_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">n_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">tf</span><span class="p">:</span>
+    <span class="n">dn</span> <span class="o">=</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">dn</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
+    <span class="n">t_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">n_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s check our handy work by graphing the values of <span class="math notranslate nohighlight">\(N\)</span> vs <span class="math notranslate nohighlight">\(t\)</span> along with the theoretical (analytical) solution!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">t_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_vals</span><span class="p">)</span>
+<span class="n">n_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">n_vals</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">theo_solution</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">n0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">theo_n_vals</span> <span class="o">=</span> <span class="n">theo_solution</span><span class="p">(</span><span class="n">t_vals</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_vals</span><span class="p">,</span> <span class="n">n_vals</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;numerical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_vals</span><span class="p">,</span> <span class="n">theo_n_vals</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/scicomp_07_ODEs_6_0.png" src="../_images/scicomp_07_ODEs_6_0.png" />
+</div>
+</div>
+<p>Now, if it looks to you like there’s only one set of data points plotted above… that’s because the theoretical/analytical solution is RIGHT ON TOP of the numerical solution!  Yeah, baby!</p>
+<p>Having a numerical solution isn’t as satisfying as having the <strong>functional form</strong> of an analytical solution.  However, it is CRITICALLY important to state that there very simple systems for which no analytical solution is possible, and we must resort to numerical solution to predict the future.  If this makes you uncomfortable, you’re in good company.</p>
+<hr class="docutils" />
+<section id="warm-up-completely-context-free-example">
+<h3>Warm up: Completely context-free example<a class="headerlink" href="#warm-up-completely-context-free-example" title="Permalink to this headline">#</a></h3>
+<p>Let’s simulate the solution to the following first-order ordinary differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{df}{dt} = -(0.1) f^2 + 0.5 f + 0.2
+\]</div>
+<p>Use <span class="math notranslate nohighlight">\(\Delta t = 10^{-3}\)</span> and <span class="math notranslate nohighlight">\(f(0) = 0\)</span> as an initial condition.  Simulate between <span class="math notranslate nohighlight">\(t = 0\)</span> and <span class="math notranslate nohighlight">\(t = 20\)</span> s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## warm-up code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="warm-up-rumor-spread-through-a-population">
+<h3>Warm up: Rumor spread through a population<a class="headerlink" href="#warm-up-rumor-spread-through-a-population" title="Permalink to this headline">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(f(t)\)</span> be the fraction of a population that have heard a rumor as a function of time.  A simple model for how this rumor (or a meme, or a virus, <em>etc.</em>) spreads through the population is that the rate of spread is proportional to the product of the fraction of people who have heard the rumor and the fraction of people who have not heard the rumor.  [Think about this for a minute!]  Mathematically, we write this as</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{df}{dt} = \beta f (1-f) 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> is the proportionality/transmission constant.  In this model, <span class="math notranslate nohighlight">\(\beta\)</span> essentially quantifies how transmissable (or “juicy”) the rumor/meme/virus is.</p>
+<p>This is a hard one to solve!  Yowza.  But we can simulate the solution quite easily.  Assume that at <span class="math notranslate nohighlight">\(t = 0\)</span>, <span class="math notranslate nohighlight">\(f = 0.25\)</span> and <span class="math notranslate nohighlight">\(\beta = 0.01\)</span>.  Simulate the spread until <span class="math notranslate nohighlight">\(f = 0.90\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## warm-up code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Congratulations!  You’re now a theoretical epidemiologist (kinda).</p>
+</section>
+<hr class="docutils" />
+<section id="does-this-look-familiar">
+<h3>Does this look familiar?<a class="headerlink" href="#does-this-look-familiar" title="Permalink to this headline">#</a></h3>
+<p>If you’ve attended this class in the past, you might notice similarities between the code above for simulating ODE solutions and the stuff we did in Lesson 1 with numerical integration.  SURPRISE – they’re basically the same thing, especially for first-order ODEs.  That means that all of the same considerations from Lesson 1 (choosing the correct integration step size, <em>etc</em>.) apply here.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="higher-order-odes-and-the-euler-algorithm">
+<h2><span class="section-number">3.7. </span>Higher-order ODEs and the Euler Algorithm<a class="headerlink" href="#higher-order-odes-and-the-euler-algorithm" title="Permalink to this headline">#</a></h2>
+<p>Hey, have you heard of this thing Newton’s Second Law?  It’s pretty good at describing how the forces acting on an object influence its motion… you know, dynamics!  Recall that N2L looks like this:</p>
+<div class="math notranslate nohighlight">
+\[
+  \displaystyle \sum \vec{F} = m\frac{d^2\vec{r}}{dt^2}
+\]</div>
+<p>Just to remind you, N2L relates the forces acting on a particle (the left-hand side) to the motion of a particle.  In many systems, the forces that act on a particle depend on the position of the particle, meaning that the LHS of N2L will include <span class="math notranslate nohighlight">\(\vec{r}\)</span>.  The LHS might even include forces that depend on <span class="math notranslate nohighlight">\(\vec{v} = d\vec{r}/dt\)</span>.  BAM!  A second-order ODE which relates the second and first derivative(s) of position to the position.</p>
+<p>Let’s look at a more concrete example.  Consider a mass connected to a horizontal spring with spring constant <span class="math notranslate nohighlight">\(k\)</span>.  The mass can slide on a horizontal frictionless surface.  We’ll establish a <span class="math notranslate nohighlight">\(y\)</span>-axis along the mass’ direction of motion, with <span class="math notranslate nohighlight">\(y = 0\)</span> at the mass’ equilibrium point.  Applying N2L yields</p>
+<div class="math notranslate nohighlight">
+\[
+  \displaystyle \sum F_y = -k y(t) = m \frac{d^2 y(t)}{dt^2} \longrightarrow \frac{d^2 y(t)}{dt^2} = -\frac{k}{m} y(t)
+\]</div>
+<p>To solve this, we seek a position function <span class="math notranslate nohighlight">\(y(t)\)</span> which satisfies this equality.  Perhaps you can guess or remember it?</p>
+<p>If we try our previous simulation technique, though, we’re stuck!  The ODE tells us the value of the <em>second</em> derivative of <span class="math notranslate nohighlight">\(y(t)\)</span>, but… how do we use this to find the <em>change</em> in <span class="math notranslate nohighlight">\(y\)</span>?!</p>
+<p>There are actually many different approaches to this problem.  We will choose the easiest of these, the so-called Euler Algorithm.  The approach is to break the second-order ODE into <em>two</em> first-order ODEs by inventing two “new” quantities:</p>
+<div class="math notranslate nohighlight">
+\[
+  u_1(t) = y(t)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+  u_2(t) = \frac{dy(t)}{dt}
+\]</div>
+<p>We can then use our original ODE to write ODEs for <span class="math notranslate nohighlight">\(u_1\)</span> and <span class="math notranslate nohighlight">\(u_2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{du_1(t)}{dt} = u_2
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+  \frac{du_2(t)}{dt} = -\frac{k}{m} u_1
+\]</div>
+<p>Splitting one DE into two DEs may seem like it {\em doubles} the complication of the system, but it actually provides a more straight-forward way to implement the calculation.
+We first turn these differential equations into difference equations:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{\Delta u_1}{\Delta t} = u_2 \longrightarrow \Delta u_1 = u_2 \Delta t
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+  \frac{\Delta u_2}{\Delta t} = -\frac{k}{m} u_1 \longrightarrow \Delta u_2 = \left(-\frac{k}{m} u_1 \right)\Delta t
+\]</div>
+<p>If we are given the initial values of position, <span class="math notranslate nohighlight">\(y(0) = u_1(0)\)</span>, and velocity, <span class="math notranslate nohighlight">\(y'(0) = u_2(0)\)</span>, then we have everything we need to use the difference equations to calculate the changes in <span class="math notranslate nohighlight">\(u_1\)</span> and <span class="math notranslate nohighlight">\(u_2\)</span>.</p>
+<p>To be clear, the Euler Algorithm for a second-order ODE will be to do the following at each step in the simulation:</p>
+<ol class="simple">
+<li><p>calculate <span class="math notranslate nohighlight">\(\Delta u_2\)</span></p></li>
+<li><p>update <span class="math notranslate nohighlight">\(u_2\)</span> with <span class="math notranslate nohighlight">\(u_2 = u_2 + \Delta u_2\)</span></p></li>
+<li><p>calculate <span class="math notranslate nohighlight">\(\Delta u_1\)</span></p></li>
+<li><p>update <span class="math notranslate nohighlight">\(u_1\)</span> with <span class="math notranslate nohighlight">\(u_1 = u_1 + \Delta u_1\)</span></p></li>
+<li><p>update <span class="math notranslate nohighlight">\(t\)</span> with <span class="math notranslate nohighlight">\(t = t + \Delta t\)</span></p></li>
+<li><p>REPEAT</p></li>
+</ol>
+<p>Super duper.
+To put this in physics lingo, we’re going to calculate the acceleration, update the velocity, and update the position.</p>
+<p>Let’s try it!  We’ll assume that <span class="math notranslate nohighlight">\(m = 1.0\)</span>, <span class="math notranslate nohighlight">\(k = 12.0\)</span>, <span class="math notranslate nohighlight">\(y(0) = 0.15\)</span>, and <span class="math notranslate nohighlight">\(y'(0) = 0.0\)</span>, all in SI units :^)   Let’s simulate for <span class="math notranslate nohighlight">\(12.0\)</span> seconds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y0</span> <span class="o">=</span> <span class="mf">0.15</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">12.0</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tf</span> <span class="o">=</span> <span class="mf">12.0</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">u1</span> <span class="o">=</span> <span class="n">y0</span>
+<span class="n">u2</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">t_vals</span><span class="p">,</span> <span class="n">u1_vals</span><span class="p">,</span> <span class="n">u2_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="p">[</span><span class="n">u1</span><span class="p">],</span> <span class="p">[</span><span class="n">u2</span><span class="p">]</span>
+
+<span class="k">while</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">tf</span><span class="p">:</span>
+    <span class="n">du2</span> <span class="o">=</span> <span class="o">-</span> <span class="n">k</span> <span class="o">/</span> <span class="n">m</span> <span class="o">*</span> <span class="n">u1</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">u2</span> <span class="o">=</span> <span class="n">u2</span> <span class="o">+</span> <span class="n">du2</span>
+    <span class="n">u2_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u2</span><span class="p">)</span>
+    <span class="n">du1</span> <span class="o">=</span> <span class="n">u2</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">u1</span> <span class="o">=</span> <span class="n">u1</span> <span class="o">+</span> <span class="n">du1</span>
+    <span class="n">u1_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
+    <span class="n">t_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_vals</span><span class="p">,</span> <span class="n">u1_vals</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;u1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_vals</span><span class="p">,</span> <span class="n">u2_vals</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;u2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/scicomp_07_ODEs_14_0.png" src="../_images/scicomp_07_ODEs_14_0.png" />
+</div>
+</div>
+<p>Nice!  Oscillatory, simple harmonic motion!</p>
+<hr class="docutils" />
+<p>What if we complicate the system by adding a drag force that is proportional to the object’s velocity?  We could do this simply by modifying the original ODE:</p>
+<div class="math notranslate nohighlight">
+\[
+  \displaystyle \sum F_y = -k y - b \frac{dy}{dt} = m \frac{d^2 y}{dt^2}
+\]</div>
+<p>This makes the ODE much harder to solve with pencil and paper, but our simulation is trivially easy to adapt.  So easy, in fact, that we’ll do it in a warm-up problem…</p>
+<section id="warm-up-problem">
+<h3>Warm-up problem.<a class="headerlink" href="#warm-up-problem" title="Permalink to this headline">#</a></h3>
+<p>Modify the simulation code above to include a drag force with drag coefficient <span class="math notranslate nohighlight">\(b = 0.6\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## warm-up code goes here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>It should be noted that this is only <em>one</em> way to simulate the solution to a second-order differential equation.
+The Euler algorithm/method relies on using the value of acceleration at <span class="math notranslate nohighlight">\(t\)</span> to determine the velocity and position at time <span class="math notranslate nohighlight">\(t+\Delta t\)</span>.  This is an approximation based on a very simple understanding of how a derivative works.
+There are other (more sophisticaed) ways to do updating/simulations such as this, many of which give better performance for some physical systems – if interested you can check out the Runge-Kutta method(s) or Leapfrog integration.</p>
+<p>It would be difficult to overstate the power of this approach.  Differential equation simulation is used for everything from making Mario (the plumber) move realistically, to determining how fast a computer processor can run before overheating, to designing rocket engines.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="problems">
+<h2><span class="section-number">3.8. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">#</a></h2>
+<p>Your homework for next week is to complete three (3) of the following problems.</p>
+<section id="regulars">
+<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this headline">#</a></h3>
+<section id="problem-7-0">
+<h4>Problem 7.0<a class="headerlink" href="#problem-7-0" title="Permalink to this headline">#</a></h4>
+<p>The population of a system experiences growth according to the following ODE</p>
+<div class="math notranslate nohighlight">
+\[ 
+  \frac{dN}{dt} = \lambda N - \eta N \cos (t / 12) 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda = 0.002\)</span> and <span class="math notranslate nohighlight">\(\eta = 0.0065\)</span>.  The system begins with <span class="math notranslate nohighlight">\(N(0) = 10^5\)</span>.  Graph the population of the system vs <span class="math notranslate nohighlight">\(t\)</span> for <span class="math notranslate nohighlight">\(t \in [0, 200]\)</span>.  Determine how long it takes for the population to increase by a factor of 10.</p>
+</section>
+<section id="problem-7-1">
+<h4>Problem 7.1<a class="headerlink" href="#problem-7-1" title="Permalink to this headline">#</a></h4>
+<p>A simple, single-loop DC circuit contains a capacitor with <span class="math notranslate nohighlight">\(C = 0.15\)</span> <span class="math notranslate nohighlight">\(\mu\)</span>F, a resistor with <span class="math notranslate nohighlight">\(R = 120\)</span> k<span class="math notranslate nohighlight">\(\Omega\)</span>, a <span class="math notranslate nohighlight">\(10\)</span>-V battery, and a switch.  At <span class="math notranslate nohighlight">\(t = 0\)</span>, the capacitor is uncharged and the switch is closed.  Applying Kirchoff’s loop rule yields the following equation:</p>
+<div class="math notranslate nohighlight">
+\[ 
+  (10 \textrm{ V}) - IR - CQ = 0
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(I\)</span> is the current in the circuit and <span class="math notranslate nohighlight">\(Q\)</span> is the charge on the capacitor.  You may recall that <span class="math notranslate nohighlight">\(dQ/dt = I\)</span>.  Write a simulation of <span class="math notranslate nohighlight">\(Q(t)\)</span> and graph <span class="math notranslate nohighlight">\(Q(t)\)</span> vs <span class="math notranslate nohighlight">\(t\)</span> from <span class="math notranslate nohighlight">\(t = 0\)</span> up to the time at which the voltage across the capacitor reaches <span class="math notranslate nohighlight">\(90\%\)</span> of its maximum value.</p>
+</section>
+<section id="problem-7-2">
+<h4>Problem 7.2<a class="headerlink" href="#problem-7-2" title="Permalink to this headline">#</a></h4>
+<p>A quesadilla (<span class="math notranslate nohighlight">\(m = 0.240\)</span> kg) is dropped from an initial height of <span class="math notranslate nohighlight">\(100\)</span> m.  As it falls, it experiences a vertical force described by</p>
+<div class="math notranslate nohighlight">
+\[ 
+  \displaystyle \sum F_y = - mg - b y' 
+\]</div>
+<p>where the second term is a drag force with drag coefficient <span class="math notranslate nohighlight">\(b = 0.3\)</span>.
+How long does it take the quesadilla to reach the ground?
+What is its speed at the instant that it strikes the ground?</p>
+</section>
+<section id="problem-7-3">
+<h4>Problem 7.3<a class="headerlink" href="#problem-7-3" title="Permalink to this headline">#</a></h4>
+<p>A pebble is dropped vertically into a pond such that its speed as it enters is <span class="math notranslate nohighlight">\(25.0\)</span> m/s.  The force on the pebble once it enters the water is given by</p>
+<div class="math notranslate nohighlight">
+\[ 
+  \displaystyle \sum F_y = - mg + d (y')^2 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(d = 0.1\)</span> is a drag coefficient.  Notice that the drag force for the liquid water has a different functional form than the drag force in the previous problem.
+Simulate the position of the pebble in the water and graph it as a function of time.  Approximate the pebble’s terminal speed.</p>
+</section>
+</section>
+<section id="meanies">
+<h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this headline">#</a></h3>
+<section id="problem-7-4">
+<h4>Problem 7.4<a class="headerlink" href="#problem-7-4" title="Permalink to this headline">#</a></h4>
+<p>At Willy Wonka’s candy factory, a <span class="math notranslate nohighlight">\(5.0\times 10^4\)</span>-L tank initially contains <span class="math notranslate nohighlight">\(2.5\times 10^4\)</span>-L of a liquid mixture with a sugar concentration of <span class="math notranslate nohighlight">\(50\%\)</span>.  <span class="math notranslate nohighlight">\(2.0\)</span> L of the fluid drains out of the tank per second.  More liquid with a <span class="math notranslate nohighlight">\(60\%\)</span> sugar concentration is added to the tank at a rate of <span class="math notranslate nohighlight">\(3.4\)</span> L/s.  Let <span class="math notranslate nohighlight">\(s(t)\)</span> represent the amount of sugar in the tank as a function of time.  We can write the rate of change of <span class="math notranslate nohighlight">\(s\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{ds}{dt} = (\textrm{rate of sugar in}) - (\textrm{rate of sugar out}) 
+\]</div>
+<p>Simulate the solution to this differential equation and graph <span class="math notranslate nohighlight">\(s(t)\)</span> vs <span class="math notranslate nohighlight">\(t\)</span>.  Determine the amount of sugar in tank when the is full.</p>
+</section>
+<section id="problem-7-5">
+<h4>Problem 7.5<a class="headerlink" href="#problem-7-5" title="Permalink to this headline">#</a></h4>
+<p>Flappy Bird has a mass of <span class="math notranslate nohighlight">\(0.233\)</span>~kg.  She falls from rest from an initial height of <span class="math notranslate nohighlight">\(100\)</span> m.  During her fall, she flaps her wings once every three seconds (<em>i.e.</em>, flap at 3 s, 6 s, 9 s, …).  Each flap exerts an upward force of <span class="math notranslate nohighlight">\(4.0\)</span> N for a duration of <span class="math notranslate nohighlight">\(0.50\)</span> seconds.  Simulate FB’s flight.  Does she eventually land on the ground?  If so, how long does her descent take?</p>
+</section>
+<section id="problem-7-6">
+<h4>Problem 7.6<a class="headerlink" href="#problem-7-6" title="Permalink to this headline">#</a></h4>
+<p>A particle (<span class="math notranslate nohighlight">\(m = 1.0\)</span> kg) moves along the <span class="math notranslate nohighlight">\(x\)</span>-axis under a force described by the following: If <span class="math notranslate nohighlight">\(x &gt; 1.0\)</span> m, <span class="math notranslate nohighlight">\(F_x = - 10\)</span> N. If <span class="math notranslate nohighlight">\(x &lt; -1.0\)</span> m, <span class="math notranslate nohighlight">\(F_x = + 10\)</span> N. If <span class="math notranslate nohighlight">\(|x| \leq 1.0\)</span> m, <span class="math notranslate nohighlight">\(F_x = 0\)</span>.
+At <span class="math notranslate nohighlight">\(t = 0\)</span> the particle has <span class="math notranslate nohighlight">\(x(0) = 0\)</span> and <span class="math notranslate nohighlight">\(x'(0) = 14.2\)</span> m/s.  Simulate the particle’s motion for <span class="math notranslate nohighlight">\(t\in [0, 40]\)</span> s.</p>
+</section>
+<section id="problem-7-7">
+<h4>Problem 7.7<a class="headerlink" href="#problem-7-7" title="Permalink to this headline">#</a></h4>
+<p>Return to the rumor/virus-spread example from the warm-up problem above.  Using the model given and <span class="math notranslate nohighlight">\(f(t = 0) = 0.10\)</span> and <span class="math notranslate nohighlight">\(\beta = 0.0002\)</span>, make a graph of the number of new cases per unit time versus time.  Hint: The warm-up problem graphs the <em>cumulative</em> cases versus time – how is this related to the number of new cases per unit time?</p>
+</section>
+</section>
+<section id="chemistry-super-meanie">
+<h3>Chemistry super-meanie<a class="headerlink" href="#chemistry-super-meanie" title="Permalink to this headline">#</a></h3>
+<p>A <a class="reference external" href="http://www.idea.wsu.edu/ChemKinetics/mechanism.htm">multi-step reaction</a> involving 4 molecules (<span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, <span class="math notranslate nohighlight">\(Z\)</span>) proceed by the following reactions:</p>
+<ul class="simple">
+<li><p>Reactant <span class="math notranslate nohighlight">\(A\)</span> rearranges to intermediate <span class="math notranslate nohighlight">\(X\)</span> with rate <span class="math notranslate nohighlight">\(k_1\)</span>: <span class="math notranslate nohighlight">\(A\rightarrow X\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span> decomposes to intermediate <span class="math notranslate nohighlight">\(Y\)</span> with rate <span class="math notranslate nohighlight">\(k_2\)</span>: <span class="math notranslate nohighlight">\(X\rightarrow Y\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span> decomposes to intermediate <span class="math notranslate nohighlight">\(Y\)</span> with rate <span class="math notranslate nohighlight">\(k_2\)</span>: <span class="math notranslate nohighlight">\(X\rightarrow Y\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y\)</span> catalyzes the rearrangement of <span class="math notranslate nohighlight">\(A\)</span> to intermediate <span class="math notranslate nohighlight">\(X\)</span> with rate <span class="math notranslate nohighlight">\(k_3\)</span>: <span class="math notranslate nohighlight">\(A + Y \rightarrow Y+X\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Y\)</span> decomposes to final product <span class="math notranslate nohighlight">\(Z\)</span> with rate <span class="math notranslate nohighlight">\(k_4\)</span>: <span class="math notranslate nohighlight">\(Y\rightarrow Z\)</span></p></li>
+</ul>
+<p>We consider the functions <span class="math notranslate nohighlight">\(a(t)\)</span>, <span class="math notranslate nohighlight">\(x(t)\)</span>, <span class="math notranslate nohighlight">\(y(t)\)</span>, and <span class="math notranslate nohighlight">\(z(t)\)</span> to give the concentrations of each of these molecules as functions of time.
+This process is then modeled by 4 differential equations:</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{da}{dt} = -k_1 a - k_3 a y
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+  \frac{dx}{dt} = k_1 a - k_2 x + k_3 a y 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+  \frac{dy}{dt} = k_2 a - k_4 y 
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+  \frac{dz}{dt} = k_4 y
+\]</div>
+<p>Using the values <span class="math notranslate nohighlight">\(k_1=1\)</span>, <span class="math notranslate nohighlight">\(k_2=0.5\)</span>, <span class="math notranslate nohighlight">\(k_3=0.1\)</span>, <span class="math notranslate nohighlight">\(k_4=0.1\)</span>, <span class="math notranslate nohighlight">\(a(0) = 1\)</span>, and <span class="math notranslate nohighlight">\(x(0)=y(0)=z(0)=0\)</span>, simulate the concentrations of the molecules until the system reaches a stable equilibrium.  Graph the four concentrations versus time on a single set of axes.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters_ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="scicomp_05_fitting.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2. </span>Fitting models to data</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="scicomp_08_montecarlo.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Monte Carlo</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mike McCracken<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1344 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Fitting models to data &#8212; Introduction to Computation for the Physics Sciences</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Simulating solutions to differential equations" href="scicomp_07_ODEs.html" />
+    <link rel="prev" title="1. Data visualization with matplotlib" href="scicomp_04_datavis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/wj_horiz_color.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Computation for the Physics Sciences</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  I. Python basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_00_basics.html">
+   1. Basic syntax, variables, functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_01_controlstructs.html">
+   2. Control structures, numerical integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_02_typescontainers.html">
+   3. Types, random numbers, lists, dictionaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_03_fileio.html">
+   4. File I/O
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  II. Techniques for the physical sciences
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_04_datavis.html">
+   1. Data visualization with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     matplotlib
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Fitting models to data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_07_ODEs.html">
+   3. Simulating solutions to differential equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_08_montecarlo.html">
+   4. Monte Carlo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_09_pandas.html">
+   5. Manipulating tabular data with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     Pandas
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  III. Optional (but fun)
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_06_textasdata.html">
+   1. Text as data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_10_circuitpython.html">
+   2. Python on microcontrollers with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     circuitpython
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  IV. Projects
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scicomp_z0_ll_analysis.html">
+   Di-lepton mass spectrum from the Compact Muon Solenoid
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapters_ipynb/scicomp_05_fitting.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_05_fitting.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapters_ipynb/scicomp_05_fitting.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap">
+   2.1. Recap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   2.2. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-model-optimization-as-an-idea">
+   2.3. Fitting/model optimization as an idea
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-bivariate-data-the-basics">
+   2.4. Fitting bivariate data, the basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warm-up-problem">
+     Warm-up problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-to-binned-1-d-data-histograms">
+   2.5. Fitting to binned 1-d data (histograms)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gut-check">
+   2.6. Gut check
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#power-and-flexibility">
+     1. Power and flexibility
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modularity-and-scalability">
+     2. Modularity and scalability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-uncertainties">
+     3. Data uncertainties
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parameter-uncertainties">
+     4. Parameter uncertainties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-fit-parameter-uncertainties">
+   2.7. Extracting fit parameter uncertainties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-data-with-uncertainties">
+   2.8. Fitting data with uncertainties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-summary">
+   2.9. In summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problems">
+   2.10. Problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regulars">
+     Regulars
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-5-0">
+       Problem 5.0
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-5-1">
+       Problem 5.1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-5-2">
+       Problem 5.2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mega-meanies-free-candy-edition">
+     Mega-Meanies, free-candy edition
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-5-3">
+       Problem 5.3
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Fitting models to data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap">
+   2.1. Recap
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivation">
+   2.2. Motivation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-model-optimization-as-an-idea">
+   2.3. Fitting/model optimization as an idea
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-bivariate-data-the-basics">
+   2.4. Fitting bivariate data, the basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warm-up-problem">
+     Warm-up problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-to-binned-1-d-data-histograms">
+   2.5. Fitting to binned 1-d data (histograms)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gut-check">
+   2.6. Gut check
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#power-and-flexibility">
+     1. Power and flexibility
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modularity-and-scalability">
+     2. Modularity and scalability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-uncertainties">
+     3. Data uncertainties
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parameter-uncertainties">
+     4. Parameter uncertainties
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-fit-parameter-uncertainties">
+   2.7. Extracting fit parameter uncertainties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fitting-data-with-uncertainties">
+   2.8. Fitting data with uncertainties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-summary">
+   2.9. In summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problems">
+   2.10. Problems
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regulars">
+     Regulars
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-5-0">
+       Problem 5.0
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-5-1">
+       Problem 5.1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-5-2">
+       Problem 5.2
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mega-meanies-free-candy-edition">
+     Mega-Meanies, free-candy edition
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problem-5-3">
+       Problem 5.3
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="fitting-models-to-data">
+<h1><span class="section-number">2. </span>Fitting models to data<a class="headerlink" href="#fitting-models-to-data" title="Permalink to this headline">#</a></h1>
+<section id="recap">
+<h2><span class="section-number">2.1. </span>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">#</a></h2>
+<p>We’re way past the point of no return in becoming meaningful users of computers!  Just check out this non-exhaustive list of basic skills that we’ve covered:</p>
+<ul class="simple">
+<li><p>basic mathematical operations</p></li>
+<li><p>iteration and recursion with loop control structures <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p>keeping track of variables outside of loops (i.e., counting and summing)</p></li>
+<li><p>function definition and using functions <em>inside</em> of loops</p></li>
+<li><p>conditionals with <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, and <code class="docutils literal notranslate"><span class="pre">elif</span></code></p></li>
+<li><p>types: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code></p></li>
+<li><p>containers such as <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
+<li><p>randm number generation</p></li>
+<li><p>accessing and iterating over elements in lists and dicts</p></li>
+<li><p>file I/O</p></li>
+<li><p>basic (and semi-advanced) data visualization: histograms, scatter plots, higher-dimensions in 2-d</p></li>
+</ul>
+<p><strong>Wow</strong>, that’s a LOT of stuff.</p>
+</section>
+<hr class="docutils" />
+<section id="motivation">
+<h2><span class="section-number">2.2. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<p>In this lesson we’ll cover an extremely powerful and potentially opaque tool: curve fitting.  Before we look at how it works, let’s consider some applications.</p>
+<ul class="simple">
+<li><p>Measurement of the temperature of the cosmic microwave background (CMB) radiation by COBE, evidence for the Big Bang.  <a class="reference external" href="https://www.astro.ucla.edu/~wright/CMB.html#:~:text=The%20CMB%20has%20the%20spectrum,opaque%20and%20non%2Dreflective%20object.">Nice description here, fit is in the middle of the page</a></p></li>
+<li><p>Hubble’s diagram, more evidence of the Big Bang (ca. 1929)!  <a class="reference external" href="https://www.pnas.org/doi/10.1073/pnas.2536799100#fig3">Nice article here with modern measurements.</a></p></li>
+<li><p>Discovery of the Higgs Boson by CMS and ATLAS experiments (2012).  <a class="reference external" href="http://scholarpedia.org/article/The_Higgs_Boson_discovery">Nice description here.</a>  <a class="reference external" href="http://www.scholarpedia.org/article/File:Fig_10_ATLAS_CMS_gg_combined.png">High-res graphs with fits here.</a></p></li>
+<li><p>White House CEA modeling predicts Covid-19 deaths go to 0 by 15 May 2020.  <a class="reference external" href="https://twitter.com/WhiteHouseCEA45/status/1257680258364555264?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1257680258364555264%7Ctwgr%5E%7Ctwcon%5Es1_&amp;ref_url=https%3A%2F%2Fwww.vox.com%2F2020%2F5%2F8%2F21250641%2Fkevin-hassett-cubic-model-smoothing">Source.</a>  <a class="reference external" href="https://www.businessinsider.com/trump-advisor-kevin-hassett-excel-function-cubic-model-coronavirus-2020-5">Business Insider commentary.</a>  <a class="reference external" href="https://www.vox.com/2020/5/8/21250641/kevin-hassett-cubic-model-smoothing">Vox commentary.</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="fitting-model-optimization-as-an-idea">
+<h2><span class="section-number">2.3. </span>Fitting/model optimization as an idea<a class="headerlink" href="#fitting-model-optimization-as-an-idea" title="Permalink to this headline">#</a></h2>
+<p>In Lesson 4 we discussed how data visualization can help help us to turn data into understanding.  “Understanding” in this sense means something like a <em>qualitative understanding</em> of the data.</p>
+<p>Today, we’ll look at a method for turning data into quantitative results: fitting functions to data, sometimes called “model optimization”.  This is an indispensible skill/technique in the physical sciences, and it’s something that you’ve probably done many times using Excel or Logger Pro.</p>
+<p>Here is the basic idea: Often in the physical sciences, we have data that we believe should be described by some quantitative model.  For example, the data might be vertical position <em>vs</em> time measurements for a projectile, and we might assume that this data is described by one of the kinematic equations:</p>
+<div class="math notranslate nohighlight">
+\[
+  y(t) = \frac{1}{2}a_{y}\;t^2 + v_{0y}\;t + y_0
+\]</div>
+<p>This function is our <em>model</em> and it is typically the consequence of some underlying physical law (in this case, N2L).  The goal of <em>fitting the model to the data</em> is to determine the values of the physical parameters in the model that make the model <em>best characterize the data</em>.  For the kinematic model above, this means determining the optimal values of <span class="math notranslate nohighlight">\(a_y\)</span>, <span class="math notranslate nohighlight">\(v_{0y}\)</span>, and <span class="math notranslate nohighlight">\(y_0\)</span>.  We call these the “fit parameters” because they are the quantities that we will vary in order to fit the model to the data.</p>
+<p>When we fit the model to the data, we should get optimal values for the fit parameters and their associated uncertainties.  These are the derived measurements of physical quanties – the results of our analysis!  If we continue with the projectile example, these results might include a measurement of the local acceleration due to gravity (and associated uncertainty).</p>
+<p>If you’ve done fitting in Excel or LoggerPro, you know that there’s a toolkit for doing this that proves a handfull of functions/models that the software is decent at fitting – these are functions like polynomials, exponentials, <em>etc.</em>  These tools built into Excel are pretty weak, though.  What if we need a function that Excel doesn’t offer?  What the heck does <span class="math notranslate nohighlight">\(R^2\)</span> mean?  What if my data has non-uniform uncertainties?  How do I know the uncertainty on the fit parameter values?</p>
+<p>Python (and other languages) have modules or libraries that do fitting, as well.  These modules are <em>much</em> more powerful and general than what you’ll find in Excel, but this power comes at the cost of having to learn some new syntax and concepts.</p>
+</section>
+<hr class="docutils" />
+<section id="fitting-bivariate-data-the-basics">
+<h2><span class="section-number">2.4. </span>Fitting bivariate data, the basics<a class="headerlink" href="#fitting-bivariate-data-the-basics" title="Permalink to this headline">#</a></h2>
+<p>Let’s get started with the simplest meaningful fitting exercise: fitting a linear model to bivariate data.  The file <code class="docutils literal notranslate"><span class="pre">spring_stretch.csv</span></code> contains stretch distance (<span class="math notranslate nohighlight">\(x\)</span>) and spring force (<span class="math notranslate nohighlight">\(F\)</span>) data for the stretching of a spring.  We want to use this data to measure the spring constant.  For a spring that obeys Hooke’s Law, the two variables are related by</p>
+<div class="math notranslate nohighlight">
+\[
+  F_x = k x
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the spring constant.  Let’s look at the data first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from rich import print # if you&#39;re able to install rich, I recommend doing so!</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">fil</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/spring_stretch.csv&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="n">lin</span> <span class="o">=</span> <span class="n">fil</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">lin</span> <span class="o">=</span> <span class="n">fil</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lin</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">lin_arr</span> <span class="o">=</span> <span class="n">lin</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lin_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">fs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lin_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">lin</span> <span class="o">=</span> <span class="n">fil</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">fil</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stretch (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;spring force (N)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;stretching a spring&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/scicomp_05_fitting_4_0.png" src="../_images/scicomp_05_fitting_4_0.png" />
+</div>
+</div>
+<p>Ok, looks great.  Except for the point at <span class="math notranslate nohighlight">\(x \approx 7.0\)</span> cm, the data certainly <em>look</em> like they follow a linear trend.  We should expect that our linear model will work.  We now endeavour to fit a model to this data.  We first define a function that corresponds to our model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the arguments of this function include both the independent variable (<span class="math notranslate nohighlight">\(x\)</span>) and the slope (<span class="math notranslate nohighlight">\(m\)</span>) and intercept (<span class="math notranslate nohighlight">\(b\)</span>).  We have to make the latter two arguments becuase the fitting code will <strong>vary</strong> their values and determine how the function changes (so they’re variables in a way).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">scipy</span></code> (scientific python) <code class="docutils literal notranslate"><span class="pre">optimize</span></code> module contains the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function that we will use to… ya know, fit the curve to the data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="n">spring_popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">linear_function</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s basically all there is to it!  The first three arguments of <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> are the function that we want to optimize and the two lists containing the data (independent and dependent variables).  The last argument, <code class="docutils literal notranslate"><span class="pre">p0</span></code>, is a set of initial guesses of the fit parameter values.  Our function has two fit parameters (<span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(b\)</span>), so I supply a list of two values.  These values give <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> somewhere to begin its fitting process.  For simple models like this, the initial parameter values aren’t super important, but for more complicated models/data, tuning these parameters can make or break the fit.</p>
+<p>When we call <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> it produces outputs – I’ve stored these as <code class="docutils literal notranslate"><span class="pre">spring_popt</span></code> and <code class="docutils literal notranslate"><span class="pre">pcov</span></code>.  As such, <code class="docutils literal notranslate"><span class="pre">spring_popt</span></code> is a list of the <strong>optimal parameter values</strong>, <em>i.e.</em> the values of the model paramter that make the model best describe the data.  <code class="docutils literal notranslate"><span class="pre">pcov</span></code> is the <strong>covariance matrix</strong>, a complicated object that tells us about the uncertainties in the optimal fit parameter values (more on this below).</p>
+<p>We can print out <code class="docutils literal notranslate"><span class="pre">spring_popt</span></code> to see the optimal fit parameter values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">spring_popt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.16989    0.60664998]
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, our optimal slope is <span class="math notranslate nohighlight">\(\approx 3.170\)</span> and the optimal vertical intercept is <span class="math notranslate nohighlight">\(\approx 0.607\)</span>.  If we compare these to the HL model, we could conclude that the sprink has a spring constant of <span class="math notranslate nohighlight">\(k \approx 3.170\)</span> N/cm.  (Note that I’m being cagey about the equal signs for now…)</p>
+<p>Let’s take a look at the optimized function plotted with the data.  We’ll need to create a set of points to graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xrange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">f_model</span> <span class="o">=</span> <span class="n">linear_function</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span> <span class="n">spring_popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">spring_popt</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span> <span class="n">f_model</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fit function&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stretch (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;spring force (N)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;stretching a spring&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/scicomp_05_fitting_12_0.png" src="../_images/scicomp_05_fitting_12_0.png" />
+</div>
+</div>
+<section id="warm-up-problem">
+<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Permalink to this headline">#</a></h3>
+<p>You may have noticed that <code class="docutils literal notranslate"><span class="pre">linear_function</span></code> isn’t a perfect match for the Hooke’s Law model – the function contains a constant term, while HL does not!  Re-do the fit with a function that better matches Hooke’s Law.  Make a graph of the data and the two optimized fit functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># warm-up code goes here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Most of what we’ll do below is not much more complicated than this.  If you can wrap your mind around the basic pieces of fitting, everything else we’ll do is just slight variations here and there.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="fitting-to-binned-1-d-data-histograms">
+<h2><span class="section-number">2.5. </span>Fitting to binned 1-d data (histograms)<a class="headerlink" href="#fitting-to-binned-1-d-data-histograms" title="Permalink to this headline">#</a></h2>
+<p>Next, let’s look at some one-dimensional data.  <code class="docutils literal notranslate"><span class="pre">heights.txt</span></code> is a simple data file that contains the height measurements (in cm) for members of some group of humans.  Let’s read in the data and make a histogram to get a feel for the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fil</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/heights.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">harr</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">lin</span> <span class="o">=</span> <span class="n">fil</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lin</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">harr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lin</span><span class="p">))</span>
+    <span class="n">lin</span> <span class="o">=</span> <span class="n">fil</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">bin_values</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">harr</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">110</span><span class="p">,</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">110</span><span class="p">,</span><span class="mi">220</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;heights (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/scicomp_05_fitting_16_0.png" src="../_images/scicomp_05_fitting_16_0.png" />
+</div>
+</div>
+<p>Cool!  So, as we would expect, the data appear to be distributed according to a gaussian (or bell curve), possibly with some “funky stuff” happening on the low-end (left) tail.</p>
+<p>Notice that I set <code class="docutils literal notranslate"><span class="pre">bin_values</span></code> equal to the output of the histogramming step above.  We’ll use this below.  This output is a list containing two lists!  The first list contains the numbers of events in each bin (I’ll call them the “occupancies”).  The second list contains the bin edge values.  Let’s take a look:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bin_values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bin_values</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39; elements in the occupanices list.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39; elements in the edges list.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0.   0.   0.   1.   1.   0.   0.   2.   0.   0.   2.   2.   6.   8.
+   7.  11.  15.  19.  23.  28.  30.  27.  32.  57.  80.  61.  70.  81.
+  88.  79.  91.  83. 102. 102. 121.  85.  87.  99.  98.  98. 121. 129.
+ 114. 122. 164. 203. 223. 235. 250. 298. 308. 343. 429. 442. 475. 527.
+ 554. 557. 569. 647. 664. 669. 642. 739. 694. 635. 657. 599. 598. 614.
+ 488. 460. 451. 434. 393. 359. 307. 270. 264. 235. 145. 144. 146. 124.
+  83.  64.  61.  44.  33.  27.  25.  22.  13.  16.  11.   6.   6.   2.
+   1.   1.   2.   4.   0.   0.   2.   1.   0.   0.   0.   0.]
+[110. 111. 112. 113. 114. 115. 116. 117. 118. 119. 120. 121. 122. 123.
+ 124. 125. 126. 127. 128. 129. 130. 131. 132. 133. 134. 135. 136. 137.
+ 138. 139. 140. 141. 142. 143. 144. 145. 146. 147. 148. 149. 150. 151.
+ 152. 153. 154. 155. 156. 157. 158. 159. 160. 161. 162. 163. 164. 165.
+ 166. 167. 168. 169. 170. 171. 172. 173. 174. 175. 176. 177. 178. 179.
+ 180. 181. 182. 183. 184. 185. 186. 187. 188. 189. 190. 191. 192. 193.
+ 194. 195. 196. 197. 198. 199. 200. 201. 202. 203. 204. 205. 206. 207.
+ 208. 209. 210. 211. 212. 213. 214. 215. 216. 217. 218. 219. 220.]
+
+There are 110 elements in the occupanices list.
+There are 111 elements in the edges list.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Take a good look at the values in these lists and compare to the histogram above.  Make sure that you understand this before moving on!</p>
+<p>Now, what we wish to do is fit a function to the histogram.  Even though the data was 1-dimensional, <em>binning</em> the data into a histogram creates a 2-d visualization.  We will fit a 1-d function to this 2-d information.  We’ll treat the horizontal axis (heights) as the independent variable and the vertical axis (bin occupancies) as the dependent variable.</p>
+<p>OH SNAP!  The bin edges list has one more element than the bin occupancies array; we need to fix this in order to fit!  We’ll use the bin edges list to create a list of the bin centers by averaging the left and right edges for each bin:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_occs</span> <span class="o">=</span> <span class="n">bin_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bin_edges</span> <span class="o">=</span> <span class="n">bin_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">bin_centers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_occs</span><span class="p">)):</span>
+    <span class="n">bin_centers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">bin_edges</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[110.5, 111.5, 112.5, 113.5, 114.5, 115.5, 116.5, 117.5, 118.5, 119.5]
+110
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make sure you understand what’s going on in the loop in the previous cell!  It’s compact, but you know how to read it.</p>
+<p>Let’s visualize the bin center and occupancy data with a quick graph:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span> <span class="n">bin_occs</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;bin centers (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;bin occupancies&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/scicomp_05_fitting_22_0.png" src="../_images/scicomp_05_fitting_22_0.png" />
+</div>
+</div>
+<p>If that just looks like the profile of our histogram from above… good eye!  It is.  We’ve just graphed the data in a way that is obviously 2-d.</p>
+<p>To <em>characterize</em> the data, we’ll fit a gaussian function to the data using <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> again.  The <em>process</em> is exactly the same as it was above for the linear function, but we will need to change some of the details of the fit.</p>
+<p>In this case, we suspect that the data can be described by a gaussian function with the following form:</p>
+<div class="math notranslate nohighlight">
+\[
+  g(h) = a \exp \left[ - \frac{(h-\mu)^2}{2\sigma^2} \right]
+\]</div>
+<p>Again, “fitting” means that we want to find the values of parameters <span class="math notranslate nohighlight">\(a\)</span> (scale), <span class="math notranslate nohighlight">\(\mu\)</span> (mean), and <span class="math notranslate nohighlight">\(\sigma\)</span> (width) that make the gaussian a good description of the number of data in each of our bins as a function of the bin center (<span class="math notranslate nohighlight">\(h\)</span>).
+WE supply the functional form, but <code class="docutils literal notranslate"><span class="pre">scipy</span></code> finds the best values for the fit parameters <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span>, and <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
+<p>Let’s DO IT!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, we&#39;ll define our gaussian function</span>
+<span class="k">def</span> <span class="nf">single_gauss</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># then we&#39;ll call curve fit.  Notice the initial parameter values supplied in p0</span>
+<span class="n">gauss_popt</span><span class="p">,</span> <span class="n">gauss_pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">single_gauss</span><span class="p">,</span> <span class="n">bin_centers</span><span class="p">,</span> <span class="n">bin_occs</span><span class="p">,</span> 
+                                   <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gauss_popt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[662.10864542 173.01077254  11.10796728]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just as above, <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> finds the optimal values of the fit parameters and returns these optimal values as the list which we call <code class="docutils literal notranslate"><span class="pre">popt</span></code>.  I printed out the optimal values at the end of the previous block.</p>
+<p>The last argument that I supplied to <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> is the array of starting values for the fit parameters.  I guessed these values by looking at the histogram.  These don’t <em>need</em> to be supplied, but it makes <code class="docutils literal notranslate"><span class="pre">scipy</span></code>’s optimization job a lot easier to have some good starting values.</p>
+<p>Let’s now plot the optimized fit function and <em>visually</em> inspect how good the fit is.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## use the function and the optimal parameter values to predict the bin occupancies</span>
+<span class="n">fcn_vals</span> <span class="o">=</span> <span class="n">single_gauss</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span> <span class="n">gauss_popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">gauss_popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">gauss_popt</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">harr</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">110</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">110</span><span class="p">,</span><span class="mi">220</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;heights (cm)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span><span class="n">fcn_vals</span><span class="p">,</span><span class="s2">&quot;r-&quot;</span><span class="p">)</span> <span class="c1"># plot the predictions as a red line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/scicomp_05_fitting_26_0.png" src="../_images/scicomp_05_fitting_26_0.png" />
+</div>
+</div>
+<p>Wow!  That looks pretty… um… well, it looks <em>okay</em>.  That funky lower tail is bugging me.  Let’s construct a more general function that is a sum of two gaussians to try to fit both contributions.  We can use the same procedure as before:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a function that tis the sum of two gaussians...</span>
+<span class="c1"># more parameters means more freedom to fit the data</span>
+<span class="k">def</span> <span class="nf">double_gauss</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+    <span class="n">g1</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">m1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="n">s1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">g2</span> <span class="o">=</span> <span class="n">a2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">m2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="n">s2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">g1</span> <span class="o">+</span> <span class="n">g2</span>
+
+<span class="c1"># fit the new function to the data</span>
+<span class="c1"># need to supply twice as many initial parameter values</span>
+<span class="n">dgauss_popt</span><span class="p">,</span> <span class="n">dgauss_pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">double_gauss</span><span class="p">,</span> <span class="n">bin_centers</span><span class="p">,</span> <span class="n">bin_occs</span><span class="p">,</span> 
+                                     <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dgauss_popt</span><span class="p">)</span>
+
+<span class="c1"># make predictions with the new function</span>
+<span class="n">fcn2_vals</span> <span class="o">=</span> <span class="n">double_gauss</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span> 
+                         <span class="n">dgauss_popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dgauss_popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dgauss_popt</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> 
+                         <span class="n">dgauss_popt</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">dgauss_popt</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">dgauss_popt</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+<span class="c1">## let&#39;s plot them all together now!</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">harr</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">110</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">110</span><span class="p">,</span><span class="mi">220</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;heights (cm)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span><span class="n">fcn_vals</span><span class="p">,</span><span class="s2">&quot;r--&quot;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># plot the single-gaussian predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span><span class="n">fcn2_vals</span><span class="p">,</span><span class="s2">&quot;g--&quot;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># plot the double-gaussian predictions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[674.71713648 173.30245567  10.56013208  86.99174906 141.52885412
+   7.78617893]
+</pre></div>
+</div>
+<img alt="../_images/scicomp_05_fitting_28_1.png" src="../_images/scicomp_05_fitting_28_1.png" />
+</div>
+</div>
+<p>The green curve is our double-gaussian distribution.  NOW <strong>THAT’S</strong> A FIT.  WOO WOO.</p>
+<p>What can we learn from this?  Well, if this were REAL data, we would probably hypothesize that our population consists of two sub-populations: a larger group with mean height of 173.29 cm and a smaller group with mean height of 141.55 cm.  Maybe the population being catalogued here is all of the people at an ENORMOUS middle-school PTA meeting – the taller group is adults and the shorter group is smaller number of middle-school kids who were dragged along for the ride.</p>
+</section>
+<hr class="docutils" />
+<section id="gut-check">
+<h2><span class="section-number">2.6. </span>Gut check<a class="headerlink" href="#gut-check" title="Permalink to this headline">#</a></h2>
+<p>So.  Why in the WORLD would someone go to all of the trouble of writing code like this to do something that Excel or Mathematica or LoggerPro could do with just a few mouse clicks?  Here are some reasons that I think are important:</p>
+<section id="power-and-flexibility">
+<h3>1. Power and flexibility<a class="headerlink" href="#power-and-flexibility" title="Permalink to this headline">#</a></h3>
+<p>The approach outlined above allows the user to fit <em>any</em> function to any dataset, and has many other built-in flexibilities.  It’s POWERFUL.  This may not seem like a big deal, but as you work with more-sophisticated data, Excel and Logger Pro’s built-in functions just won’t cut it.  LoggerPro has no option for a sum of two gaussians.  Don’t even ask about Excel.  In addition, you can do things like place bounds on the parameters (“don’t let the mean get bigger than 1.2”) and you can fit multiple subranges of the dataset.  These modules are designed by data scientists – if you have a specific need, chances are good that a python developer thought of it a long time ago.</p>
+</section>
+<section id="modularity-and-scalability">
+<h3>2. Modularity and scalability<a class="headerlink" href="#modularity-and-scalability" title="Permalink to this headline">#</a></h3>
+<p>If you write the code once, you can apply it to <em>many</em> datasets very quickly.  Let’s say that I now gave you thirty more datasets to fit as above.  You could simply put all of this code inside of a loop over the data file names and let this one program structure automate the fitting for all of the datasets.</p>
+</section>
+<section id="data-uncertainties">
+<h3>3. Data uncertainties<a class="headerlink" href="#data-uncertainties" title="Permalink to this headline">#</a></h3>
+<p>More sophisticated techniques like this allow you to handle uncertainties on your data points.  These experimental uncertainties affect fits!  If a single data point has a very small uncertainty, then the fit should “feel” obligated to match the fuction to that point as closely as the other points.  We’ll demonstrate this later.</p>
+</section>
+<section id="parameter-uncertainties">
+<h3>4. Parameter uncertainties<a class="headerlink" href="#parameter-uncertainties" title="Permalink to this headline">#</a></h3>
+<p>The fitting techniques above provide quantites like the fit-parameter uncertainties.  This leads to a better scientific understanding of whatever you’re studying.</p>
+<p>When you fit a function with, <em>e.g.</em>, Excel, the software tells you what the “optimal” values of the fit parameters are, but it does not give the uncertainties on these parameters.  What does this mean?  Well, when we fit data with a function, we’re trying to determine the values of the fit parameters that make the function as close to the data points as possible.  In many cases “as close as possible” is ambiguous; if we change the value of the first parameter, the function may get farther from one data point but closer to another.  Thus, there’s an inherent uncertainty in the value of the fit parameter returned by the fitting algorithm.  This is just like how we use an experimental uncertaintly to mean (roughly) “we’re confident of the value of this quantity to within <span class="math notranslate nohighlight">\(\pm \sigma\)</span>”.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="extracting-fit-parameter-uncertainties">
+<h2><span class="section-number">2.7. </span>Extracting fit parameter uncertainties<a class="headerlink" href="#extracting-fit-parameter-uncertainties" title="Permalink to this headline">#</a></h2>
+<p>Here is how to extract these uncertainties.  First, I’ll refit that double gaussian from the previous example.  Notice that there are two outputs from the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> operation.  The first is the optimal values of the fit parameters (I call it <code class="docutils literal notranslate"><span class="pre">dgauss_popt</span></code>).  Let’s look at the second, <code class="docutils literal notranslate"><span class="pre">dgauss_pcov</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dgauss_popt</span><span class="p">,</span> <span class="n">dgauss_pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">double_gauss</span><span class="p">,</span> <span class="n">bin_centers</span><span class="p">,</span> <span class="n">bin_occs</span><span class="p">,</span> 
+                                     <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dgauss_pcov</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.03634223e+01  4.58130777e-02 -2.64954830e-01  1.17724349e+00
+   5.10333369e-01  3.92992237e-01]
+ [ 4.58130777e-02  8.51766411e-03 -2.93106841e-03 -3.09644370e-02
+   2.13540804e-02  2.49982763e-02]
+ [-2.64954830e-01 -2.93106841e-03  1.02429806e-02 -2.63147415e-03
+  -2.97455176e-02 -3.01055857e-02]
+ [ 1.17724349e+00 -3.09644370e-02 -2.63147415e-03  2.63477605e+01
+  -6.07701354e-02 -1.64357749e+00]
+ [ 5.10333369e-01  2.13540804e-02 -2.97455176e-02 -6.07701354e-02
+   3.90363597e-01  1.19844598e-01]
+ [ 3.92992237e-01  2.49982763e-02 -3.01055857e-02 -1.64357749e+00
+   1.19844598e-01  4.10415904e-01]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Barf!  What is this?  This is a 6x6  (note that there are 6 fit parameters) matrix called the <strong>covariance matrix</strong>, and it stores all of the uncertainty information from the fit.  <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_matrix">The Wikipedia entry for covariance matrix</a> is pretty deece!</p>
+<p>What you need to know is that the covariance matrix stores information about uncertainties in and correlations between the fit parameters.  The latter of these is not necessary for us right now.  However, the former is what we want.  The diagonal elements of the covariance matrix are the squares of the (1 standard deviation) parameter uncertainties!  So for fit parameter <span class="math notranslate nohighlight">\(p_i\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+  \sigma_i = \sqrt{pcov2_{ii}}
+\]</div>
+<p>Said in words, the uncertainty of the <span class="math notranslate nohighlight">\(i^{th}\)</span> fit parameter is the <span class="math notranslate nohighlight">\((i,i)\)</span> element of the covariance matrix (an element on the diagonal).  If you’re comfortable with matrices, you might picture the covariance matrix as something like this:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+pcov2 = \begin{bmatrix} 
+    \sigma^{2}_{11} &amp; ? &amp; ? &amp; \dots &amp; ? \\
+    ? &amp; \sigma^{2}_{22} &amp; ? &amp; \dots &amp; ? \\
+    ? &amp; ? &amp; \sigma^{2}_{33} &amp; \dots &amp; ? \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 
+    ? &amp; ? &amp; ? &amp; \dots &amp; \sigma^{2}_{nn} 
+    \end{bmatrix}
+\qquad
+\end{split}\]</div>
+<p>Let’s make a list of these uncertainties and the print out our extracted fit results.  Note that I’ve been carefult to not use the term “results” until we had these uncertainties!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dgauss_popt_sigs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dgauss_popt</span><span class="p">)):</span>
+    <span class="n">dgauss_popt_sigs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dgauss_pcov</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]))</span> <span class="c1"># grab the element from dgauss_pcov</span>
+                      
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fit parameter &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;:</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dgauss_popt</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> +/- &quot;</span>
+                                            <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dgauss_popt_sigs</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fit parameter 0:	674.7171364793677	 +/- 4.512584881190567
+fit parameter 1:	173.3024556688	 +/- 0.09229119192864041
+fit parameter 2:	10.560132082666808	 +/- 0.1012076113719289
+fit parameter 3:	86.99174906038719	 +/- 5.133006967310845
+fit parameter 4:	141.52885412420665	 +/- 0.6247908429365927
+fit parameter 5:	7.786178933792858	 +/- 0.6406371076026887
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, we can now answer questions like: What is the mean height of the taller sub-population?  Well, it’s</p>
+<div class="math notranslate nohighlight">
+\[
+  m_1 = (173.30 \pm 0.09)\textrm{ cm}
+\]</div>
+<p>My fit says so!</p>
+<p>Now, not all of these digits are significant, but we could amend the code to only output two decimal places should we wish.</p>
+</section>
+<hr class="docutils" />
+<section id="fitting-data-with-uncertainties">
+<h2><span class="section-number">2.8. </span>Fitting data with uncertainties<a class="headerlink" href="#fitting-data-with-uncertainties" title="Permalink to this headline">#</a></h2>
+<p>Let’s return to fitting bivariate data.  This time, we’ll consider the error bars on the data points.  The block of code below graphs the linear spring-stretching data that we used at the top of this notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fil</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/spring_stretch.csv&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">xerrs</span><span class="p">,</span> <span class="n">ferrs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="n">lin</span> <span class="o">=</span> <span class="n">fil</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">lin</span> <span class="o">=</span> <span class="n">fil</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lin</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">lin_arr</span> <span class="o">=</span> <span class="n">lin</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lin_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">fs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lin_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">xerrs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lin_arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="n">ferrs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">lin_arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+    <span class="n">lin</span> <span class="o">=</span> <span class="n">fil</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">fil</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="n">xerrs</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">ferrs</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stretch (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;spring force (N)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;stretching a spring&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/scicomp_05_fitting_34_0.png" src="../_images/scicomp_05_fitting_34_0.png" />
+</div>
+</div>
+<p>We see now that the data points have varying uncertainties – in particular that wonky-looking point at <span class="math notranslate nohighlight">\(x \approx 7\)</span> cm has a lerger error bar than the other points.  When we do a fit, our fit should try less hard to match this data point because its value is less certain!  This can be done by supplying the uncertainty values to <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p>
+<p>Note that we’re only going to supply the uncertainties in the force, not the uncertainties in distance.  Doing both requires more sophisticated methods (which <code class="docutils literal notranslate"><span class="pre">scipy</span></code> has, but we’ll ignore).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear_func_error</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+
+
+<span class="n">spring_popt2</span><span class="p">,</span> <span class="n">spring_pcov2</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">linear_func_error</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> 
+                                       <span class="n">sigma</span><span class="o">=</span><span class="n">ferrs</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mf">3.4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">spring_popt2</span><span class="p">)</span>
+
+<span class="n">f2_model</span> <span class="o">=</span> <span class="n">linear_func_error</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span> <span class="n">spring_popt2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">spring_popt2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="n">xerrs</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">ferrs</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span> <span class="n">f_model</span><span class="p">,</span> <span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fit function w/o errors&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span> <span class="n">f2_model</span><span class="p">,</span> <span class="s1">&#39;-g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fit function w/ errors&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stretch (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;spring force (N)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;stretching a spring&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The optimal spring constant value is (&quot;</span> 
+      <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">spring_popt2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">4</span><span class="p">))</span> 
+      <span class="o">+</span> <span class="s2">&quot; +/- &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">spring_pcov2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span><span class="mi">4</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;) N/cm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.34637885 0.31250192]
+</pre></div>
+</div>
+<img alt="../_images/scicomp_05_fitting_36_1.png" src="../_images/scicomp_05_fitting_36_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The optimal spring constant value is (3.3464 +/- 0.2177) N/cm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wow, very sophisticated.  I’ve plotted both the previous fit function (that ignored errors, magenta) and the new fit function (green).  Notice that they’re not the same!!!  The new fit function is a bit higher because it doesn’t try to match that wonky point at <span class="math notranslate nohighlight">\(x \approx 7\)</span> cm.</p>
+</section>
+<hr class="docutils" />
+<section id="in-summary">
+<h2><span class="section-number">2.9. </span>In summary<a class="headerlink" href="#in-summary" title="Permalink to this headline">#</a></h2>
+<p>There is a large amount of detail that we’re skipping here, because it’s outside the scope of the course course.  Most of this detail is related to how <code class="docutils literal notranslate"><span class="pre">scipy</span></code> judges whether a fit is “good” and how it knows how to vary the parameter values to improve the fit.  PhD theses have been written (and continue to be written) about this procedure.  Suffice to say that:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> doesn’t just “eyeball” the fit – it uses an algorithmic process for optimizing fit parameters.  The process relies on a quantification of the difference between the function and each datapoint, and <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> knows how to wiggle parameter values to make this quantity as small as possible.</p></li>
+<li><p>the results for modest datasets and simple-ish functions are pretty robust.  You could vary the parameter initial values in the fits above and get the same optimal fit parameters (with negligibly small variations)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="problems">
+<h2><span class="section-number">2.10. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">#</a></h2>
+<p>Your homework is to complete <strong>two</strong> (2) of the following problems.</p>
+<section id="regulars">
+<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this headline">#</a></h3>
+<section id="problem-5-0">
+<h4>Problem 5.0<a class="headerlink" href="#problem-5-0" title="Permalink to this headline">#</a></h4>
+<p>The file <code class="docutils literal notranslate"><span class="pre">parab_t_and_y_error.csv</span></code> contains vertical position and time measurements of a projectile.  Fit the data in this file with the kinematic equation model given in section III of this notebook.  From this fit, extract the vertical acceleration and its associated uncertainty.  Is this value consistent with <span class="math notranslate nohighlight">\(g = 9.80\)</span> m/s<span class="math notranslate nohighlight">\(^2\)</span>?  Write a block of markdown to explain what you did and your results.</p>
+</section>
+<section id="problem-5-1">
+<h4>Problem 5.1<a class="headerlink" href="#problem-5-1" title="Permalink to this headline">#</a></h4>
+<p>Return to the NBA data (again???) from a few lessons back.  Make a histogram of the half-time point differential (team2 - team1).  Configure the histogram to have 1-point-wide bins.  Fit a gaussian to this histogram to extract the mean point differential (and its uncertainty) and the standard deviation.  Does the gaussian function look like it adequately characterizes the data?  Now make a histogram of the final point differential.  Comment on whether a gaussian function would be a good description of the data.  If not, why not???  Write a block of markdown to explain your process and your results.</p>
+</section>
+<section id="problem-5-2">
+<h4>Problem 5.2<a class="headerlink" href="#problem-5-2" title="Permalink to this headline">#</a></h4>
+<p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains the temperature maxes and mins per day for the years 2000-2009 in Washington, PA.  Over 3500 data points!  Make a graph of the maximum temp versus day number.  Fit this data with a function of the following form:</p>
+<div class="math notranslate nohighlight">
+\[
+  T(t) = A\cos\left( \omega t + \phi\right) + B
+\]</div>
+<p>This function has four fit parameters: <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span>, and <span class="math notranslate nohighlight">\(B\)</span>.  Make sure you supply good initial guesses for these parameters.  Use your values of <span class="math notranslate nohighlight">\(\omega\)</span> and <span class="math notranslate nohighlight">\(B\)</span> returned by the fit to estimate the length of the year.  Also estimate the average <strong>annual</strong> temperature from your fit parameters. (Note: It is likely that the biggest problem that you’ll have is determining “good” initial parameter values.  Think very hard about what type of quantity <span class="math notranslate nohighlight">\(\omega\)</span> is and how it relates to the length of a year.)</p>
+</section>
+</section>
+<section id="mega-meanies-free-candy-edition">
+<h3>Mega-Meanies, free-candy edition<a class="headerlink" href="#mega-meanies-free-candy-edition" title="Permalink to this headline">#</a></h3>
+<section id="problem-5-3">
+<h4>Problem 5.3<a class="headerlink" href="#problem-5-3" title="Permalink to this headline">#</a></h4>
+<p>You and a partner will be given a number of small (so-called “fun size” [<em>sic</em>]) bags of Skittles. Your job is to characterize the number <strong>yellow</strong> Skittles in an average fun-size bag (FSB).  Open <strong>each</strong> of the FSBs and count the total number of Skittles and the number of yellow Skittles in each.  Enter this data into a csv file, where each row represents a single FSB.  Then, write <code class="docutils literal notranslate"><span class="pre">python</span></code> code that plots separate histograms of the totals and the numbers of yellows.  Your histograms should be configured to have 1-unit-wide bins.  It is likely that this dataset will be described by the <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>.  In this application, the Poisson distribution tells us the that the probability of finding <span class="math notranslate nohighlight">\(k\)</span> yellows in an FSB is given by
+$<span class="math notranslate nohighlight">\(
+  \textrm{Pr}(k) = A\frac{\lambda^{-k}e^{\lambda}}{k!}
+\)</span>$</p>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the “expected value” of the number of yellows in each FSB and <span class="math notranslate nohighlight">\(A\)</span> is a scale factor that will make fitting easier.  Fit this function to the histogram for yellows to extract the expected number of yellows per FSB.  Write a block of markdown to explain your process and your results.  (Note: If you want to do this exercise, you need to tell me by Thursday evening so that I can acquire Skittles.)
+4. (BONUS) Now fit a Poisson PMF to the distribution of total Skittles in an FSB. Use your your results from this and the previous problem to estimate the probability that a bag will be all yellows.
+4. Get the file <code class="docutils literal notranslate"><span class="pre">cobe_cmb_data.txt</span></code> from Sakai.  This file contains the data represented in the CMB first item of Section II of this notebook.  The first column of data in this file represents the oscillations of light per cm; you will have to do a simple calculation to convert this to either a wavelength or a frequency.  Look online for a functional form of the black-body spectrum. Fit this functional form to the data and extract the temperature of… the Universe!</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters_ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="scicomp_04_datavis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="scicomp_07_ODEs.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Simulating solutions to differential equations</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Mike McCracken<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
