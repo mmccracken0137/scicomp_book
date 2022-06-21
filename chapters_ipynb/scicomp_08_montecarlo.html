@@ -523,40 +523,11 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#regulars">
      Regulars
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-0">
-       Problem 0
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-1">
-       Problem 1
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-2">
-       Problem 2
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#meanies">
      Meanies
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-3">
-       Problem 3
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-4">
-       Problem 4
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -661,40 +632,11 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#regulars">
      Regulars
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-0">
-       Problem 0
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-1">
-       Problem 1
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-2">
-       Problem 2
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#meanies">
      Meanies
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-3">
-       Problem 3
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-4">
-       Problem 4
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -783,16 +725,16 @@ title="Print to PDF"
 <p>Let’s imagine a world where we don’t know the numerical value of <span class="math notranslate nohighlight">\(\pi\)</span>.  How would we go about <em>measuring</em> it?  We could make many, many, many circles, measure their diameters and circumferences, calculate the ratio for each, and perhaps average or fit… But it’s probably unfeasible to carefully fabricate many very precise circles.</p>
 <p>Here is another way to measure (or approximate) the value of <span class="math notranslate nohighlight">\(\pi\)</span>.  Recall that the area of a circle with unit radius is <span class="math notranslate nohighlight">\(\pi (1)^2 = \pi\)</span>.  Let’s picture a circle with radius <span class="math notranslate nohighlight">\(1\)</span> drawn inside a square with side length <span class="math notranslate nohighlight">\(2\)</span>, both centered at the origin in the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane.  We’ll let the square occupy the region with <span class="math notranslate nohighlight">\(x\in [-1, 1]\)</span> and <span class="math notranslate nohighlight">\(y\in[-1, 1]\)</span>.  Your instructor will draw this figure on the board, or you can scroll down to the visualization below.</p>
 <p>Now imagine throwing <span class="math notranslate nohighlight">\(N\)</span> darts at this figure in such a way that each dart lands with a random <span class="math notranslate nohighlight">\((x, y)\)</span> position somewhere inside the square.  Some number of these darts, <span class="math notranslate nohighlight">\(N_c\)</span>, will land inside the circle.  If the <span class="math notranslate nohighlight">\((x, y)\)</span> positions of the darts are truly randomly distributed inside the square, we expect that the probability of a dart landing in the circle, <span class="math notranslate nohighlight">\(p_c\)</span>, is equal to the fraction of the total area that is inside the circle:</p>
-<div class="math notranslate nohighlight">
-\[ 
+<div class="amsmath math notranslate nohighlight" id="equation-0a4b4e4d-1141-4927-ad2d-1efd3a27ac18">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-0a4b4e4d-1141-4927-ad2d-1efd3a27ac18" title="Permalink to this equation">#</a></span>\[\begin{equation} 
   p_c = \frac{A_c}{A} = \frac{\pi}{2^2} = \frac{\pi}{4} 
-\]</div>
+\end{equation}\]</div>
 <p>It is important to note that if we don’t know a value for <span class="math notranslate nohighlight">\(\pi\)</span>, <strong>this probability is unknown to us</strong>.  We can’t calculate it from other quantities; rather, we need some way to measure it!  This is a feature common to many MC applications – there is some important probability (or probability distribution) that we don’t know, but that we want to know.</p>
 <p>We will “measure” this probability by <strong>sampling</strong>!  (Note: We are going to do this with code, but you could totally do the same approximation with real darts on a real [not-college-owned] wall.)  We will randomly generate <span class="math notranslate nohighlight">\(N\)</span> positions in the square, observe how many of these (<span class="math notranslate nohighlight">\(N_c\)</span>) fall within the circle, and then approximate</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="amsmath math notranslate nohighlight" id="equation-231963c8-fdc3-4b8c-9e5a-20f2fad47b57">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-231963c8-fdc3-4b8c-9e5a-20f2fad47b57" title="Permalink to this equation">#</a></span>\[\begin{equation}
   p_c = \frac{\pi}{4} \approx \frac{N_c}{N} \implies \pi \approx 4\frac{N_c}{N}
-\]</div>
+\end{equation}\]</div>
 <p>It’s important to note that this approximation is APPROXIMATE!  Since <span class="math notranslate nohighlight">\(\pi\)</span> is transcendental, it cannot be expressed as a fraction, and thus there are NO values of <span class="math notranslate nohighlight">\(N_c\)</span> and <span class="math notranslate nohighlight">\(N\)</span> that will make the equality perfect.  However, the more we sample (the larger <span class="math notranslate nohighlight">\(N\)</span> is), the better (on average) our approximate should be.</p>
 <p>Here’s a little animation so that we’re on the same page:</p>
 <div class="cell docutils container">
@@ -864,21 +806,19 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After 10000 samples our approximation of π is 3.1328
-After 20000 samples our approximation of π is 3.1274
-After 30000 samples our approximation of π is 3.1373333333333333
-After 40000 samples our approximation of π is 3.1371
-After 50000 samples our approximation of π is 3.13904
-After 60000 samples our approximation of π is 3.1408666666666667
-After 70000 samples our approximation of π is 3.142857142857143
-After 80000 samples our approximation of π is 3.14155
-After 90000 samples our approximation of π is 3.142
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After 10000 samples our approximation of π is 3.188
+After 20000 samples our approximation of π is 3.1692
+After 30000 samples our approximation of π is 3.1492
+After 40000 samples our approximation of π is 3.1461
+After 50000 samples our approximation of π is 3.14272
+After 60000 samples our approximation of π is 3.1405333333333334
+After 70000 samples our approximation of π is 3.1414857142857144
+After 80000 samples our approximation of π is 3.13825
+After 90000 samples our approximation of π is 3.139377777777778
+After 100000 samples our approximation of π is 3.13956
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After 100000 samples our approximation of π is 3.13972
-</pre></div>
-</div>
-<img alt="../_images/scicomp_08_montecarlo_7_2.png" src="../_images/scicomp_08_montecarlo_7_2.png" />
+<img alt="../_images/scicomp_08_montecarlo_7_1.png" src="../_images/scicomp_08_montecarlo_7_1.png" />
 </div>
 </div>
 <p>Notice that as <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> (the equivalent of <span class="math notranslate nohighlight">\(N\)</span> from above) increases, the approximation generally gets closer to the actual value of <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
@@ -954,9 +894,9 @@ After 90000 samples our approximation of π is 3.142
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A deals 16 damage to V
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A deals 12 damage to V
 B misses!
-V attacks B... dealing 70 damage!
+V attacks A... dealing 94 damage!
 </pre></div>
 </div>
 </div>
@@ -1004,30 +944,23 @@ V attacks B... dealing 70 damage!
 <p>Your homework is to complete three (3) of the following problems.</p>
 <section id="regulars">
 <h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this headline">#</a></h3>
-<section id="problem-0">
-<h4>Problem 0<a class="headerlink" href="#problem-0" title="Permalink to this headline">#</a></h4>
-<p>Perform a Monte Carlo analysis to estimate the probablility that in a group of 20 people, at least two people share a birthday.  Assume that births are equally likely on all dates.  You can ignore leap years.</p>
-</section>
-<section id="problem-1">
-<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h4>
-<p>The <code class="docutils literal notranslate"><span class="pre">numpy.random.normal()</span></code> function generates random numbers from a gaussian/normal/bell-curve distribution.  The snippet <code class="docutils literal notranslate"><span class="pre">std_dev</span> <span class="pre">*</span> <span class="pre">numpy.random.normal()</span> <span class="pre">+</span> <span class="pre">mean</span></code> will generate a random value from a gaussian distribution with supplied values of standard deviation (<code class="docutils literal notranslate"><span class="pre">std_dev</span></code>) and mean.  Assume that the mean and standard deviations for heights of Icelandic women are 168 cm and 8.0 cm, respectively.  Perform a Monte Carlo simulation to estimate the probability that a randomly-chosen group 5 Icelandic women will include at least three that are taller than 180 cm.</p>
-</section>
-<section id="problem-2">
-<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h4>
-<p>You are a casino owner.  You love to take people’s money, but you are dissatisfied by how complicated most casino games are.  You design a simple game in which a player rolls 5 six-sided dice, and gets a score by adding the three largest values (discarding the two lower values).  If the player’s score is over some threshhold value <span class="math notranslate nohighlight">\(S\)</span>, they win!  Perform a Monte Carlo analysis to estimate the average score in this game.  Next determine what you should set <span class="math notranslate nohighlight">\(S\)</span> to be such that players will win about 30% of attempts.</p>
-</section>
+<ol class="simple">
+<li><p>Perform a Monte Carlo analysis to estimate the probablility that in a group of 20 people, at least two people share a birthday.  Assume that births are equally likely on all dates.  You can ignore leap years.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">numpy.random.normal()</span></code> function generates random numbers from a gaussian/normal/bell-curve distribution.  The snippet <code class="docutils literal notranslate"><span class="pre">std_dev</span> <span class="pre">*</span> <span class="pre">numpy.random.normal()</span> <span class="pre">+</span> <span class="pre">mean</span></code> will generate a random value from a gaussian distribution with supplied values of standard deviation (<code class="docutils literal notranslate"><span class="pre">std_dev</span></code>) and mean.  Assume that the mean and standard deviations for heights of Icelandic women are 168 cm and 8.0 cm, respectively.  Perform a Monte Carlo simulation to estimate the probability that a randomly-chosen group 5 Icelandic women will include at least three that are taller than 180 cm.</p></li>
+<li><p>You are a casino owner.  You love to take people’s money, but you are dissatisfied by how complicated most casino games are.  You design a simple game in which a player rolls 5 six-sided dice, and gets a score by adding the three largest values (discarding the two lower values).  If the player’s score is over some threshhold value <span class="math notranslate nohighlight">\(S\)</span>, they win!  Perform a Monte Carlo analysis to estimate the average score in this game.  Next determine what you should set <span class="math notranslate nohighlight">\(S\)</span> to be such that players will win about 30% of attempts.</p></li>
+</ol>
 </section>
 <section id="meanies">
 <h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this headline">#</a></h3>
-<section id="problem-3">
-<h4>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h4>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model">Bradley-Terry model</a> gives a simple way to model the outcome of a contest between two players or teams.  We’ll simplify it further by stating the model in the followin way: If teams A and B have previous win percentages <span class="math notranslate nohighlight">\(p_A\)</span> and <span class="math notranslate nohighlight">\(p_B\)</span>, respectively, then the probability that A will defeat B in a contest is $<span class="math notranslate nohighlight">\(\textrm{Pr}(\textrm{A defeats B}) = \frac{p_A}{p_A + p_B}\)</span>$
-Assume that a sports league has four teams, A through D, with previous win percentages 0.45, 0.5, 0.5, and 0.6, respectively.  During the season, each team plays every other 4 times.  Perform a Monte Carlo analysis to estimate the probability that the worst team ends the season with the largest number of wins.  How is this probability affected if the teams are matched 8 times during the season?</p>
-</section>
-<section id="problem-4">
-<h4>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">#</a></h4>
-<p>You stand before an infinitely large horizontal plane, upon which are drawn parallel lines spaced a distance <span class="math notranslate nohighlight">\(\ell\)</span> apart.  You drop a needle with length <span class="math notranslate nohighlight">\(\ell\)</span> onto the plane.  The needle’s position and orientation once it comes to rest are random and uncorrelated.  Use a Monte Carlo simulation to determine the probability that the needle lands such it crosses one of the lines.  (Hint: Your plane probably doesn’t need to be infinitely large in the simulation.)</p>
-</section>
+<ol class="simple">
+<li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model">Bradley-Terry model</a> gives a simple way to model the outcome of a contest between two players or teams.  We’ll simplify it further by stating the model in the followin way: If teams A and B have previous win percentages <span class="math notranslate nohighlight">\(p_A\)</span> and <span class="math notranslate nohighlight">\(p_B\)</span>, respectively, then the probability that A will defeat B in a contest is</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight" id="equation-dfd45706-26e8-4988-86db-35e1c0a63efb">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-dfd45706-26e8-4988-86db-35e1c0a63efb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\textrm{Pr}(\textrm{A defeats B}) = \frac{p_A}{p_A + p_B}
+\end{equation}\]</div>
+<p>Assume that a sports league has four teams, A through D, with previous win percentages 0.45, 0.5, 0.5, and 0.6, respectively.  During the season, each team plays every other 4 times.  Perform a Monte Carlo analysis to estimate the probability that the worst team ends the season with the largest number of wins.  How is this probability affected if the teams are matched 8 times during the season?
+4. You stand before an infinitely large horizontal plane, upon which are drawn parallel lines spaced a distance <span class="math notranslate nohighlight">\(\ell\)</span> apart.  You drop a needle with length <span class="math notranslate nohighlight">\(\ell\)</span> onto the plane.  The needle’s position and orientation once it comes to rest are random and uncorrelated.  Use a Monte Carlo simulation to determine the probability that the needle lands such it crosses one of the lines.  (Hint: Your plane probably doesn’t need to be infinitely large in the simulation.)</p>
 </section>
 </section>
 </section>

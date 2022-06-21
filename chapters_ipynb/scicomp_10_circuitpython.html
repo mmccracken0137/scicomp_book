@@ -487,18 +487,6 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#regulars">
      Regulars
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-0">
-       Problem 0
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-1">
-       Problem 1
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -567,18 +555,6 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#regulars">
      Regulars
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-0">
-       Problem 0
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#problem-1">
-       Problem 1
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -679,31 +655,40 @@ If you get stuck, Adafruit provides a LOTS of great info <a class="reference ext
 <p>In addition to being an editor, <code class="docutils literal notranslate"><span class="pre">Mu</span></code> provides a command-line interface (CLI) for the IB’s serial port.  (Click the “Serial” icon at the top of the window.)  You can now type <code class="docutils literal notranslate"><span class="pre">python</span></code> code line-by-line directly to the IB!   And get serial output from the IB!  This is a great way to test out the IB’s capabilities.</p>
 <p>As with our previous <code class="docutils literal notranslate"><span class="pre">python</span></code> programs, you can always stop a program by pressing [CTRL + C] in the CLI.</p>
 <p>Let’s try the following (type or paste into Mu’s Serial interface):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <p>Your ItsyBitsy should say this back to you through the CLI!  Next, we’ll try a 2-line program.  Note that the indentation of the second line is still <strong>important</strong>!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <p>Next, try this three-liner:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, world!&#39;</span><span class="p">)</span>
+   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <p>ZONK!  That <em>shouldn’t</em> work for you!  Can you fix it by importing the <code class="docutils literal notranslate"><span class="pre">time</span></code> module?</p>
 <hr class="docutils" />
 <p>Before we move on to uploading programs to the microcontroller, let’s take a look at the built-in accessories that our board knows about.  We can do this by importing the <code class="docutils literal notranslate"><span class="pre">board</span></code> module.  Paste the following two lines in the CLI:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">board</span>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">board</span>
 <span class="nb">dir</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <hr class="docutils" />
 <p>Now let’s move onto some microcontroller-specific uses.  For each block of code below, enter the code into the <code class="docutils literal notranslate"><span class="pre">Mu</span></code> editor.  Save the code and then copy it to the IB as <code class="docutils literal notranslate"><span class="pre">code.py</span></code>.  You may need to reset the Serial monitor or the board to get the code to run.  Don’t forget to check the Serial monitor for errors (or you can use the “Check” feature in <code class="docutils literal notranslate"><span class="pre">Mu</span></code> before transferring your code).</p>
 <p>One of the output components that is built into your ItsyBitsy is an LED.  The program below initializes the LED and then flashes it at a constant rate using an indefinite loop.  Note that the condition of the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is “True”… which is <em>always</em> true, so this loop will run forever (or until you power off the board).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">board</span>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">board</span>
 <span class="kn">import</span> <span class="nn">digitalio</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -711,17 +696,19 @@ If you get stuck, Adafruit provides a LOTS of great info <a class="reference ext
 <span class="n">led</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">Direction</span><span class="o">.</span><span class="n">OUTPUT</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+   <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+   <span class="n">led</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">led</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <hr class="docutils" />
 <p>This next program from Kattni Rembor accesses the on-board neopixel, a sophisticated (and very bright) RGB LED.  The neopixel is actually three LEDs in one package, but the <code class="docutils literal notranslate"><span class="pre">neopixel</span></code> module provides some handy ways to access and control it.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-FileCopyrightText: 2021 Kattni Rembor for Adafruit Industries</span>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-FileCopyrightText: 2021 Kattni Rembor for Adafruit Industries</span>
 <span class="c1"># SPDX-License-Identifier: MIT</span>
 <span class="sd">&quot;&quot;&quot;CircuitPython status NeoPixel red, green, blue example.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -733,28 +720,31 @@ If you get stuck, Adafruit provides a LOTS of great info <a class="reference ext
 <span class="n">pixel</span><span class="o">.</span><span class="n">brightness</span> <span class="o">=</span> <span class="mf">0.3</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="n">pixel</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">pixel</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">pixel</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+   <span class="n">pixel</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+   <span class="n">pixel</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+   <span class="n">pixel</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <hr class="docutils" />
 <p>The previous programs were examples of generating output (albeit not very rich output).  This last example program demonstrates how the board can read analog input. The ItsyBitsy uses a 16-bit Analog-to-Digital-Converter (ADC) to read an analog voltage on one of its input pins anc convert it to a digital value between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2^{16}-1 = 65535\)</span>.  Your instructor will show you how to wire a potentiometer to one of the analog input pins on your board.  The block of code below will read the analog voltage on this pin and print the digital value to screen four times per second.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">board</span>
-<span class="kn">from</span> <span class="nn">analogio</span> <span class="kn">import</span> <span class="n">AnalogIn</span>
+<span class="kn">from</span> <span class="nn">analogio</span> 
+<span class="kn">import</span> <span class="n">AnalogIn</span>
 
-<span class="c1"># Analog ins are 16-bit ADCs!</span>
 <span class="n">analog_in</span> <span class="o">=</span> <span class="n">AnalogIn</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">A1</span><span class="p">)</span>
 
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">analog_in</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">analog_in</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+   <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="in-class-problems">
@@ -762,14 +752,10 @@ If you get stuck, Adafruit provides a LOTS of great info <a class="reference ext
 <p>The excercises below will require you to do some light electronics work.  Your instructor will provide you with the necessary components, but you should probably do your work in the lab in case you have questions about wiring.  Please complete one of the following problems.  You may work with a partner.</p>
 <section id="regulars">
 <h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this headline">#</a></h3>
-<section id="problem-0">
-<h4>Problem 0<a class="headerlink" href="#problem-0" title="Permalink to this headline">#</a></h4>
-<p>Wire a 10k<span class="math notranslate nohighlight">\(\Omega\)</span> potentiometer so that its outer legs jumper <span class="math notranslate nohighlight">\(5\)</span>~V and ground pins of the ItsyBitsy, and its center leg connects to one of the board’s analog input pins.  Write a program that fades the NeoPixel from red to green based on the voltage from the center pin of the potentiometer.</p>
-</section>
-<section id="problem-1">
-<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h4>
-<p>Wire a 10k<span class="math notranslate nohighlight">\(\Omega\)</span> potentiometer so that its outer legs jumper <span class="math notranslate nohighlight">\(5\)</span>~V and ground pins of the ItsyBitsy, and its center leg connects to one of the board’s analog input pins. Connect an LED on one of the digital output pins.  Flash the LED on/off with a frequency controlled by the center pin of the potentiometer.</p>
-</section>
+<ol class="simple">
+<li><p>Wire a 10-k<span class="math notranslate nohighlight">\(\Omega\)</span> potentiometer so that its outer legs jumper <span class="math notranslate nohighlight">\(5\)</span>~V and ground pins of the ItsyBitsy, and its center leg connects to one of the board’s analog input pins.  Write a program that fades the NeoPixel from red to green based on the voltage from the center pin of the potentiometer.</p></li>
+<li><p>Wire a 10k-<span class="math notranslate nohighlight">\(\Omega\)</span> potentiometer so that its outer legs jumper <span class="math notranslate nohighlight">\(5\)</span>~V and ground pins of the ItsyBitsy, and its center leg connects to one of the board’s analog input pins. Connect an LED on one of the digital output pins.  Flash the LED on/off with a frequency controlled by the center pin of the potentiometer.</p></li>
+</ol>
 </section>
 </section>
 </section>
