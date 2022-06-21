@@ -30,7 +30,8 @@ The book format that you're reading now is really just a way of gathering all of
 
 ### Data files
 
-Some of the lessons rely on data files that I've generated or that freely available online.  I've cited sources and provided links where appropriate.  Most of the files are available on my [github](tktktk).  When you download these data files, you will either need to place them in the right directory (`<location of your .ipynb>/data_files/`) or change the file path in the notebooks to point python to the correct location.  Note that these lessons were written on a Unix-derivative OS; if you're using Windows your file paths might look a bit different.
+Some of the lessons rely on data files that I've generated or that freely available online.  I've cited sources and provided links where appropriate.  Most of the files are available in the [github repo](https://github.com/mmccracken0137/scicomp_book/tree/main/chapters_ipynb/data_files) for this project.  When you download these data files, you will either need to place them in the right directory (<location of your .ipynb>/data_files/) 
+or change the file path in the notebooks to point python to the correct location.  Note that these lessons were written on a Unix-derivative OS; if you're using Windows your file paths might look a bit different.
 
 ### Software
 
