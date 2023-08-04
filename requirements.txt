@@ -1,1 +1,3 @@
-../working_scicomp_book/requirements.txt
+jupyter-book
+matplotlib
+numpy

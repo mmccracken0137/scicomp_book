@@ -30,6 +30,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  use_multitoc_numbering: true
 
 # parse:
 #   myst_url_schemes: [mailto, http, https]
@@ -37,9 +38,11 @@ html:
 parse:
    myst_url_schemes: [mailto, http, https]
 
-# parse:
-#   myst_enable_extensions:
-#     - amsmath
+
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - dollarmath
 
 # latex:
 #   latex_engine: xelatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
