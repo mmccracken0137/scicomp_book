@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=1eab469f" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css?v=57676931" />
@@ -779,8 +779,8 @@ We found 8 cubes divisible by 11
 <p>With <code class="docutils literal notranslate"><span class="pre">while</span></code>, we can implement a simple integration technique.  In calculus classes, you encountered many very impressive rules and forms for integrating common functions.  Wow, so great.  But what if you have to compute a definite integral of a function that doesn’t match one of the rules or forms???</p>
 <p><em>Numerical integration</em> is a technique for computing the area under a function by summing up the areas of little teeny chunks of this area.  If you think back to your Calc I days, the numerical integration approach below is basically a Riemann sum.</p>
 <p>Let’s integrate a nasty function that comes up all the time in the sciences: a gaussian:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-305ed70d-efee-4ea7-a36c-9aa976cc5a8d">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-305ed70d-efee-4ea7-a36c-9aa976cc5a8d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-556e2169-a6a9-4fcc-845c-76a1ef89dde5">
+<span class="eqno">()<a class="headerlink" href="#equation-556e2169-a6a9-4fcc-845c-76a1ef89dde5" title="Permalink to this equation">#</a></span>\[\begin{equation}
   g(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left[ {-\frac{(x - \mu)^2}{2\sigma^2}}\right]
 \end{equation}\]</div>
 <p>Let’s let <span class="math notranslate nohighlight">\(\mu = 0\)</span> and <span class="math notranslate nohighlight">\(\sigma = 0.5\)</span>.  [I’ll draw it on the board.]  For now, nevermind what this function is and does; just know that it’s a real bear to integrate.  We’re going to integrate this function from <span class="math notranslate nohighlight">\(x_1 = -0.5\)</span> to <span class="math notranslate nohighlight">\(x_2 = 0.5\)</span>.</p>
@@ -846,16 +846,16 @@ We found 8 cubes divisible by 11
 <li><p>Write a program that counts the number of perfect squares (cubes?) between 1 and 1000000.  Note that there are <em>at least</em> two ways to do this.  Is this iteration of recursion?</p></li>
 <li><p>Write a program that computes the first 900 numbers in the Fibonacci sequence.  Recall/behold that the <span class="math notranslate nohighlight">\(n^\textrm{th}\)</span> Fibonacci number, <span class="math notranslate nohighlight">\(f_n\)</span>, is given by</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-ddd6e227-19db-405b-a9d9-54d783ae5682">
-<span class="eqno">(2.2)<a class="headerlink" href="#equation-ddd6e227-19db-405b-a9d9-54d783ae5682" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d935d1ce-cd87-4f2e-89c7-f005e23bd931">
+<span class="eqno">()<a class="headerlink" href="#equation-d935d1ce-cd87-4f2e-89c7-f005e23bd931" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f_n = f_{n-2} + f_{n-1} 
 \end{equation}\]</div>
 <p>with the specification that <span class="math notranslate nohighlight">\(f_0 = 0\)</span> and <span class="math notranslate nohighlight">\(f_1 = 1\)</span>. Said another way, we get each number in the Fibonacci sequence by adding the two that precede it.  Your program should also calculate the ratio <span class="math notranslate nohighlight">\(f_i / f_{i-1}\)</span>. For each number in the sequence.</p>
 <ol class="arabic simple">
 <li><p>Write a program that computes the integral</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-a929250a-6f0c-45a9-9f1d-9481660d3429">
-<span class="eqno">(2.3)<a class="headerlink" href="#equation-a929250a-6f0c-45a9-9f1d-9481660d3429" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a659e1d4-3102-4030-a5af-8f9636a6285a">
+<span class="eqno">()<a class="headerlink" href="#equation-a659e1d4-3102-4030-a5af-8f9636a6285a" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \displaystyle\int_{0}^{8\pi} \cos^{4}(x^3)\; dx.
 \end{equation}\]</div>
 <p>How small does your <code class="docutils literal notranslate"><span class="pre">dx</span></code> have to be to get within 0.01% of the analytical solution, <span class="math notranslate nohighlight">\(\frac{3\pi}{4}\)</span>?</p>

@@ -15,38 +15,17 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# from rich import print # if you're able to install rich, I recommend doing so!
-import numpy as np
-import matplotlib.pyplot as plt
-fil = open('data_files/spring_stretch.csv','r')
-xs, fs, = [], []
+from scipy.optimize import curve_fit
 
-lin = fil.readline()
-lin = fil.readline()
-while len(lin) > 1:
-    lin_arr = lin.split(',')
-    xs.append(float(lin_arr[0]))
-    fs.append(float(lin_arr[1]))
-    lin = fil.readline()
-fil.close()
-
-fig = plt.figure(figsize=(9,4))
-plt.plot(xs, fs, 'o')
-plt.xlabel('stretch (cm)')
-plt.ylabel('spring force (N)')
-plt.title('stretching a spring')
-plt.show()
+spring_popt, pcov = curve_fit(linear_function, xs, fs, p0 = [3.4, 0])
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 3[0m
-[1;32m      1[0m [38;5;66;03m# from rich import print # if you're able to install rich, I recommend doing so![39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[1;32m      4[0m fil [38;5;241m=[39m [38;5;28mopen[39m([38;5;124m'[39m[38;5;124mdata_files/spring_stretch.csv[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m)
-[1;32m      5[0m xs, fs, [38;5;241m=[39m [], []
+Cell [0;32mIn[3], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01moptimize[39;00m [38;5;28;01mimport[39;00m curve_fit
+[1;32m      3[0m spring_popt, pcov [38;5;241m=[39m curve_fit(linear_function, xs, fs, p0 [38;5;241m=[39m [[38;5;241m3.4[39m, [38;5;241m0[39m])
 
-[0;31mModuleNotFoundError[0m: No module named 'matplotlib'
+[0;31mModuleNotFoundError[0m: No module named 'scipy'
 

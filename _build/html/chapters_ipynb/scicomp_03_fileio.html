@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=1eab469f" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css?v=57676931" />
@@ -834,18 +834,7 @@ honey
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">line</span> <span class="o">=</span> <span class="n">in_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># everything below here we&#39;ll worry about next week...</span>
-<span class="ne">---&gt; </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">t_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_list</span><span class="p">)</span>         
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">y_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_list</span><span class="p">)</span>         
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
+<img alt="../_images/d47cf50e8356248988d2bb4055102b67ac468bdd2247ee78a83cdc43f44d5f22.png" src="../_images/d47cf50e8356248988d2bb4055102b67ac468bdd2247ee78a83cdc43f44d5f22.png" />
 </div>
 </div>
 <p>The data file that was read in above is a “csv” or “comma-separated-value” file.  This is very similar to the way that, say, Excel stores data, but we’re able to access it directly.   : )</p>
@@ -865,8 +854,8 @@ honey
 <ol class="arabic simple">
 <li><p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains temperature data from a weather station in Washington, PA for the years 2000-2009.  Write a block of code that reads in the data from this file and computes the average and standard deviation for high and low temperatures.  Your code should print these averages to screen in a nicely formatted way.  Recall/behold that the standard deviation of quantity <span class="math notranslate nohighlight">\(x\)</span> with average value <span class="math notranslate nohighlight">\(\bar{x}\)</span> is given by</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-ae8a5258-0119-4e82-869b-ad722bacad9e">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-ae8a5258-0119-4e82-869b-ad722bacad9e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-21ff5e19-e986-4089-86b4-4820155f006c">
+<span class="eqno">()<a class="headerlink" href="#equation-21ff5e19-e986-4089-86b4-4820155f006c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma^2 = \displaystyle \frac{\sum_{i=1}^{i=N}\left(x_i - \bar{x}\right)^2}{N-1}
 \end{equation}\]</div>
 <ol class="arabic simple">
