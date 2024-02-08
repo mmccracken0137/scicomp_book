@@ -1,112 +1,201 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Monte Carlo &#8212; Introduction to Computation for the Physics Sciences</title>
-    
+    <title>8. Monte Carlo &#8212; Introduction to Computation for the Physics Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=1eab469f" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css?v=57676931" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=7a746245" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css?v=955514d0" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/theme.css?v=56fe03d6" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=1eab469f" />
+    <link rel="stylesheet" type="text/css" href="../_static/vendor/fontawesome/5.13.0/css/all.min.css?v=15a2c3a3" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/documentation_options.js?v=8801b33a"></script>
+    <script src="../_static/doctools.js?v=00f2d9dc"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=ea7449e6"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_08_montecarlo';</script>
+    <script src="../_static/underscore.js?v=e1a751a7"></script>
+    <script src="../_static/documentation_options.js?v=8801b33a"></script>
+    <script src="../_static/searchtools.js?v=9d349e53"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/jquery-3.5.1.js?v=9650c068"></script>
+    <script src="../_static/language_data.js?v=201d643d"></script>
+    <script src="../_static/copybutton_funcs.js?v=776a791e"></script>
+    <script src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script src="../_static/doctools.js?v=00f2d9dc"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/jquery.js?v=3d1d8b85"></script>
+    <script src="../_static/underscore-1.13.1.js?v=6d13b6bf"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=ea7449e6"></script>
+    <script src="../_static/scripts/pydata-sphinx-theme.js?v=2860a353"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5. Manipulating tabular data with Pandas" href="scicomp_09_pandas.html" />
-    <link rel="prev" title="3. Simulating solutions to differential equations" href="scicomp_07_ODEs.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+    <link rel="next" title="9. Manipulating tabular data with Pandas" href="scicomp_09_pandas.html" />
+    <link rel="prev" title="7. Simulating solutions to differential equations" href="scicomp_07_ODEs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/wj_horiz_color.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Computation for the Physics Sciences</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Introduction to Computation for the Physics Sciences - Home"/>
+    <script>document.write(`<img src="../_static/wj_horiz_color.png" class="logo__image only-dark" alt="Introduction to Computation for the Physics Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,545 +204,289 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  I. Python basics
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Python basics</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_00_basics.html">
-   1. Basic syntax, variables, functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_01_controlstructs.html">
-   2. Control structures, numerical integration
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_02_typescontainers.html">
-   3. Types, random numbers, lists, dictionaries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_03_fileio.html">
-   4. File I/O
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_00_basics.html">1. Basic syntax, variables, functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_01_controlstructs.html">2. Control structures, numerical integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_02_typescontainers.html">3. Types, random numbers, lists, dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_03_fileio.html">4. File I/O</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  II. Techniques for the physical sciences
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_04_datavis.html">
-   1. Data visualization with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     matplotlib
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_05_fitting.html">
-   2. Fitting models to data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_07_ODEs.html">
-   3. Simulating solutions to differential equations
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   4. Monte Carlo
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_09_pandas.html">
-   5. Manipulating tabular data with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Pandas
-    </span>
-   </code>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">5. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">6. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">7. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">9. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">10. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  III. Optional (but fun)
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_06_textasdata.html">
-   1. Text as data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_10_circuitpython.html">
-   2. Python on microcontrollers with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     circuitpython
-    </span>
-   </code>
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  IV. Projects
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_z0_ll_analysis.html">
-   Di-lepton mass spectrum from the Compact Muon Solenoid
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">11. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">12. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapters_ipynb/scicomp_08_montecarlo.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
+  <ul class="dropdown-menu">
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_08_montecarlo.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters_ipynb/scicomp_08_montecarlo.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_08_montecarlo.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters_ipynb/scicomp_08_montecarlo.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recap">
-   4.1. Recap
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   4.2. Motivation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-monte-carlo">
-   4.3. What is Monte Carlo?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-the-monte-carlo-technique">
-   4.4. What is the Monte Carlo technique?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#de-rigueur-example-calculating-pi-using-the-mc-method">
-   4.5.
-   <em>
-    De rigueur
-   </em>
-   example: Calculating
-   <span class="math notranslate nohighlight">
-    \(\pi\)
-   </span>
-   using the MC method
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#warm-up-problem">
-     Warm-up problem
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#live-example-simulating-a-multi-agent-non-deterministic-system">
-   4.6. Live example: Simulating a multi-agent, non-deterministic system
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#our-system">
-     Our system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simulating-attacks">
-     Simulating attacks
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#simulating-a-battle">
-       Simulating a battle
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#approximating-statistical-quantities-by-simulaing-many-battles">
-       Approximating statistical quantities by simulaing
-       <strong>
-        many
-       </strong>
-       battles
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problems">
-   4.7. Problems
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regulars">
-     Regulars
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#meanies">
-     Meanies
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Monte Carlo</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recap">
-   4.1. Recap
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   4.2. Motivation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-monte-carlo">
-   4.3. What is Monte Carlo?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-the-monte-carlo-technique">
-   4.4. What is the Monte Carlo technique?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#de-rigueur-example-calculating-pi-using-the-mc-method">
-   4.5.
-   <em>
-    De rigueur
-   </em>
-   example: Calculating
-   <span class="math notranslate nohighlight">
-    \(\pi\)
-   </span>
-   using the MC method
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#warm-up-problem">
-     Warm-up problem
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#live-example-simulating-a-multi-agent-non-deterministic-system">
-   4.6. Live example: Simulating a multi-agent, non-deterministic system
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#our-system">
-     Our system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simulating-attacks">
-     Simulating attacks
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#simulating-a-battle">
-       Simulating a battle
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#approximating-statistical-quantities-by-simulaing-many-battles">
-       Approximating statistical quantities by simulaing
-       <strong>
-        many
-       </strong>
-       battles
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problems">
-   4.7. Problems
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regulars">
-     Regulars
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#meanies">
-     Meanies
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Monte Carlo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">8.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">8.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-monte-carlo">8.3. What is Monte Carlo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-monte-carlo-technique">8.4. What is the Monte Carlo technique?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-rigueur-example-calculating-pi-using-the-mc-method">8.5. <em>De rigueur</em> example: Calculating <span class="math notranslate nohighlight">\(\pi\)</span> using the MC method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#live-example-simulating-a-multi-agent-non-deterministic-system">8.6. Live example: Simulating a multi-agent, non-deterministic system</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#our-system">Our system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-attacks">Simulating attacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-a-battle">Simulating a battle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-statistical-quantities-by-simulaing-many-battles">Approximating statistical quantities by simulaing <strong>many</strong> battles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">8.7. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="monte-carlo">
-<h1><span class="section-number">4. </span>Monte Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">8. </span>Monte Carlo<a class="headerlink" href="#monte-carlo" title="Link to this heading">#</a></h1>
 <section id="recap">
-<h2><span class="section-number">4.1. </span>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.1. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
 <p>In this lesson I’m breaking the recap into two sections:</p>
 <ul class="simple">
 <li><p>foundational programming skills</p>
@@ -685,7 +518,7 @@ title="Print to PDF"
 </section>
 <hr class="docutils" />
 <section id="motivation">
-<h2><span class="section-number">4.2. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.2. </span>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
 <p>Next we’ll explore a class of techniques referred to as “Monte Carlo” (MC).  Before we talk about what MC <em>is</em>, let’s look at a few examples of how MC is used to generate knowledge.</p>
 <ul class="simple">
 <li><p>The MC approach was largely developed during the so-called Manhattan Project, the US military development of nuclear weapons during World War II.  Here is a nice article about how MC was implemented to simulate the transport of neutrons through matter: Kristina Panos. <a class="reference external" href="https://hackaday.com/2015/09/11/fermiac-the-computer-that-advanced-the-manhattan-project/">FERMIAC</a></p></li>
@@ -702,13 +535,13 @@ title="Print to PDF"
 </section>
 <hr class="docutils" />
 <section id="what-is-monte-carlo">
-<h2><span class="section-number">4.3. </span>What is Monte Carlo?<a class="headerlink" href="#what-is-monte-carlo" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.3. </span>What is Monte Carlo?<a class="headerlink" href="#what-is-monte-carlo" title="Link to this heading">#</a></h2>
 <p>The Monte Carlo Casino is a famous gambling and entertainment establishment (<em>i.e.</em>, a casino) located in the country of Monaco.  It is <em>very</em> fancy – so fancy, in fact, that James Bond has been there in <strong>two</strong> separate films.</p>
 <p>Ok, thanks for coming by!  Have a great week.</p>
 </section>
 <hr class="docutils" />
 <section id="what-is-the-monte-carlo-technique">
-<h2><span class="section-number">4.4. </span>What is the Monte Carlo technique?<a class="headerlink" href="#what-is-the-monte-carlo-technique" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.4. </span>What is the Monte Carlo technique?<a class="headerlink" href="#what-is-the-monte-carlo-technique" title="Link to this heading">#</a></h2>
 <p>The Monte Carlo method is a paradigm (or type of approach) to solving problems.  Like most things, the <a class="reference external" href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Wikipedia</a> entry is very good if you already know what Monte Carlo is:</p>
 <blockquote>
 <div><p>Monte Carlo methods… are a broad class of computational algorithms that rely on repeated random sampling to obtain numerical results. The underlying concept is to use randomness to solve problems that might be deterministic in principle. They are often used in physical and mathematical problems and are most useful when it is difficult or impossible to use other approaches. Monte Carlo methods are mainly used in three problem classes: optimization, numerical integration, and generating draws from a probability distribution.</p>
@@ -720,19 +553,19 @@ title="Print to PDF"
 </section>
 <hr class="docutils" />
 <section id="de-rigueur-example-calculating-pi-using-the-mc-method">
-<h2><span class="section-number">4.5. </span><em>De rigueur</em> example: Calculating <span class="math notranslate nohighlight">\(\pi\)</span> using the MC method<a class="headerlink" href="#de-rigueur-example-calculating-pi-using-the-mc-method" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.5. </span><em>De rigueur</em> example: Calculating <span class="math notranslate nohighlight">\(\pi\)</span> using the MC method<a class="headerlink" href="#de-rigueur-example-calculating-pi-using-the-mc-method" title="Link to this heading">#</a></h2>
 <p>Recall that the number <span class="math notranslate nohighlight">\(\pi\)</span> is defined as the ratio of a circle’s circumference to its diameter (in a flat space with Euclidean metric…).  <span class="math notranslate nohighlight">\(\pi\)</span> is WILD! It is a transcendental number; <em>i.e.</em>, it’s not the root of a finite polynomial with rational coefficients, and it can’t be expressed as a fraction.  It pops up in many unexpected places in the mathematical and physical sciences!  We previously approximated <span class="math notranslate nohighlight">\(\pi\)</span> using several interesting infinite series.</p>
 <p>Let’s imagine a world where we don’t know the numerical value of <span class="math notranslate nohighlight">\(\pi\)</span>.  How would we go about <em>measuring</em> it?  We could make many, many, many circles, measure their diameters and circumferences, calculate the ratio for each, and perhaps average or fit… But it’s probably unfeasible to carefully fabricate many very precise circles.</p>
 <p>Here is another way to measure (or approximate) the value of <span class="math notranslate nohighlight">\(\pi\)</span>.  Recall that the area of a circle with unit radius is <span class="math notranslate nohighlight">\(\pi (1)^2 = \pi\)</span>.  Let’s picture a circle with radius <span class="math notranslate nohighlight">\(1\)</span> drawn inside a square with side length <span class="math notranslate nohighlight">\(2\)</span>, both centered at the origin in the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane.  We’ll let the square occupy the region with <span class="math notranslate nohighlight">\(x\in [-1, 1]\)</span> and <span class="math notranslate nohighlight">\(y\in[-1, 1]\)</span>.  Your instructor will draw this figure on the board, or you can scroll down to the visualization below.</p>
 <p>Now imagine throwing <span class="math notranslate nohighlight">\(N\)</span> darts at this figure in such a way that each dart lands with a random <span class="math notranslate nohighlight">\((x, y)\)</span> position somewhere inside the square.  Some number of these darts, <span class="math notranslate nohighlight">\(N_c\)</span>, will land inside the circle.  If the <span class="math notranslate nohighlight">\((x, y)\)</span> positions of the darts are truly randomly distributed inside the square, we expect that the probability of a dart landing in the circle, <span class="math notranslate nohighlight">\(p_c\)</span>, is equal to the fraction of the total area that is inside the circle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a4b4e4d-1141-4927-ad2d-1efd3a27ac18">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-0a4b4e4d-1141-4927-ad2d-1efd3a27ac18" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-79aa0382-c466-41e2-ac8c-1228b2a259c8">
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-79aa0382-c466-41e2-ac8c-1228b2a259c8" title="Permalink to this equation">#</a></span>\[\begin{equation} 
   p_c = \frac{A_c}{A} = \frac{\pi}{2^2} = \frac{\pi}{4} 
 \end{equation}\]</div>
 <p>It is important to note that if we don’t know a value for <span class="math notranslate nohighlight">\(\pi\)</span>, <strong>this probability is unknown to us</strong>.  We can’t calculate it from other quantities; rather, we need some way to measure it!  This is a feature common to many MC applications – there is some important probability (or probability distribution) that we don’t know, but that we want to know.</p>
 <p>We will “measure” this probability by <strong>sampling</strong>!  (Note: We are going to do this with code, but you could totally do the same approximation with real darts on a real [not-college-owned] wall.)  We will randomly generate <span class="math notranslate nohighlight">\(N\)</span> positions in the square, observe how many of these (<span class="math notranslate nohighlight">\(N_c\)</span>) fall within the circle, and then approximate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-231963c8-fdc3-4b8c-9e5a-20f2fad47b57">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-231963c8-fdc3-4b8c-9e5a-20f2fad47b57" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d69bcabb-1b47-440d-aca0-0a1205603e5f">
+<span class="eqno">(8.2)<a class="headerlink" href="#equation-d69bcabb-1b47-440d-aca0-0a1205603e5f" title="Permalink to this equation">#</a></span>\[\begin{equation}
   p_c = \frac{\pi}{4} \approx \frac{N_c}{N} \implies \pi \approx 4\frac{N_c}{N}
 \end{equation}\]</div>
 <p>It’s important to note that this approximation is APPROXIMATE!  Since <span class="math notranslate nohighlight">\(\pi\)</span> is transcendental, it cannot be expressed as a fraction, and thus there are NO values of <span class="math notranslate nohighlight">\(N_c\)</span> and <span class="math notranslate nohighlight">\(N\)</span> that will make the equality perfect.  However, the more we sample (the larger <span class="math notranslate nohighlight">\(N\)</span> is), the better (on average) our approximate should be.</p>
@@ -769,7 +602,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_08_montecarlo_5_0.png" src="../_images/scicomp_08_montecarlo_5_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="k">as</span> <span class="nn">animation</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>All we need now is some way to determine whether a random <span class="math notranslate nohighlight">\((x, y)\)</span> point is inside the circle.  Hmmmm.</p>
@@ -806,26 +649,26 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After 10000 samples our approximation of π is 3.188
-After 20000 samples our approximation of π is 3.1692
-After 30000 samples our approximation of π is 3.1492
-After 40000 samples our approximation of π is 3.1461
-After 50000 samples our approximation of π is 3.14272
-After 60000 samples our approximation of π is 3.1405333333333334
-After 70000 samples our approximation of π is 3.1414857142857144
-After 80000 samples our approximation of π is 3.13825
-After 90000 samples our approximation of π is 3.139377777777778
-After 100000 samples our approximation of π is 3.13956
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After 10000 samples our approximation of π is 3.1384
+After 20000 samples our approximation of π is 3.136
+After 30000 samples our approximation of π is 3.1337333333333333
+After 40000 samples our approximation of π is 3.1352
+After 50000 samples our approximation of π is 3.13552
+After 60000 samples our approximation of π is 3.1398
+After 70000 samples our approximation of π is 3.136685714285714
+After 80000 samples our approximation of π is 3.1369
+After 90000 samples our approximation of π is 3.138933333333333
+After 100000 samples our approximation of π is 3.13864
 </pre></div>
 </div>
-<img alt="../_images/scicomp_08_montecarlo_7_1.png" src="../_images/scicomp_08_montecarlo_7_1.png" />
+<img alt="../_images/e3f714c3be6f73d9eb8bd7970eb61d79d699b61935c9bb611a6b70b779e51177.png" src="../_images/e3f714c3be6f73d9eb8bd7970eb61d79d699b61935c9bb611a6b70b779e51177.png" />
 </div>
 </div>
 <p>Notice that as <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> (the equivalent of <span class="math notranslate nohighlight">\(N\)</span> from above) increases, the approximation generally gets closer to the actual value of <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
 <p>Please run the code block above several times and notice that you get a different final approximation value each time!  This is because the sampling process is <strong>random</strong>.  When I run the code several times with <span class="math notranslate nohighlight">\(10^5\)</span> samples, the approximation is surprisingly unstable!</p>
 <p>Change the block of code above to perform <span class="math notranslate nohighlight">\(10^7\)</span> samples.  Is your final value a better or worse approximation?  On average it should be better!</p>
 <section id="warm-up-problem">
-<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Permalink to this headline">#</a></h3>
+<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Link to this heading">#</a></h3>
 <p>Tinker with the code above to determine how many samples are necessary to <em>reliably</em> give you an approximation accurate to 5 digits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -840,10 +683,10 @@ After 100000 samples our approximation of π is 3.13956
 </section>
 <hr class="docutils" />
 <section id="live-example-simulating-a-multi-agent-non-deterministic-system">
-<h2><span class="section-number">4.6. </span>Live example: Simulating a multi-agent, non-deterministic system<a class="headerlink" href="#live-example-simulating-a-multi-agent-non-deterministic-system" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.6. </span>Live example: Simulating a multi-agent, non-deterministic system<a class="headerlink" href="#live-example-simulating-a-multi-agent-non-deterministic-system" title="Link to this heading">#</a></h2>
 <p>In this example, we’ll use random number generation to simulate the behavior of a turn-based strategy role-playing game to form a statistical understanding of the game’s outcomes.</p>
 <section id="our-system">
-<h3>Our system<a class="headerlink" href="#our-system" title="Permalink to this headline">#</a></h3>
+<h3>Our system<a class="headerlink" href="#our-system" title="Link to this heading">#</a></h3>
 <p>Two adventurers, Alcamriel (A) Beladrinian (B) encounter a Vampiric Illithid (V) in the Underdark.  (I have now exhausted all of my D&amp;D knowledge.  What follows will be a very simplified model of battle.)</p>
 <p>A begins battle with 260 HP.  B begins battle with 290 HP.  V begins battle with 345 HP.  In each round of battle, the charaters take successive turns attacking their foes: V attacks either A or B; A and B attack V.  Each character’s attacks follow the rules below:</p>
 <ul class="simple">
@@ -855,7 +698,7 @@ After 100000 samples our approximation of π is 3.13956
 <p>What are the chances that our heroes (A and B) will win this battle?  This is a tricky question, and answering it gets into all kinds of tricky philosophical territory about interpretations of probability and statistics…  We’re not going to go there.</p>
 </section>
 <section id="simulating-attacks">
-<h3>Simulating attacks<a class="headerlink" href="#simulating-attacks" title="Permalink to this headline">#</a></h3>
+<h3>Simulating attacks<a class="headerlink" href="#simulating-attacks" title="Link to this heading">#</a></h3>
 <p>Let’s first act this out in real time.  We need volunteers for A, B, and V.  We’ll also need a Dungeon Master to keep track of turns and HP.</p>
 <p>In a normal role-playing game the randomness of attacks and damage would be determined by dice rolls.  We will use code in the cell below to simulate the characters’ attacks for each turn.</p>
 <div class="cell docutils container">
@@ -894,9 +737,9 @@ After 100000 samples our approximation of π is 3.13956
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A deals 12 damage to V
-B misses!
-V attacks A... dealing 94 damage!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A misses!
+B deals 21 damage to V
+V attacks A... dealing 88 damage!
 </pre></div>
 </div>
 </div>
@@ -912,7 +755,7 @@ V attacks A... dealing 94 damage!
 </ul>
 <p>A few of these may be easy to answer (the first one) because they don’t rely on the <em>interaction</em> of the agents.  However, the other questions are difficult because of the interaction!</p>
 <section id="simulating-a-battle">
-<h4>Simulating a battle<a class="headerlink" href="#simulating-a-battle" title="Permalink to this headline">#</a></h4>
+<h4>Simulating a battle<a class="headerlink" href="#simulating-a-battle" title="Link to this heading">#</a></h4>
 <p>Let’s now build a simulation of a single battle that uses the attack rules above.  We will essentially be adding code to play the role of the Dungeon Master.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -926,7 +769,7 @@ V attacks A... dealing 94 damage!
 <p>In the lingo of Monte Carlo, the simulated battle above is merely a <strong>single sampling</strong> of the behavior of the system.  To really do a MC analysis, we need to simulate <strong>many</strong> individual battles and aggregate the results.</p>
 </section>
 <section id="approximating-statistical-quantities-by-simulaing-many-battles">
-<h4>Approximating statistical quantities by simulaing <strong>many</strong> battles<a class="headerlink" href="#approximating-statistical-quantities-by-simulaing-many-battles" title="Permalink to this headline">#</a></h4>
+<h4>Approximating statistical quantities by simulaing <strong>many</strong> battles<a class="headerlink" href="#approximating-statistical-quantities-by-simulaing-many-battles" title="Link to this heading">#</a></h4>
 <p>So, as our last step, let’s simulate 1000 battles and calculate the fraction of times that V is victorious.  (Afterall, if A or B survive they can always cast a revivify spell on any deceased allies, duhhhhhhhh.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -940,23 +783,23 @@ V attacks A... dealing 94 damage!
 </section>
 <hr class="docutils" />
 <section id="problems">
-<h2><span class="section-number">4.7. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">8.7. </span>Problems<a class="headerlink" href="#problems" title="Link to this heading">#</a></h2>
 <p>Your homework is to complete three (3) of the following problems.</p>
 <section id="regulars">
-<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this headline">#</a></h3>
-<ol class="simple">
+<h3>Regulars<a class="headerlink" href="#regulars" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>Perform a Monte Carlo analysis to estimate the probablility that in a group of 20 people, at least two people share a birthday.  Assume that births are equally likely on all dates.  You can ignore leap years.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">numpy.random.normal()</span></code> function generates random numbers from a gaussian/normal/bell-curve distribution.  The snippet <code class="docutils literal notranslate"><span class="pre">std_dev</span> <span class="pre">*</span> <span class="pre">numpy.random.normal()</span> <span class="pre">+</span> <span class="pre">mean</span></code> will generate a random value from a gaussian distribution with supplied values of standard deviation (<code class="docutils literal notranslate"><span class="pre">std_dev</span></code>) and mean.  Assume that the mean and standard deviations for heights of Icelandic women are 168 cm and 8.0 cm, respectively.  Perform a Monte Carlo simulation to estimate the probability that a randomly-chosen group 5 Icelandic women will include at least three that are taller than 180 cm.</p></li>
 <li><p>You are a casino owner.  You love to take people’s money, but you are dissatisfied by how complicated most casino games are.  You design a simple game in which a player rolls 5 six-sided dice, and gets a score by adding the three largest values (discarding the two lower values).  If the player’s score is over some threshhold value <span class="math notranslate nohighlight">\(S\)</span>, they win!  Perform a Monte Carlo analysis to estimate the average score in this game.  Next determine what you should set <span class="math notranslate nohighlight">\(S\)</span> to be such that players will win about 30% of attempts.</p></li>
 </ol>
 </section>
 <section id="meanies">
-<h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this headline">#</a></h3>
-<ol class="simple">
+<h3>Meanies<a class="headerlink" href="#meanies" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="4">
 <li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model">Bradley-Terry model</a> gives a simple way to model the outcome of a contest between two players or teams.  We’ll simplify it further by stating the model in the followin way: If teams A and B have previous win percentages <span class="math notranslate nohighlight">\(p_A\)</span> and <span class="math notranslate nohighlight">\(p_B\)</span>, respectively, then the probability that A will defeat B in a contest is</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-dfd45706-26e8-4988-86db-35e1c0a63efb">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-dfd45706-26e8-4988-86db-35e1c0a63efb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-73400176-c80e-48ee-ae41-8d7d5b553aaa">
+<span class="eqno">(8.3)<a class="headerlink" href="#equation-73400176-c80e-48ee-ae41-8d7d5b553aaa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \textrm{Pr}(\textrm{A defeats B}) = \frac{p_A}{p_A + p_B}
 \end{equation}\]</div>
 <p>Assume that a sports league has four teams, A through D, with previous win percentages 0.45, 0.5, 0.5, and 0.6, respectively.  During the season, each team plays every other 4 times.  Perform a Monte Carlo analysis to estimate the probability that the worst team ends the season with the largest number of wins.  How is this probability affected if the teams are matched 8 times during the season?
@@ -977,7 +820,7 @@ V attacks A... dealing 94 damage!
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters_ipynb"
         },
         predefinedOutput: true
@@ -985,50 +828,124 @@ V attacks A... dealing 94 damage!
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="scicomp_07_ODEs.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">3. </span>Simulating solutions to differential equations</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="scicomp_09_pandas.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5. </span>Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Mike McCracken<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
 
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="scicomp_07_ODEs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Simulating solutions to differential equations</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="scicomp_09_pandas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">8.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">8.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-monte-carlo">8.3. What is Monte Carlo?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-monte-carlo-technique">8.4. What is the Monte Carlo technique?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-rigueur-example-calculating-pi-using-the-mc-method">8.5. <em>De rigueur</em> example: Calculating <span class="math notranslate nohighlight">\(\pi\)</span> using the MC method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#live-example-simulating-a-multi-agent-non-deterministic-system">8.6. Live example: Simulating a multi-agent, non-deterministic system</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#our-system">Our system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-attacks">Simulating attacks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#simulating-a-battle">Simulating a battle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#approximating-statistical-quantities-by-simulaing-many-battles">Approximating statistical quantities by simulaing <strong>many</strong> battles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">8.7. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike McCracken
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

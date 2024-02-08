@@ -1,110 +1,199 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3. Types, random numbers, lists, dictionaries &#8212; Introduction to Computation for the Physics Sciences</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=1eab469f" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css?v=57676931" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=7a746245" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css?v=955514d0" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/theme.css?v=56fe03d6" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=1eab469f" />
+    <link rel="stylesheet" type="text/css" href="../_static/vendor/fontawesome/5.13.0/css/all.min.css?v=15a2c3a3" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/documentation_options.js?v=8801b33a"></script>
+    <script src="../_static/doctools.js?v=00f2d9dc"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=ea7449e6"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_02_typescontainers';</script>
+    <script src="../_static/underscore.js?v=e1a751a7"></script>
+    <script src="../_static/documentation_options.js?v=8801b33a"></script>
+    <script src="../_static/searchtools.js?v=9d349e53"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/jquery-3.5.1.js?v=9650c068"></script>
+    <script src="../_static/language_data.js?v=201d643d"></script>
+    <script src="../_static/copybutton_funcs.js?v=776a791e"></script>
+    <script src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script src="../_static/doctools.js?v=00f2d9dc"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/jquery.js?v=3d1d8b85"></script>
+    <script src="../_static/underscore-1.13.1.js?v=6d13b6bf"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=ea7449e6"></script>
+    <script src="../_static/scripts/pydata-sphinx-theme.js?v=2860a353"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. File I/O" href="scicomp_03_fileio.html" />
     <link rel="prev" title="2. Control structures, numerical integration" href="scicomp_01_controlstructs.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/wj_horiz_color.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Computation for the Physics Sciences</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Introduction to Computation for the Physics Sciences - Home"/>
+    <script>document.write(`<img src="../_static/wj_horiz_color.png" class="logo__image only-dark" alt="Introduction to Computation for the Physics Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -113,557 +202,287 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  I. Python basics
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Python basics</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_00_basics.html">
-   1. Basic syntax, variables, functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_01_controlstructs.html">
-   2. Control structures, numerical integration
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   3. Types, random numbers, lists, dictionaries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_03_fileio.html">
-   4. File I/O
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_00_basics.html">1. Basic syntax, variables, functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_01_controlstructs.html">2. Control structures, numerical integration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Types, random numbers, lists, dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_03_fileio.html">4. File I/O</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  II. Techniques for the physical sciences
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_04_datavis.html">
-   1. Data visualization with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     matplotlib
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_05_fitting.html">
-   2. Fitting models to data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_07_ODEs.html">
-   3. Simulating solutions to differential equations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_08_montecarlo.html">
-   4. Monte Carlo
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_09_pandas.html">
-   5. Manipulating tabular data with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Pandas
-    </span>
-   </code>
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">5. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">6. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">7. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">8. Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">9. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">10. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  III. Optional (but fun)
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_06_textasdata.html">
-   1. Text as data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_10_circuitpython.html">
-   2. Python on microcontrollers with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     circuitpython
-    </span>
-   </code>
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  IV. Projects
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_z0_ll_analysis.html">
-   Di-lepton mass spectrum from the Compact Muon Solenoid
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">11. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">12. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapters_ipynb/scicomp_02_typescontainers.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
+  <ul class="dropdown-menu">
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_02_typescontainers.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters_ipynb/scicomp_02_typescontainers.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_02_typescontainers.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters_ipynb/scicomp_02_typescontainers.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recap">
-   3.1. Recap
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   3.2. Motivation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#types-and-casting">
-   3.3. Types and casting
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#int-integers">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       int
-      </span>
-     </code>
-     –&gt; Integers
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#float-floats">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       float
-      </span>
-     </code>
-     –&gt; Floats
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bool-booleans">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       bool
-      </span>
-     </code>
-     –&gt; Booleans
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#string-strings">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       string
-      </span>
-     </code>
-     –&gt; Strings
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-number-generation">
-   3.4. Random number generation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#warm-up-problem">
-     Warm-up problem
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lists">
-   3.5. Lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dictionaries">
-   3.6. Dictionaries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spyder">
-   3.7. Spyder
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problems">
-   3.8. Problems
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regulars">
-     Regulars
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Types, random numbers, lists, dictionaries</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recap">
-   3.1. Recap
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   3.2. Motivation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#types-and-casting">
-   3.3. Types and casting
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#int-integers">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       int
-      </span>
-     </code>
-     –&gt; Integers
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#float-floats">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       float
-      </span>
-     </code>
-     –&gt; Floats
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bool-booleans">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       bool
-      </span>
-     </code>
-     –&gt; Booleans
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#string-strings">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       string
-      </span>
-     </code>
-     –&gt; Strings
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-number-generation">
-   3.4. Random number generation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#warm-up-problem">
-     Warm-up problem
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lists">
-   3.5. Lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dictionaries">
-   3.6. Dictionaries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spyder">
-   3.7. Spyder
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problems">
-   3.8. Problems
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regulars">
-     Regulars
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Types, random numbers, lists, dictionaries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">3.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">3.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-and-casting">3.3. Types and casting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int-integers"><code class="docutils literal notranslate"><span class="pre">int</span></code> –&gt; Integers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float-floats"><code class="docutils literal notranslate"><span class="pre">float</span></code> –&gt; Floats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bool-booleans"><code class="docutils literal notranslate"><span class="pre">bool</span></code> –&gt; Booleans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-strings"><code class="docutils literal notranslate"><span class="pre">string</span></code> –&gt; Strings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number-generation">3.4. Random number generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.5. Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">3.6. Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spyder">3.7. Spyder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">3.8. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="types-random-numbers-lists-dictionaries">
-<h1><span class="section-number">3. </span>Types, random numbers, lists, dictionaries<a class="headerlink" href="#types-random-numbers-lists-dictionaries" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">3. </span>Types, random numbers, lists, dictionaries<a class="headerlink" href="#types-random-numbers-lists-dictionaries" title="Link to this heading">#</a></h1>
 <section id="recap">
-<h2><span class="section-number">3.1. </span>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.1. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
 <p>Let’s just take a moment to remind ourselves how far we’ve come.  Here are some of the many things that we know how to do already:</p>
 <ul class="simple">
 <li><p>basic mathematical operations</p></li>
@@ -675,18 +494,18 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="motivation">
-<h2><span class="section-number">3.2. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.2. </span>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
 <p>I mentioned at the beginning of the class that one of the uses of computation in the physical sciences was for simulating experiments or apparatus that are prohibitively complicated.  It’s important to note that studying a simulation is <strong>not</strong> the same as studying the “real world” – the behavior of the simulation will depend on our current understanding of the laws that govern the real world, and these may not be correct!  Still, simulations are very useful for hypothesis testing.  To that end, check this out:</p>
 <ul class="simple">
 <li><p>Cue evolution simulation code.  What hypotheses can we test? (Note: If you’re not actually enrolled in the course, you won’t get to see this!  The demo is similar-ish to David Randall Miller’s work <a class="reference external" href="https://www.youtube.com/watch?v=N3tRFayqVtk">here</a>.  Very cool!</p></li>
 </ul>
 </section>
 <section id="types-and-casting">
-<h2><span class="section-number">3.3. </span>Types and casting<a class="headerlink" href="#types-and-casting" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.3. </span>Types and casting<a class="headerlink" href="#types-and-casting" title="Link to this heading">#</a></h2>
 <p>When we use a computer to do a calculation, the quantities input and output quantities need to be stored/accessed by the computer.  <strong>How</strong> the computer does this depends on what <strong>type</strong> of quantity we’re storing.  “Type” is an important concept in computer science.</p>
 <p>We have so far encountered a few different types of quantities that <code class="docutils literal notranslate"><span class="pre">python</span></code> know about:</p>
 <section id="int-integers">
-<h3><code class="docutils literal notranslate"><span class="pre">int</span></code> –&gt; Integers<a class="headerlink" href="#int-integers" title="Permalink to this headline">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">int</span></code> –&gt; Integers<a class="headerlink" href="#int-integers" title="Link to this heading">#</a></h3>
 <p>Integers can be signed (positive or negative (or 0))</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -706,7 +525,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="float-floats">
-<h3><code class="docutils literal notranslate"><span class="pre">float</span></code> –&gt; Floats<a class="headerlink" href="#float-floats" title="Permalink to this headline">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">float</span></code> –&gt; Floats<a class="headerlink" href="#float-floats" title="Link to this heading">#</a></h3>
 <p>Floats are real numbers.  They can be expressed in regular decimal form or in scientific notation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -725,7 +544,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="bool-booleans">
-<h3><code class="docutils literal notranslate"><span class="pre">bool</span></code> –&gt; Booleans<a class="headerlink" href="#bool-booleans" title="Permalink to this headline">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">bool</span></code> –&gt; Booleans<a class="headerlink" href="#bool-booleans" title="Link to this heading">#</a></h3>
 <p>Booleans are the outcomes of logical operations.  There are only two boolean values: <code class="docutils literal notranslate"><span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span></code>.  When we implement comparison operators, the outcomes are booleans.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -744,7 +563,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="string-strings">
-<h3><code class="docutils literal notranslate"><span class="pre">string</span></code> –&gt; Strings<a class="headerlink" href="#string-strings" title="Permalink to this headline">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">string</span></code> –&gt; Strings<a class="headerlink" href="#string-strings" title="Link to this heading">#</a></h3>
 <p>Strings are… um… strings of alphanumeric characters.  We’ve used strings a little bit in our <code class="docutils literal notranslate"><span class="pre">print</span></code> statements.  Strings are initialized with either quotes (<code class="docutils literal notranslate"><span class="pre">&quot;</span>&#160;&#160; <span class="pre">&quot;</span></code>) or apostrophes (<code class="docutils literal notranslate"><span class="pre">'</span>&#160;&#160; <span class="pre">'</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -892,7 +711,7 @@ yowza
 </section>
 </section>
 <section id="random-number-generation">
-<h2><span class="section-number">3.4. </span>Random number generation<a class="headerlink" href="#random-number-generation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.4. </span>Random number generation<a class="headerlink" href="#random-number-generation" title="Link to this heading">#</a></h2>
 <p>Computing has allowed us to make amazing progress in the statistical sciences.  Generating large random or pseudo-random datasets to study is difficult.  In the old days, if I wanted to investigate the large-scale/statistical properties of something like a game of blackjack (you know, for cheating reasons), I had to actually <em>deal</em> many games of blackjack.  Ugh!  Gross.  That would take so much time!  With computers, I can generate millions of blackjack hands according to the deck properties and history with a bit of sly programming.  This hinges on a) the computer’s ability to do loops and b) the computer’s ability to generate random numbers.</p>
 <p>There are several Python libraries that provide random number generation.  We learned in Lesson 1 that a <em>library</em> is a bit of code that Python is able to use (almost like a book of extra knowledge), but that python doesn’t pre-load.  In order to have access to the built-in stuff in the random number generation library, we need to tell Python to load it before we do any calculations.</p>
 <p>This process is analogous to the way that humans work.  Pretend that you and I are going on a camping trip on which we’ll need to defend ourselves from bears.  You’ll need to learn the skills before we go.  You <em>are capable</em> of doing it, you just don’t know <em>how</em> to do it yet.  SO!  Before we leave and start camping, I ask you to go to the library and read the book “HOW TO DEFEND ONESELF FROM BEARS” to load the knowledge into your brain/mind.  After you do that, I can call on you to execute many bear-defense strategies: run, jump, climb tree, bear headlock, play dead, <em>etc</em>.</p>
@@ -908,7 +727,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6844090242127108
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8827519193394631
 </pre></div>
 </div>
 </div>
@@ -925,26 +744,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.840421151943904
-0.02950971226540333
-0.5303948618188514
-0.8588588705946842
-0.6846801508971364
-0.7169863595232359
-0.10343946518534108
-0.07111561071569372
-0.17260754479432405
-0.3402763947569776
-0.6928144709797078
-0.6598081609973452
-0.35094557802370485
-0.7034587535491423
-0.02770465186897786
-0.7830370669330514
-0.10888722025060316
-0.5272805942802742
-0.01791896898636991
-0.04923110038097389
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.40398366578464506
+0.3408798892526086
+0.4357814671075513
+0.4548642435236473
+0.7142673531801476
+0.4883851429216368
+0.5051478699609532
+0.18244128568898343
+0.0350788293526505
+0.0851486746921224
+0.6378995022866274
+0.8548868567345524
+0.6409559707106288
+0.2432911840876587
+0.08178818928717435
+0.9565846073295103
+0.6181256292522678
+0.0788158983674414
+0.821846226864227
+0.8687360446616965
 </pre></div>
 </div>
 </div>
@@ -961,26 +780,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.640681423834399
-7.914725034030567e-05
-0.8149954694419135
-0.11247290640888408
-0.9327429372146778
-0.679968831742392
--0.3594401693790441
--0.3286058072727547
-0.4734276203383594
--0.38672803537353495
--0.5652050581253598
-0.04591910787791331
--0.12159595148067881
--0.893210869355954
-0.7625278065102132
--0.892692989195178
-0.5391989465446625
--0.608843941060756
-0.18466207185480177
--0.2596456715018627
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5252996224092381
+0.32131250732297545
+0.6473710518780373
+-0.00377089827723176
+-0.16496854572935526
+-0.9688194117156192
+-0.3464164784174275
+0.8815126816687444
+0.9691996860631364
+-0.7424113292928436
+0.4586156131742538
+-0.38320741587297324
+0.3624136553126387
+0.8996948090623831
+0.8354901684507039
+-0.35901415521871516
+-0.8382921113757837
+0.3800438186822732
+-0.4750792665573236
+0.1691114900253019
 </pre></div>
 </div>
 </div>
@@ -996,26 +815,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.23518483090554299, 0.9166574102381739)
-(0.5093460155799265, 0.1175392630584089)
-(0.7665472813573022, 0.91212644511332)
-(0.983147051645131, 0.46719725272398427)
-(0.29283959453482367, 0.05504791573233425)
-(0.041769373925895414, 0.8053668093517654)
-(0.5509631380419746, 0.16925186192054842)
-(0.23386454237653986, 0.26132282592856704)
-(0.6419242068912046, 0.23996042298119813)
-(0.7253174410455877, 0.7025296534114673)
-(0.5875408681791698, 0.029116608714039205)
-(0.675574083952882, 0.3530855731769227)
-(0.4429373468776798, 0.8337014412597483)
-(0.5639196483883461, 0.16337599299078076)
-(0.9024939619966824, 0.9034841338102849)
-(0.0326675372301789, 0.2372697069859221)
-(0.24584294807800067, 0.06528272285280123)
-(0.822057270201978, 0.41346540319766456)
-(0.2067840897551224, 0.4128961907009119)
-(0.5266404040260111, 0.5611655564259169)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.11498257679871171, 0.3293923867110411)
+(0.9996285287159852, 0.1212249968982333)
+(0.4385002861995647, 0.15881809596813956)
+(0.3348391448705115, 0.9204339346283206)
+(0.2189024914743669, 0.6204794638994654)
+(0.5943170335359734, 0.46435077613788367)
+(0.062292518548312525, 0.5449532702046677)
+(0.8069746872273535, 0.5085301353839126)
+(0.05061691614177266, 0.06517695889780084)
+(0.20893668806969712, 0.8108279919603342)
+(0.6462059591089964, 0.9597379748310888)
+(0.6767795497499868, 0.9507846799578706)
+(0.46489624998186574, 0.8491041714713857)
+(0.41061799094747786, 0.5734756218384659)
+(0.21763613910179203, 0.4493476677332169)
+(0.7366406332016765, 0.3252608211897734)
+(0.17581656665107337, 0.7060174352797199)
+(0.6423301612570226, 0.47076522266168974)
+(0.2368473470748631, 0.5785972007400623)
+(0.9563957625457711, 0.4071958944715812)
 </pre></div>
 </div>
 </div>
@@ -1034,26 +853,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.530788164255175
-0.6986877386170836
-0.4799496630711588
-0.033426049964836224
-2.2488516657095783
-0.48105194999656486
-0.061460863096790774
-0.4503527500917808
-2.0393072015315026
-0.18834681356153338
-2.1696814315493547
-0.5782890193536279
-0.07051753939048533
-1.2773795511696868
-1.3140754355559405
-0.19880050923922132
-2.833133478562719
-1.7897926808283446
-0.6583040855541462
-1.8364890898601332
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1428684554959812
+0.12215096170343998
+1.330041431386597
+2.2738666068113593
+0.8753757825535766
+1.659773972976957
+0.407351921820029
+2.4403390606066564
+1.6958570787181229
+0.5359064908739044
+0.6533595328813981
+0.976778818294374
+0.5807855753044389
+2.3221764607894864
+1.0688831065672717
+0.24908545435721496
+0.45187226943735137
+2.5591983934650777
+0.2979707742822679
+2.679890052100829
 </pre></div>
 </div>
 </div>
@@ -1068,7 +887,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -1082,7 +901,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30
 </pre></div>
 </div>
 </div>
@@ -1096,7 +915,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86
 </pre></div>
 </div>
 </div>
@@ -1104,7 +923,7 @@ yowza
 <p>Sage advice.  Now you’re talking.</p>
 <p>There are lots of other things that one can do with random numbers, but it’s probably best to become acquainted with the simple code and then learn more once you have a need.  Let’s do a warm-up problem to get the juices flowing.</p>
 <section id="warm-up-problem">
-<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Permalink to this headline">#</a></h3>
+<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Link to this heading">#</a></h3>
 <p>Generate 100 random integers between 0 and 40 or 60 and 100 (i.e., omit any numbers between 41 and 59).  You’ll probably need an if statement.  Make sure there are 100!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1117,7 +936,7 @@ yowza
 </section>
 </section>
 <section id="lists">
-<h2><span class="section-number">3.5. </span>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.5. </span>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
 <p>Now that we’ve talked about <strong>types</strong> we can talk about <strong>containers</strong>.  Here’s an analogy to motivate us:</p>
 <blockquote>
 <div><p>An egg is a type of food.  There are many different containers that we can put eggs in: an egg carton, a box, your hand, a bookbag.  These containers could also be used for other types of food.  <em>E.g.</em> I could put raisins in an egg carton, a box, your hand, …</p>
@@ -1357,59 +1176,90 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have 48 elements in our list.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have 82 elements in our list.
 
-0 	 0.940594596903235 	 0.8847181957235591
-1 	 0.39219542128588747 	 0.15381724847761474
-2 	 0.46338240290712096 	 0.21472325132397738
-3 	 0.47185418739676743 	 0.2226463741638637
-4 	 0.19168279786153675 	 0.036742294996026756
-5 	 0.6842103458187595 	 0.4681437973254265
-6 	 0.3600458292380835 	 0.12963299915173918
-7 	 0.3027036566284428 	 0.09162950373623019
-8 	 0.43010019370010744 	 0.18498617662086994
-9 	 0.32764279958473697 	 0.10734980411972411
-10 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	 0.03810639322994114 	 0.0014520972049949037
-11 	 0.7701738342481619 	 0.5931677349605151
-12 	 0.4580102299417824 	 0.2097733707313244
-13 	 0.3265793898950936 	 0.10665409790425157
-14 	 0.5359578626440125 	 0.2872508305299381
-15 	 0.682745103968222 	 0.4661408769925782
-16 	 0.3905260498241446 	 0.1525105955912503
-17 	 0.9751755562437034 	 0.9509673654952164
-18 	 0.35336162576309615 	 0.12486443856193842
-19 	 0.6167289357968734 	 0.380354580249144
-20 	 0.13916664719845562 	 0.019367355692459415
-21 	 0.6564593922523231 	 0.4309389336762894
-22 	 0.2787525696470844 	 0.07770299508485264
-23 	 0.9190422998575839 	 0.8446387489275171
-24 	 0.0931437364684149 	 0.008675755643297523
-25 	 0.5470273641943151 	 0.2992389371773798
-26 	 0.9673800966935576 	 0.9358242514788369
-27 	 0.33317235513591437 	 0.11100381822681184
-28 	 0.1316547199014394 	 0.017332965272326462
-29 	 0.1971688001600782 	 0.038875535756564855
-30 	 0.8441429515100949 	 0.7125773225841744
-31 	 0.08198152875304388 	 0.006720971056686159
-32 	 0.9720314409059675 	 0.9448451221097314
-33 	 0.3945362438357958 	 0.1556588477000585
-34 	 0.3990699148128718 	 0.15925679690875275
-35 	 0.9228380397200694 	 0.8516300475543803
-36 	 0.16270846624886148 	 0.026474044989056898
-37 	 0.3519643386662148 	 0.12387889569274595
-38 	 0.040832593505741865 	 0.0016673006924051528
-39 	 0.5629093794337765 	 0.31686696945451936
-40 	 0.7219826516102174 	 0.5212589492261205
-41 	 0.3677956515938764 	 0.1352736413313641
-42 	 0.910010911678011 	 0.8281198593730447
-43 	 0.8454491767462524 	 0.714784310460916
-44 	 0.09148380291313907 	 0.008369286195450073
-45 	 0.39979120421749437 	 0.15983300696967429
-46 	 0.9208178891674296 	 0.8479055850107606
-47 	 0.6332115629143479 	 0.40095688340843116
+0 	 0.6839299689895072 	 0.4677602024819883
+1 	 0.011665568535357829 	 0.00013608548925313059
+2 	 0.9185508603013691 	 0.8437356829603854
+3 	 0.8877156363624925 	 0.7880390510424651
+4 	 0.6124360747472382 	 0.3750779456518047
+5 	 0.5139004608844053 	 0.2640936836972042
+6 	 0.18184058777787793 	 0.033065999363404125
+7 	 0.1589816942567175 	 0.025275179108736397
+8 	 0.8498945209873112 	 0.7223206968042511
+9 	 0.7099194402741754 	 0.5039856116791985
+10 	 0.006727082118905492 	 4.5253633834498005e-05
+11 	 0.1168817582673104 	 0.013661345415657982
+12 	 0.7822858910311675 	 0.6119712153064277
+13 	 0.6447317555674216 	 0.4156790366370494
+14 	 0.9938914867186837 	 0.9878202873718753
+15 	 0.11438430351590911 	 0.013083768890819619
+16 	 0.874596926522419 	 0.7649197838824616
+17 	 0.4533145376174389 	 0.20549407001531242
+18 	 0.17469421357285775 	 0.030518068255839238
+19 	 0.8375917170922871 	 0.7015598845416059
+20 	 0.574170625730581 	 0.3296719074518469
+21 	 0.37983709170673163 	 0.14427621623622805
+22 	 0.5564670370040682 	 0.309655563272087
+23 	 0.8994736101010424 	 0.8090527752682021
+24 	 0.7421659103042221 	 0.5508102384176946
+25 	 0.2552134690162805 	 0.06513391476732397
+26 	 0.30334734806131525 	 0.09201961357583274
+27 	 0.9119700934635026 	 0.8316894513718296
+28 	 0.7286360797464578 	 0.5309105367082865
+29 	 0.8513845642571524 	 0.7248556762553412
+30 	 0.6400170412595743 	 0.4096218131026596
+31 	 0.5045569467798406 	 0.25457771254379497
+32 	 0.9320443242552812 	 0.8687066223764837
+33 	 0.9882090258175521 	 0.9765570787072754
+34 	 0.8464490785559008 	 0.7164760425881335
+35 	 0.6942788140145582 	 0.48202307158946145
+36 	 0.6716667219033875 	 0.4511361853124425
+37 	 0.37199474092009477 	 0.13838008727220844
+38 	 0.5471534643325869 	 0.2993769135311515
+39 	 0.7014352648995981 	 0.49201143084476934
+40 	 0.7104930512045085 	 0.5048003758098922
+41 	 0.18725762855434913 	 0.03506541945179859
+42 	 0.2602073054882478 	 0.0677078418294543
+43 	 0.417961072126536 	 0.17469145781316342
+44 	 0.5348483500864213 	 0.2860627575901671
+45 	 0.16192349435760722 	 0.026219218024978057
+46 	 0.21470892904899597 	 0.04609992421336678
+47 	 0.29326677077752783 	 0.08600539884227905
+48 	 0.41145552447656686 	 0.16929564862228672
+49 	 0.8636390217158122 	 0.7458723598302451
+50 	 0.3584226305541043 	 0.12846678209332393
+51 	 0.5057495061297047 	 0.2557825629504402
+52 	 0.6283227748847761 	 0.39478950943890495
+53 	 0.2323443451588313 	 0.05398389472728613
+54 	 0.5890238958818986 	 0.34694914991988973
+55 	 0.9893648857206617 	 0.9788428770970581
+56 	 0.36085217279581716 	 0.13021429061146228
+57 	 0.23620168569484123 	 0.055791236325084564
+58 	 0.9378765916887918 	 0.8796125012377847
+59 	 0.48342093751985216 	 0.2336958028325728
+60 	 0.8507376820097432 	 0.7237546035913109
+61 	 0.34557100921274764 	 0.11941932240831692
+62 	 0.304012270619485 	 0.09242346068721498
+63 	 0.8144588195920662 	 0.6633431688113018
+64 	 0.8691386643671358 	 0.7554020178978887
+65 	 0.3826304458403481 	 0.14640605808398358
+66 	 0.9238971481973117 	 0.8535859404471254
+67 	 0.9323332543278862 	 0.8692452971256268
+68 	 0.6605952562054168 	 0.4363860925211003
+69 	 0.07590596870923871 	 0.005761716085687926
+70 	 0.3755339559118599 	 0.14102575204281073
+71 	 0.6332855959566878 	 0.4010506460462172
+72 	 0.04964982729673373 	 0.002465105350595486
+73 	 0.42513843855779365 	 0.18074269193935888
+74 	 0.08060443011937013 	 0.006497074154868422
+75 	 0.3851043161064813 	 0.14830533428384068
+76 	 0.5313285073629453 	 0.28230998273653546
+77 	 0.4549385697677284 	 0.20696910226230628
+78 	 0.7456904376907671 	 0.5560542288634479
+79 	 0.2684674123570735 	 0.07207475149770294
+80 	 0.9177705921686151 	 0.8423028598495305
+81 	 0.8065136724282004 	 0.6504643038136225
 </pre></div>
 </div>
 </div>
@@ -1458,10 +1308,10 @@ yowza
 </div>
 </div>
 </div>
-</section>
 <hr class="docutils" />
+</section>
 <section id="dictionaries">
-<h2><span class="section-number">3.6. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.6. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
 <p>Lists are ordered collections of data – “ordered” means that the order of the elements is an important feature of the structure, and indexing these elements with an integer makes sense.  <code class="docutils literal notranslate"><span class="pre">python</span></code> also has a way of storing data for which ordering isn’t that important (but still exists).  A <strong>dictionary</strong> is like a list, but the elements are indexed by strings.  In a <code class="docutils literal notranslate"><span class="pre">dict</span></code>, each <strong>value</strong> is associated with a <strong>key</strong>.  This might sound crazy, but works quite a bit like a simple 2-column data table.  Dictionaries are initialized in the following way:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1539,19 +1389,19 @@ Alex is my favorite student in year 4 !
 </div>
 </div>
 </div>
-</section>
 <hr class="docutils" />
+</section>
 <section id="spyder">
-<h2><span class="section-number">3.7. </span>Spyder<a class="headerlink" href="#spyder" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.7. </span>Spyder<a class="headerlink" href="#spyder" title="Link to this heading">#</a></h2>
 <p>Your instructor will introduce you to Spyder, a Python interactive development environment (IDE) that ships with Anaconda.  From now on, you may work in Spyder (or similar) and submit your homework as separte python scripts.</p>
 </section>
 <hr class="docutils" />
 <section id="problems">
-<h2><span class="section-number">3.8. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">3.8. </span>Problems<a class="headerlink" href="#problems" title="Link to this heading">#</a></h2>
 <p>Your homework is to complete 4 of the following problems.</p>
 <section id="regulars">
-<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this headline">#</a></h3>
-<ol class="simple">
+<h3>Regulars<a class="headerlink" href="#regulars" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>A function which determines whether a number is prime is given below.  Use this function to generate a list of the first 1000 prime numbers.  Check that you have 1000 using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p></li>
 </ol>
 <blockquote>
@@ -1602,7 +1452,7 @@ return prime</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters_ipynb"
         },
         predefinedOutput: true
@@ -1610,50 +1460,122 @@ return prime</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="scicomp_01_controlstructs.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">2. </span>Control structures, numerical integration</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="scicomp_01_controlstructs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Control structures, numerical integration</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="scicomp_03_fileio.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="scicomp_03_fileio.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title"><span class="section-number">4. </span>File I/O</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">3.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">3.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-and-casting">3.3. Types and casting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#int-integers"><code class="docutils literal notranslate"><span class="pre">int</span></code> –&gt; Integers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float-floats"><code class="docutils literal notranslate"><span class="pre">float</span></code> –&gt; Floats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bool-booleans"><code class="docutils literal notranslate"><span class="pre">bool</span></code> –&gt; Booleans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-strings"><code class="docutils literal notranslate"><span class="pre">string</span></code> –&gt; Strings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-number-generation">3.4. Random number generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.5. Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">3.6. Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spyder">3.7. Spyder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">3.8. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Mike McCracken<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Mike McCracken
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

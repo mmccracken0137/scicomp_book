@@ -1,112 +1,201 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Data visualization with matplotlib &#8212; Introduction to Computation for the Physics Sciences</title>
-    
+    <title>5. Data visualization with matplotlib &#8212; Introduction to Computation for the Physics Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=1eab469f" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css?v=57676931" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=7a746245" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css?v=955514d0" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/theme.css?v=56fe03d6" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=1eab469f" />
+    <link rel="stylesheet" type="text/css" href="../_static/vendor/fontawesome/5.13.0/css/all.min.css?v=15a2c3a3" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/documentation_options.js?v=8801b33a"></script>
+    <script src="../_static/doctools.js?v=00f2d9dc"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=ea7449e6"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_04_datavis';</script>
+    <script src="../_static/underscore.js?v=e1a751a7"></script>
+    <script src="../_static/documentation_options.js?v=8801b33a"></script>
+    <script src="../_static/searchtools.js?v=9d349e53"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/jquery-3.5.1.js?v=9650c068"></script>
+    <script src="../_static/language_data.js?v=201d643d"></script>
+    <script src="../_static/copybutton_funcs.js?v=776a791e"></script>
+    <script src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script src="../_static/doctools.js?v=00f2d9dc"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/jquery.js?v=3d1d8b85"></script>
+    <script src="../_static/underscore-1.13.1.js?v=6d13b6bf"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=ea7449e6"></script>
+    <script src="../_static/scripts/pydata-sphinx-theme.js?v=2860a353"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Fitting models to data" href="scicomp_05_fitting.html" />
+    <link rel="next" title="6. Fitting models to data" href="scicomp_05_fitting.html" />
     <link rel="prev" title="4. File I/O" href="scicomp_03_fileio.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/wj_horiz_color.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Computation for the Physics Sciences</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Introduction to Computation for the Physics Sciences - Home"/>
+    <script>document.write(`<img src="../_static/wj_horiz_color.png" class="logo__image only-dark" alt="Introduction to Computation for the Physics Sciences - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,551 +204,292 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  I. Python basics
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Python basics</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_00_basics.html">
-   1. Basic syntax, variables, functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_01_controlstructs.html">
-   2. Control structures, numerical integration
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_02_typescontainers.html">
-   3. Types, random numbers, lists, dictionaries
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_03_fileio.html">
-   4. File I/O
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_00_basics.html">1. Basic syntax, variables, functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_01_controlstructs.html">2. Control structures, numerical integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_02_typescontainers.html">3. Types, random numbers, lists, dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_03_fileio.html">4. File I/O</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  II. Techniques for the physical sciences
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   1. Data visualization with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     matplotlib
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_05_fitting.html">
-   2. Fitting models to data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_07_ODEs.html">
-   3. Simulating solutions to differential equations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_08_montecarlo.html">
-   4. Monte Carlo
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_09_pandas.html">
-   5. Manipulating tabular data with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     Pandas
-    </span>
-   </code>
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">6. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">7. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">8. Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">9. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">10. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  III. Optional (but fun)
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_06_textasdata.html">
-   1. Text as data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_10_circuitpython.html">
-   2. Python on microcontrollers with
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     circuitpython
-    </span>
-   </code>
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  IV. Projects
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="scicomp_z0_ll_analysis.html">
-   Di-lepton mass spectrum from the Compact Muon Solenoid
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">11. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">12. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/chapters_ipynb/scicomp_04_datavis.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
+  <ul class="dropdown-menu">
+      
+      
       
       <li>
-        
 <button onclick="initThebeSBT()"
-  class="headerbtn headerbtn-launch-thebe"
-  data-toggle="tooltip"
-data-placement="left"
-title="Launch Thebe"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-play"></i>
   </span>
-<span class="headerbtn__text-container">Live Code</span>
+<span class="btn__text-container">Live Code</span>
 </button>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_04_datavis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters_ipynb/scicomp_04_datavis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_04_datavis.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters_ipynb/scicomp_04_datavis.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recap-intro">
-   1.1. Recap/Intro
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   1.2. Motivation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-visualization-as-an-idea">
-   1.3. Data Visualization as an idea
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-analysis-evidence">
-     Data –&gt; Analysis –&gt; Evidence
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#matplotlib">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         matplotlib
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#histograms">
-   1.4. Histograms
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#warm-up-problem">
-     Warm-up problem
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#graphing-bi-variate-data-i-e-2-d-graphs">
-   1.5. Graphing bi-variate data (
-   <em>
-    i.e.
-   </em>
-   , 2-d graphs)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#subplots">
-     Subplots
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#error-bars">
-   1.6. Error bars
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#higher-dimensions">
-   1.7. Higher dimensions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problems">
-   1.8. Problems
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regulars">
-     Regulars
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#semi-meanies">
-     Semi-meanies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#meanies">
-     Meanies
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Data visualization with matplotlib</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recap-intro">
-   1.1. Recap/Intro
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   1.2. Motivation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-visualization-as-an-idea">
-   1.3. Data Visualization as an idea
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-analysis-evidence">
-     Data –&gt; Analysis –&gt; Evidence
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#matplotlib">
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         matplotlib
-        </span>
-       </code>
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#histograms">
-   1.4. Histograms
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#warm-up-problem">
-     Warm-up problem
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#graphing-bi-variate-data-i-e-2-d-graphs">
-   1.5. Graphing bi-variate data (
-   <em>
-    i.e.
-   </em>
-   , 2-d graphs)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#subplots">
-     Subplots
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#error-bars">
-   1.6. Error bars
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#higher-dimensions">
-   1.7. Higher dimensions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#problems">
-   1.8. Problems
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#regulars">
-     Regulars
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#semi-meanies">
-     Semi-meanies
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#meanies">
-     Meanies
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data visualization with matplotlib</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-intro">5.1. Recap/Intro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">5.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-as-an-idea">5.3. Data Visualization as an idea</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-evidence">Data –&gt; Analysis –&gt; Evidence</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">5.4. Histograms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing-bi-variate-data-i-e-2-d-graphs">5.5. Graphing bi-variate data (<em>i.e.</em>, 2-d graphs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-bars">5.6. Error bars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensions">5.7. Higher dimensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">5.8. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="data-visualization-with-matplotlib">
-<h1><span class="section-number">1. </span>Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#data-visualization-with-matplotlib" title="Permalink to this headline">#</a></h1>
+<h1><span class="section-number">5. </span>Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#data-visualization-with-matplotlib" title="Link to this heading">#</a></h1>
 <section id="recap-intro">
-<h2><span class="section-number">1.1. </span>Recap/Intro<a class="headerlink" href="#recap-intro" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.1. </span>Recap/Intro<a class="headerlink" href="#recap-intro" title="Link to this heading">#</a></h2>
 <p>Here we are 4+1 lessons in and we’ve covered lots of basic computation ideas and <code class="docutils literal notranslate"><span class="pre">python</span></code> structures.  Here’s a not-even-close-to-comprehensive, non-chronological list:</p>
 <ul class="simple">
 <li><p>basic mathematical operations</p></li>
@@ -676,7 +506,7 @@ title="Print to PDF"
 <p>Today we’ll look at a skill that will touch on all of the foundational skills above: Data Visualization (<em>i.e.</em>, making graphs [and other things like graphs]).  Data Visualization is one of the ways in which computing has truly changed science and society by giving humans access to new ways of understanding complex systems or relationships!  We will cover the basics of data visualization with <code class="docutils literal notranslate"><span class="pre">python</span></code>, but there is SO MUCH MORE!</p>
 </section>
 <section id="motivation">
-<h2><span class="section-number">1.2. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.2. </span>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
 <p>For our motivation for this lesson, we’ll look at some beautiful visualizations of quantitative information:</p>
 <ul class="simple">
 <li><p>Charles Joseph Minard, <a class="reference external" href="https://www.edwardtufte.com/tufte/minard"><em>Figurative Chart of [Napoleon’s retreat from Moscow]</em></a> (1869).  <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png">(high resolution from WikiPedia)</a>
@@ -690,15 +520,15 @@ title="Print to PDF"
 </section>
 <hr class="docutils" />
 <section id="data-visualization-as-an-idea">
-<h2><span class="section-number">1.3. </span>Data Visualization as an idea<a class="headerlink" href="#data-visualization-as-an-idea" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.3. </span>Data Visualization as an idea<a class="headerlink" href="#data-visualization-as-an-idea" title="Link to this heading">#</a></h2>
 <p>A “data visualization” is a visual representation of quantitative information in some form that is intuitively digestible to human brains.  “Good” visualizations allow the user to derive understanding and meaning from quantitative information that would be otherwise unintelligible, hidden, or high-level.  “Bad” visualizations either do not allow for understanding (<em>i.e.</em>, they are confusing or unintuitive) or lead the user to a <em>wrong/incorrect</em> understanding.  Note that some (many?) visualizations are <strong>intentionally</strong> misleading – a bad actor might consider a bad visualization (as defined above) to be good!</p>
 <p>Making a good/effective visualization involves quantitive literacy, technical skill (programming in this case), creativity, artistry/style, and psychology.  That said, there seems to be a core set of <em>types</em> of data visualizations, things like time-series data, histograms, and bi-variate scatter plots.  In many cases, the understanding that we hope to gain from data can be conveyed via one of these standard types.</p>
 <p>That said, we now live in an era of complex, multidimensional datasets – having more flexible visualization tools allows researchers to develop new ways to seek meaning in data, rather than having tools dictate what meaning we can seek.</p>
 <section id="data-analysis-evidence">
-<h3>Data –&gt; Analysis –&gt; Evidence<a class="headerlink" href="#data-analysis-evidence" title="Permalink to this headline">#</a></h3>
+<h3>Data –&gt; Analysis –&gt; Evidence<a class="headerlink" href="#data-analysis-evidence" title="Link to this heading">#</a></h3>
 <p>The programming skills that we’ve learned so far form the backbone of data analysis.  With a few simple visualization tools, we will be able to turn our analyses into compelling evidence.</p>
 <section id="matplotlib">
-<h4><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code><a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h4>
 <p>I’ve mentioned before that <code class="docutils literal notranslate"><span class="pre">python</span></code> is an open-source project.
 This means that many wonderful and smart people (maybe you soon!) write fabulous modules for <code class="docutils literal notranslate"><span class="pre">python</span></code> and then make this work available to the broader <code class="docutils literal notranslate"><span class="pre">python</span></code> community as modules/libraries.  Because <code class="docutils literal notranslate"><span class="pre">python</span></code> is used by so many wonderful folks in the natural and data sciences, many of these modules are designed to do <em>exactly</em> the types of things that we want to do in this class.</p>
 <p>One such module, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, is a comprehensive suite for data visualization.  In this notebook, we’ll use <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to produce a few of the basic visualization types.</p>
@@ -708,7 +538,7 @@ This means that many wonderful and smart people (maybe you soon!) write fabulous
 </section>
 <hr class="docutils" />
 <section id="histograms">
-<h2><span class="section-number">1.4. </span>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.4. </span>Histograms<a class="headerlink" href="#histograms" title="Link to this heading">#</a></h2>
 <p>Suppose we have a dataset that is a collection of values of a <em>single type</em> (imagine a single column in a spreadsheet).
 Examples would be like US household incomes from a census, or students’ grades on an exam in a given class.  You might think about calculating the mean, median, and mode values of the data, but these individual values probably are not a comprehensive characterization of the data.  If I tell you that the average score on an exam was 75%, did everyone get a 75% or did half the class ace the exam and the other half fail???</p>
 <p>We could certainly open the file that contains this data and just scroll through it, hoping to gain some insight about how the values are distributed, but for large datasets it’s unlikely that this will yield any (correct) understanding.</p>
@@ -744,7 +574,17 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_04_datavis_6_0.png" src="../_images/scicomp_04_datavis_6_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/dice_data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">total_rolls</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>I’ll walk you through each piece of the code above, but there are two things to mention explicitly.</p>
@@ -754,7 +594,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </ul>
 <p>Let’s talk about the actual distribution!  It’s not very surprising.  There a more combinations that can add up to 7 than there are that can add to 2 or 12, so we see a greater number of 7 rolls.  Nothing shocking here.</p>
 <section id="warm-up-problem">
-<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Permalink to this headline">#</a></h3>
+<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Link to this heading">#</a></h3>
 <p>Now change the code above to plot the individual rolls of die 1 and then die 2.  See if you can plot these two histograms on the same canvas/axes.  Is something funky going on?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -781,7 +621,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_04_datavis_10_0.png" src="../_images/scicomp_04_datavis_10_0.png" />
+<img alt="../_images/28cbf5f1ceead39117c47fde4a52a8b027c68fd7b0868409e6f8231fe093854b.png" src="../_images/28cbf5f1ceead39117c47fde4a52a8b027c68fd7b0868409e6f8231fe093854b.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -816,7 +656,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_04_datavis_12_0.png" src="../_images/scicomp_04_datavis_12_0.png" />
+<img alt="../_images/a8d914fe3f661078ab2c4e70ae5632fc3f39be9bbd4cd9aadcd5d1bb3c6b963d.png" src="../_images/a8d914fe3f661078ab2c4e70ae5632fc3f39be9bbd4cd9aadcd5d1bb3c6b963d.png" />
 </div>
 </div>
 <p>Holy cats, that looks good!  It’s important to point out that all of the business of making this histogram happens in the last seven (!) lines of code of the cell above.  WOW!</p>
@@ -824,7 +664,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </section>
 <hr class="docutils" />
 <section id="graphing-bi-variate-data-i-e-2-d-graphs">
-<h2><span class="section-number">1.5. </span>Graphing bi-variate data (<em>i.e.</em>, 2-d graphs)<a class="headerlink" href="#graphing-bi-variate-data-i-e-2-d-graphs" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.5. </span>Graphing bi-variate data (<em>i.e.</em>, 2-d graphs)<a class="headerlink" href="#graphing-bi-variate-data-i-e-2-d-graphs" title="Link to this heading">#</a></h2>
 <p>Bi-variate visualizations, that is visualizations showing the relationship between two variables, seem to be a sweet spot for human comprehension.  This could be for many reasons!  One possible explanation is that we live in 3 spatial dimensions, which makes projections of data onto 2-d surfaces (like paper or screens) fairly easy to do.  Another possible explanation is that until fairly recently, it has been difficult to make graphs of more than two variables and this means we just have more experience digesting 2-d visualizations.  Regardless of <em>why</em> we like 2-d visualizations, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> makes it quite easy to make them.</p>
 <p>Let’s take a look at a dataset of deaths in major US cities.  [I know this is morbid, but this is a great example of learning something unexpected from a dataset.]  The block of code below reads in data from a file containing weekly mortality data from major US cities during the period 1962-2016.  It’s a lot of data!  Check out the header line in the file for more info.  The code below allows us to select a particular city’s data for graphing.</p>
 <div class="cell docutils container">
@@ -865,7 +705,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_04_datavis_15_0.png" src="../_images/scicomp_04_datavis_15_0.png" />
+<img alt="../_images/df49ed4536629a6d9ce30c632c727cf67144bd7cc51458f4aad6699e011f9353.png" src="../_images/df49ed4536629a6d9ce30c632c727cf67144bd7cc51458f4aad6699e011f9353.png" />
 </div>
 </div>
 <p>Very interesting!  This is an example of a <strong>time-series</strong> visualization or time-series data – we’re seeing the variation in a quantity versus time.  Change the code above to look at data from other US cities and see if you can formulate some demographic hypotheses!</p>
@@ -898,7 +738,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_04_datavis_17_0.png" src="../_images/scicomp_04_datavis_17_0.png" />
+<img alt="../_images/689dd807a486311d185597f701e2bd1e58daca92e24ad11fae39c6e296c7fe8f.png" src="../_images/689dd807a486311d185597f701e2bd1e58daca92e24ad11fae39c6e296c7fe8f.png" />
 </div>
 </div>
 <p>So, that’s how you make a simple plot!  The independent variable quantities are represented by a numpy array (<code class="docutils literal notranslate"><span class="pre">t_arr</span></code>) and the dependent variable quantities are represented by another numpy array (<code class="docutils literal notranslate"><span class="pre">y_arr</span></code>).  The default formatting of the graph is pretty good looking.</p>
@@ -944,14 +784,14 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_04_datavis_19_0.png" src="../_images/scicomp_04_datavis_19_0.png" />
+<img alt="../_images/647a9cd8312847e286e5489683a62578e249fd7097416fdd086397bc7d69fa4b.png" src="../_images/647a9cd8312847e286e5489683a62578e249fd7097416fdd086397bc7d69fa4b.png" />
 </div>
 </div>
 <p>Yowza, that looks professional.  So, what’s going on here is that we generate arrays of x and y values that <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> will then graph.  We can’t just tell <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> what the function is and then ask it to make a graph.  This might sound like an extra step, but it gives us a lot of control that we might want to exercise later.</p>
 <p>Notice that because these are continuous functions (even though our arrays of values are not continuous) we display them with the points connected.</p>
 <p>Also notice that <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> automagically handles a lot of the formatting here!  It puts the second curve on the same set of axes and changes its default color so that we can tell the two functions apart.  The legend is super simple to add, too!</p>
 <section id="subplots">
-<h3>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline">#</a></h3>
+<h3>Subplots<a class="headerlink" href="#subplots" title="Link to this heading">#</a></h3>
 <p>What if we want the two graphs on separate axes right next to one another?  We can create subplots of the figure to put the graphs where we want them.  <code class="docutils literal notranslate"><span class="pre">subplot</span></code> accesses individual elements of a grid of plots.  Let’s create a grid with 1 row and 2 columns:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -973,14 +813,14 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_04_datavis_21_0.png" src="../_images/scicomp_04_datavis_21_0.png" />
+<img alt="../_images/75518bfb10c9639ae631464469dc28c39be5ce1c7d4e6d5e9645492250fc9822.png" src="../_images/75518bfb10c9639ae631464469dc28c39be5ce1c7d4e6d5e9645492250fc9822.png" />
 </div>
 </div>
 </section>
 </section>
 <hr class="docutils" />
 <section id="error-bars">
-<h2><span class="section-number">1.6. </span>Error bars<a class="headerlink" href="#error-bars" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.6. </span>Error bars<a class="headerlink" href="#error-bars" title="Link to this heading">#</a></h2>
 <p>This class is about applying computation to scientific research.
 Scientific research is based on predictions and measurements.
 Predictions and measurements have associated with them precision or uncertainty or “error”.
@@ -1020,7 +860,7 @@ In a bivariate visualization of discrete data points this is typically done with
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_04_datavis_23_0.png" src="../_images/scicomp_04_datavis_23_0.png" />
+<img alt="../_images/e1c9929fa5f4ee5fc5d1ccffe12a7e3c4de9df149ab30e8201d3a4aa3e1c7884.png" src="../_images/e1c9929fa5f4ee5fc5d1ccffe12a7e3c4de9df149ab30e8201d3a4aa3e1c7884.png" />
 </div>
 </div>
 <p>The crosses in the plot above are NOT just markers!  There is information contained in the lengths of the error bars.  We’ll talk about how we use that information in the next lesson.</p>
@@ -1028,7 +868,7 @@ In a bivariate visualization of discrete data points this is typically done with
 </section>
 <hr class="docutils" />
 <section id="higher-dimensions">
-<h2><span class="section-number">1.7. </span>Higher dimensions<a class="headerlink" href="#higher-dimensions" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.7. </span>Higher dimensions<a class="headerlink" href="#higher-dimensions" title="Link to this heading">#</a></h2>
 <p>We’ve mostly been living in 2-d in this notebook.  Histograms allowed us to visualize 1-d data in 2-d. Bi-variate graphs visualize 2-d data in 2-d.  What if our data has more features/dimensions?  What do we do?  Holograms?  Metaverse?</p>
 <p>One thing that we could do is project a 3-d visualization into 2 dimensions.  Picture a trajectory of a particle in 3 dimensions projected onto a 2-dimensional screen… you know, like a video game!  You can check out <code class="docutils literal notranslate"><span class="pre">plot3d</span></code> and <code class="docutils literal notranslate"><span class="pre">scatter3d</span></code> if you’re interested in projections like this.</p>
 <p>We can actually cram a lot more information into a 2-d graph than afforded by the horizontal and vertical axes!  Think about how many different types of information were shown in the Minard graphic at the top of this notebook.  We can control other features of a graph such as marker shape, size, and color to convey information.  Using <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> you have tons of control over these features.  Here’s a simple example:</p>
@@ -1048,18 +888,18 @@ In a bivariate visualization of discrete data points this is typically done with
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/scicomp_04_datavis_26_0.png" src="../_images/scicomp_04_datavis_26_0.png" />
+<img alt="../_images/fe3915a3fbe156e4b2adcb694a8a9f2497bc2445a7196d5976a7e90ec1d33958.png" src="../_images/fe3915a3fbe156e4b2adcb694a8a9f2497bc2445a7196d5976a7e90ec1d33958.png" />
 </div>
 </div>
 <p>The data here is meaningless, but one of your future projects will be to make a scatter plot that displays 3 or more dimensions of information.</p>
 </section>
 <hr class="docutils" />
 <section id="problems">
-<h2><span class="section-number">1.8. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">#</a></h2>
+<h2><span class="section-number">5.8. </span>Problems<a class="headerlink" href="#problems" title="Link to this heading">#</a></h2>
 <p>Your homework is to complete 3 of the following problems.</p>
 <section id="regulars">
-<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this headline">#</a></h3>
-<ol class="simple">
+<h3>Regulars<a class="headerlink" href="#regulars" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>Return to he NBA dataset from the previous lesson.  Make a histogram of the final point differentials (team2 - team1) for all games from the dataset.  Your histogram should be divided into 1-point bins.  What is the most common final point differential (<em>i.e.</em>, the <em>mode</em>)?</p></li>
 <li><p>Return to the dice roll data from Lesson 3 problem set.  Make histograms of the total dice rolls <em>for each</em> croupier.  Display the two histograms on the same axes.</p></li>
 <li><p>The file <code class="docutils literal notranslate"><span class="pre">mammal_body_brain_masses_dataset.csv</span></code> contains average body and brain masses for different species of mammal (duh).  Add a column the file that contains whether the animals are quadrupedal or bipedal (you can do this in (gasp) Excel). Make a scatter plot of brain mass <em>vs</em> body mass with marker colors that indicate whether the animals are bipedal or quadrupedal.</p></li>
@@ -1067,14 +907,14 @@ In a bivariate visualization of discrete data points this is typically done with
 </ol>
 </section>
 <section id="semi-meanies">
-<h3>Semi-meanies<a class="headerlink" href="#semi-meanies" title="Permalink to this headline">#</a></h3>
-<ol class="simple">
+<h3>Semi-meanies<a class="headerlink" href="#semi-meanies" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="5">
 <li><p>Return to the dice roll data from Lesson 3 problem set.  Make histograms of the individual die rolls of the two croupiers (4 histograms in total).  Is something funky going on?</p></li>
 </ol>
 </section>
 <section id="meanies">
-<h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this headline">#</a></h3>
-<ol class="simple">
+<h3>Meanies<a class="headerlink" href="#meanies" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="6">
 <li><p>Return the NBA data.  Make a scatter plot of team1’s final score <em>vs</em> team2’s final score.  The point markers should be colored according to the point differential (team2 - team1) at halftime.</p></li>
 <li><p>Return to the NBA data.  For each season, compute the average final point differential (team2 - team1) and the standard deviation of point differential.  Then, make a graph of average point differential <em>vs</em> year with vertical error bars that indicate the standard deviation.</p></li>
 <li><p>Find an interesting dataset and make a graph that shows an interesting relationship between (at least two) interesting quantities.</p></li>
@@ -1095,7 +935,7 @@ In a bivariate visualization of discrete data points this is typically done with
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters_ipynb"
         },
         predefinedOutput: true
@@ -1103,50 +943,127 @@ In a bivariate visualization of discrete data points this is typically done with
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="scicomp_03_fileio.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">4. </span>File I/O</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="scicomp_05_fitting.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Fitting models to data</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Mike McCracken<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
 
-
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="scicomp_03_fileio.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>File I/O</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="scicomp_05_fitting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Fitting models to data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-intro">5.1. Recap/Intro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">5.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-as-an-idea">5.3. Data Visualization as an idea</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis-evidence">Data –&gt; Analysis –&gt; Evidence</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">5.4. Histograms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing-bi-variate-data-i-e-2-d-graphs">5.5. Graphing bi-variate data (<em>i.e.</em>, 2-d graphs)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-bars">5.6. Error bars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensions">5.7. Higher dimensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">5.8. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike McCracken
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
