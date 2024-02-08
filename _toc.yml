@@ -19,11 +19,12 @@ parts:
     - file: chapters_ipynb/scicomp_07_ODEs
     - file: chapters_ipynb/scicomp_08_montecarlo
     - file: chapters_ipynb/scicomp_09_pandas
+    - file: chapters_ipynb/scicomp_10_pandas_magic
   - caption: III. Optional (but fun)
     numbered: 2
     chapters:
     - file: chapters_ipynb/scicomp_06_textasdata
-    - file: chapters_ipynb/scicomp_10_circuitpython
+    - file: chapters_ipynb/scicomp_11_circuitpython
   - caption: "IV. Projects"
     chapters:
     - file: chapters_ipynb/scicomp_z0_ll_analysis
