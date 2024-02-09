@@ -1,0 +1,1000 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Di-lepton mass spectrum from the Compact Muon Solenoid &#8212; Introduction to Computation for the Physics Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_proj_z0_ll_analysis';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="2. Python on microcontrollers with circuitpython" href="scicomp_11_circuitpython.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/wj_horiz_color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="scicomp_00_basics.html">1. Basic syntax, variables, functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_01_controlstructs.html">2. Control structures, numerical integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_02_typescontainers.html">3. Types, random numbers, lists, dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_03_fileio.html">4. File I/O</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">1. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">2. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">3. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">4. Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">5. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">1. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">2. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Di-lepton mass spectrum from the Compact Muon Solenoid</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_proj_z0_ll_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters_ipynb/scicomp_proj_z0_ll_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Di-lepton mass spectrum from the Compact Muon Solenoid</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physics-background">Physics background</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-hep">What is HEP?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#before-moving-on">Before moving on</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-study-the-fundamental-interactions">How do we study the fundamental interactions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i-production">I. Production</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-detection">II. Detection</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-analysis">III. Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-we-doing-here">What are we doing here?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relativistic-kinematics-and-conservation-laws">Relativistic kinematics and conservation laws</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#units">Units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before moving on</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-conservation-laws">Discrete conservation laws</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-lhc-cms">What is the LHC?  CMS?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-resources">Other resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relativistic-mechanics">Relativistic mechanics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-particles-and-interactions-concepts">Fundamental particles and interactions: Concepts</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-properties-pro-level-info">Particle properties: Pro-level info</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-recap">Programming recap</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramming-and-fitting-a-refresher">Histogramming and fitting, a refresher</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#di-electron-analysis">Di-electron analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#di-muon-analysis">Di-muon analysis</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="di-lepton-mass-spectrum-from-the-compact-muon-solenoid">
+<h1>Di-lepton mass spectrum from the Compact Muon Solenoid<a class="headerlink" href="#di-lepton-mass-spectrum-from-the-compact-muon-solenoid" title="Permalink to this heading">#</a></h1>
+<p>In this project, you will analayze <em>real</em> data collected by the Compact Muon Solenoid (CMS) at the Large Hadron Collider (LHC) to “discover” several unstable particles.  This notebook describes the background and steps you will take to mimic (in spirit) several Nobel Prize-winning analyses*… all from the comfort of your keyboard.</p>
+<p>*Ok, you won’t be designing or building the detectors, merely analyzing the high-level data.</p>
+<p>This document is divided into several sections:</p>
+<ol class="arabic simple">
+<li><p><strong>Physics background.</strong></p>
+<ul class="simple">
+<li><p>What is HEP?</p></li>
+<li><p>How do we study the fundamental interactions?</p></li>
+<li><p>Relativistic kinematics and conservation laws</p></li>
+<li><p>What are the LHC and CMS, and roughly how do they work?</p></li>
+<li><p>Other resources</p></li>
+</ul>
+</li>
+<li><p><strong>Programming recap</strong>.</p>
+<ul class="simple">
+<li><p>Histogramming and fitting, a refresher</p></li>
+</ul>
+</li>
+<li><p><strong>Analysis</strong></p>
+<ul class="simple">
+<li><p>Di-electron dataset</p></li>
+<li><p>Di-muon dataset</p></li>
+</ul>
+</li>
+</ol>
+<p>The first four sections explain the necessary physics background and provide resources for further reading.  The last two sections walk you through the analysis of two datasets.  You will use numerical results and plots generated in the last two sections to produce an overview of your analysis.</p>
+<section id="physics-background">
+<h2>Physics background<a class="headerlink" href="#physics-background" title="Permalink to this heading">#</a></h2>
+<section id="what-is-hep">
+<h3>What is HEP?<a class="headerlink" href="#what-is-hep" title="Permalink to this heading">#</a></h3>
+<p><strong>High-energy physics (HEP)</strong> is the field of physics that studies the fundamental forces at play in our universe.  “Fundamental” refers to the <em>reductionist</em> perspective of understanding complex systems in terms of their constituent parts.</p>
+<p>For example, if you consider your own study of physics, you began with interactions between macroscopic objects.  Let’s say you want to understand how the Golden Gate Bridge works.  Yikes, it’s a complicated thing composed of many girders, cables, <em>etc.</em>  So, what we do is consider its constituent parts, say individual interactions between chunks of the structure that are connected by steel cables.  We assume that if we can understand the properties of all of the chunks that make up the bridge, we can understand the properties of the bridge as a whole.</p>
+<p>For each chunk we investigate the tension forces applied by the steel cables connected to it.  Intro Physics I, you were given a macroscopic model of how a rope applies tension forces to the objects (<em>i.e.</em>, along the direction of the cable, characterized by uniform tension).</p>
+<p>Then, in Intro Physics II you became more sophisticated and learned that the rope is made of atoms, and the atoms are held together by electromagnetic forces.  The reductionist approach assumes that if we understand the the behavior/properties of the microscopic atoms that compose the cable, we can predict the properties of the macroscopic cable.</p>
+<p>If you’ve taken a course in Modern Physics (intro quantum mechanics), you’ve probably learned that the cable’s atoms are composed of smaller particles, namely electrons, protons, and neutrons.  The reductionst approach assumes that if we understand the properties of the sub-atomic particles, we can in principle predict the properties of the atoms in the cable (and thus the behavior of the cable [and thus the properties of the bridge]).</p>
+<p>It should be noted that this is not how most bridge engineers go about their business – they don’t start with the Schrödinger equation when designing their bridges.  However, there are systems for which we <strong>need</strong> to understand the large-scale properties of the system (more on this later).</p>
+<p><strong>High-energy Physics</strong> is what we get when we take the reductionist perspective to its limit.  HEP studies the smallest constituents of matter, “particles”, that make up our universe.  These particles are fundamental in the sense that they have no sub-structure.  We know that bridges, cables, and atoms are not fundamental particles because they are composed of smaller entities.  To the contrary, we currently believe that electrons (for example) are fundamental particles because we have no evidence that they are composed of smaller entities!  For this reason, we sometimes refer to HEP as “particle physics”.</p>
+<p>So, high-energy physicists study (<em>i.e.</em>, try to determine the properties of) the smallest bits of matter.  A vital part of what we mean by “properties” is the ways in which these particles interact with one another.  At present, we know of only four types of interactions that can happen between fundamental particles, which we give the following names:</p>
+<ul class="simple">
+<li><p>Electromagnetic interaction</p></li>
+<li><p>Strong interaction</p></li>
+<li><p>Weak interaction</p></li>
+<li><p>Gravitational interaction
+You can think of these as the “rules” by which the particles interact.</p></li>
+</ul>
+<p>The first three of these are fairly well understood in the realm of HEP; the fourth (which is possibly the first interaction you studied in PHY 107) is not.  Weird.</p>
+<p>If the reductionist approach holds, we should be able to understand the large-scale behavior/properties of the Universe (capital U) from the properties of the fundamental particles.  The history and large-scale structure of our Universe turns out to depend meaningfully on these fundamental interactions!  While a bridge engineer can ignore the Strong interaction, a cosmologist cannot!</p>
+<p><strong>The Standard Model</strong> (SM) of Particle Physics is the framework by which we currently understand these fundamental interactions.  The SM describes (mathematically) the ways in which the fundamental particles interact.  It allows us (well, theorists) to predict what will happen when two or more fundamental particles interact, and we (well, HEP experimenters) can then measure those interaction in the laboratory to see if the predictions are correct.  The SM is an insanely successful scientific theory.  Many aspects of it have been tested in the laboratory tens of thousands of times.  It has been used to predict the existence of new particles that were then discovered in the laboratory.  Its predictions have been confirmed by experiments to precision of parts per trillion!  And yet, we know it’s wrong or at least incomplete.</p>
+<p>The SM and our current understanding of HEP is provisional!  That is, the particles in the SM are those for which we don’t have any evidence of sub-structure.</p>
+<section id="before-moving-on">
+<h4>Before moving on<a class="headerlink" href="#before-moving-on" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Use materials linked in the “Other Resources” section below to make a spreadsheet containing <em>all</em> of the fundamental particles.  The first column should be particle names/symbols and each row should be a single particle for a total of 17 data rows.  Organize the rows so that leptons come first, quarks come second, and gauge bosons come third.  You do not need to include antiparticles.</p></li>
+<li><p>Add columns to the spreadsheet that give the particles’ masses, electric charges, and spins.  (Recall that spin is a type of angular momentum that is intrinsic to each particle type.)</p></li>
+<li><p>Add a column that lists the interactions that each particle participates in.</p></li>
+<li><p>Add a column that lists each particle’s antiparticle.  (Some particles may be their own antiparticles!)</p></li>
+<li><p>Add a column that lists when each of the particles was first discovered/observed in experiments.</p></li>
+<li><p>Find definitions for the following terms: hadrons, mesons, baryons.</p></li>
+<li><p>We sometimes divide the fundamental particles into two broad groups: the fermions and the (gauge) bosons.  What are the differences between these two groups?</p></li>
+<li><p>Roughly how many mesons are listed in the PDG (see “Other resources” below)?</p></li>
+</ol>
+</section>
+</section>
+<section id="how-do-we-study-the-fundamental-interactions">
+<h3>How do we study the fundamental interactions?<a class="headerlink" href="#how-do-we-study-the-fundamental-interactions" title="Permalink to this heading">#</a></h3>
+<p>Studying fundamental particles and their interactions is complicated by two main issues:</p>
+<ol class="arabic simple">
+<li><p><strong>Instability</strong>: Of the SM particles that you entered into your table, only a handful are stable on the order of seconds or longer: electrons, neutrinos, possibly <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(d\)</span> quarks (when they are bound into protons or neutrons).  Once created, the other particles may only live for fractions of a second – lifetimes range between <span class="math notranslate nohighlight">\(10^{-23}\)</span> and <span class="math notranslate nohighlight">\(10^{-8}\)</span> seconds.  So, even forming a sample of these particles to study is incredibly difficult – one can’t just go to WalMart and get a bag of Great Value-brand Tau Leptons.  The short lifetimes also mean that these particles do not travel very far before decaying.</p></li>
+<li><p><strong>Dimension</strong>: Their dimensions (if any) make these particles wayyyyyy to small to “see” by normal methods.  At present, physicists have determined that particles of the SM have no sub-structure down to a scale of about <span class="math notranslate nohighlight">\(10^{-19}\)</span> m.  Keeping in mind that visible light has a wavelength approximately <span class="math notranslate nohighlight">\(10^{12}\)</span> times larger than this, we have no hope of “imaging” these particles in the same way that we would macroscopic objects or even molecular or crystalline structure.</p></li>
+</ol>
+<p>Experimental HEP research can be thought to happen in three phases:</p>
+<section id="i-production">
+<h4>I. Production<a class="headerlink" href="#i-production" title="Permalink to this heading">#</a></h4>
+<p>We must first produce the particles that we want to study.  This is typically done by colliding high-energy stable or stable-ish particles (electrons, protons, neutrons, neutrinos, or some rarer options) into matter.  Quantum Mechanics and Special Relativity allow for these collisions (if energetic enough) to produce new short-lived particles or bound-states of particles.  For more on this, please watch <a class="reference external" href="https://www.youtube.com/watch?v=so2nCu2Jkbc&amp;ab_channel=CERN">this short video</a>.  This can be done in a laboratory with a particle accelerator that can be designed/tuned for a given experimental set-up, or, less commonly, using high-energy cosmic rays or particles that are produced by nuclear reactors.</p>
+<p>It should be mentioned that one doesn’t simply decide to do this and then walk into the lab and do it!  Particle accelerators and collider experiments require lots of time (decades), money (tens of millions to billions of dollars), and people (thousands per experiment) to design, construct, and calibrate.</p>
+<p>In this module, you’ll analyze data from collision events that were produced by the Large Hadron Collider at CERN in 2010.  The LHC accelerates two beams of protons in opposite directions around a roughly circular accelerator.  The beams are made to cross one another in several experimental halls, causing protons in the beams to collide.</p>
+</section>
+<section id="ii-detection">
+<h4>II. Detection<a class="headerlink" href="#ii-detection" title="Permalink to this heading">#</a></h4>
+<p>The particles or bound states produced in a collision then decay into stable or stable-ish particles that we can observe.  Only a small number of particles live long enough for us to register them with a detector: electrons, muons, protons, neutrons, pions, kaons, neutrinos (but difficult to detect).  Notice that I’ve been very careful to not say “detect directly” – these things are too small to see, and we have to rely on their effect on the materials that make up our detector to intuit their presence.</p>
+<p>For more on this, please watch <a class="reference external" href="https://www.youtube.com/watch?v=pW4LTunlXS4&amp;ab_channel=CERN">this short video</a>.</p>
+<p>Detectors come in two main varieties (with a few smaller categories that we won’t discuss).  First, there are spectrometers which measure the bending of a charged particle’s trajectory as it passes through a magnetic field.  You may recall from E&amp;M that the direction of curvature depends on the direction of the magnetic field (<span class="math notranslate nohighlight">\(\vec{B}\)</span>) and the charge of the particle (<span class="math notranslate nohighlight">\(q\)</span>). Furthermore, the radius of curvature of the track depends on the magnetic field magnitude, the charge of the particle, and the <em>momentum</em> of the particle (<span class="math notranslate nohighlight">\(p\)</span>).  Most large particle detectors have a magnetic field and “tracking” detectors that observe particles’ trajectories as they pass through the field. If you’ve ever used a mass spectrometer in a chemistry course, precisely the same principle is at play here.</p>
+<p>Second, there are calorimeters which measure the energy that a particle deposits in a detector as the particle crashes into the material that composes the detector.  Calorimeters typically combine a dense material such as lead with a scintillating material.  When a high-energy proton (say) passes through the lead, it produces photons and charged particles (sometimes called a “shower” of particles).  These particles then pass into the scintillator, which “scintillates” (produces light) proportional to the energies of the particles that pass through it.  The scintillation light is collected and modeling allows physicists to determine the energy of the initial particle.</p>
+<p>Individual detector components measure so-called low-level signals: voltages and currents.  Through a complicated algorithmic process, these low-level signals are processed to tell us the momenta and energies of particles’ tracks.  Designing and understanding a detector that can do this is an <em>enormous</em> undertaking, and, like accelerators, modern particle detectors are overwhelmingly complicated (see resources below).  You will be analyzing data collected by the Compact Muon Solenoid detector at CERN.</p>
+<p>We’ll see below that determining the charge, energy, and momentum of a particle allows us to determine what type of particle it is, even though we never directly observe it!</p>
+</section>
+<section id="iii-analysis">
+<h4>III. Analysis<a class="headerlink" href="#iii-analysis" title="Permalink to this heading">#</a></h4>
+<p>The final(-ish) stage of a HEP experiment is analysis, in which physicists take the energies and momenta of detected particles and apply physics to investigate the properties of the short-lived particles and their interactions at the time of production.<br />
+Though the operations of accelerators and detectors are very complicated, the basic tools of the analysis stage are pretty simple: conservation of energy, momentum, and charge.  (Notice that mass is not on this list!)</p>
+<p>For more information, please watch <a class="reference external" href="https://www.youtube.com/watch?v=8-WFBGCvv-w&amp;ab_channel=CERN">this short video</a>.</p>
+<p>HEP is a field driven by high statistics.  The resources linked below can give you some idea of how much data a modern HEP experiment produces. (CMS has an event rate of about 40 MHz – 40 million proton-proton collisions per second!)  Analysis must be done by computers.  SURPRISE!  That’s why we’re in a Jupyter notebook :^)</p>
+<p>The analysis stage constitutes only a small fraction of the effort that goes into doing particle physics.  Very few accelerators and detectors are build with a single analysis or result in mind; that is, most experimental apparatus are intended to be as general-purpose as possible.  If these experiments are well designed and built successfully, they will allow for decades worth of analyses and results.</p>
+</section>
+<section id="what-are-we-doing-here">
+<h4>What are we doing here?<a class="headerlink" href="#what-are-we-doing-here" title="Permalink to this heading">#</a></h4>
+<p>In this module, you will analyze data from events produced by the LHC, detected by CMS, and pre-analyzed so that the datafiles contain only events with <span class="math notranslate nohighlight">\(e^-,e^+\)</span> or <span class="math notranslate nohighlight">\(\mu^-,\mu^+\)</span> pairs.  You will perform an analysis to determine what more massive particles the lepton/anti-lepton pairs may have decayed from, and to determine the properties of these parent particles.</p>
+</section>
+</section>
+<section id="relativistic-kinematics-and-conservation-laws">
+<h3>Relativistic kinematics and conservation laws<a class="headerlink" href="#relativistic-kinematics-and-conservation-laws" title="Permalink to this heading">#</a></h3>
+<p>In the previous section, we discussed how detectors tell us the charge, energy, and momentum of the particles that pass through it.  In almost all cases, these particles are <em>relativistic</em> – their speeds are close enough to <span class="math notranslate nohighlight">\(c\)</span> that we need to take into account relativistic effects!
+(One way to think about the term “HEP” is that the detected particles have high energy compared to their rest-mass energy.)</p>
+<p>Any modern physics textbook (see “Other resources” below) will have a chapter on relativistic energy and momentum; here we review the basics that you’ll need to do the analysis below.  Recall that for a particle with rest mass <span class="math notranslate nohighlight">\(m\)</span> and velocity <span class="math notranslate nohighlight">\(\vec{u}\)</span>, relativistic energy and momentum are given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c02cc4b1-c1eb-4b28-84df-61039312f540">
+<span class="eqno">(1)<a class="headerlink" href="#equation-c02cc4b1-c1eb-4b28-84df-61039312f540" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \vec{p} &amp;= \gamma m \vec{u} = \gamma m (u_x \hat{\imath} + u_y \hat{\jmath} + u_z \hat{k}) \\
+  E &amp;= \gamma m c^2
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\gamma = \left(1 - u^2/c^2\right)^{-\frac{1}{2}}\)</span> is commonly called the Lorentz factor.</p>
+<p>The detector might also measure the speed of the particle by considering its path through the detector and the time it takes to traverse this path.</p>
+<p>For a free particle (one traveling in the absence of a potential) the total energy is composed of the kinetic and rest-mass energy terms:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e639bea7-0ece-4f69-bcb8-563c8f3f9054">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e639bea7-0ece-4f69-bcb8-563c8f3f9054" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  E^2 = p^2c^2 + m^2 c^4.
+\end{equation}\]</div>
+<p>We can rearrange this equation to yield:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ab6968d5-6009-4bb7-a246-78859aeafa1c">
+<span class="eqno">(3)<a class="headerlink" href="#equation-ab6968d5-6009-4bb7-a246-78859aeafa1c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  m = \frac{1}{c^2}\sqrt{E^2 - p^2 c^2}.
+\end{equation}\]</div>
+<p>So if the detector measures the energy and momentum associated with a track, we can extract the mass of the particle that created the track.  Considering this mass and the charge (from the direction of the track’s curvature), we can identify the particle.
+As mentioned above, you’ll be working with two datasets: one with electron/positron pairs, and one with muon/anti-muon pairs.</p>
+<p>Though relativistic energy and momentum differ from their classical forms, these quantities still appear in conservation equations (independently).  Consider a process in which an unstable initial-state particle (<span class="math notranslate nohighlight">\(P\)</span>) decays into two particles <span class="math notranslate nohighlight">\(\ell_1\)</span> and <span class="math notranslate nohighlight">\(\ell_2\)</span>.  We write this decay reaction as <span class="math notranslate nohighlight">\(P \rightarrow \ell_1 \ell_2\)</span>.
+Conservation of energy forces the initial- and final-state energies to be equal,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6d1e5d1d-287f-4dac-af47-a9010e299131">
+<span class="eqno">(4)<a class="headerlink" href="#equation-6d1e5d1d-287f-4dac-af47-a9010e299131" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  E_{i} = E_{1} + E_{2} \implies E_{i}^2 = E_{1}^{2} + E_{2}^{2} + 2 E_{1}E_{2}
+\end{equation}\]</div>
+<p>and conservation of momentum foces the initial- and final-state momenta to be equal,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ab3700c9-1288-419e-b91d-5d0928b0542e">
+<span class="eqno">(5)<a class="headerlink" href="#equation-ab3700c9-1288-419e-b91d-5d0928b0542e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  \vec{p}_{i} = \vec{p}_{1} + \vec{p}_{2} \implies p_{i}^{2} = p_{iz}^{2} +p_{iy}^{2} +p_{iz}^{2} = p_{1}^{2} + p_{2}^{2} + 2\vec{p}_{1}\cdot \vec{p}_{2}.
+\end{equation}\]</div>
+<p>Combining all of this, we can write the mass of the parent particle as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-888c22bb-55c1-46a6-82a9-10e1013665b1">
+<span class="eqno">(6)<a class="headerlink" href="#equation-888c22bb-55c1-46a6-82a9-10e1013665b1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  m_P = \frac{1}{c^2}\sqrt{E_{i}^{2} - p_{i}^{2}c^2} = \; ... \; = \frac{1}{c^2} \sqrt{E_{i}^{2} - c^2 \left( p_{ix}^{2} + p_{iy}^{2} + {p}_{iz}^{2}\right)}
+\end{equation}\]</div>
+<p>This expression is sometimes referred to as the <em>invariant mass</em> of particles 1 and 2.
+If you’re interested in a more compact way to write all of this, you can read up on 4-vectors in any modern physics textbook.</p>
+<p>The last of these equations is what you will apply to your di-lepton datasets.  For each lepton/anti-lepton pair, you will calculate the invariant mass to see if it correlates with the mass of a known particle or bound state.</p>
+</section>
+<section id="units">
+<h3>Units<a class="headerlink" href="#units" title="Permalink to this heading">#</a></h3>
+<p>You’ll recall that the relativistic energy equation above can be interpreted as an equivalence between mass and energy, with some pesky factors of <span class="math notranslate nohighlight">\(c\)</span> in some terms.  High-energy physicists often use units of GeV for energy (that’s normal), GeV/<span class="math notranslate nohighlight">\(c\)</span> for momentum (less normal), and GeV/<span class="math notranslate nohighlight">\(c^2\)</span> for mass (that’s weird).  The advantage of doing so allows us to work in a system of units where <span class="math notranslate nohighlight">\(c = 1\)</span> and the equations above simplify immensely.  The dataset that you’ll work with below uses these units.</p>
+</section>
+<section id="id1">
+<h3>Before moving on<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Again, you may notice that the invariant mass of the parent particle <strong>does NOT</strong> obey a relationship like <span class="math notranslate nohighlight">\(m_i= m_1 + m_2\)</span>.  Why is this?</p>
+</section>
+<section id="discrete-conservation-laws">
+<h3>Discrete conservation laws<a class="headerlink" href="#discrete-conservation-laws" title="Permalink to this heading">#</a></h3>
+<p>In addition to conservation of energy and momentum – which we sometimes call conitnuous conservation laws because these quantities can take a continuum of values – there are several other <em>discrete</em> conservation laws.  Those relevant for your analysis are:</p>
+<ul class="simple">
+<li><p>Conservation of electric charge.  If each particle in the decay has electric charge (<span class="math notranslate nohighlight">\(q\)</span>), then <span class="math notranslate nohighlight">\(q_i = q_1 + q_2\)</span>.</p></li>
+<li><p>Conservation of angular momentum.  This is a bit more complicated, and unless you have taken an advanced course in QM addition of angular momentum will be a bit beyond the scope of this module.  For the time being, it is enough to recall that electrons and muons are spin-1/2 particles.  These spins (and the orbital angular momentum of the two leptons) must add to give the spin of the parent particle.  The parent particle must have whole-integer spin; <em>i.e.</em>, it must be a spin-0, spin-1, … particle.</p></li>
+</ul>
+</section>
+<section id="what-is-the-lhc-cms">
+<h3>What is the LHC?  CMS?<a class="headerlink" href="#what-is-the-lhc-cms" title="Permalink to this heading">#</a></h3>
+<p>The people that work on the LHC and its experiments produce amazing literature and explainers aimed at non-experts.  For information on CMS the <a class="reference external" href="https://cms.cern/detector">main CERN/CMS website</a> is excellent.  Click and read through all four subsections of “How CMS Works”.</p>
+<p>The LHC is just as important as the detectors in making discoveries… and <a class="reference external" href="https://home.cern/science/accelerators/large-hadron-collider">its website</a> is just as cool and informative.</p>
+<p>There are also many, many, many excellent videos about how these machines work and what they do.  Give the following a quick view:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=S99d9BQmGB0&amp;ab_channel=CMSExperiment">CMS Experiment – An Introduction to the CMS Experiment at CERN</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=q2rQbtkzkMs&amp;ab_channel=CERN">CERN – CMS prepares for HL-LHC</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=5r6vyZ2bykg&amp;ab_channel=SixtySymbols">Sixty Symbols – Inside the LHC (CMS)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=-0SKDXwHKkA&amp;ab_channel=SixtySymbols">Sixty Symbols – Working at CERN</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=0mgXNgD3JFU&amp;ab_channel=SixtySymbols">Sixty Symbols – Petabytes of Data at the LHC</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=so2nCu2Jkbc&amp;ab_channel=CERN">CERN – The Higgs Discovery Explained: Produce</a>.  See physicists freaking flip out at 0:47.  Excellent series, love how it’s broken into Produce, Detect, Analyze segments!</p></li>
+</ul>
+</section>
+<section id="other-resources">
+<h3>Other resources<a class="headerlink" href="#other-resources" title="Permalink to this heading">#</a></h3>
+<section id="relativistic-mechanics">
+<h4>Relativistic mechanics<a class="headerlink" href="#relativistic-mechanics" title="Permalink to this heading">#</a></h4>
+<p>For more information on relativistic kinematics, especially 4-vectors and conservation of energy/momentum, see</p>
+<ul class="simple">
+<li><p>Harris, <em>Modern Physics</em> (2e).  Chapter 2</p></li>
+<li><p>Taylor, <em>Modern Physics for Scientists and Engineers</em> (2e). Chapters 1, 2</p></li>
+</ul>
+</section>
+<section id="fundamental-particles-and-interactions-concepts">
+<h4>Fundamental particles and interactions: Concepts<a class="headerlink" href="#fundamental-particles-and-interactions-concepts" title="Permalink to this heading">#</a></h4>
+<p>There are many great resources on these topics, at many different levels of sophistication.  The first place to start is the particle physics chapters of introductory and intermediate-level textbooks.  These give a conceptual overview of the topics above.  I recommend:</p>
+<ul class="simple">
+<li><p>Giancoli, <em>Physics for Scientists &amp; Engineers</em> (7e).  Chapters 41, 43, and 44</p></li>
+<li><p>Harris, <em>Modern Physics</em> (2e).  Chapters 11, 12</p></li>
+<li><p>Taylor, <em>Modern Physics for Scientists and Engineers</em> (2e). Chapters 16, 18</p></li>
+</ul>
+</section>
+<section id="particle-properties-pro-level-info">
+<h4>Particle properties: Pro-level info<a class="headerlink" href="#particle-properties-pro-level-info" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://pdg.lbl.gov/">The Review of Particle Physics</a> is an annual publication that compiles essentially everything that is known about anything related to particle physics.  (It is sometimes referred to as “The PDG”, short for Particle Data Group, after the organization that publishes it.)  The last time the PDG was printed, it was roughly 2000 pages – in recent years, it has gone completely online!  In addition to information about particles, the PDG has some great review-style articles (under “Reviews, Tables, Plots”) about things related to particle physics: how accelerators work, cosmology, different types of detectors, probability and statistics, hypothetical particles and concepts, <em>etc.</em></p>
+<p>In order to find information in the PDG, one has to know something about the particle that one is looking for.  If you navigate to the <a class="reference external" href="https://pdglive.lbl.gov/Viewer.action">Interactive Listings</a>, you’ll see particles characterized by type.  Click on one of these, perhaps your old pal the electron, and you’ll see the particle’s properties (with experimental uncertainties) and you can click a drop-down to get the experiments that these values are based on.  Very cool.</p>
+<p>Two PDG reviews may be of use to you:</p>
+<ul class="simple">
+<li><p>Experimental Methods and Colliders –&gt; Particle detectors at accelerators</p></li>
+<li><p>Kinematics, Cross-section Formulae, and Plots –&gt; Kinematics</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="programming-recap">
+<h2>Programming recap<a class="headerlink" href="#programming-recap" title="Permalink to this heading">#</a></h2>
+<section id="histogramming-and-fitting-a-refresher">
+<h3>Histogramming and fitting, a refresher<a class="headerlink" href="#histogramming-and-fitting-a-refresher" title="Permalink to this heading">#</a></h3>
+<p>In this module, you’ll analyze two datasets with a combined <span class="math notranslate nohighlight">\(2\times 10^5\)</span> events.  You’re not going to do so with pen and paper, and you’re certainly not going to do so with Excel.  So, dust off your old Python skills!  Let’s recall how to histogram and fit to data using a file containing fake data (<code class="docutils literal notranslate"><span class="pre">testdata.asci</span></code>).  First we’ll import some libraries and read in our data file line-by-line (which has two columns).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">val1</span><span class="p">,</span> <span class="n">val2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/testdata.ascii&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lin</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span> <span class="c1"># read off the header line</span>
+<span class="n">lin</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lin</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">lin</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="n">val1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">val2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">lin</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And let’s check our arrays!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">val1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">val2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">val1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">val2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.8172624592717633, 0.8215418651256625, 0.7431913113347007, 0.6864255558241548, 0.6423249613344559, 0.2794601156924529, 0.5038449365115576, 0.592319983720258, 0.4297090379559436, 0.15456613801083297]
+[1.1448655218436596, 1.1443508832211071, 1.1984958142765287, 1.2596509993957277, 1.2063831894608845, 1.2440536038357803, 1.187216185758255, 1.17477737114823, 1.2108375922833767, 1.2271922098851118]
+3000 3000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looks like we have two arrays (one for each column in the datafile), each containing 3000 values.  Pyplot allows us to histogram these very easily!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">bins1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;val1&#39;</span><span class="p">)</span>
+
+<span class="n">bins2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">val2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.4</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;val2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3abe025bbb1ae7326be3d5fb3127c9d386d3c66303d8ce74d3f9b814ae6be820.png" src="../_images/3abe025bbb1ae7326be3d5fb3127c9d386d3c66303d8ce74d3f9b814ae6be820.png" />
+</div>
+</div>
+<p>Looks like the first column is just a flat distribution between 0 and 1, while the second column is roughly Gaussian-distributed values.  We can fit to the histogram of the second column data to extract the mean and width (standard deviation) of the distriubtion.  First, we have to generate an array of bin centers and an array of bin occupancies of the histogram.  When we called <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> above, the output was information about the bin edges and occupancies.  Let’s check these out and then make another array of the values of the bin centers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bins2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bins2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins2</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins2</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="n">bin_occupancies</span> <span class="o">=</span> <span class="n">bins2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bin_centers</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_occupancies</span><span class="p">)):</span>
+    <span class="n">bin_centers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">bins2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">bins2</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0.   0.   0.   0.   1.   0.   0.   0.   0.   2.   1.   1.   2.   1.
+   1.   0.   7.   3.   4.   5.   4.   6.  10.   6.  16.  23.  13.  18.
+  20.  24.  28.  32.  36.  48.  56.  52.  53.  47.  63.  60.  67.  85.
+  93.  91.  68.  91.  99.  84.  97. 107.  93.  90.  85.  89.  96.  92.
+  83.  72.  79.  65.  62.  73.  65.  48.  46.  44.  29.  41.  35.  30.
+  28.  25.  17.  20.  12.   9.   8.   8.   7.   3.   9.   3.   2.   2.
+   2.   1.   0.   0.   0.   0.   0.   1.   0.   0.   1.   0.   0.   0.
+   0.   0.]
+[1.    1.004 1.008 1.012 1.016 1.02  1.024 1.028 1.032 1.036 1.04  1.044
+ 1.048 1.052 1.056 1.06  1.064 1.068 1.072 1.076 1.08  1.084 1.088 1.092
+ 1.096 1.1   1.104 1.108 1.112 1.116 1.12  1.124 1.128 1.132 1.136 1.14
+ 1.144 1.148 1.152 1.156 1.16  1.164 1.168 1.172 1.176 1.18  1.184 1.188
+ 1.192 1.196 1.2   1.204 1.208 1.212 1.216 1.22  1.224 1.228 1.232 1.236
+ 1.24  1.244 1.248 1.252 1.256 1.26  1.264 1.268 1.272 1.276 1.28  1.284
+ 1.288 1.292 1.296 1.3   1.304 1.308 1.312 1.316 1.32  1.324 1.328 1.332
+ 1.336 1.34  1.344 1.348 1.352 1.356 1.36  1.364 1.368 1.372 1.376 1.38
+ 1.384 1.388 1.392 1.396 1.4  ]
+100
+101
+[1.002, 1.006, 1.01, 1.014, 1.018, 1.022, 1.026, 1.03, 1.034, 1.038, 1.042, 1.046, 1.05, 1.054, 1.058, 1.062, 1.066, 1.07, 1.074, 1.078, 1.082, 1.086, 1.09, 1.094, 1.098, 1.102, 1.106, 1.1099999999999999, 1.1139999999999999, 1.1179999999999999, 1.1219999999999999, 1.126, 1.13, 1.134, 1.138, 1.142, 1.146, 1.15, 1.154, 1.158, 1.162, 1.166, 1.17, 1.174, 1.178, 1.182, 1.186, 1.19, 1.194, 1.198, 1.202, 1.206, 1.21, 1.214, 1.218, 1.222, 1.226, 1.23, 1.234, 1.238, 1.242, 1.246, 1.25, 1.254, 1.258, 1.262, 1.266, 1.27, 1.274, 1.278, 1.282, 1.2859999999999998, 1.2899999999999998, 1.2939999999999998, 1.2979999999999998, 1.3019999999999998, 1.3059999999999998, 1.3099999999999998, 1.3139999999999998, 1.3179999999999998, 1.3219999999999998, 1.3259999999999998, 1.3299999999999998, 1.3339999999999999, 1.3379999999999999, 1.3419999999999999, 1.3459999999999999, 1.3499999999999999, 1.3539999999999999, 1.3579999999999999, 1.3619999999999999, 1.3659999999999999, 1.3699999999999999, 1.3739999999999999, 1.378, 1.382, 1.386, 1.39, 1.394, 1.398]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can define the function that we want to fit to the data.  We’ll go with a Gaussian because I happen to know that a Gaussian was used to generate this data.  Recall that a Gaussian has the form</p>
+<div class="amsmath math notranslate nohighlight" id="equation-079951a7-0473-4315-90fb-4014aadeba43">
+<span class="eqno">(7)<a class="headerlink" href="#equation-079951a7-0473-4315-90fb-4014aadeba43" title="Permalink to this equation">#</a></span>\[\begin{equation}
+  g(x) = A \exp\left( -\frac{(x-\mu)^2}{2\sigma^2}\right),
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean and <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And to fit this function to the data (<em>i.e.</em>, ask PytHon to find values of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> that make this function best describe the data), we import and use <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> library:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">gaussian</span><span class="p">,</span> <span class="n">bin_centers</span><span class="p">,</span> <span class="n">bin_occupancies</span><span class="p">,</span> <span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">popt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pcov</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">gaussian</span><span class="p">,</span> <span class="n">bin_centers</span><span class="p">,</span> <span class="n">bin_occupancies</span><span class="p">,</span> <span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">popt</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check how good our fit is by plotting the optimal curve overlaid with the histogram!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fcn_vals</span> <span class="o">=</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span> <span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">popt</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">val2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;val2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span><span class="n">fcn_vals</span><span class="p">,</span><span class="s2">&quot;r-&quot;</span><span class="p">)</span> <span class="c1"># plot the predictions as a red line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Holy buckets, that’s a good fit!  Recall that the outputs of the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function are two arrays – the first is the optimal parameter values and the second is the covariance matrix.  It is up to you to remember how to use the covariance matrix to extract parameter uncertainties.  From this fit, we find that the distribution is described by a Gaussian with <span class="math notranslate nohighlight">\(\mu \approx 1.200\)</span> and <span class="math notranslate nohighlight">\(\sigma \approx 5.04 \times 10^{-2}\)</span>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h2>
+<p><strong>Now you!</strong></p>
+<p>This short section was intended to remind you of some basic Python functionality.  The analysis that you will do below with CMS data is much more meaningful, but not all that much more sophisticated!  You’ll use very few techniques that aren’t used above.</p>
+<p>A note on Pandas:  Some of you may be familiar with the Pandas Python library for parsing and manipulating tabular data.  It’s great!  That said, don’t use it for this analysis.  It’s better to do calculations on an event-by-event basis.  If you’ve never used Pandas, ignore this paragraph :^)</p>
+<section id="di-electron-analysis">
+<h3>Di-electron analysis<a class="headerlink" href="#di-electron-analysis" title="Permalink to this heading">#</a></h3>
+<p>You will now perform an analysis of the invariant mass spectrum of <span class="math notranslate nohighlight">\(10^5\)</span> electron/positron (<em>i.e.</em>, <em>di-electron</em>) pairs recorded by the CMS collaboration in 2010.  (Important to note that this comprises a miniscule fraction of all of the data that CMS has collected.)  The data is in csv format in the file <code class="docutils literal notranslate"><span class="pre">CMS_dielectron.csv</span></code>.  Both this and the di-muon data below are provided by <a class="reference external" href="https://opendata.cern.ch/">CERN’s Open Data initiative</a>.</p>
+<p>A note on units: In these data files, energies are reported in GeV (giga-electron-volts) and momenta are reported in GeV/<span class="math notranslate nohighlight">\(c\)</span>.  Make sure that you are accounting for the factors of <span class="math notranslate nohighlight">\(c\)</span> in your calculations.  (These odd units actually make the calculations quite easy.)</p>
+<p>Each row in the file corresponds to an event.  The <code class="docutils literal notranslate"><span class="pre">E1,px1,py1,pz1</span></code> quantities are the energy and momentum components of particle 1 (electron) and <code class="docutils literal notranslate"><span class="pre">E2,px2,py2,pz2</span></code> are those for particle 2 (positron).  All other values in the file may be ignored.</p>
+<p>Perform the following steps:</p>
+<ol class="arabic simple">
+<li><p>Read in the events in the file line-by-line.</p></li>
+<li><p>For each event, calculate the following quantites.  Store these values in arrays or lists for plotting later.</p>
+<ul class="simple">
+<li><p>invariant mass squared of the electron and for the positron</p></li>
+<li><p>total energy of the di-lepton pair</p></li>
+<li><p>magnitude of momentum for the electron and for the position</p></li>
+<li><p>magnitude of total momentum for the di-lepton pair</p></li>
+<li><p>invariant mass of the electron/positron pair</p></li>
+</ul>
+</li>
+<li><p>Make histograms of <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, <span class="math notranslate nohighlight">\(E_i\)</span>, <span class="math notranslate nohighlight">\(p_1\)</span>, <span class="math notranslate nohighlight">\(p_2\)</span>, <span class="math notranslate nohighlight">\(p_i\)</span></p></li>
+<li><p>Make histograms of <span class="math notranslate nohighlight">\(m_1\)</span>, <span class="math notranslate nohighlight">\(m_2\)</span>.  Are these in fact electrons/positrons?  Could they be any other stable particle?</p></li>
+<li><p>Make a histogram of the di-lepton invariant mass, <span class="math notranslate nohighlight">\(m_i\)</span>.  Your histogram should show the invariant mass range from 0 to roughly 100 GeV, and should have roughly 300 bins.  A logarithmic <span class="math notranslate nohighlight">\(y\)</span>-axis will be helpful going forward.</p></li>
+<li><p>In the invariant-mass distrubtion, you’ll see several peaks!  These are particles that decayed into <span class="math notranslate nohighlight">\(e^+,e^-\)</span> pairs!  WOW!  One of these peaks should be at <span class="math notranslate nohighlight">\(m_i\approx 90\)</span>~GeV.  Make another histogram of the invariant masses between 65 and 100 GeV.  Use the fitting approach above to extract the mean mass and width of this peak.  Your fit function should be a sum of the gaussian described above and a linear background function: <span class="math notranslate nohighlight">\(f(x) = g(x) + b_0 + b_1 x\)</span>.  Use this infomation and the PDG to identify the parent particle.  (Congrats, you just won a Nobel Prize.)</p></li>
+<li><p>Identify the particles associated with at least two of the other peaks in the invariant-mass distribution.</p></li>
+</ol>
+<p><strong>Important note on measurement precision and your calculations!</strong> Keep in mind that the energy and momentum values in the CMS data files are <em>measured</em> quantities.  Though CMS is an amazing detector, these measurements are still affected by statistical and systematic errors.  This means that there may be events for which (<em>e.g.</em>) the measured energy is a bit lower than its actual value and the measured momentum is a bit higher than its actual value.  This could create events for which your calculated invariant mass squared is a negative number, and the resulting invariant mass is imaginary!  No, this doesn’t break physics or mathematics!  It just means that these events can be omitted in the analysis, as their associated measurement error makes for an “unphysical” result.  Your analysis code can assign a zero value for any such unphysical quantities.</p>
+</section>
+<section id="di-muon-analysis">
+<h3>Di-muon analysis<a class="headerlink" href="#di-muon-analysis" title="Permalink to this heading">#</a></h3>
+<p>You will now apply the analysis that you built for the di-electron dataset to a dataset containing events with <span class="math notranslate nohighlight">\(\mu^-, \mu^+\)</span> pairs (<code class="docutils literal notranslate"><span class="pre">MuRun2010B.csv</span></code>).  Nearly all of the code that you wrote above should be applicable to the di-muon dataset with minimal changes.</p>
+<p>Repeat steps 1-6 from the previous section with the muon dataset.  After doing this, determine whether the di-muon invariant-mass distribution displays the same peaks as the di-electron distribution.  What similarities or differences exist?</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters_ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="scicomp_11_circuitpython.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#physics-background">Physics background</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-hep">What is HEP?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#before-moving-on">Before moving on</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-study-the-fundamental-interactions">How do we study the fundamental interactions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i-production">I. Production</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-detection">II. Detection</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-analysis">III. Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-we-doing-here">What are we doing here?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relativistic-kinematics-and-conservation-laws">Relativistic kinematics and conservation laws</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#units">Units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Before moving on</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-conservation-laws">Discrete conservation laws</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-lhc-cms">What is the LHC?  CMS?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-resources">Other resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relativistic-mechanics">Relativistic mechanics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-particles-and-interactions-concepts">Fundamental particles and interactions: Concepts</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-properties-pro-level-info">Particle properties: Pro-level info</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programming-recap">Programming recap</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramming-and-fitting-a-refresher">Histogramming and fitting, a refresher</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#di-electron-analysis">Di-electron analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#di-muon-analysis">Di-muon analysis</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike McCracken
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
