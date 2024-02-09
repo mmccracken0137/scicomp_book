@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Text as data &#8212; Introduction to Computation for the Physics Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_06_textasdata';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Python on microcontrollers with circuitpython" href="scicomp_11_circuitpython.html" />
+    <link rel="prev" title="6. Data reduction and analysis magic with pandas" href="scicomp_10_pandas_magic.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/wj_horiz_color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Python basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="scicomp_00_basics.html">1. Basic syntax, variables, functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_01_controlstructs.html">2. Control structures, numerical integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_02_typescontainers.html">3. Types, random numbers, lists, dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_03_fileio.html">4. File I/O</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">1. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">2. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">3. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">4. Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">5. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">2. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fchapters_ipynb/scicomp_06_textasdata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters_ipynb/scicomp_06_textasdata.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Text as data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-lesson-something-completely-different">1.2. This lesson: Something completely different</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-analysis">1.3. Word analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-1">Warm-up 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-2">Warm-up 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-3">Warm-up 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-4">Warm-up 4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis">1.4. Text analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-5">Warm-up 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-6">Warm-up 6</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-cryptography-and-cryptanalysis">1.5. Machine cryptography and cryptanalysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decryption-warm-up">Decryption warm-up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Decryption warm-up</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">1.6. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanies">Mega-meanies</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="text-as-data">
+<h1><span class="section-number">1. </span>Text as data<a class="headerlink" href="#text-as-data" title="Permalink to this heading">#</a></h1>
+<section id="recap">
+<h2><span class="section-number">1.1. </span>Recap<a class="headerlink" href="#recap" title="Permalink to this heading">#</a></h2>
+<p>We’re way past the point of no return in becoming meaningful users of computers!  Just check out this non-exhaustive list of basic skills that we’ve covered:</p>
+<ul class="simple">
+<li><p>basic mathematical operations</p></li>
+<li><p>iteration and recursion with loop control structures <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p>keeping track of variables outside of loops (i.e., counting and summing)</p></li>
+<li><p>function definition and using functions <em>inside</em> of loops</p></li>
+<li><p>conditionals with <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, and <code class="docutils literal notranslate"><span class="pre">elif</span></code></p></li>
+<li><p>types: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">string</span></code></p></li>
+<li><p>containers such as <code class="docutils literal notranslate"><span class="pre">list</span></code> and <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
+<li><p>randm number generation</p></li>
+<li><p>accessing and iterating over elements in lists and dicts</p></li>
+<li><p>file I/O</p></li>
+<li><p>basic (and semi-advanced) data visualization: histograms, scatter plots, higher-dimensions in 2-d</p></li>
+<li><p>fitting models to data and extracting results (with uncertainties)</p></li>
+</ul>
+<p><strong>Wow</strong>, that’s a LOT of stuff.  You’re scaring me with that big brain of yours.</p>
+</section>
+<hr class="docutils" />
+<section id="this-lesson-something-completely-different">
+<h2><span class="section-number">1.2. </span>This lesson: Something completely different<a class="headerlink" href="#this-lesson-something-completely-different" title="Permalink to this heading">#</a></h2>
+<p>In this lesson we’re going to pause the accumulation of new skills to do some applications.  We have a lot of tools in our toolboxes!  Let’s take some time to explore how these tools can help us answer questions outside of the physical sciences.</p>
+</section>
+<section id="word-analysis">
+<h2><span class="section-number">1.3. </span>Word analysis<a class="headerlink" href="#word-analysis" title="Permalink to this heading">#</a></h2>
+<p>Let’s turn our attention to the quantitative analysis of textual information.  In some of your other classes, you’re learning to use the close reading or synthesis of texts to gain understanding of history, human experiences, emotions, <em>etc.</em>  This is awesome!  That’s not what we’re going to do today.</p>
+<p>Today we’re going to treat texts as data!  We’ll work with a dataset consisting of several texts that are in the public domain (<em>i.e.</em>, they’re old and can be accessed without copyright issues).  What can we learn from quantitative analysis of text?  What kinds of questions can we ask about language and narrative structure?</p>
+<p>The exception, however, is <code class="docutils literal notranslate"><span class="pre">words_alpha.txt</span></code>; this file lists 370102 English-language words.  <a class="reference external" href="https://github.com/dwyl/english-words">[Source]</a>  The question whether this is “all” of the words in the English language is perhaps not valid, but this file certainly contains a lot of them.  Let’s do some warm-up with this file.  Get ready to flex those <code class="docutils literal notranslate"><span class="pre">string</span></code>-manipulation muscles, and remember that characters in a string can be accessed by index (like elements in a list).</p>
+<section id="warm-up-1">
+<h3>Warm-up 1<a class="headerlink" href="#warm-up-1" title="Permalink to this heading">#</a></h3>
+<p>Read in the file line by line, and determine how many words begin with the letter “m”.  Are there any that begin with “M”?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here is some skeleton code that parses through the file...</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/words_alpha.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    
+    <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="warm-up-2">
+<h3>Warm-up 2<a class="headerlink" href="#warm-up-2" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>How long is the longest word in the list?</p></li>
+<li><p>What is the longest word in the list?</p></li>
+<li><p>What word(s) have the most ‘z’s in them?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># more code goes here :^O</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="warm-up-3">
+<h3>Warm-up 3<a class="headerlink" href="#warm-up-3" title="Permalink to this heading">#</a></h3>
+<p>How many five-letter words are there?  (How long before Wordle has to reuse a word?)  How many words have all five vowels in them?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># yet more code goes here!  </span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Well, I’m certainly feeling warm now!  Those were some fun spot checks of English vocabulary.  What about high-level aggregate information?</p>
+<hr class="docutils" />
+</section>
+<section id="warm-up-4">
+<h3>Warm-up 4<a class="headerlink" href="#warm-up-4" title="Permalink to this heading">#</a></h3>
+<p>Make a histogram of word lengths.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># code goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>The information contained in <code class="docutils literal notranslate"><span class="pre">words_alpha.txt</span></code> tells us about the structure of words in the English language.  This is interesting, but it can’t really tell us about <em>how</em> these words are used or how a given person uses these words.  This seems dumb to point out, but  we can generalize to the universal lesson</p>
+<blockquote>
+<div><p>Your analysis is only as good as your data.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="text-analysis">
+<h2><span class="section-number">1.4. </span>Text analysis<a class="headerlink" href="#text-analysis" title="Permalink to this heading">#</a></h2>
+<p>Let’s move on to datasets containing words used in their natural habitat: sentences that convey ideas!  All of the texts used below can be found on <a class="reference external" href="https://www.gutenberg.org/">Project Gutenberg’s website</a>.  Search for each novel, and download a txt/ascii version.  Enjoy!  I’ve also included a few of them in this repo.</p>
+<p>First, we have to figure out how to correctly deal with these files.  Each file contains a header and a footer that tell you about copyright information.  Obviously when we analyzed the text of the novel, we want to exclude the header and footer.  Look through the files to find the text signifying the header and footer.  I’ll show you hor to work around this when reading in the file.  Let’s work on Jane Austen’s <u>Pride &amp; Prejudice</u> first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/JaneAusten_PrideAndPrejudice_1813_ProjGutenberg.ascii&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+
+<span class="c1"># read off the lines in the header, don&#39;t do anything with them...</span>
+<span class="k">while</span> <span class="s1">&#39;*** START&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    
+<span class="c1"># read off the lines in the body of the novel, quit once we get to the footer</span>
+<span class="k">while</span> <span class="s1">&#39;*** END&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+    <span class="c1"># do some calculations...</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we just have to be creative!  What types of questions can we ask (should we ask) of the text of a novel?  What could we learn about the author or the characters?</p>
+<section id="warm-up-5">
+<h3>Warm-up 5<a class="headerlink" href="#warm-up-5" title="Permalink to this heading">#</a></h3>
+<p>The main character of <u>P+P</u> is Elizabeth Bennett.  Count how many times “Elizabeth”  and “Bennett” and appear in the text.  Don’t forget to consider <em>e.g.</em> “Elizabeth’s”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pride!</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="warm-up-6">
+<h3>Warm-up 6<a class="headerlink" href="#warm-up-6" title="Permalink to this heading">#</a></h3>
+<p>Elizabeth Bennet’s romantic interest in <u>P+P</u> is Mr. Fitzwilliam Darcy.  Let’s investigate how Austen (or British people in Austen’s time) used first names.  Find the numbers of appearances of “Elizabeth”, “Bennett”, “Fitzwilliam”, and “Darcy” in the text.  Calculate the ratio of first-name to last-name appearances for each character.  Calculate the ratio of these ratios – are they similar?  Do you have any theories about why the relative sizes of these ratios?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prejudice!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, these two calculations are somewhat trivial, but they give you some odea of the types of things that we can investigate when we treat a text as data.  Can you think of other interesting questions to ask with this approach?</p>
+<hr class="docutils" />
+<p>If this seems far removed from the sciences, you might consider the following text:</p>
+<p><code class="docutils literal notranslate"><span class="pre">GCTCGGGTGACACGAATTGGATCACGGACATCAAGCACTG</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">GCTTTTATAGAGGACGGGGTGCCACTCACCCTGCCGGTGC...</span></code></p>
+<p>What kinds of questions might you ask about a string of text like this?</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="machine-cryptography-and-cryptanalysis">
+<h2><span class="section-number">1.5. </span>Machine cryptography and cryptanalysis<a class="headerlink" href="#machine-cryptography-and-cryptanalysis" title="Permalink to this heading">#</a></h2>
+<p>We could do an entire semester on cryptography, the science of hidden writing!  It’s a rich and fascinating (and useful and potentiall lucrative) subject.  For now, I’ll mention that you have the basic skills to do some straight-forward cryptography (coding) and cryptanalysis (de-coding) of secret messages.  For example, say you’re given the following cipher (encoded message):</p>
+<p><code class="docutils literal notranslate"><span class="pre">MWFCK</span> <span class="pre">KEYFL</span> <span class="pre">ZLRLQ</span> <span class="pre">CKZZW</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">ALVVW</span> <span class="pre">VJLWZ</span> <span class="pre">ESNQA</span> <span class="pre">FKNXL</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">RLDZK</span> <span class="pre">XZLWU</span> <span class="pre">SKASL</span> <span class="pre">QPKQM</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">KVKZC</span> <span class="pre">FKNQS</span> <span class="pre">LWQAM</span> <span class="pre">YLLZW</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">USJZC</span> <span class="pre">YNAFK</span> <span class="pre">NQLAK</span> <span class="pre">KMSFA</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">KMWFJ</span> <span class="pre">AJZMJ</span> <span class="pre">ELXLY</span> <span class="pre">KASDZ</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">KXXSW</span> <span class="pre">AMYLL</span> <span class="pre">ZCKJZ</span> <span class="pre">CKZXL</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">DZKXA</span> <span class="pre">SLCWT</span> <span class="pre">LWZEX</span> <span class="pre">LQLCK</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">ZZWHV</span> <span class="pre">WFJAW</span> <span class="pre">ZEJPF</span> <span class="pre">KNWMD</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">TLSKX</span> <span class="pre">JTPLL</span> <span class="pre">VJZCE</span> <span class="pre">KZAAL</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">VVTLF</span> <span class="pre">KNQLA</span> <span class="pre">KKYVJ</span> <span class="pre">ZEAKM</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">LLZLR</span> <span class="pre">LQCKZ</span> <span class="pre">ZWCJR</span> <span class="pre">LFKNN</span></code><br>
+<code class="docutils literal notranslate"><span class="pre">HZLRL</span> <span class="pre">QCKZZ</span> <span class="pre">WVLAF</span> <span class="pre">KNEKX</span></code><br></p>
+<p>What the what???  Look familiar?  Yeah, me neither.  We can begin the decryption process by doing some simple letter-frequency analysis and comparing to a known (and hopefully representative corpus (sample).  I’ll include the cipher on Sakai as <code class="docutils literal notranslate"><span class="pre">cipher.txt</span></code>.</p>
+<section id="decryption-warm-up">
+<h3>Decryption warm-up<a class="headerlink" href="#decryption-warm-up" title="Permalink to this heading">#</a></h3>
+<p>Make a bar graph of the letter frequency in the cipher.  Make a bar graph of the frequency of letters in <u>P+P</u>.  Can you see any likely letter equivalences for a single-character substitution?  Bonus points if you can sort the bars from high to low frequency.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># decryption warm-up goes here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>Decryption warm-up<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Let’s take the result of the previous warm-up as a good estimate of the frequency of letters in the English language.  The encoded text above was produced with a simple substitution key – each letter in the cypher is a substitution for a letter in the original text.  For example (though this isn’t acutally true), all <code class="docutils literal notranslate"><span class="pre">X</span></code>’s in the cypher represent <code class="docutils literal notranslate"><span class="pre">D</span></code>’s in the original text.  Make a letter frequency bar graph for the cypher text.  Compare it to the bar graph for <u>P+P</u> and identify some likely substitutions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I&#39;ll make the cypher a string for you to use:</span>
+<span class="n">cyph</span> <span class="o">=</span> <span class="s1">&#39;MWFCKKEYFLZLRLQCKZZWALVVWVJLWZESNQAFKNXL&#39;</span>
+<span class="n">cyph</span> <span class="o">+=</span> <span class="s1">&#39;RLDZKXZLWUSKASLQPKQMKVKZCFKNQSLWQAMYLLZW&#39;</span>
+<span class="n">cyph</span> <span class="o">+=</span> <span class="s1">&#39;USJZCYNAFKNQLAKKMSFAKMWFJAJZMJELXLYKASDZ&#39;</span>
+<span class="n">cyph</span> <span class="o">+=</span> <span class="s1">&#39;KXXSWAMYLLZCKJZCKZXLDZKXASLCWTLWZEXLQLCK&#39;</span>
+<span class="n">cyph</span> <span class="o">+=</span> <span class="s1">&#39;ZZWHVWFJAWZEJPFKNWMDTLSKXJTPLLVJZCEKZAAL&#39;</span>
+<span class="n">cyph</span> <span class="o">+=</span> <span class="s1">&#39;VVTLFKNQLAKKYVJZEAKMLLZLRLQCKZZWCJRLFKNN&#39;</span>
+<span class="n">cyph</span> <span class="o">+=</span> <span class="s1">&#39;HZLRLQCKZZWVLAFKNEKX&#39;</span>
+
+<span class="c1"># unlock secrets here!!!</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="problems">
+<h2><span class="section-number">1.6. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this heading">#</a></h2>
+<p>Your homework is to complete three (3) of the following problems.</p>
+<section id="regulars">
+<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">words_alpha.txt</span></code> to make a histogram displaying the number of words beginning with each letter of the alphabet.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">words_alpha.txt</span></code> to make a bar graph displaying the frequency of each letter of the alphabet.  Hint: Use a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>!</p></li>
+<li><p>Compute how many words in <code class="docutils literal notranslate"><span class="pre">words_alpha.txt</span></code> contain the following digraphs: “ae”, “aa”, “eu”, “ph”.</p></li>
+<li><p>Compute the average sentence length (in words) of <strong>each</strong> of the Jane Austen novels.  Hint: What would be an easier way to count the number of sentences in a text?</p></li>
+<li><p>Determine which of the 15 books is most likely about a dog by counting the relative number of times the word “dog” appears in each.  Write a block of explanatory markdown to explain your conclusions.</p></li>
+</ol>
+</section>
+<section id="meanies">
+<h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple" start="6">
+<li><p>Make a bar graph of the average sentence length for each of the following authors: Austen, Hawthorne, London, Wells, Dostoevsky.  Use all of each author’s texts to do so.</p></li>
+<li><p>Which of the five authors uses the biggest words (on average)?  Include a graph(s) or some text to convince me.</p></li>
+</ol>
+</section>
+<section id="mega-meanies">
+<h3>Mega-meanies<a class="headerlink" href="#mega-meanies" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple" start="8">
+<li><p>Provide quantitative evidence that suggests that <u>Crime &amp; Punishment</u> was not written by Jane Austen.  Write a block of explanatory markdown to accompany your code.</p></li>
+<li><p>How many different proper nouns appear in <u>The Brothers Karamazov</u>?</p></li>
+<li><p>I made it to the end of Part I, Book II, Chapter V of <u>The Brothers Karamazov</u>.  Tell me how it ends, please.   (No don’t.)</p></li>
+<li><p>Continue decryption of <code class="docutils literal notranslate"><span class="pre">cipher.txt</span></code>.  Write a block of markdown that explains your process.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "executablebooks/jupyter-book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters_ipynb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="scicomp_10_pandas_magic.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="scicomp_11_circuitpython.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-lesson-something-completely-different">1.2. This lesson: Something completely different</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-analysis">1.3. Word analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-1">Warm-up 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-2">Warm-up 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-3">Warm-up 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-4">Warm-up 4</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis">1.4. Text analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-5">Warm-up 5</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-6">Warm-up 6</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-cryptography-and-cryptanalysis">1.5. Machine cryptography and cryptanalysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decryption-warm-up">Decryption warm-up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Decryption warm-up</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">1.6. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanies">Mega-meanies</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike McCracken
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
