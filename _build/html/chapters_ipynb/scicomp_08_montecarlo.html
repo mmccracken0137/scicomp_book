@@ -172,12 +172,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">3. Simulating solutions to differential equations</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Monte Carlo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">5. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">1. Text as data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">2. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="scicomp_proj_z0_ll_analysis.html">Di-lepton mass spectrum from the Compact Muon Solenoid</a></li>
 </ul>
 
     </div>
@@ -510,14 +514,14 @@ document.write(`
 <p>Let’s imagine a world where we don’t know the numerical value of <span class="math notranslate nohighlight">\(\pi\)</span>.  How would we go about <em>measuring</em> it?  We could make many, many, many circles, measure their diameters and circumferences, calculate the ratio for each, and perhaps average or fit… But it’s probably unfeasible to carefully fabricate many very precise circles.</p>
 <p>Here is another way to measure (or approximate) the value of <span class="math notranslate nohighlight">\(\pi\)</span>.  Recall that the area of a circle with unit radius is <span class="math notranslate nohighlight">\(\pi (1)^2 = \pi\)</span>.  Let’s picture a circle with radius <span class="math notranslate nohighlight">\(1\)</span> drawn inside a square with side length <span class="math notranslate nohighlight">\(2\)</span>, both centered at the origin in the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane.  We’ll let the square occupy the region with <span class="math notranslate nohighlight">\(x\in [-1, 1]\)</span> and <span class="math notranslate nohighlight">\(y\in[-1, 1]\)</span>.  Your instructor will draw this figure on the board, or you can scroll down to the visualization below.</p>
 <p>Now imagine throwing <span class="math notranslate nohighlight">\(N\)</span> darts at this figure in such a way that each dart lands with a random <span class="math notranslate nohighlight">\((x, y)\)</span> position somewhere inside the square.  Some number of these darts, <span class="math notranslate nohighlight">\(N_c\)</span>, will land inside the circle.  If the <span class="math notranslate nohighlight">\((x, y)\)</span> positions of the darts are truly randomly distributed inside the square, we expect that the probability of a dart landing in the circle, <span class="math notranslate nohighlight">\(p_c\)</span>, is equal to the fraction of the total area that is inside the circle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-282bc976-26dc-4588-bb4c-a982b77261d4">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-282bc976-26dc-4588-bb4c-a982b77261d4" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-76ed9e54-4e5e-492f-910b-f6aa89435e9a">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-76ed9e54-4e5e-492f-910b-f6aa89435e9a" title="Permalink to this equation">#</a></span>\[\begin{equation} 
   p_c = \frac{A_c}{A} = \frac{\pi}{2^2} = \frac{\pi}{4} 
 \end{equation}\]</div>
 <p>It is important to note that if we don’t know a value for <span class="math notranslate nohighlight">\(\pi\)</span>, <strong>this probability is unknown to us</strong>.  We can’t calculate it from other quantities; rather, we need some way to measure it!  This is a feature common to many MC applications – there is some important probability (or probability distribution) that we don’t know, but that we want to know.</p>
 <p>We will “measure” this probability by <strong>sampling</strong>!  (Note: We are going to do this with code, but you could totally do the same approximation with real darts on a real [not-college-owned] wall.)  We will randomly generate <span class="math notranslate nohighlight">\(N\)</span> positions in the square, observe how many of these (<span class="math notranslate nohighlight">\(N_c\)</span>) fall within the circle, and then approximate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e08eaaa8-0b98-4ed1-b0ab-29bf439d66df">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-e08eaaa8-0b98-4ed1-b0ab-29bf439d66df" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1d86b8da-ef49-404c-b7f6-e1a2fe3254a7">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-1d86b8da-ef49-404c-b7f6-e1a2fe3254a7" title="Permalink to this equation">#</a></span>\[\begin{equation}
   p_c = \frac{\pi}{4} \approx \frac{N_c}{N} \implies \pi \approx 4\frac{N_c}{N}
 \end{equation}\]</div>
 <p>It’s important to note that this approximation is APPROXIMATE!  Since <span class="math notranslate nohighlight">\(\pi\)</span> is transcendental, it cannot be expressed as a fraction, and thus there are NO values of <span class="math notranslate nohighlight">\(N_c\)</span> and <span class="math notranslate nohighlight">\(N\)</span> that will make the equality perfect.  However, the more we sample (the larger <span class="math notranslate nohighlight">\(N\)</span> is), the better (on average) our approximate should be.</p>
@@ -554,7 +558,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b5409d156b2c2c2a4c53c4309161feb01ecc4ba9332270328644b978e9b4332b.png" src="../_images/b5409d156b2c2c2a4c53c4309161feb01ecc4ba9332270328644b978e9b4332b.png" />
+<img alt="../_images/ef811e0445ac6c9095c36ee79757fb25977f5dbbfce1088e99ce8bd65984190b.png" src="../_images/ef811e0445ac6c9095c36ee79757fb25977f5dbbfce1088e99ce8bd65984190b.png" />
 </div>
 </div>
 <p>All we need now is some way to determine whether a random <span class="math notranslate nohighlight">\((x, y)\)</span> point is inside the circle.  Hmmmm.</p>
@@ -591,19 +595,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After 10000 samples our approximation of π is 3.1692
-After 20000 samples our approximation of π is 3.1754
-After 30000 samples our approximation of π is 3.168
-After 40000 samples our approximation of π is 3.1657
-After 50000 samples our approximation of π is 3.16088
-After 60000 samples our approximation of π is 3.159466666666667
-After 70000 samples our approximation of π is 3.157142857142857
-After 80000 samples our approximation of π is 3.15435
-After 90000 samples our approximation of π is 3.1524888888888887
-After 100000 samples our approximation of π is 3.15344
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>After 10000 samples our approximation of π is 3.1292
+After 20000 samples our approximation of π is 3.1316
+After 30000 samples our approximation of π is 3.1365333333333334
+After 40000 samples our approximation of π is 3.1371
+After 50000 samples our approximation of π is 3.13184
+After 60000 samples our approximation of π is 3.1335333333333333
+After 70000 samples our approximation of π is 3.133542857142857
+After 80000 samples our approximation of π is 3.1312
+After 90000 samples our approximation of π is 3.134933333333333
+After 100000 samples our approximation of π is 3.13468
 </pre></div>
 </div>
-<img alt="../_images/02e25e6fb87b1cb896a3d3150d6fb4cd9a81338b3c1c4efd250b696af05eb467.png" src="../_images/02e25e6fb87b1cb896a3d3150d6fb4cd9a81338b3c1c4efd250b696af05eb467.png" />
+<img alt="../_images/cee445c7315b776306e8e0816fe2f007ed11caca5a9286fa116ea5a0f726aa64.png" src="../_images/cee445c7315b776306e8e0816fe2f007ed11caca5a9286fa116ea5a0f726aa64.png" />
 </div>
 </div>
 <p>Notice that as <code class="docutils literal notranslate"><span class="pre">n_samples</span></code> (the equivalent of <span class="math notranslate nohighlight">\(N\)</span> from above) increases, the approximation generally gets closer to the actual value of <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
@@ -679,9 +683,9 @@ After 100000 samples our approximation of π is 3.15344
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A deals 16 damage to V
-B deals 17 damage to V
-V attacks B... dealing 93 damage!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A deals 14 damage to V
+B misses!
+V attacks B... dealing 67 damage!
 </pre></div>
 </div>
 </div>
@@ -740,8 +744,8 @@ V attacks B... dealing 93 damage!
 <ol class="arabic simple" start="4">
 <li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model">Bradley-Terry model</a> gives a simple way to model the outcome of a contest between two players or teams.  We’ll simplify it further by stating the model in the followin way: If teams A and B have previous win percentages <span class="math notranslate nohighlight">\(p_A\)</span> and <span class="math notranslate nohighlight">\(p_B\)</span>, respectively, then the probability that A will defeat B in a contest is</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-e66c01b3-91cf-4279-985c-3ce75b68dc38">
-<span class="eqno">(4.4)<a class="headerlink" href="#equation-e66c01b3-91cf-4279-985c-3ce75b68dc38" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6538fa6d-7ec7-4d85-9696-457a1c9df286">
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-6538fa6d-7ec7-4d85-9696-457a1c9df286" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \textrm{Pr}(\textrm{A defeats B}) = \frac{p_A}{p_A + p_B}
 \end{equation}\]</div>
 <p>Assume that a sports league has four teams, A through D, with previous win percentages 0.45, 0.5, 0.5, and 0.6, respectively.  During the season, each team plays every other 4 times.  Perform a Monte Carlo analysis to estimate the probability that the worst team ends the season with the largest number of wins.  How is this probability affected if the teams are matched 8 times during the season?

@@ -172,12 +172,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">3. Simulating solutions to differential equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">4. Monte Carlo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">5. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">1. Text as data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">2. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="scicomp_proj_z0_ll_analysis.html">Di-lepton mass spectrum from the Compact Muon Solenoid</a></li>
 </ul>
 
     </div>
@@ -881,8 +885,8 @@ Computer programming is the name given to the process of writing <em>programs</e
 <ol class="arabic simple">
 <li><p>Define a function that takes in a single value, x, and returns the value of the function</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-67179363-b584-4330-888a-f78fd5de41db">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-67179363-b584-4330-888a-f78fd5de41db" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dff71c6c-cb15-43f4-b080-68b62e297aa3">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-dff71c6c-cb15-43f4-b080-68b62e297aa3" title="Permalink to this equation">#</a></span>\[\begin{equation}
   f(x) = 4x^2 - 6x - 1.5
 \end{equation}\]</div>
 <p>Apply this function to the values <span class="math notranslate nohighlight">\(-2.0,\, -1.99, ...,\, 2.99,\, 3.0\)</span>.  Print out the values of the function.  Use these results to approximate the values of <span class="math notranslate nohighlight">\(x\)</span> for which <span class="math notranslate nohighlight">\(f(x) = 0\)</span>.</p>
@@ -891,8 +895,8 @@ Computer programming is the name given to the process of writing <em>programs</e
 <li><p>Write a function <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> that computes the factorial of an input value <code class="docutils literal notranslate"><span class="pre">n</span></code>. Note that there is a really “cute” way to do this… but it will take an enormous amount of time to run for modest numbers (say, 4 or more digits).  Don’t do it that way!  Your program should run pretty quickly for numbers up to 6 digits.</p></li>
 <li><p>Recall or learn that the exponential function is commonly <em>defined</em> by the series expansion</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-0ca2c193-e7a3-4791-bb86-240813d16d55">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-0ca2c193-e7a3-4791-bb86-240813d16d55" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2d5f93e2-1c01-460a-b75e-04a5c8068c81">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-2d5f93e2-1c01-460a-b75e-04a5c8068c81" title="Permalink to this equation">#</a></span>\[\begin{equation}
   e^x = \displaystyle\sum_{j=0}^{\infty} \frac{x^j}{j!}
 \end{equation}\]</div>
 <p>where the “!” means factorial.  Write a short program that approximates <span class="math notranslate nohighlight">\(e = e^1\)</span> with the first ten terms in the sum.</p>

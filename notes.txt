@@ -1,0 +1,5 @@
+To rebuild book: 
+jupyter-book build scicomp_book
+
+To publish changes:
+ghp-import -n -p -f _build/html
