@@ -427,10 +427,21 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-tabular-data">4.3. Reading in tabular data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">4.4. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanie">Semi-meanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanie">Meanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanies">Mega-meanies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
 </ul>
 </li>
 </ul>
@@ -807,62 +818,68 @@ honey
 <p>Your homework for next week is to complete 3 of the following problems.  You do <em>not</em> have to do all of them.</p>
 <section id="regulars">
 <h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains temperature data from a weather station in Washington, PA for the years 2000-2009.  Write a block of code that reads in the data from this file and computes the average and standard deviation for high and low temperatures.  Your code should print these averages to screen in a nicely formatted way.  Recall/behold that the standard deviation of quantity <span class="math notranslate nohighlight">\(x\)</span> with average value <span class="math notranslate nohighlight">\(\bar{x}\)</span> is given by</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-aab20cac-a393-464d-bc16-66416bb0218e">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-aab20cac-a393-464d-bc16-66416bb0218e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<section id="problem-1">
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains temperature data from a weather station in Washington, PA for the years 2000-2009.  Write a block of code that reads in the data from this file and computes the average and standard deviation for high and low temperatures.  Your code should print these averages to screen in a nicely formatted way.  Recall/behold that the standard deviation of quantity <span class="math notranslate nohighlight">\(x\)</span> with average value <span class="math notranslate nohighlight">\(\bar{x}\)</span> is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8fb8f023-5e28-442c-a9e3-5350bd20f71e">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-8fb8f023-5e28-442c-a9e3-5350bd20f71e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma^2 = \displaystyle \frac{\sum_{i=1}^{i=N}\left(x_i - \bar{x}\right)^2}{N-1}
 \end{equation}\]</div>
-<ol class="arabic simple">
-<li><p>Write a block of code that reads in the Washington, PA weather data and computes the average high temperature and average low temperature for each month.  Your code should print something like</p></li>
-</ol>
+</section>
+<section id="problem-2">
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<p>Write a block of code that reads in the Washington, PA weather data and computes the average high temperature and average low temperature for each month.  Your code should print something like</p>
 <blockquote>
 <div><p>January  [average high]   [standard dev high]   [average low]   [standard dev low] <br />
 February   [average high]   [standard dev high]   [average low]   [standard dev low] <br />
 …</p>
 </div></blockquote>
-<ol class="arabic simple">
-<li><p>The file <code class="docutils literal notranslate"><span class="pre">NBA_game_data_2000-2014.csv</span></code> contains NBA game data (teams, dates, scores) from 15 seans of regular and post-season play. That’s nearly 20k games!  Let’s say that your instructor believes that the outcomes of some NBA games are determined by non-competitive factors (<em>i.e.</em>, some of the games are rigged).  Calculate the following quantities to begin investigating:</p>
+</section>
+<section id="problem-3">
+<h4>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h4>
+<p>The file <code class="docutils literal notranslate"><span class="pre">NBA_game_data_2000-2014.csv</span></code> contains NBA game data (teams, dates, scores) from 15 seans of regular and post-season play. That’s nearly 20k games!  Let’s say that your instructor believes that the outcomes of some NBA games are determined by non-competitive factors (<em>i.e.</em>, some of the games are rigged).  Calculate the following quantities to begin investigating:</p>
 <ul class="simple">
 <li><p>total number of games</p></li>
 <li><p>fraction of total games that are won by ~less~ fewer than 3 points</p></li>
 <li><p>fraction of total games that are won by the home team</p></li>
 </ul>
-</li>
-</ol>
 </section>
-<section id="semi-meanies">
-<h3>Semi-meanies<a class="headerlink" href="#semi-meanies" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple" start="4">
-<li><p>To prevent cheating, a casino monitors the outcomes of dice rolls at one of its craps tables.  Outcomes for 10000 rolls are given in the file <code class="docutils literal notranslate"><span class="pre">dice_data.txt</span></code>.  Read in this file and determine the following:</p>
+</section>
+<section id="semi-meanie">
+<h3>Semi-meanie<a class="headerlink" href="#semi-meanie" title="Permalink to this heading">#</a></h3>
+<section id="problem-4">
+<h4>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h4>
+<p>To prevent cheating, a casino monitors the outcomes of dice rolls at one of its craps tables.  Outcomes for 10000 rolls are given in the file <code class="docutils literal notranslate"><span class="pre">dice_data.txt</span></code>.  Read in this file and determine the following:</p>
 <ul class="simple">
 <li><p>How many times did the thrower roll snake eyes (1 and 1)?</p></li>
 <li><p>How many times did the thrower roll box cars (6 and 6)?</p></li>
 <li><p>How many times did the thrower roll dice totaling 7?</p></li>
 <li><p>You now own this casino.  After reviewing the data, do you suspect that something fishy is going on?  Explain with quantitative evidence.  For example, if the dice are fair, how often <em>should</em> each of the outcomes in parts a-c happen?</p></li>
 </ul>
-</li>
-</ol>
 </section>
-<section id="meanies">
-<h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple" start="5">
-<li><p>Return to the dice data from problem 4.  Which die do you suspect of being unfair?  Support your claim with quantitative evidence.</p></li>
-</ol>
+</section>
+<section id="meanie">
+<h3>Meanie<a class="headerlink" href="#meanie" title="Permalink to this heading">#</a></h3>
+<section id="problem-5">
+<h4>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h4>
+<p>Return to the dice data from problem 4.  Which die do you suspect of being unfair?  Support your claim with quantitative evidence.</p>
+</section>
 <section id="mega-meanies">
 <h4>Mega-meanies<a class="headerlink" href="#mega-meanies" title="Permalink to this heading">#</a></h4>
-<ol class="arabic simple" start="6">
-<li><p>Return to the dice data from problem 4.  Do you have reason to believe that one of the croupiers is responsible for cheating?  Support your claim with quantitative evidence.</p></li>
-<li><p>Return to the NBA game data from problem 3. Calculate:</p>
+</section>
+<section id="problem-6">
+<h4>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this heading">#</a></h4>
+<p>Return to the dice data from problem 4.  Do you have reason to believe that one of the croupiers is responsible for cheating?  Support your claim with quantitative evidence.</p>
+</section>
+<section id="problem-7">
+<h4>Problem 7<a class="headerlink" href="#problem-7" title="Permalink to this heading">#</a></h4>
+<p>Return to the NBA game data from problem 3. Calculate:</p>
 <ul class="simple">
 <li><p>number of games in which the home team won</p></li>
 <li><p>fraction of games that went to overtime</p></li>
 <li><p>fraction of home-team wins in which the home team was losing at the beginning of the 4th quarter</p></li>
 <li><p>fraction of games that the LA Lakers (most likely cheaters in the league) come from behind in the 4th quarter and won</p></li>
 </ul>
-</li>
-</ol>
 </section>
 </section>
 </section>
@@ -956,10 +973,21 @@ February   [average high]   [standard dev high]   [average low]   [standard dev 
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-in-tabular-data">4.3. Reading in tabular data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">4.4. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanie">Semi-meanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanie">Meanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanies">Mega-meanies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
 </ul>
 </li>
 </ul>

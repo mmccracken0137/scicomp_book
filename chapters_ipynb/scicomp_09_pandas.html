@@ -422,7 +422,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv">5.8. Exporting to csv</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">5.9. In summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">5.10. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
 </ul>
 </li>
@@ -578,7 +582,7 @@ Name: dish, dtype: object
 </pre>
 </div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">/var/folders/6s/cpr1t_711kj905fk6qjplyrw0000gr/T/ipykernel_74053/2769499521.py</span> in <span class="ni">?</span><span class="nt">()</span>
+<span class="nn">/var/folders/6s/cpr1t_711kj905fk6qjplyrw0000gr/T/ipykernel_58405/2769499521.py</span> in <span class="ni">?</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">new_dishes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;quesadilla&#39;</span><span class="p">,</span> <span class="s1">&#39;jollof rice&#39;</span><span class="p">,</span> <span class="s1">&#39;grilled chili peppers&#39;</span><span class="p">,</span> <span class="s1">&#39;ma la fish&#39;</span><span class="p">,</span> <span class="s1">&#39;schnitzel&#39;</span><span class="p">,</span> <span class="s1">&#39;empanadas&#39;</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">new_ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">new_dishes</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;dish&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">new_ser</span><span class="p">)</span>
@@ -1018,16 +1022,18 @@ Name: dish, dtype: object
 <p>Your homework is to complete two (2) of the following problems.</p>
 <section id="regulars">
 <h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Obtain the <a class="reference external" href="https://www.kaggle.com/datasets/ashishjangra27/ted-talks">TED Talks dataset from Kaggle</a>.  Make histograms of watches, likes, and likes per watch.  Find the title of the most ‘under-appreciated’ Talk.  (You determine what is meant by this.  What would be a good metric for under-appreciatedness?)</p></li>
-<li><p>Obtain the <a class="reference external" href="https://www.kaggle.com/datasets/anandaramg/taxi-trip-data-nyc">Taxi trip data NYC</a> dataset.  Make histograms of trip duration (in minutes), trip distance (in miles), and average trip speed (in mph).  Make a scatter plot or 2-d histogram of trip duration vs trip distance.  Note that you’ll have to do some significant parsing (processing of alphanumeric strings) of the information in the time columns to calculate the ride duration!</p></li>
-</ol>
+<section id="problem-1">
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<p>Obtain the <a class="reference external" href="https://www.kaggle.com/datasets/ashishjangra27/ted-talks">TED Talks dataset from Kaggle</a>.  Make histograms of watches, likes, and likes per watch.  Find the title of the most ‘under-appreciated’ Talk.  (You determine what is meant by this.  What would be a good metric for under-appreciatedness?)</p>
+</section>
+<section id="problem-2">
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<p>Obtain the <a class="reference external" href="https://www.kaggle.com/datasets/anandaramg/taxi-trip-data-nyc">Taxi trip data NYC</a> dataset.  Make histograms of trip duration (in minutes), trip distance (in miles), and average trip speed (in mph).  Make a scatter plot or 2-d histogram of trip duration vs trip distance.  Note that you’ll have to do some significant parsing (processing of alphanumeric strings) of the information in the time columns to calculate the ride duration!</p>
+</section>
 </section>
 <section id="meanies">
 <h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple" start="3">
-<li><p>Obtain the <a class="reference external" href="https://www.kaggle.com/datasets/hmavrodiev/london-bike-sharing-dataset">London bike sharing dataset</a>.  Make a graph that shows number of shares (aggregated over all days in the dataset) <em>vs</em> hour of the day.  What is the peak bikeshare hour?  Make a graph that shows aggregate number of bikeshares <em>vs</em> temperature.  Are Londoners cold-weather wimps?</p></li>
-</ol>
+<p>Obtain the <a class="reference external" href="https://www.kaggle.com/datasets/hmavrodiev/london-bike-sharing-dataset">London bike sharing dataset</a>.  Make a graph that shows number of shares (aggregated over all days in the dataset) <em>vs</em> hour of the day.  What is the peak bikeshare hour?  Make a graph that shows aggregate number of bikeshares <em>vs</em> temperature.  Are Londoners cold-weather wimps?</p>
 </section>
 </section>
 </section>
@@ -1117,7 +1123,11 @@ Name: dish, dtype: object
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv">5.8. Exporting to csv</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">5.9. In summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">5.10. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
 </ul>
 </li>

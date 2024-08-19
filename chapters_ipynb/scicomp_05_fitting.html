@@ -425,8 +425,18 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-uncertainties">2.8. Fitting data with uncertainties</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">2.9. In summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">2.10. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanies-free-candy-edition">Mega-Meanies, free-candy edition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanies">Mega-Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -477,8 +487,8 @@ document.write(`
 <p>In Lesson 4 we discussed how data visualization can help help us to turn data into understanding.  “Understanding” in this sense means something like a <em>qualitative understanding</em> of the data.</p>
 <p>Today, we’ll look at a method for turning data into quantitative results: fitting functions to data, sometimes called “model optimization”.  This is an indispensible skill/technique in the physical sciences, and it’s something that you’ve probably done many times using Excel or Logger Pro.</p>
 <p>Here is the basic idea: Often in the physical sciences, we have data that we believe should be described by some quantitative model.  For example, the data might be vertical position <em>vs</em> time measurements for a projectile, and we might assume that this data is described by one of the kinematic equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67d5d2bd-77f1-473a-90e6-1d022a273a79">
-<span class="eqno">(2.4)<a class="headerlink" href="#equation-67d5d2bd-77f1-473a-90e6-1d022a273a79" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4174c253-b5f9-4fac-a3bc-22f2150ddbad">
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-4174c253-b5f9-4fac-a3bc-22f2150ddbad" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = \frac{1}{2}a_{y}\;t^2 + v_{0y}\;t + y_0
 \end{equation}\]</div>
 <p>This function is our <em>model</em> and it is typically the consequence of some underlying physical law (in this case, N2L).  The goal of <em>fitting the model to the data</em> is to determine the values of the physical parameters in the model that make the model <em>best characterize the data</em>.  For the kinematic model above, this means determining the optimal values of <span class="math notranslate nohighlight">\(a_y\)</span>, <span class="math notranslate nohighlight">\(v_{0y}\)</span>, and <span class="math notranslate nohighlight">\(y_0\)</span>.  We call these the “fit parameters” because they are the quantities that we will vary in order to fit the model to the data.</p>
@@ -490,8 +500,8 @@ y(t) = \frac{1}{2}a_{y}\;t^2 + v_{0y}\;t + y_0
 <section id="fitting-bivariate-data-the-basics">
 <h2><span class="section-number">2.4. </span>Fitting bivariate data, the basics<a class="headerlink" href="#fitting-bivariate-data-the-basics" title="Permalink to this heading">#</a></h2>
 <p>Let’s get started with the simplest meaningful fitting exercise: fitting a linear model to bivariate data.  The file <code class="docutils literal notranslate"><span class="pre">spring_stretch.csv</span></code> contains stretch distance (<span class="math notranslate nohighlight">\(x\)</span>) and spring force (<span class="math notranslate nohighlight">\(F\)</span>) data for the stretching of a spring.  We want to use this data to measure the spring constant.  For a spring that obeys Hooke’s Law, the two variables are related by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d07b35ce-5afb-49b4-93a6-4a8197234e3d">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-d07b35ce-5afb-49b4-93a6-4a8197234e3d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d6d6c6b9-8302-4451-813b-f0535c95184a">
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-d6d6c6b9-8302-4451-813b-f0535c95184a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 F_x = k x
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k\)</span> is the spring constant.  Let’s look at the data first:</p>
@@ -544,17 +554,6 @@ F_x = k x
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">spring_popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">linear_function</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>That’s basically all there is to it!  The first three arguments of <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> are the function that we want to optimize and the two lists containing the data (independent and dependent variables).  The last argument, <code class="docutils literal notranslate"><span class="pre">p0</span></code>, is a set of initial guesses of the fit parameter values.  Our function has two fit parameters (<span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(b\)</span>), so I supply a list of two values.  These values give <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> somewhere to begin its fitting process.  For simple models like this, the initial parameter values aren’t super important, but for more complicated models/data, tuning these parameters can make or break the fit.</p>
 <p>When we call <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> it produces outputs – I’ve stored these as <code class="docutils literal notranslate"><span class="pre">spring_popt</span></code> and <code class="docutils literal notranslate"><span class="pre">pcov</span></code>.  As such, <code class="docutils literal notranslate"><span class="pre">spring_popt</span></code> is a list of the <strong>optimal parameter values</strong>, <em>i.e.</em> the values of the model paramter that make the model best describe the data.  <code class="docutils literal notranslate"><span class="pre">pcov</span></code> is the <strong>covariance matrix</strong>, a complicated object that tells us about the uncertainties in the optimal fit parameter values (more on this below).</p>
@@ -562,6 +561,11 @@ F_x = k x
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">spring_popt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.16989    0.60664998]
 </pre></div>
 </div>
 </div>
@@ -583,6 +587,9 @@ F_x = k x
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/44291eda938535fdad8211acd69dad0c2c0f6d3a4e8ff8aebcb5bba105d09275.png" src="../_images/44291eda938535fdad8211acd69dad0c2c0f6d3a4e8ff8aebcb5bba105d09275.png" />
 </div>
 </div>
 <section id="warm-up-problem">
@@ -619,6 +626,9 @@ F_x = k x
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/4caf204f93614c56841eaf924ad4eb9e5651467706058b16e3ce943304abbe76.png" src="../_images/4caf204f93614c56841eaf924ad4eb9e5651467706058b16e3ce943304abbe76.png" />
+</div>
 </div>
 <p>Cool!  So, as we would expect, the data appear to be distributed according to a gaussian (or bell curve), possibly with some “funky stuff” happening on the low-end (left) tail.</p>
 <p>Notice that I set <code class="docutils literal notranslate"><span class="pre">bin_values</span></code> equal to the output of the histogramming step above.  We’ll use this below.  This output is a list containing two lists!  The first list contains the numbers of events in each bin (I’ll call them the “occupancies”).  The second list contains the bin edge values.  Let’s take a look:</p>
@@ -629,6 +639,29 @@ F_x = k x
 <span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39; elements in the occupanices list.&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bin_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39; elements in the edges list.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  0.   0.   0.   1.   1.   0.   0.   2.   0.   0.   2.   2.   6.   8.
+   7.  11.  15.  19.  23.  28.  30.  27.  32.  57.  80.  61.  70.  81.
+  88.  79.  91.  83. 102. 102. 121.  85.  87.  99.  98.  98. 121. 129.
+ 114. 122. 164. 203. 223. 235. 250. 298. 308. 343. 429. 442. 475. 527.
+ 554. 557. 569. 647. 664. 669. 642. 739. 694. 635. 657. 599. 598. 614.
+ 488. 460. 451. 434. 393. 359. 307. 270. 264. 235. 145. 144. 146. 124.
+  83.  64.  61.  44.  33.  27.  25.  22.  13.  16.  11.   6.   6.   2.
+   1.   1.   2.   4.   0.   0.   2.   1.   0.   0.   0.   0.]
+[110. 111. 112. 113. 114. 115. 116. 117. 118. 119. 120. 121. 122. 123.
+ 124. 125. 126. 127. 128. 129. 130. 131. 132. 133. 134. 135. 136. 137.
+ 138. 139. 140. 141. 142. 143. 144. 145. 146. 147. 148. 149. 150. 151.
+ 152. 153. 154. 155. 156. 157. 158. 159. 160. 161. 162. 163. 164. 165.
+ 166. 167. 168. 169. 170. 171. 172. 173. 174. 175. 176. 177. 178. 179.
+ 180. 181. 182. 183. 184. 185. 186. 187. 188. 189. 190. 191. 192. 193.
+ 194. 195. 196. 197. 198. 199. 200. 201. 202. 203. 204. 205. 206. 207.
+ 208. 209. 210. 211. 212. 213. 214. 215. 216. 217. 218. 219. 220.]
+
+There are 110 elements in the occupanices list.
+There are 111 elements in the edges list.
 </pre></div>
 </div>
 </div>
@@ -649,6 +682,12 @@ F_x = k x
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[110.5, 111.5, 112.5, 113.5, 114.5, 115.5, 116.5, 117.5, 118.5, 119.5]
+110
+</pre></div>
+</div>
+</div>
 </div>
 <p>Make sure you understand what’s going on in the loop in the previous cell!  It’s compact, but you know how to read it.</p>
 <p>Let’s visualize the bin center and occupancy data with a quick graph:</p>
@@ -662,12 +701,15 @@ F_x = k x
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/d7b8707c85cd39d78ad1174418113fdba9642db7427bdf7b8cce7bc5375c5836.png" src="../_images/d7b8707c85cd39d78ad1174418113fdba9642db7427bdf7b8cce7bc5375c5836.png" />
+</div>
 </div>
 <p>If that just looks like the profile of our histogram from above… good eye!  It is.  We’ve just graphed the data in a way that is obviously 2-d.</p>
 <p>To <em>characterize</em> the data, we’ll fit a gaussian function to the data using <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> again.  The <em>process</em> is exactly the same as it was above for the linear function, but we will need to change some of the details of the fit.</p>
 <p>In this case, we suspect that the data can be described by a gaussian function with the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-db694d9e-835d-4668-b57f-b3d8d1488aa6">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-db694d9e-835d-4668-b57f-b3d8d1488aa6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6bb4f2a-2f35-4d86-b2b3-bd0fac5bb718">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-b6bb4f2a-2f35-4d86-b2b3-bd0fac5bb718" title="Permalink to this equation">#</a></span>\[\begin{equation}
 g(h) = a \exp \left[ - \frac{(h-\mu)^2}{2\sigma^2} \right]
 \end{equation}\]</div>
 <p>Again, “fitting” means that we want to find the values of parameters <span class="math notranslate nohighlight">\(a\)</span> (scale), <span class="math notranslate nohighlight">\(\mu\)</span> (mean), and <span class="math notranslate nohighlight">\(\sigma\)</span> (width) that make the gaussian a good description of the number of data in each of our bins as a function of the bin center (<span class="math notranslate nohighlight">\(h\)</span>).
@@ -684,6 +726,11 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
                                    <span class="n">p0</span><span class="o">=</span><span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">gauss_popt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[662.10864557 173.01077254  11.10796728]
 </pre></div>
 </div>
 </div>
@@ -704,6 +751,9 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e4527190c994cff71b63173c31fe1d3505d824420f39b6572fecb58e2784f5ec.png" src="../_images/e4527190c994cff71b63173c31fe1d3505d824420f39b6572fecb58e2784f5ec.png" />
 </div>
 </div>
 <p>Wow!  That looks pretty… um… well, it looks <em>okay</em>.  That funky lower tail is bugging me.  Let’s construct a more general function that is a sum of two gaussians to try to fit both contributions.  We can use the same procedure as before:</p>
@@ -738,6 +788,13 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[674.71713643 173.30245567  10.56013208  86.99174829 141.52885415
+   7.78617905]
+</pre></div>
+</div>
+<img alt="../_images/a1fbde8a6d5af7b652893871507f7585fb4910aa37ee47f28b0237ebfe3076a9.png" src="../_images/a1fbde8a6d5af7b652893871507f7585fb4910aa37ee47f28b0237ebfe3076a9.png" />
 </div>
 </div>
 <p>The green curve is our double-gaussian distribution.  NOW <strong>THAT’S</strong> A FIT.  WOO WOO.</p>
@@ -777,16 +834,32 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.03634221e+01  4.58130748e-02 -2.64954823e-01  1.17724314e+00
+   5.10333329e-01  3.92992224e-01]
+ [ 4.58130748e-02  8.51766398e-03 -2.93106817e-03 -3.09644301e-02
+   2.13540780e-02  2.49982746e-02]
+ [-2.64954823e-01 -2.93106817e-03  1.02429801e-02 -2.63147281e-03
+  -2.97455143e-02 -3.01055834e-02]
+ [ 1.17724314e+00 -3.09644301e-02 -2.63147281e-03  2.63477614e+01
+  -6.07701159e-02 -1.64357748e+00]
+ [ 5.10333329e-01  2.13540780e-02 -2.97455143e-02 -6.07701159e-02
+   3.90363568e-01  1.19844580e-01]
+ [ 3.92992224e-01  2.49982746e-02 -3.01055834e-02 -1.64357748e+00
+   1.19844580e-01  4.10415881e-01]]
+</pre></div>
+</div>
+</div>
 </div>
 <p>Barf!  What is this?  This is a 6x6  (note that there are 6 fit parameters) matrix called the <strong>covariance matrix</strong>, and it stores all of the uncertainty information from the fit.  <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_matrix">The Wikipedia entry for covariance matrix</a> is pretty deece!</p>
 <p>What you need to know is that the covariance matrix stores information about uncertainties in and correlations between the fit parameters.  The latter of these is not necessary for us right now.  However, the former is what we want.  The diagonal elements of the covariance matrix are the squares of the (1 standard deviation) parameter uncertainties!  So for fit parameter <span class="math notranslate nohighlight">\(p_i\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87ea021c-fbad-4baa-9c3f-3cb47165ed31">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-87ea021c-fbad-4baa-9c3f-3cb47165ed31" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1fcf17bc-2c15-45a0-8c88-2406fa2c24f6">
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-1fcf17bc-2c15-45a0-8c88-2406fa2c24f6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma_i = \sqrt{pcov2_{ii}}
 \end{equation}\]</div>
 <p>Said in words, the uncertainty of the <span class="math notranslate nohighlight">\(i^{th}\)</span> fit parameter is the <span class="math notranslate nohighlight">\((i,i)\)</span> element of the covariance matrix (an element on the diagonal).  If you’re comfortable with matrices, you might picture the covariance matrix as something like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb7c177c-12c2-4d0c-87c1-e06328880c39">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-eb7c177c-12c2-4d0c-87c1-e06328880c39" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2971ae9a-2165-4f93-871d-31cb18c52f7a">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-2971ae9a-2165-4f93-871d-31cb18c52f7a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 
 pcov2 = \begin{bmatrix} 
     \sigma^{2}_{11} &amp; ? &amp; ? &amp; \dots &amp; ? \\
@@ -806,6 +879,16 @@ pcov2 = \begin{bmatrix}
                       
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fit parameter &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;:</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dgauss_popt</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> +/- &quot;</span>
                                             <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dgauss_popt_sigs</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fit parameter 0:	674.7171364332785	 +/- 4.512584860486272
+fit parameter 1:	173.3024556745698	 +/- 0.09229119123353281
+fit parameter 2:	10.56013207663665	 +/- 0.10120760902506033
+fit parameter 3:	86.99174828603886	 +/- 5.133007052227747
+fit parameter 4:	141.5288541485409	 +/- 0.6247908197774175
+fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 </pre></div>
 </div>
 </div>
@@ -847,6 +930,9 @@ pcov2 = \begin{bmatrix}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/eff2973f5531b2d8c17c77d2e08f4c12f59e6048d41e8ffdec3df6417122449e.png" src="../_images/eff2973f5531b2d8c17c77d2e08f4c12f59e6048d41e8ffdec3df6417122449e.png" />
+</div>
 </div>
 <p>We see now that the data points have varying uncertainties – in particular that wonky-looking point at <span class="math notranslate nohighlight">\(x \approx 7\)</span> cm has a lerger error bar than the other points.  When we do a fit, our fit should try less hard to match this data point because its value is less certain!  This can be done by supplying the uncertainty values to <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p>
 <p>Note that we’re only going to supply the uncertainties in the force, not the uncertainties in distance.  Doing both requires more sophisticated methods (which <code class="docutils literal notranslate"><span class="pre">scipy</span></code> has, but we’ll ignore).</p>
@@ -879,6 +965,15 @@ pcov2 = \begin{bmatrix}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.34637885 0.31250192]
+</pre></div>
+</div>
+<img alt="../_images/493e848c8823230b6f9af2a5826a6812cc094e318786684431ffdbfc51d79530.png" src="../_images/493e848c8823230b6f9af2a5826a6812cc094e318786684431ffdbfc51d79530.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The optimal spring constant value is (3.3464 +/- 0.2177) N/cm
+</pre></div>
+</div>
+</div>
 </div>
 <p>Wow, very sophisticated.  I’ve plotted both the previous fit function (that ignored errors, magenta) and the new fit function (green).  Notice that they’re not the same!!!  The new fit function is a bit higher because it doesn’t try to match that wonky point at <span class="math notranslate nohighlight">\(x \approx 7\)</span> cm.</p>
 </section>
@@ -897,29 +992,43 @@ pcov2 = \begin{bmatrix}
 <p>Your homework is to complete <strong>two</strong> (2) of the following problems.</p>
 <section id="regulars">
 <h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>The file <code class="docutils literal notranslate"><span class="pre">parab_t_and_y_error.csv</span></code> contains vertical position and time measurements of a projectile.  Fit the data in this file with the kinematic equation model given in section III of this notebook.  From this fit, extract the vertical acceleration and its associated uncertainty.  Is this value consistent with <span class="math notranslate nohighlight">\(g = 9.80\)</span> m/s<span class="math notranslate nohighlight">\(^2\)</span>?  Write a block of markdown to explain what you did and your results.</p></li>
-<li><p>Return to the NBA data (again???) from a few lessons back.  Make a histogram of the half-time point differential (team2 - team1).  Configure the histogram to have 1-point-wide bins.  Fit a gaussian to this histogram to extract the mean point differential (and its uncertainty) and the standard deviation.  Does the gaussian function look like it adequately characterizes the data?  Now make a histogram of the final point differential.  Comment on whether a gaussian function would be a good description of the data.  If not, why not???  Write a block of markdown to explain your process and your results.</p></li>
-<li><p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains the temperature maxes and mins per day for the years 2000-2009 in Washington, PA.  Over 3500 data points!  Make a graph of the maximum temp versus day number.  Fit this data with a function of the following form:</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-a370fd85-7091-49eb-b12a-c20781c3af4b">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-a370fd85-7091-49eb-b12a-c20781c3af4b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<section id="problem-1">
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<p>The file <code class="docutils literal notranslate"><span class="pre">parab_t_and_y_error.csv</span></code> contains vertical position and time measurements of a projectile.  Fit the data in this file with the kinematic equation model given in section III of this notebook.  From this fit, extract the vertical acceleration and its associated uncertainty.  Is this value consistent with <span class="math notranslate nohighlight">\(g = 9.80\)</span> m/s<span class="math notranslate nohighlight">\(^2\)</span>?  Write a block of markdown to explain what you did and your results.</p>
+</section>
+<section id="problem-2">
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<p>Return to the NBA data (again???) from a few lessons back.  Make a histogram of the half-time point differential (team2 - team1).  Configure the histogram to have 1-point-wide bins.  Fit a gaussian to this histogram to extract the mean point differential (and its uncertainty) and the standard deviation.  Does the gaussian function look like it adequately characterizes the data?  Now make a histogram of the final point differential.  Comment on whether a gaussian function would be a good description of the data.  If not, why not???  Write a block of markdown to explain your process and your results.</p>
+</section>
+<section id="problem-3">
+<h4>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h4>
+<p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains the temperature maxes and mins per day for the years 2000-2009 in Washington, PA.  Over 3500 data points!  Make a graph of the maximum temp versus day number.  Fit this data with a function of the following form:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7c9d9b12-10c3-4954-b874-06444c700476">
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-7c9d9b12-10c3-4954-b874-06444c700476" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T(t) = A\cos\left( \omega t + \phi\right) + B
 \end{equation}\]</div>
 <p>This function has four fit parameters: <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span>, and <span class="math notranslate nohighlight">\(B\)</span>.  Make sure you supply good initial guesses for these parameters.  Use your values of <span class="math notranslate nohighlight">\(\omega\)</span> and <span class="math notranslate nohighlight">\(B\)</span> returned by the fit to estimate the length of the year.  Also estimate the average <strong>annual</strong> temperature from your fit parameters. (Note: It is likely that the biggest problem that you’ll have is determining “good” initial parameter values.  Think very hard about what type of quantity <span class="math notranslate nohighlight">\(\omega\)</span> is and how it relates to the length of a year.)</p>
 </section>
-<section id="mega-meanies-free-candy-edition">
-<h3>Mega-Meanies, free-candy edition<a class="headerlink" href="#mega-meanies-free-candy-edition" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple" start="4">
-<li><p>You and a partner will be given a number of small (so-called “fun size” [<em>sic</em>]) bags of Skittles. Your job is to characterize the number <strong>yellow</strong> Skittles in an average fun-size bag (FSB).  Open <strong>each</strong> of the FSBs and count the total number of Skittles and the number of yellow Skittles in each.  Enter this data into a csv file, where each row represents a single FSB.  Then, write <code class="docutils literal notranslate"><span class="pre">python</span></code> code that plots separate histograms of the totals and the numbers of yellows.  Your histograms should be configured to have 1-unit-wide bins.  It is likely that this dataset will be described by the <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>.  In this application, the Poisson distribution tells us the that the probability of finding <span class="math notranslate nohighlight">\(k\)</span> yellows in an FSB is given by</p></li>
-</ol>
-<div class="amsmath math notranslate nohighlight" id="equation-5febbd6b-341c-480e-963f-e65d3b9666ca">
-<span class="eqno">(2.10)<a class="headerlink" href="#equation-5febbd6b-341c-480e-963f-e65d3b9666ca" title="Permalink to this equation">#</a></span>\[\begin{equation}
+</section>
+<section id="mega-meanies">
+<h3>Mega-Meanies<a class="headerlink" href="#mega-meanies" title="Permalink to this heading">#</a></h3>
+<section id="problem-4">
+<h4>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h4>
+<p>You and a partner will be given a number of small (so-called “fun size” [<em>sic</em>]) bags of Skittles. Your job is to characterize the number <strong>yellow</strong> Skittles in an average fun-size bag (FSB).  Open <strong>each</strong> of the FSBs and count the total number of Skittles and the number of yellow Skittles in each.  Enter this data into a csv file, where each row represents a single FSB.  Then, write <code class="docutils literal notranslate"><span class="pre">python</span></code> code that plots separate histograms of the totals and the numbers of yellows.  Your histograms should be configured to have 1-unit-wide bins.  It is likely that this dataset will be described by the <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>.  In this application, the Poisson distribution tells us the that the probability of finding <span class="math notranslate nohighlight">\(k\)</span> yellows in an FSB is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3cd561b8-c6b2-4901-9cf7-d49ecbdbba35">
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-3cd561b8-c6b2-4901-9cf7-d49ecbdbba35" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \textrm{Pr}(k) = A\frac{\lambda^{-k}e^{\lambda}}{k!}
 \end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the “expected value” of the number of yellows in each FSB and <span class="math notranslate nohighlight">\(A\)</span> is a scale factor that will make fitting easier.  Fit this function to the histogram for yellows to extract the expected number of yellows per FSB.  Write a block of markdown to explain your process and your results.  (Note: If you want to do this exercise, you need to tell me by Thursday evening so that I can acquire Skittles.)
-4. (BONUS) Now fit a Poisson PMF to the distribution of total Skittles in an FSB. Use your your results from this and the previous problem to estimate the probability that a bag will be all yellows.
-4. Get the file <code class="docutils literal notranslate"><span class="pre">cobe_cmb_data.txt</span></code> from Sakai.  This file contains the data represented in the CMB first item of Section II of this notebook.  The first column of data in this file represents the oscillations of light per cm; you will have to do a simple calculation to convert this to either a wavelength or a frequency.  Look online for a functional form of the black-body spectrum. Fit this functional form to the data and extract the temperature of… the Universe!</p>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the “expected value” of the number of yellows in each FSB and <span class="math notranslate nohighlight">\(A\)</span> is a scale factor that will make fitting easier.  Fit this function to the histogram for yellows to extract the expected number of yellows per FSB.  Write a block of markdown to explain your process and your results.  (Note: If you want to do this exercise, you need to tell me by Thursday evening so that I can acquire Skittles.)</p>
+</section>
+<section id="problem-5">
+<h4>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h4>
+<p>Now fit a Poisson PMF to the distribution of total Skittles in an FSB. Use your your results from this and the previous problem to estimate the probability that a bag will be all yellows.</p>
+</section>
+<section id="problem-6">
+<h4>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this heading">#</a></h4>
+<p>Get the file <code class="docutils literal notranslate"><span class="pre">cobe_cmb_data.txt</span></code> from Sakai.  This file contains the data represented in the CMB first item of Section II of this notebook.  The first column of data in this file represents the oscillations of light per cm; you will have to do a simple calculation to convert this to either a wavelength or a frequency.  Look online for a functional form of the black-body spectrum. Fit this functional form to the data and extract the temperature of… the Universe!</p>
+</section>
 </section>
 </section>
 </section>
@@ -1010,8 +1119,18 @@ T(t) = A\cos\left( \omega t + \phi\right) + B
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-uncertainties">2.8. Fitting data with uncertainties</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">2.9. In summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">2.10. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanies-free-candy-edition">Mega-Meanies, free-candy edition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanies">Mega-Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_02_typescontainers';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -421,7 +423,23 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">3.6. Dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spyder">3.7. Spyder</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">3.8. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanie">Mega-meanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -683,7 +701,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5515257037663318
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.22872533133758655
 </pre></div>
 </div>
 </div>
@@ -700,26 +718,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8114766729923667
-0.6188407374418812
-0.08435111510110438
-0.1752528325261603
-0.975193978709384
-0.26469479011233743
-0.34640409627496604
-0.9588912150168225
-0.7560081117701685
-0.05655344442838095
-0.6770013087520531
-0.7463328828448421
-0.1870490832392604
-0.6575688921379232
-0.4919559187708331
-0.4902955624300366
-0.8125064609957635
-0.37359141981947885
-0.7782058462198291
-0.8066655030986668
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.563545705778137
+0.0627125807554264
+0.5277629727178815
+0.09269817853564033
+0.35452570616889445
+0.4558407049970822
+0.09027056540163114
+0.6740677979727586
+0.2877331987367633
+0.7924093981081383
+0.4326558657770958
+0.1726543648890504
+0.6401188154719818
+0.6371087012153067
+0.4374877603291306
+0.4227540083953092
+0.89621158617777
+0.9639175189507405
+0.23160224790243567
+0.4627518511464981
 </pre></div>
 </div>
 </div>
@@ -736,26 +754,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7293056162710376
--0.7069448638568283
--0.27994477356808734
--0.39757602646669543
--0.0811896873994351
-0.12194476477440475
-0.5034580141948071
--0.101229859568426
-0.7550554748603691
-0.8291048494512381
-0.586971506168424
-0.6491776257106936
-0.3340809710681387
-0.8504892487126277
-0.5201325033001041
-0.8107553486292352
-0.43937143602167805
--0.21435328878200677
--0.9559418119466685
-0.7850794463799429
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5507943506058106
+0.8829969429545197
+0.09138316866670637
+0.5265957987315666
+0.232026632721829
+-0.4289072564927858
+-0.7789357647480117
+-0.7576977413730805
+-0.6471098803702902
+-0.806947284174188
+0.6280892756217489
+0.8056723628170346
+-0.287548125733742
+0.6050246531818286
+0.7920676644252962
+-0.2822328264364198
+0.4049750466154687
+-0.6430816180139023
+-0.9608869626514913
+0.10329250969902959
 </pre></div>
 </div>
 </div>
@@ -771,26 +789,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.6153356539223521, 0.23385269854129664)
-(0.3424353520027381, 0.3268676301686474)
-(0.6547023153053252, 0.9533129874258196)
-(0.0899092233372647, 0.09340143739466722)
-(0.2762991750053221, 0.47364753715189656)
-(0.04587308496379949, 0.30836282730692177)
-(0.03910918272535435, 0.9045290753171137)
-(0.3483056540252041, 0.7501377618088924)
-(0.013181670787478228, 0.5964364977610176)
-(0.7823142025057335, 0.5227976473721204)
-(0.08456341702896131, 0.9123756323068266)
-(0.45459146432569164, 0.13101393861905042)
-(0.12044316438092262, 0.6808830425419402)
-(0.6784155606448361, 0.37221803657320385)
-(0.6011178119558808, 0.481770510836961)
-(0.7613460086224703, 0.5931120265309635)
-(0.12659707852204105, 0.7859647662758791)
-(0.5726314696803972, 0.9960649838172323)
-(0.13649082763046683, 0.6938780849945676)
-(0.8439251059478998, 0.2389539256225257)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9367266024595314, 0.5803912622228395)
+(0.09897677630001234, 0.1738077977617788)
+(0.7624469412637455, 0.3359118302813071)
+(0.9517772944396374, 0.9976305002525244)
+(0.9341860861147624, 0.7198649439743102)
+(0.5371937072300565, 0.3435687677770848)
+(0.5601053950990394, 0.45264324487587737)
+(0.1498938685044251, 0.14864275031191954)
+(0.6156385681278183, 0.38167075239864723)
+(0.5144467452720156, 0.4033169020581152)
+(0.6488458387374755, 0.5833193364767597)
+(0.020456195670159105, 0.9293215684060565)
+(0.9628493599457613, 0.45505611582068894)
+(0.598067258330914, 0.7516842228404138)
+(0.21130491552068287, 0.3140558925714174)
+(0.41433836063297436, 0.9465888082712004)
+(0.5122454207322357, 0.003607485400736077)
+(0.3765578517082976, 0.8788486679681874)
+(0.9971936698465486, 0.7419038419544555)
+(0.7598216404984296, 0.41478691861804673)
 </pre></div>
 </div>
 </div>
@@ -809,26 +827,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.002128323388374
-0.8603882931952835
-0.15657574051124312
-0.6610754188272439
-1.745004926009094
-0.10144552380067129
-0.049314687158432235
-0.5214651801213233
-2.4779433700636324
-0.711597697389649
-0.25281759448844454
-0.5127448870630249
-0.004480795187695286
-0.12560963010871173
-2.821387728840226
-0.3916370660448636
-2.8165656619412553
-2.1131160524049273
-2.4509735628606633
-0.7455426414833335
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8782042473973761
+2.244239740399321
+0.7875540559582248
+1.3758799154356705
+1.6593473369144138
+0.3692950258537717
+0.7975405751969746
+0.4362470939648917
+2.172202275162941
+0.7481673058765193
+2.4747228738048546
+2.0942034123336413
+0.07249532377944501
+2.4660881937111845
+1.2438259760481227
+1.0515938361120796
+0.14968442026192053
+2.2268764177137323
+0.401681424130103
+0.8151609943503146
 </pre></div>
 </div>
 </div>
@@ -843,7 +861,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>98
 </pre></div>
 </div>
 </div>
@@ -857,7 +875,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>73
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86
 </pre></div>
 </div>
 </div>
@@ -871,7 +889,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>67
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>39
 </pre></div>
 </div>
 </div>
@@ -1132,107 +1150,84 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have 99 elements in our list.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have 76 elements in our list.
 
-0 	 0.5856012224946124 	 0.3429287917871846
-1 	 0.32578366024492367 	 0.10613499328257986
-2 	 0.45548615500357315 	 0.20746763739993906
-3 	 0.45651957029467805 	 0.2084101180620375
-4 	 0.2019387000232571 	 0.040779238567083015
-5 	 0.09391247309265793 	 0.0088195526023792
-6 	 0.6783294239514589 	 0.4601308073983181
-7 	 0.3880832444666714 	 0.15060860463577824
-8 	 0.9759354805753145 	 0.9524500622457701
-9 	 0.4034292528240656 	 0.16275516203418386
-10 	 0.44720209834169067 	 0.19998971676121116
-11 	 0.8149648771738313 	 0.6641677510269579
-12 	 0.999255283886071 	 0.9985111223742323
-13 	 0.3912389668491544 	 0.15306792918119372
-14 	 0.17737897908561318 	 0.031463302221454395
-15 	 0.002351997240838455 	 5.531891020911704e-06
-16 	 0.48564905976446626 	 0.23585500925011013
-17 	 0.9087517765596317 	 0.8258297914002868
-18 	 0.25497803604211267 	 0.0650137988638929
-19 	 0.3733740270902497 	 0.1394081641055905
-20 	 0.7064824685430232 	 0.4991174783586438
-21 	 0.7609700663342321 	 0.5790754418567257
-22 	 0.6607756560676838 	 0.436624467651678
-23 	 0.5500151667220465 	 0.30251668362428064
-24 	 0.8271757995702846 	 0.6842198033947398
-25 	 0.7346694665182865 	 0.5397392250342636
-26 	 0.7937964635621058 	 0.6301128255637055
-27 	 0.23702791936328005 	 0.05618223455768559
-28 	 0.24263909746022183 	 0.05887373161631103
-29 	 0.3973404258213664 	 0.15787941399190478
-30 	 0.1741657898836868 	 0.03033372236580854
-31 	 0.30911009780053056 	 0.09554905256225357
-32 	 0.828594366295769 	 0.686568623857087
-33 	 0.5040782429836543 	 0.2540948750494881
-34 	 0.7231487519285491 	 0.5229441174158183
-35 	 0.9426325547783772 	 0.8885561333280102
-36 	 0.6605774679001352 	 0.4363625910973541
-37 	 0.5471086392584648 	 0.29932786315124893
-38 	 0.8741147497523886 	 0.7640765957346809
-39 	 0.6808210250065946 	 0.4635172680910301
-40 	 0.37105838807325364 	 0.1376843273595213
-41 	 0.530982064243502 	 0.2819419525482905
-42 	 0.24795933955115046 	 0.06148383407064273
-43 	 0.06932143078043429 	 0.004805460765446542
-44 	 0.7153629856189504 	 0.5117442011936586
-45 	 0.5773005584894231 	 0.3332759348321998
-46 	 0.37980348606413405 	 0.14425068802646887
-47 	 0.6737255988904882 	 0.45390618260034704
-48 	 0.029701498997163678 	 0.000882179042678515
-49 	 0.44491580568352884 	 0.1979500741470236
-50 	 0.546019002377539 	 0.2981367509573629
-51 	 0.04491999697998894 	 0.0020178061286822155
-52 	 0.5526272377094703 	 0.3053968638583994
-53 	 0.32857096158748766 	 0.1079588767985263
-54 	 0.29706709043049706 	 0.08824885621684112
-55 	 0.7609106278086647 	 0.5789849835121762
-56 	 0.9112743228214782 	 0.8304208914337438
-57 	 0.546269373403127 	 0.298410228318245
-58 	 0.07395182629266006 	 0.005468872612019768
-59 	 0.7343045235774781 	 0.5392031333463471
-60 	 0.594032049611678 	 0.3528740759658511
-61 	 0.410095483734628 	 0.16817830577953854
-62 	 0.33144926919134043 	 0.10985861804747366
-63 	 0.14539999436977769 	 0.021141158362731383
-64 	 0.9745038717225811 	 0.9496577960023008
-65 	 0.7800058914990636 	 0.6084091907732491
-66 	 0.22516491660036442 	 0.05069923966764906
-67 	 0.7250595018870607 	 0.5257112812767126
-68 	 0.8420858525885625 	 0.7091085831298062
-69 	 0.1033211595669743 	 0.010675262014264164
-70 	 0.8858223150605019 	 0.7846811738591472
-71 	 0.2522880865250039 	 0.06364927860244786
-72 	 0.04552801677820262 	 0.0020728003117562992
-73 	 0.32077540992477105 	 0.10289686361240491
-74 	 0.3986085665223559 	 0.1588887893050074
-75 	 0.0030876836860881385 	 9.533790545334834e-06
-76 	 0.04503803320444333 	 0.00202842443492454
-77 	 0.9529252416789641 	 0.9080665162289121
-78 	 0.9269336977548611 	 0.8592060800335002
-79 	 0.16469459886283355 	 0.027124310894589655
-80 	 0.32745216504556807 	 0.10722492039302994
-81 	 0.5160930272904364 	 0.2663520128178071
-82 	 0.8179747877235058 	 0.6690827533513144
-83 	 0.746847452748447 	 0.5577811176768438
-84 	 0.2235285876554407 	 0.049965029499236036
-85 	 0.5391024489439491 	 0.2906314504573632
-86 	 0.25018212943103113 	 0.06259109788664521
-87 	 0.31743349007324784 	 0.10076402062008273
-88 	 0.8533065353802236 	 0.7281320433226008
-89 	 0.7235513095765261 	 0.523526497589906
-90 	 0.5851939352830994 	 0.3424519418921203
-91 	 0.5887023985306434 	 0.3465705140357325
-92 	 0.46028449479015554 	 0.21186181614422872
-93 	 0.15310906960541026 	 0.023442387195434365
-94 	 0.5711263345361354 	 0.32618529000068164
-95 	 0.91797851597425 	 0.8426845557902862
-96 	 0.3621463785877177 	 0.13114999952419856
-97 	 0.28145933103553133 	 0.07921935502696881
-98 	 0.43779917406159596 	 0.1916681168090156
+0 	 0.36540302315160045 	 0.13351936932832906
+1 	 0.09379156106925857 	 0.008796856927808459
+2 	 0.0030136626029930724 	 9.082162284678982e-06
+3 	 0.32112972734406353 	 0.10312430178407259
+4 	 0.9967071222458934 	 0.9934250875356904
+5 	 0.6858365703394578 	 0.47037180121499
+6 	 0.5417761679388444 	 0.29352141614649896
+7 	 0.5754020215807247 	 0.3310874864391848
+8 	 0.2949124711561707 	 0.08697336564343922
+9 	 0.2280861303293482 	 0.05202328284861642
+10 	 0.47888438985172077 	 0.22933025884365488
+11 	 0.7206976169088032 	 0.519405055018028
+12 	 0.041105841539020416 	 0.0016896902086310562
+13 	 0.814346950888892 	 0.6631609564220354
+14 	 0.25417598857959844 	 0.06460543317041616
+15 	 0.11792520216620594 	 0.013906353305940544
+16 	 0.48057746570107274 	 0.23095470053966574
+17 	 0.9544797318657826 	 0.9110315585425762
+18 	 0.9438400851879082 	 0.8908341064075178
+19 	 0.1690742413178723 	 0.028586099077214117
+20 	 0.11413206096337447 	 0.013026127339747427
+21 	 0.3788984678188434 	 0.14356404891546712
+22 	 0.07605980365957332 	 0.005785093732732843
+23 	 0.9593411201573319 	 0.9203353848247242
+24 	 0.945706964928961 	 0.8943616635151471
+25 	 0.9757906709028119 	 0.9521674334209598
+26 	 0.1789665279235536 	 0.032029018117012094
+27 	 0.7068050692372551 	 0.4995734058994809
+28 	 0.670704515975385 	 0.44984454774977556
+29 	 0.08884035029523929 	 0.007892607840580823
+30 	 0.5502934672139138 	 0.30282290005831086
+31 	 0.05625595348789969 	 0.0031647323028327332
+32 	 0.25596694543935605 	 0.06551907715755428
+33 	 0.4671106360878192 	 0.21819234634636708
+34 	 0.974138750044872 	 0.9489463043389857
+35 	 0.6149215634434547 	 0.3781285291877427
+36 	 0.8269350275623552 	 0.6838215398095531
+37 	 0.7479956560372221 	 0.5594975014505542
+38 	 0.5555648571308376 	 0.308652310478808
+39 	 0.9781107210593721 	 0.9567005826512849
+40 	 0.9492437896647222 	 0.9010637722170434
+41 	 0.5364344095196326 	 0.2877618757166769
+42 	 0.8129629508681872 	 0.6609087594843105
+43 	 0.9147807135047266 	 0.8368237538002166
+44 	 0.024258341736670408 	 0.0005884671438130854
+45 	 0.6342807204067235 	 0.4023120322796721
+46 	 0.25668287513383514 	 0.065886098386972
+47 	 0.1955035651815239 	 0.03822164399868636
+48 	 0.6697708312723315 	 0.44859296642322993
+49 	 0.5366376850386958 	 0.2879800050036905
+50 	 0.3327813609108621 	 0.11074343416968545
+51 	 0.5967681020676999 	 0.3561321676454847
+52 	 0.059164869170207135 	 0.003500481743927727
+53 	 0.886703178763728 	 0.7862425272296997
+54 	 0.1633674238206796 	 0.02668891516580555
+55 	 0.7746765268032757 	 0.6001237211799864
+56 	 0.655052974584173 	 0.4290943995115732
+57 	 0.5620687756949004 	 0.3159213086111643
+58 	 0.8779371156222656 	 0.7707735789871434
+59 	 0.06420189851786828 	 0.0041218837732986575
+60 	 0.39546076233143157 	 0.156389214543757
+61 	 0.40783406215163764 	 0.16632862225110584
+62 	 0.6265116299683349 	 0.39251682248557973
+63 	 0.123504808077333 	 0.015253437618218858
+64 	 0.4001510841057536 	 0.1601208901110099
+65 	 0.6738005286138428 	 0.45400715236029393
+66 	 0.5006851653406722 	 0.2506856347922163
+67 	 0.6048282236994492 	 0.365817180183431
+68 	 0.3218594408163745 	 0.10359349964262929
+69 	 0.13720745083285957 	 0.018825884564051577
+70 	 0.7057507631312614 	 0.4980841396603578
+71 	 0.8903278311766363 	 0.7926836469676929
+72 	 0.9768163504626586 	 0.9541701825311875
+73 	 0.935972729001274 	 0.8760449494340924
+74 	 0.6678084238509931 	 0.4459680909663477
+75 	 0.22283206375991182 	 0.04965412863950141
 </pre></div>
 </div>
 </div>
@@ -1374,9 +1369,9 @@ Alex is my favorite student in year 4 !
 <p>Your homework is to complete 4 of the following problems.</p>
 <section id="regulars">
 <h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>A function which determines whether a number is prime is given below.  Use this function to generate a list of the first 1000 prime numbers.  Check that you have 1000 using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p></li>
-</ol>
+<section id="problem-1">
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<p>A function which determines whether a number is prime is given below.  Use this function to generate a list of the first 1000 prime numbers.  Check that you have 1000 using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -1390,25 +1385,46 @@ if n % fact == 0:
 prime = False
 fact = fact + 1
 return prime</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. A bag of M\&amp;M&#39;s contains only 88 reds and 12 browns.  Weird!  Simulate a process in which you pull 5 M\&amp;M&#39;s out of the bag and count the number of browns.  Perform this simulation 1000 times and compute count the number of times that you pulled 2 or more browns.
-1. Write a program that generates a list of 100 random integers between 0 and 100 (inclusive), and then finds the number of pairs in the list that add to 66.
-1. SORT!  Write a program that generates a list of 100 random integers between 0 and 100 (inclusive), and then sorts the list in descending order.  Do not use a built-in function like `sort`!
-
-### Meanies
-
-5. SORT!  Write a program that generates a list of 10000 random integers between 0 and 100 (inclusive), and then sorts the list in descending order.  Use Google to find a way to track how long your program takes to run.  A bonus point will be awarded to the fastest sort algorithm in the class.
-5. Do problem 1 from above, but modify the program to generate a list of the first 10000 prime numbers.  Then write a program that checks the list to see if there are any pairs of numbers that add up to another number in the list. 
-5. Write a program that generates a list of 100 random integers between 0 and 10^6 (inclusive), and then finds the largest number in the list.  Your program should NOT use any built-in methods/functions like `max`.
-
-### Mega-meanies
-
-8. A bag of M\&amp;M&#39;s contains a total of 100 pieces, $n$ of which are red and $(100-n)$ of which are brown.  Let&#39;s say that you randomly draw 8 M\&amp;M&#39;s from the bag, yielding 2 red and 6 brown.  You want to use this sampling to predict the total number of browns in the bag. Obviously this one sample doesn&#39;t tell you exactly what&#39;s in the bag, but it can help you to update your *expectations* of what&#39;s in the bag.  For example, you now know that there&#39;s a 0\% probability that the bag contains only 3 brown M\&amp;M&#39;s!  So, here&#39;s what you&#39;re going to do:
-- Choose a value for $n$ between 6 and 98.  Perform a simulation of 1000 draws of 8 M\&amp;M&#39;s from the bag.  Calculate the percentage of these draws that yields 4 browns and 4 reds.  Call this percentage $p(n)$.
-- Now calculate $p(n)$ for **each** value of $n$ between 6 and 98.
-- The owner of the M\&amp;M&#39;s opens the bag and counts the actual $n$ without showing you the results.  The owner offers to pay you \$100 if you can correctly guess the *actual* $n$.  You get 10 guesses.  Which values do you guess?
-
-</pre></div>
-</div>
+</section>
+<section id="problem-2">
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<p>A bag of M&amp;M’s contains only 88 reds and 12 browns.  Weird!  Simulate a process in which you pull 5 M&amp;M’s out of the bag and count the number of browns.  Perform this simulation 1000 times and compute count the number of times that you pulled 2 or more browns.</p>
+</section>
+<section id="problem-3">
+<h4>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h4>
+<p>Write a program that generates a list of 100 random integers between 0 and 100 (inclusive), and then finds the number of pairs in the list that add to 66.</p>
+</section>
+<section id="problem-4">
+<h4>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h4>
+<p>SORT!  Write a program that generates a list of 100 random integers between 0 and 100 (inclusive), and then sorts the list in descending order.  Do not use a built-in function like <code class="docutils literal notranslate"><span class="pre">sort</span></code>!</p>
+</section>
+</section>
+<section id="meanies">
+<h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this heading">#</a></h3>
+<section id="problem-5">
+<h4>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h4>
+<p>SORT!  Write a program that generates a list of 10000 random integers between 0 and 100 (inclusive), and then sorts the list in descending order.  Use Google to find a way to track how long your program takes to run.  A bonus point will be awarded to the fastest sort algorithm in the class.</p>
+</section>
+<section id="problem-6">
+<h4>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this heading">#</a></h4>
+<p>Do problem 1 from above, but modify the program to generate a list of the first 10000 prime numbers.  Then write a program that checks the list to see if there are any pairs of numbers that add up to another number in the list.</p>
+</section>
+<section id="problem-7">
+<h4>Problem 7<a class="headerlink" href="#problem-7" title="Permalink to this heading">#</a></h4>
+<p>Write a program that generates a list of 100 random integers between 0 and 10^6 (inclusive), and then finds the largest number in the list.  Your program should NOT use any built-in methods/functions like <code class="docutils literal notranslate"><span class="pre">max</span></code>.</p>
+</section>
+</section>
+<section id="mega-meanie">
+<h3>Mega-meanie<a class="headerlink" href="#mega-meanie" title="Permalink to this heading">#</a></h3>
+<section id="problem-8">
+<h4>Problem 8<a class="headerlink" href="#problem-8" title="Permalink to this heading">#</a></h4>
+<p>A bag of M&amp;M’s contains a total of 100 pieces, <span class="math notranslate nohighlight">\(n\)</span> of which are red and <span class="math notranslate nohighlight">\((100-n)\)</span> of which are brown.  Let’s say that you randomly draw 8 M&amp;M’s from the bag, yielding 2 red and 6 brown.  You want to use this sampling to predict the total number of browns in the bag. Obviously this one sample doesn’t tell you exactly what’s in the bag, but it can help you to update your <em>expectations</em> of what’s in the bag.  For example, you now know that there’s a 0% probability that the bag contains only 3 brown M&amp;M’s!  So, here’s what you’re going to do:</p>
+<ul class="simple">
+<li><p>Choose a value for <span class="math notranslate nohighlight">\(n\)</span> between 6 and 98.  Perform a simulation of 1000 draws of 8 M&amp;M’s from the bag.  Calculate the percentage of these draws that yields 4 browns and 4 reds.  Call this percentage <span class="math notranslate nohighlight">\(p(n)\)</span>.</p></li>
+<li><p>Now calculate <span class="math notranslate nohighlight">\(p(n)\)</span> for <strong>each</strong> value of <span class="math notranslate nohighlight">\(n\)</span> between 6 and 98.</p></li>
+<li><p>The owner of the M&amp;M’s opens the bag and counts the actual <span class="math notranslate nohighlight">\(n\)</span> without showing you the results.  The owner offers to pay you $100 if you can correctly guess the <em>actual</em> <span class="math notranslate nohighlight">\(n\)</span>.  You get 10 guesses.  Which values do you guess?</p></li>
+</ul>
+</section>
 </section>
 </section>
 </section>
@@ -1497,7 +1513,23 @@ return prime</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">3.6. Dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spyder">3.7. Spyder</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">3.8. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanie">Mega-meanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

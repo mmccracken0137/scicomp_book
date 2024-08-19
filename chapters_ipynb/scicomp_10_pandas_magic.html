@@ -436,8 +436,18 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">6.7. In summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">6.8. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanie-1-netflix-economist">Meanie 1 – Netflix Economist</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanie-2-star-sleuth">Meanie 2 – Star Sleuth</a></li>
 </ul>
@@ -3028,19 +3038,33 @@ Today’s lesson should convince you that there are some (important) ways of wor
 <p>Your homework is to complete either (three of the numbered problems) or (the single Meanie).</p>
 <section id="regulars">
 <h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Using the Netlfix dataset, determine the titles with top-ten highest ‘freshness’.  ‘freshness’ is defined (by me) as the hours watched divided by the ‘age’ of the show in days.</p></li>
-<li><p>The Netflix dataset gives the hours watched during the first half of 2023.  Find the top-ten most-watched (duirng this period) titles that were not released during this period.</p></li>
-<li><p>What fraction of Netlfix titles are available globally?  Is there is a significant difference between viewership of globally available and non-globally available titles?</p></li>
-<li><p>You’re a data scientist at Netflix.  Your boss tells you that they want to remove the quartile (25%) of titles that have the lowest viewership during this period – it’s just not worth the cost of hosting these titles!  Generate a list of these titles and write it to text file.</p></li>
-</ol>
+<section id="problem-1">
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<p>Using the Netlfix dataset, determine the titles with top-ten highest ‘freshness’.  ‘freshness’ is defined (by me) as the hours watched divided by the ‘age’ of the show in days.</p>
+</section>
+<section id="problem-2">
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<p>The Netflix dataset gives the hours watched during the first half of 2023.  Find the top-ten most-watched (duirng this period) titles that were not released during this period.</p>
+</section>
+<section id="problem-3">
+<h4>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h4>
+<p>What fraction of Netlfix titles are available globally?  Is there is a significant difference between viewership of globally available and non-globally available titles?</p>
+</section>
+<section id="problem-4">
+<h4>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h4>
+<p>You’re a data scientist at Netflix.  Your boss tells you that they want to remove the quartile (25%) of titles that have the lowest viewership during this period – it’s just not worth the cost of hosting these titles!  Generate a list of these titles and write it to text file.</p>
+</section>
 </section>
 <section id="semi-meanies">
 <h3>Semi-meanies<a class="headerlink" href="#semi-meanies" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple" start="5">
-<li><p>Netflix dataset: Write a function that calulcates the ratio of non-Roman characters to total number of characters in a title, rounding this value to the nearest 0.01.  Apply it to the subset of the Netflix dataset that contains only series (<em>i.e.</em>, exclude movies), calling the new column <code class="docutils literal notranslate"><span class="pre">nr_ratio</span></code>.  Find the top-ten most-watched titles with <code class="docutils literal notranslate"><span class="pre">nr_ratio</span> <span class="pre">&gt;</span> <span class="pre">0.20</span></code>.</p></li>
-<li><p>SDSS dataset: The basic spectrographic information in the SDSS dataset can actually tell us something about the masses of the galaxies therein.  That’s crazy!  The <code class="docutils literal notranslate"><span class="pre">velDisp</span></code> feature in the data is a measure of distribution of velocities of the objects (stars) in a galaxy.  A larger <code class="docutils literal notranslate"><span class="pre">velDisp</span></code> (often given the symbol <span class="math notranslate nohighlight">\(\sigma\)</span>) means that there is a larger difference between the velocities of fastest and slowest objects.  This is actually an indirect measure of the mass of a galaxy (for complicated reasons).  Make a scatter plot of <code class="docutils literal notranslate"><span class="pre">velDisp</span></code> <em>vs</em> <code class="docutils literal notranslate"><span class="pre">redshift</span></code> (commonly called <span class="math notranslate nohighlight">\(\sigma\)</span> <em>vs</em> <span class="math notranslate nohighlight">\(z\)</span>) for all of the non-broadband galaxies in the dataset.  Color each datapoint according to its subclass (don’t forget a legend).  Keep in mind that (because of cosmological expansion) <code class="docutils literal notranslate"><span class="pre">redshift</span></code> is a measure of how far away an object is.  What relationship do you observe between these quantities?</p></li>
-</ol>
+<section id="problem-5">
+<h4>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h4>
+<p>Netflix dataset: Write a function that calulcates the ratio of non-Roman characters to total number of characters in a title, rounding this value to the nearest 0.01.  Apply it to the subset of the Netflix dataset that contains only series (<em>i.e.</em>, exclude movies), calling the new column <code class="docutils literal notranslate"><span class="pre">nr_ratio</span></code>.  Find the top-ten most-watched titles with <code class="docutils literal notranslate"><span class="pre">nr_ratio</span> <span class="pre">&gt;</span> <span class="pre">0.20</span></code>.</p>
+</section>
+<section id="problem-6">
+<h4>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this heading">#</a></h4>
+<p>SDSS dataset: The basic spectrographic information in the SDSS dataset can actually tell us something about the masses of the galaxies therein.  That’s crazy!  The <code class="docutils literal notranslate"><span class="pre">velDisp</span></code> feature in the data is a measure of distribution of velocities of the objects (stars) in a galaxy.  A larger <code class="docutils literal notranslate"><span class="pre">velDisp</span></code> (often given the symbol <span class="math notranslate nohighlight">\(\sigma\)</span>) means that there is a larger difference between the velocities of fastest and slowest objects.  This is actually an indirect measure of the mass of a galaxy (for complicated reasons).  Make a scatter plot of <code class="docutils literal notranslate"><span class="pre">velDisp</span></code> <em>vs</em> <code class="docutils literal notranslate"><span class="pre">redshift</span></code> (commonly called <span class="math notranslate nohighlight">\(\sigma\)</span> <em>vs</em> <span class="math notranslate nohighlight">\(z\)</span>) for all of the non-broadband galaxies in the dataset.  Color each datapoint according to its subclass (don’t forget a legend).  Keep in mind that (because of cosmological expansion) <code class="docutils literal notranslate"><span class="pre">redshift</span></code> is a measure of how far away an object is.  What relationship do you observe between these quantities?</p>
+</section>
 </section>
 <section id="meanie-1-netflix-economist">
 <h3>Meanie 1 – Netflix Economist<a class="headerlink" href="#meanie-1-netflix-economist" title="Permalink to this heading">#</a></h3>
@@ -3062,7 +3086,7 @@ Follow these steps to get your Gini coefficient.</p>
 <li><p>Calculate the total area of all of the bars of your scaled histogram.  Call it <span class="math notranslate nohighlight">\(H\)</span>.  (Hint: Riemann sum.)</p></li>
 <li><p>Calculate the Gini coefficient: <span class="math notranslate nohighlight">\(G = (L-H)/L\)</span>.</p></li>
 <li><p>Do some googling to interpret the <span class="math notranslate nohighlight">\(G\)</span> vaule you get.  Is it large compared to, say, inequalities in income, wealth, education, <em>etc.</em>?</p></li>
-<li><p>Congrats!  You’re now a macroeconomist.  (Not really.)</p></li>
+<li><p>Congrats!  You’re now an economist.  (Not really.)</p></li>
 </ul>
 </section>
 <section id="meanie-2-star-sleuth">
@@ -3186,8 +3210,18 @@ $<span class="math notranslate nohighlight">\(
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">6.7. In summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">6.8. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanie-1-netflix-economist">Meanie 1 – Netflix Economist</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanie-2-star-sleuth">Meanie 2 – Star Sleuth</a></li>
 </ul>

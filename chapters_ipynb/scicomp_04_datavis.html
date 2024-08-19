@@ -426,9 +426,23 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-bars">1.6. Error bars</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensions">1.7. Higher dimensions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">1.8. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanie">Semi-meanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#probmem-5">Probmem 5</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -834,7 +848,7 @@ In a bivariate visualization of discrete data points this is typically done with
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cb04995ed50aa87837c22baba8ce5f98d6498f3cc631e0949758aef32857b48c.png" src="../_images/cb04995ed50aa87837c22baba8ce5f98d6498f3cc631e0949758aef32857b48c.png" />
+<img alt="../_images/4636573d989816b76cd32c477a34f9fcdc7b2e646494894f07ed2933012efa4b.png" src="../_images/4636573d989816b76cd32c477a34f9fcdc7b2e646494894f07ed2933012efa4b.png" />
 </div>
 </div>
 <p>The data here is meaningless, but one of your future projects will be to make a scatter plot that displays 3 or more dimensions of information.</p>
@@ -845,26 +859,44 @@ In a bivariate visualization of discrete data points this is typically done with
 <p>Your homework is to complete 3 of the following problems.</p>
 <section id="regulars">
 <h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Return to he NBA dataset from the previous lesson.  Make a histogram of the final point differentials (team2 - team1) for all games from the dataset.  Your histogram should be divided into 1-point bins.  What is the most common final point differential (<em>i.e.</em>, the <em>mode</em>)?</p></li>
-<li><p>Return to the dice roll data from Lesson 3 problem set.  Make histograms of the total dice rolls <em>for each</em> croupier.  Display the two histograms on the same axes.</p></li>
-<li><p>The file <code class="docutils literal notranslate"><span class="pre">mammal_body_brain_masses_dataset.csv</span></code> contains average body and brain masses for different species of mammal (duh).  Add a column the file that contains whether the animals are quadrupedal or bipedal (you can do this in (gasp) Excel). Make a scatter plot of brain mass <em>vs</em> body mass with marker colors that indicate whether the animals are bipedal or quadrupedal.</p></li>
-<li><p>Return to the NBA data.  Make a scatter plot of final point differential (team2 - team1) <em>vs</em> half-time point differential (team2 - team1).  (I can’t wait to see what this looks like.)  What hypotheses does your graph suggest?</p></li>
-</ol>
+<section id="problem-1">
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<p>Return to he NBA dataset from the previous lesson.  Make a histogram of the final point differentials (team2 - team1) for all games from the dataset.  Your histogram should be divided into 1-point bins.  What is the most common final point differential (<em>i.e.</em>, the <em>mode</em>)?</p>
 </section>
-<section id="semi-meanies">
-<h3>Semi-meanies<a class="headerlink" href="#semi-meanies" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple" start="5">
-<li><p>Return to the dice roll data from Lesson 3 problem set.  Make histograms of the individual die rolls of the two croupiers (4 histograms in total).  Is something funky going on?</p></li>
-</ol>
+<section id="problem-2">
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<p>Return to the dice roll data from Lesson 3 problem set.  Make histograms of the total dice rolls <em>for each</em> croupier.  Display the two histograms on the same axes.</p>
+</section>
+<section id="problem-3">
+<h4>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h4>
+<p>The file <code class="docutils literal notranslate"><span class="pre">mammal_body_brain_masses_dataset.csv</span></code> contains average body and brain masses for different species of mammal (duh).  Add a column the file that contains whether the animals are quadrupedal or bipedal (you can do this in (gasp) Excel). Make a scatter plot of brain mass <em>vs</em> body mass with marker colors that indicate whether the animals are bipedal or quadrupedal.</p>
+</section>
+<section id="problem-4">
+<h4>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h4>
+<p>Return to the NBA data.  Make a scatter plot of final point differential (team2 - team1) <em>vs</em> half-time point differential (team2 - team1).  (I can’t wait to see what this looks like.)  What hypotheses does your graph suggest?</p>
+</section>
+</section>
+<section id="semi-meanie">
+<h3>Semi-meanie<a class="headerlink" href="#semi-meanie" title="Permalink to this heading">#</a></h3>
+<section id="probmem-5">
+<h4>Probmem 5<a class="headerlink" href="#probmem-5" title="Permalink to this heading">#</a></h4>
+<p>Return to the dice roll data from Lesson 3 problem set.  Make histograms of the individual die rolls of the two croupiers (4 histograms in total).  Is something funky going on?</p>
+</section>
 </section>
 <section id="meanies">
 <h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple" start="6">
-<li><p>Return the NBA data.  Make a scatter plot of team1’s final score <em>vs</em> team2’s final score.  The point markers should be colored according to the point differential (team2 - team1) at halftime.</p></li>
-<li><p>Return to the NBA data.  For each season, compute the average final point differential (team2 - team1) and the standard deviation of point differential.  Then, make a graph of average point differential <em>vs</em> year with vertical error bars that indicate the standard deviation.</p></li>
-<li><p>Find an interesting dataset and make a graph that shows an interesting relationship between (at least two) interesting quantities.</p></li>
-</ol>
+<section id="problem-6">
+<h4>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this heading">#</a></h4>
+<p>Return the NBA data.  Make a scatter plot of team1’s final score <em>vs</em> team2’s final score.  The point markers should be colored according to the point differential (team2 - team1) at halftime.</p>
+</section>
+<section id="problem-7">
+<h4>Problem 7<a class="headerlink" href="#problem-7" title="Permalink to this heading">#</a></h4>
+<p>Return to the NBA data.  For each season, compute the average final point differential (team2 - team1) and the standard deviation of point differential.  Then, make a graph of average point differential <em>vs</em> year with vertical error bars that indicate the standard deviation.</p>
+</section>
+<section id="problem-8">
+<h4>Problem 8<a class="headerlink" href="#problem-8" title="Permalink to this heading">#</a></h4>
+<p>Find an interesting dataset and make a graph that shows an interesting relationship between (at least two) interesting quantities.</p>
+</section>
 </section>
 </section>
 </section>
@@ -956,9 +988,23 @@ In a bivariate visualization of discrete data points this is typically done with
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-bars">1.6. Error bars</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-dimensions">1.7. Higher dimensions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">1.8. Problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanies">Semi-meanies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semi-meanie">Semi-meanie</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#probmem-5">Probmem 5</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
