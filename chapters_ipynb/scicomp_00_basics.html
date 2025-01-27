@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1. Basic syntax, variables, functions &#8212; Introduction to Computation for the Physics Sciences</title>
   
@@ -15,52 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_00_basics';</script>
@@ -70,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Welcome!" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -77,23 +77,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -101,7 +94,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,16 +101,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -131,9 +132,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -143,12 +148,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/wj_horiz_color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Introduction to Computation for the Physics Sciences - Home"/>
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-dark pst-js-only" alt="Introduction to Computation for the Physics Sciences - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -167,17 +179,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">1. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">2. Fitting models to data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">3. Simulating solutions to differential equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">4. Monte Carlo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">5. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">5. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">6. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">7. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">8. Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">9. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">10. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">1. Text as data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">2. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">11. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">12. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
 <ul class="nav bd-sidenav">
@@ -190,14 +202,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -206,14 +223,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -366,26 +383,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -441,12 +452,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="basic-syntax-variables-functions">
-<h1><span class="section-number">1. </span>Basic syntax, variables, functions<a class="headerlink" href="#basic-syntax-variables-functions" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1. </span>Basic syntax, variables, functions<a class="headerlink" href="#basic-syntax-variables-functions" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2><span class="section-number">1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>In PHY 220 we’ll be investigating some of the foundational principles of computer programming, specifically those which are useful in the physical sciences.  Now, you may ask yourself, “Why?”  I have a pretty good, two-fold answer for this…</p>
 <ol class="arabic simple">
 <li><p>The study of science (as a student) and pursuit of scientific research are often characterized by doing long, difficult, or tedious calculations.  While much insight can be acheived by doing such things by hand (and we’ll definitely make you do them by hand at some point), modern computation has allowed physicists, mathematicians, biologists, chemists, social scientists, and researchers in many other fields to do things that they previously thought impossibly or prohibitively time-consuming.  [There are entire fields of physics, chemistry, and biology that are possible <em>only</em> with the use of computers. (See Lattice Gauge Theory, Computational Biophysics, Genomics/Bioinformatics, etc.).]</p></li>
@@ -458,7 +469,7 @@ document.write(`
 <p>Because it is essential to modern research and industry, we have built several stages of computing education into the Physics Major.  In this course, you’ll study the basics using Python, a general-purpose language.  Hopefully you’ll gain an appreciation of what computers can do and how they’re used by the pros.</p>
 </section>
 <section id="our-language-of-choice-python">
-<h2><span class="section-number">1.2. </span>Our language of choice: <code class="docutils literal notranslate"><span class="pre">python</span></code><a class="headerlink" href="#our-language-of-choice-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.2. </span>Our language of choice: <code class="docutils literal notranslate"><span class="pre">python</span></code><a class="headerlink" href="#our-language-of-choice-python" title="Link to this heading">#</a></h2>
 <p>Python, or more commonly <code class="docutils literal notranslate"><span class="pre">python</span></code>, is a general-purpose, object-oriented, interpreted programming language that has several benefits relevant to this course:</p>
 <ul class="simple">
 <li><p>It is F R E E.  You can/should install it on your personal computer.  If you are interested in doing so, get the Anaconda distribution that is maintained by Continuum.  Check out the downloads <a class="reference external" href="https://www.anaconda.com/download">here</a>.</p></li>
@@ -469,7 +480,7 @@ document.write(`
 </ul>
 </section>
 <section id="the-problem-of-programming">
-<h2><span class="section-number">1.3. </span><em>The</em> problem of programming<a class="headerlink" href="#the-problem-of-programming" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.3. </span><em>The</em> problem of programming<a class="headerlink" href="#the-problem-of-programming" title="Link to this heading">#</a></h2>
 <p>One of the difficulties that students sometimes have with learning programming what I call the “WHAT THE H%&amp;! IS GOING ON PROBLEM” (TM).  If you’re new to programming and to using a computer in a meaningful way, it’s difficult to form a conceptual model of what is happening where.  Here is all you need to know:</p>
 <p>What is computer programming?
 Computer programming is the name given to the process of writing <em>programs</em> (“code”) that tell a computer what to do.  Programs are written in a <em>language</em> (python is a language) and interpreted by the computer to manipulate the computer’s hardware.  Learning how to program is a two-tiered process: you need to learn what types of things a computer can be told to do, and you need to learn the language (“syntax” in a given programming language) that allows you to instruct the computer.</p>
@@ -477,7 +488,7 @@ Computer programming is the name given to the process of writing <em>programs</e
 <p>That’s it!  (Not really.)  If you keep this in mind, however, you can’t get lost.  (Well, NOT REALLY.)  But, it’s a pretty good mantra: <em>I’m telling the computer what to do.</em></p>
 </section>
 <section id="jupyter-notebooks">
-<h2><span class="section-number">1.4. </span>Jupyter notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.4. </span>Jupyter notebooks<a class="headerlink" href="#jupyter-notebooks" title="Link to this heading">#</a></h2>
 <p>For the first few weeks and for your final project, you’ll be working partly in this integrated development environment inside of a browser.  This is called a “Jupyter notebook.”  This isn’t the way that most “real programmers” write code, but this will serve as a nice sandbox in which we can play and in which I can interleave comments and instructions.  There are (at least) two types of “cells” here.</p>
 <ul class="simple">
 <li><p><strong>Markdown cells</strong> (like this one) are just text that is intended to be read.  (…As you are doing that right now.)</p></li>
@@ -490,7 +501,7 @@ Computer programming is the name given to the process of writing <em>programs</e
 </section>
 <hr class="docutils" />
 <section id="let-s-get-started-basic-syntax">
-<h2><span class="section-number">1.5. </span>Let’s get started: basic syntax<a class="headerlink" href="#let-s-get-started-basic-syntax" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.5. </span>Let’s get started: basic syntax<a class="headerlink" href="#let-s-get-started-basic-syntax" title="Link to this heading">#</a></h2>
 <p>A not completely terrible way to get started with programming is to learn a couple of basic syntactical structures and then solve some problems.  This is the approach that we’ll use.  If you’re confused/lost/perturbed/desparate, IT’S NOT YOU.  Please ask a question.  Syntax can be tough to learn, but you have to exercise to get stronger.  Pressure makes diamonds.</p>
 <p>LET’S DO IT!</p>
 <p>Okay, more markdown here.</p>
@@ -626,7 +637,7 @@ Computer programming is the name given to the process of writing <em>programs</e
 </section>
 <hr class="docutils" />
 <section id="variables">
-<h2><span class="section-number">1.6. </span>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.6. </span>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
 <p>So, the next step in complexity is to declare variables and use them for calculations.  Variables are quite interesting in python for quite complicated reasons.  The following statement declares the variable <code class="docutils literal notranslate"><span class="pre">a</span></code> and sets its value to <code class="docutils literal notranslate"><span class="pre">2.0e-9</span></code> (which is shorthand for scientific notation):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -706,14 +717,14 @@ Computer programming is the name given to the process of writing <em>programs</e
 <p>Make sure you take a good long look at the code two lines above and understand what’s happening.  This type of syntax is going to become super important for our later work.</p>
 <p>Okay, act cool.  I know that we’re all really excited right now.</p>
 <section id="caveat">
-<h3>Caveat:<a class="headerlink" href="#caveat" title="Permalink to this heading">#</a></h3>
+<h3>Caveat:<a class="headerlink" href="#caveat" title="Link to this heading">#</a></h3>
 <p>Once a variable is declared, it exists for the rest of a program (unless it’s inside a loop; more on that later).  So, you don’t want to reuse variable names unless you have a really good reason for doing so.</p>
 <p>This also makes the order in which you evaluate cells VERY important!  The cell numbers that appear beside code cells are useful if your code is ever behaving strangely.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="functions">
-<h2><span class="section-number">1.7. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.7. </span>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <p>Wouldn’t it be “cool” to be able to use these variables more efficiently?  One can do so by declaring functions.  I’m going to write a function that calculates the temperature of an ideal gas with a pressure and volume value that are supplied by the user:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -767,12 +778,12 @@ Computer programming is the name given to the process of writing <em>programs</e
 </section>
 <hr class="docutils" />
 <section id="a-taste-of-loops">
-<h2><span class="section-number">1.8. </span>A taste of loops<a class="headerlink" href="#a-taste-of-loops" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.8. </span>A taste of loops<a class="headerlink" href="#a-taste-of-loops" title="Link to this heading">#</a></h2>
 <p>At this point, you’re probably not very impressed.  I don’t blame you – we’ve basically just made your computer function like a $10 calculator.</p>
 <p>One of the things that computers are really, really useful for is mindless, repetitive tasks.  We can make computers do this (they aren’t unionized) using <em>loops</em>.</p>
 <p>There are several ways to control loops, referred to as <em>control structures</em>.  In this lesson, we’ll introduce definite loops, and we’ll expand on control structures in the next lesson.</p>
 <section id="definite-loops">
-<h3>Definite Loops<a class="headerlink" href="#definite-loops" title="Permalink to this heading">#</a></h3>
+<h3>Definite Loops<a class="headerlink" href="#definite-loops" title="Link to this heading">#</a></h3>
 <p>The first control structure that we’ll use is the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop.  A <code class="docutils literal notranslate"><span class="pre">for</span></code> loop performs the tasks inside of the loop FOR (get it?) a fixed number of times.  The syntax for writing a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop in python looks like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -877,46 +888,46 @@ Computer programming is the name given to the process of writing <em>programs</e
 </section>
 <hr class="docutils" />
 <section id="in-summary">
-<h2><span class="section-number">1.9. </span>In summary<a class="headerlink" href="#in-summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.9. </span>In summary<a class="headerlink" href="#in-summary" title="Link to this heading">#</a></h2>
 <p>Now you know what you need to know to get started.  There are homework problems.  Do them in chunks.  Don’t try to write a whole program all at one time.</p>
 <p>Please, please, please try to write each problem’s solution in a cell (or set of cells) and give the reader direction/explanation in markdown cells.  Markdown is really great once you get familiar with it.  Please make your variable names helpful and be careful not to reuse variable names unless you mean to!</p>
 <p>Here are some problems on which you can cut your teeth before you begin the hand-in homework:</p>
 </section>
 <hr class="docutils" />
 <section id="problems">
-<h2><span class="section-number">1.10. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">1.10. </span>Problems<a class="headerlink" href="#problems" title="Link to this heading">#</a></h2>
 <p>When it comes to programming, the most learning happens when you <em>do</em> to the programming!  The problems at the end of each lesson are designed to get you flexing those <code class="docutils literal notranslate"><span class="pre">python</span></code> muscles!</p>
 <p>(If you’re taking this as the PHY 220 course at W&amp;J College) Please begin each problem in a separate pair of markdown and code cells below.  (You’ll have to create the cells.)  In the markdown cell, give the problem number and a brief description of how you coded up your solution.</p>
 <section id="regulars">
-<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
+<h3>Regulars<a class="headerlink" href="#regulars" title="Link to this heading">#</a></h3>
 <section id="problem-1">
-<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h4>
 <p>Define a function that takes in a single value, x, and returns the value of the function</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eecddef3-60a6-4fd6-b4c7-0dddedbafca9">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-eecddef3-60a6-4fd6-b4c7-0dddedbafca9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e2b93213-6970-4bb5-b7d2-0af190d802fe">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-e2b93213-6970-4bb5-b7d2-0af190d802fe" title="Permalink to this equation">#</a></span>\[\begin{equation}
   f(x) = 4x^2 - 6x - 1.5
 \end{equation}\]</div>
 <p>Apply this function to the values <span class="math notranslate nohighlight">\(-2.0,\, -1.99, ...,\, 2.99,\, 3.0\)</span>.  Print out the values of the function.  Use these results to approximate the values of <span class="math notranslate nohighlight">\(x\)</span> for which <span class="math notranslate nohighlight">\(f(x) = 0\)</span>.</p>
 </section>
 <section id="problem-2">
-<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h4>
 <p>Print out the products in the multiplication table of numbers between 11 and 20.</p>
 </section>
 <section id="problem-3">
-<h4>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h4>
+<h4>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h4>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">factorial(n)</span></code> that computes the factorial of an input value <code class="docutils literal notranslate"><span class="pre">n</span></code>. Note that there is a really “cute” way to do this… but it will take an enormous amount of time to run for modest numbers (say, 4 or more digits).  Don’t do it that way!  Your program should run pretty quickly for numbers up to 6 digits.</p>
 </section>
 <section id="problem-4">
-<h4>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h4>
+<h4>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h4>
 <p>Recall or learn that the exponential function is commonly <em>defined</em> by the series expansion</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dec786cc-5e19-4b75-bbe3-455ad3579aa4">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-dec786cc-5e19-4b75-bbe3-455ad3579aa4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e5e2abd6-a2e4-4e21-8ca5-172d8f07d1f6">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-e5e2abd6-a2e4-4e21-8ca5-172d8f07d1f6" title="Permalink to this equation">#</a></span>\[\begin{equation}
   e^x = \displaystyle\sum_{j=0}^{\infty} \frac{x^j}{j!}
 \end{equation}\]</div>
 <p>where the “!” means factorial.  Write a short program that approximates <span class="math notranslate nohighlight">\(e = e^1\)</span> with the first ten terms in the sum.</p>
 </section>
 <section id="problem-5">
-<h4>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h4>
+<h4>Problem 5<a class="headerlink" href="#problem-5" title="Link to this heading">#</a></h4>
 <p>Let’s say that I get $100 and deposit in the bank at a <em>montly</em> interest rate of 1.8%.  What will the value of this investment be after 10 years?  Write a program that calculates this!</p>
 </section>
 </section>
@@ -948,11 +959,10 @@ Computer programming is the name given to the process of writing <em>programs</e
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../intro.html"
@@ -972,17 +982,16 @@ Computer programming is the name given to the process of writing <em>programs</e
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1037,9 +1046,10 @@ By Mike McCracken
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1063,8 +1073,8 @@ By Mike McCracken
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

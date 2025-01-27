@@ -1,75 +1,75 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. Fitting models to data &#8212; Introduction to Computation for the Physics Sciences</title>
+    <title>6. Fitting models to data &#8212; Introduction to Computation for the Physics Sciences</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_05_fitting';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. Simulating solutions to differential equations" href="scicomp_07_ODEs.html" />
-    <link rel="prev" title="1. Data visualization with matplotlib" href="scicomp_04_datavis.html" />
+    <link rel="next" title="7. Simulating solutions to differential equations" href="scicomp_07_ODEs.html" />
+    <link rel="prev" title="5. Data visualization with matplotlib" href="scicomp_04_datavis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -77,23 +77,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -101,7 +94,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -109,16 +101,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -131,9 +132,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -143,12 +148,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/wj_horiz_color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Introduction to Computation for the Physics Sciences - Home"/>
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-dark pst-js-only" alt="Introduction to Computation for the Physics Sciences - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -167,17 +179,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">1. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Fitting models to data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">3. Simulating solutions to differential equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">4. Monte Carlo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">5. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">5. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">7. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">8. Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">9. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">10. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">1. Text as data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">2. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">11. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">12. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
 <ul class="nav bd-sidenav">
@@ -190,14 +202,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -206,14 +223,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -366,26 +383,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -406,25 +417,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">2.1. Recap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">2.2. Motivation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-model-optimization-as-an-idea">2.3. Fitting/model optimization as an idea</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-bivariate-data-the-basics">2.4. Fitting bivariate data, the basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">6.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">6.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-model-optimization-as-an-idea">6.3. Fitting/model optimization as an idea</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-bivariate-data-the-basics">6.4. Fitting bivariate data, the basics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-to-binned-1-d-data-histograms">2.5. Fitting to binned 1-d data (histograms)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gut-check">2.6. Gut check</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-to-binned-1-d-data-histograms">6.5. Fitting to binned 1-d data (histograms)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gut-check">6.6. Gut check</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-and-flexibility">1. Power and flexibility</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modularity-and-scalability">2. Modularity and scalability</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-uncertainties">3. Data uncertainties</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-uncertainties">4. Parameter uncertainties</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-fit-parameter-uncertainties">2.7. Extracting fit parameter uncertainties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-uncertainties">2.8. Fitting data with uncertainties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">2.9. In summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">2.10. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-fit-parameter-uncertainties">6.7. Extracting fit parameter uncertainties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-uncertainties">6.8. Fitting data with uncertainties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">6.9. In summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">6.10. Problems</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
@@ -448,12 +459,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fitting-models-to-data">
-<h1><span class="section-number">2. </span>Fitting models to data<a class="headerlink" href="#fitting-models-to-data" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Fitting models to data<a class="headerlink" href="#fitting-models-to-data" title="Link to this heading">#</a></h1>
 <section id="recap">
-<h2><span class="section-number">2.1. </span>Recap<a class="headerlink" href="#recap" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
 <p>We’re way past the point of no return in becoming meaningful users of computers!  Just check out this non-exhaustive list of basic skills that we’ve covered:</p>
 <ul class="simple">
 <li><p>basic mathematical operations</p></li>
@@ -472,23 +483,23 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="motivation">
-<h2><span class="section-number">2.2. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2. </span>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
 <p>In this lesson we’ll cover an extremely powerful and potentially opaque tool: curve fitting.  Before we look at how it works, let’s consider some applications.</p>
 <ul class="simple">
 <li><p>Measurement of the temperature of the cosmic microwave background (CMB) radiation by COBE, evidence for the Big Bang.  <a class="reference external" href="https://www.astro.ucla.edu/~wright/CMB.html#:~:text=The%20CMB%20has%20the%20spectrum,opaque%20and%20non%2Dreflective%20object.">Nice description here, fit is in the middle of the page</a></p></li>
 <li><p>Hubble’s diagram, more evidence of the Big Bang (ca. 1929)!  <a class="reference external" href="https://www.pnas.org/doi/10.1073/pnas.2536799100#fig3">Nice article here with modern measurements.</a></p></li>
 <li><p>Discovery of the Higgs Boson by CMS and ATLAS experiments (2012).  <a class="reference external" href="http://scholarpedia.org/article/The_Higgs_Boson_discovery">Nice description here.</a>  <a class="reference external" href="http://www.scholarpedia.org/article/File:Fig_10_ATLAS_CMS_gg_combined.png">High-res graphs with fits here.</a></p></li>
-<li><p>White House CEA modeling predicts Covid-19 deaths go to 0 by 15 May 2020.  <a class="reference external" href="https://twitter.com/WhiteHouseCEA45/status/1257680258364555264?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1257680258364555264%7Ctwgr%5E%7Ctwcon%5Es1_&amp;ref_url=https%3A%2F%2Fwww.vox.com%2F2020%2F5%2F8%2F21250641%2Fkevin-hassett-cubic-model-smoothing">Source.</a>  <a class="reference external" href="https://www.businessinsider.com/trump-advisor-kevin-hassett-excel-function-cubic-model-coronavirus-2020-5">Business Insider commentary.</a>  <a class="reference external" href="https://www.vox.com/2020/5/8/21250641/kevin-hassett-cubic-model-smoothing">Vox commentary.</a></p></li>
+<li><p>White House CEA modeling predicts Covid-19 deaths go to 0 by 15 May 2020.  <a class="reference external" href="https://twitter.com/WhiteHouseCEA45/status/1257680258364555264?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1257680258364555264%7Ctwgr%5E%7Ctwcon%5Es1_&amp;amp;ref_url=https%3A%2F%2Fwww.vox.com%2F2020%2F5%2F8%2F21250641%2Fkevin-hassett-cubic-model-smoothing">Source.</a>  <a class="reference external" href="https://www.businessinsider.com/trump-advisor-kevin-hassett-excel-function-cubic-model-coronavirus-2020-5">Business Insider commentary.</a>  <a class="reference external" href="https://www.vox.com/2020/5/8/21250641/kevin-hassett-cubic-model-smoothing">Vox commentary.</a></p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="fitting-model-optimization-as-an-idea">
-<h2><span class="section-number">2.3. </span>Fitting/model optimization as an idea<a class="headerlink" href="#fitting-model-optimization-as-an-idea" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3. </span>Fitting/model optimization as an idea<a class="headerlink" href="#fitting-model-optimization-as-an-idea" title="Link to this heading">#</a></h2>
 <p>In Lesson 4 we discussed how data visualization can help help us to turn data into understanding.  “Understanding” in this sense means something like a <em>qualitative understanding</em> of the data.</p>
 <p>Today, we’ll look at a method for turning data into quantitative results: fitting functions to data, sometimes called “model optimization”.  This is an indispensible skill/technique in the physical sciences, and it’s something that you’ve probably done many times using Excel or Logger Pro.</p>
 <p>Here is the basic idea: Often in the physical sciences, we have data that we believe should be described by some quantitative model.  For example, the data might be vertical position <em>vs</em> time measurements for a projectile, and we might assume that this data is described by one of the kinematic equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a549640-eff8-4b10-81ee-f557d69c12e7">
-<span class="eqno">(2.4)<a class="headerlink" href="#equation-1a549640-eff8-4b10-81ee-f557d69c12e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e91a6d61-9b42-4a15-b7c4-8f9c5614a995">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-e91a6d61-9b42-4a15-b7c4-8f9c5614a995" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = \frac{1}{2}a_{y}\;t^2 + v_{0y}\;t + y_0
 \end{equation}\]</div>
 <p>This function is our <em>model</em> and it is typically the consequence of some underlying physical law (in this case, N2L).  The goal of <em>fitting the model to the data</em> is to determine the values of the physical parameters in the model that make the model <em>best characterize the data</em>.  For the kinematic model above, this means determining the optimal values of <span class="math notranslate nohighlight">\(a_y\)</span>, <span class="math notranslate nohighlight">\(v_{0y}\)</span>, and <span class="math notranslate nohighlight">\(y_0\)</span>.  We call these the “fit parameters” because they are the quantities that we will vary in order to fit the model to the data.</p>
@@ -498,10 +509,10 @@ y(t) = \frac{1}{2}a_{y}\;t^2 + v_{0y}\;t + y_0
 </section>
 <hr class="docutils" />
 <section id="fitting-bivariate-data-the-basics">
-<h2><span class="section-number">2.4. </span>Fitting bivariate data, the basics<a class="headerlink" href="#fitting-bivariate-data-the-basics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.4. </span>Fitting bivariate data, the basics<a class="headerlink" href="#fitting-bivariate-data-the-basics" title="Link to this heading">#</a></h2>
 <p>Let’s get started with the simplest meaningful fitting exercise: fitting a linear model to bivariate data.  The file <code class="docutils literal notranslate"><span class="pre">spring_stretch.csv</span></code> contains stretch distance (<span class="math notranslate nohighlight">\(x\)</span>) and spring force (<span class="math notranslate nohighlight">\(F\)</span>) data for the stretching of a spring.  We want to use this data to measure the spring constant.  For a spring that obeys Hooke’s Law, the two variables are related by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c2240eec-84a9-42c5-b404-c54f753cb1f0">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-c2240eec-84a9-42c5-b404-c54f753cb1f0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f5c18851-fe0b-4904-815d-bf92fb1c95b8">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-f5c18851-fe0b-4904-815d-bf92fb1c95b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 F_x = k x
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k\)</span> is the spring constant.  Let’s look at the data first:</p>
@@ -532,7 +543,7 @@ F_x = k x
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/205a6038e4939089c5408b462696a4513008ca1abadf29693e251b3bfc5f3cda.png" src="../_images/205a6038e4939089c5408b462696a4513008ca1abadf29693e251b3bfc5f3cda.png" />
+<img alt="../_images/c62b098b7530251af49be44b843e3bbdc2f455e3203c725af75aba567a513f31.png" src="../_images/c62b098b7530251af49be44b843e3bbdc2f455e3203c725af75aba567a513f31.png" />
 </div>
 </div>
 <p>Ok, looks great.  Except for the point at <span class="math notranslate nohighlight">\(x \approx 7.0\)</span> cm, the data certainly <em>look</em> like they follow a linear trend.  We should expect that our linear model will work.  We now endeavour to fit a model to this data.  We first define a function that corresponds to our model:</p>
@@ -589,11 +600,11 @@ F_x = k x
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/44291eda938535fdad8211acd69dad0c2c0f6d3a4e8ff8aebcb5bba105d09275.png" src="../_images/44291eda938535fdad8211acd69dad0c2c0f6d3a4e8ff8aebcb5bba105d09275.png" />
+<img alt="../_images/7efe54938ec2aa12e609019f35324d20e5097ae2db0aa0272fd5b9b42cd29d79.png" src="../_images/7efe54938ec2aa12e609019f35324d20e5097ae2db0aa0272fd5b9b42cd29d79.png" />
 </div>
 </div>
 <section id="warm-up-problem">
-<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Link to this heading">#</a></h3>
 <p>You may have noticed that <code class="docutils literal notranslate"><span class="pre">linear_function</span></code> isn’t a perfect match for the Hooke’s Law model – the function contains a constant term, while HL does not!  Re-do the fit with a function that better matches Hooke’s Law.  Make a graph of the data and the two optimized fit functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -607,7 +618,7 @@ F_x = k x
 </section>
 <hr class="docutils" />
 <section id="fitting-to-binned-1-d-data-histograms">
-<h2><span class="section-number">2.5. </span>Fitting to binned 1-d data (histograms)<a class="headerlink" href="#fitting-to-binned-1-d-data-histograms" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.5. </span>Fitting to binned 1-d data (histograms)<a class="headerlink" href="#fitting-to-binned-1-d-data-histograms" title="Link to this heading">#</a></h2>
 <p>Next, let’s look at some one-dimensional data.  <code class="docutils literal notranslate"><span class="pre">heights.txt</span></code> is a simple data file that contains the height measurements (in cm) for members of some group of humans.  Let’s read in the data and make a histogram to get a feel for the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -627,7 +638,7 @@ F_x = k x
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4caf204f93614c56841eaf924ad4eb9e5651467706058b16e3ce943304abbe76.png" src="../_images/4caf204f93614c56841eaf924ad4eb9e5651467706058b16e3ce943304abbe76.png" />
+<img alt="../_images/041bf7c8d8e6a8b62122cf0d8518139e421d234954b34690255631b31120aca9.png" src="../_images/041bf7c8d8e6a8b62122cf0d8518139e421d234954b34690255631b31120aca9.png" />
 </div>
 </div>
 <p>Cool!  So, as we would expect, the data appear to be distributed according to a gaussian (or bell curve), possibly with some “funky stuff” happening on the low-end (left) tail.</p>
@@ -702,14 +713,14 @@ There are 111 elements in the edges list.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d7b8707c85cd39d78ad1174418113fdba9642db7427bdf7b8cce7bc5375c5836.png" src="../_images/d7b8707c85cd39d78ad1174418113fdba9642db7427bdf7b8cce7bc5375c5836.png" />
+<img alt="../_images/c4d7474767d46d44cbf1b546730a6ed26f0485c6ae86a69c16eb36a66e67fc6b.png" src="../_images/c4d7474767d46d44cbf1b546730a6ed26f0485c6ae86a69c16eb36a66e67fc6b.png" />
 </div>
 </div>
 <p>If that just looks like the profile of our histogram from above… good eye!  It is.  We’ve just graphed the data in a way that is obviously 2-d.</p>
 <p>To <em>characterize</em> the data, we’ll fit a gaussian function to the data using <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> again.  The <em>process</em> is exactly the same as it was above for the linear function, but we will need to change some of the details of the fit.</p>
 <p>In this case, we suspect that the data can be described by a gaussian function with the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-924d629e-9ca0-493c-9608-cbfb14bba391">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-924d629e-9ca0-493c-9608-cbfb14bba391" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9982b834-9b0d-4f96-af4b-04d11e768e9f">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-9982b834-9b0d-4f96-af4b-04d11e768e9f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 g(h) = a \exp \left[ - \frac{(h-\mu)^2}{2\sigma^2} \right]
 \end{equation}\]</div>
 <p>Again, “fitting” means that we want to find the values of parameters <span class="math notranslate nohighlight">\(a\)</span> (scale), <span class="math notranslate nohighlight">\(\mu\)</span> (mean), and <span class="math notranslate nohighlight">\(\sigma\)</span> (width) that make the gaussian a good description of the number of data in each of our bins as a function of the bin center (<span class="math notranslate nohighlight">\(h\)</span>).
@@ -753,7 +764,7 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e4527190c994cff71b63173c31fe1d3505d824420f39b6572fecb58e2784f5ec.png" src="../_images/e4527190c994cff71b63173c31fe1d3505d824420f39b6572fecb58e2784f5ec.png" />
+<img alt="../_images/25c6b5af43d070bf9729c196e76eecdc0d6eb1e6491725e60f86711c62917039.png" src="../_images/25c6b5af43d070bf9729c196e76eecdc0d6eb1e6491725e60f86711c62917039.png" />
 </div>
 </div>
 <p>Wow!  That looks pretty… um… well, it looks <em>okay</em>.  That funky lower tail is bugging me.  Let’s construct a more general function that is a sum of two gaussians to try to fit both contributions.  We can use the same procedure as before:</p>
@@ -794,7 +805,7 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
    7.78617905]
 </pre></div>
 </div>
-<img alt="../_images/a1fbde8a6d5af7b652893871507f7585fb4910aa37ee47f28b0237ebfe3076a9.png" src="../_images/a1fbde8a6d5af7b652893871507f7585fb4910aa37ee47f28b0237ebfe3076a9.png" />
+<img alt="../_images/fa9363339ede07b8817ca50137cf2d6dbbb4d8fb04f65a3c164b6c57b37c665d.png" src="../_images/fa9363339ede07b8817ca50137cf2d6dbbb4d8fb04f65a3c164b6c57b37c665d.png" />
 </div>
 </div>
 <p>The green curve is our double-gaussian distribution.  NOW <strong>THAT’S</strong> A FIT.  WOO WOO.</p>
@@ -802,29 +813,29 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 </section>
 <hr class="docutils" />
 <section id="gut-check">
-<h2><span class="section-number">2.6. </span>Gut check<a class="headerlink" href="#gut-check" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.6. </span>Gut check<a class="headerlink" href="#gut-check" title="Link to this heading">#</a></h2>
 <p>So.  Why in the WORLD would someone go to all of the trouble of writing code like this to do something that Excel or Mathematica or LoggerPro could do with just a few mouse clicks?  Here are some reasons that I think are important:</p>
 <section id="power-and-flexibility">
-<h3>1. Power and flexibility<a class="headerlink" href="#power-and-flexibility" title="Permalink to this heading">#</a></h3>
+<h3>1. Power and flexibility<a class="headerlink" href="#power-and-flexibility" title="Link to this heading">#</a></h3>
 <p>The approach outlined above allows the user to fit <em>any</em> function to any dataset, and has many other built-in flexibilities.  It’s POWERFUL.  This may not seem like a big deal, but as you work with more-sophisticated data, Excel and Logger Pro’s built-in functions just won’t cut it.  LoggerPro has no option for a sum of two gaussians.  Don’t even ask about Excel.  In addition, you can do things like place bounds on the parameters (“don’t let the mean get bigger than 1.2”) and you can fit multiple subranges of the dataset.  These modules are designed by data scientists – if you have a specific need, chances are good that a python developer thought of it a long time ago.</p>
 </section>
 <section id="modularity-and-scalability">
-<h3>2. Modularity and scalability<a class="headerlink" href="#modularity-and-scalability" title="Permalink to this heading">#</a></h3>
+<h3>2. Modularity and scalability<a class="headerlink" href="#modularity-and-scalability" title="Link to this heading">#</a></h3>
 <p>If you write the code once, you can apply it to <em>many</em> datasets very quickly.  Let’s say that I now gave you thirty more datasets to fit as above.  You could simply put all of this code inside of a loop over the data file names and let this one program structure automate the fitting for all of the datasets.</p>
 </section>
 <section id="data-uncertainties">
-<h3>3. Data uncertainties<a class="headerlink" href="#data-uncertainties" title="Permalink to this heading">#</a></h3>
+<h3>3. Data uncertainties<a class="headerlink" href="#data-uncertainties" title="Link to this heading">#</a></h3>
 <p>More sophisticated techniques like this allow you to handle uncertainties on your data points.  These experimental uncertainties affect fits!  If a single data point has a very small uncertainty, then the fit should “feel” obligated to match the fuction to that point as closely as the other points.  We’ll demonstrate this later.</p>
 </section>
 <section id="parameter-uncertainties">
-<h3>4. Parameter uncertainties<a class="headerlink" href="#parameter-uncertainties" title="Permalink to this heading">#</a></h3>
+<h3>4. Parameter uncertainties<a class="headerlink" href="#parameter-uncertainties" title="Link to this heading">#</a></h3>
 <p>The fitting techniques above provide quantites like the fit-parameter uncertainties.  This leads to a better scientific understanding of whatever you’re studying.</p>
 <p>When you fit a function with, <em>e.g.</em>, Excel, the software tells you what the “optimal” values of the fit parameters are, but it does not give the uncertainties on these parameters.  What does this mean?  Well, when we fit data with a function, we’re trying to determine the values of the fit parameters that make the function as close to the data points as possible.  In many cases “as close as possible” is ambiguous; if we change the value of the first parameter, the function may get farther from one data point but closer to another.  Thus, there’s an inherent uncertainty in the value of the fit parameter returned by the fitting algorithm.  This is just like how we use an experimental uncertaintly to mean (roughly) “we’re confident of the value of this quantity to within <span class="math notranslate nohighlight">\(\pm \sigma\)</span>”.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="extracting-fit-parameter-uncertainties">
-<h2><span class="section-number">2.7. </span>Extracting fit parameter uncertainties<a class="headerlink" href="#extracting-fit-parameter-uncertainties" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.7. </span>Extracting fit parameter uncertainties<a class="headerlink" href="#extracting-fit-parameter-uncertainties" title="Link to this heading">#</a></h2>
 <p>Here is how to extract these uncertainties.  First, I’ll refit that double gaussian from the previous example.  Notice that there are two outputs from the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> operation.  The first is the optimal values of the fit parameters (I call it <code class="docutils literal notranslate"><span class="pre">dgauss_popt</span></code>).  Let’s look at the second, <code class="docutils literal notranslate"><span class="pre">dgauss_pcov</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -853,13 +864,13 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 </div>
 <p>Barf!  What is this?  This is a 6x6  (note that there are 6 fit parameters) matrix called the <strong>covariance matrix</strong>, and it stores all of the uncertainty information from the fit.  <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_matrix">The Wikipedia entry for covariance matrix</a> is pretty deece!</p>
 <p>What you need to know is that the covariance matrix stores information about uncertainties in and correlations between the fit parameters.  The latter of these is not necessary for us right now.  However, the former is what we want.  The diagonal elements of the covariance matrix are the squares of the (1 standard deviation) parameter uncertainties!  So for fit parameter <span class="math notranslate nohighlight">\(p_i\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-759853ac-d611-4f95-a6d8-36cfe2cef85d">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-759853ac-d611-4f95-a6d8-36cfe2cef85d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1de7061a-34c5-4073-9f6f-b578223dc3db">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-1de7061a-34c5-4073-9f6f-b578223dc3db" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma_i = \sqrt{pcov2_{ii}}
 \end{equation}\]</div>
 <p>Said in words, the uncertainty of the <span class="math notranslate nohighlight">\(i^{th}\)</span> fit parameter is the <span class="math notranslate nohighlight">\((i,i)\)</span> element of the covariance matrix (an element on the diagonal).  If you’re comfortable with matrices, you might picture the covariance matrix as something like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a3b0ca0-0073-442e-ab99-e9d2868f4260">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-1a3b0ca0-0073-442e-ab99-e9d2868f4260" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-be691509-8319-456c-9a4d-bc972fdf417e">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-be691509-8319-456c-9a4d-bc972fdf417e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 
 pcov2 = \begin{bmatrix} 
     \sigma^{2}_{11} &amp; ? &amp; ? &amp; \dots &amp; ? \\
@@ -903,7 +914,7 @@ fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 </section>
 <hr class="docutils" />
 <section id="fitting-data-with-uncertainties">
-<h2><span class="section-number">2.8. </span>Fitting data with uncertainties<a class="headerlink" href="#fitting-data-with-uncertainties" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.8. </span>Fitting data with uncertainties<a class="headerlink" href="#fitting-data-with-uncertainties" title="Link to this heading">#</a></h2>
 <p>Let’s return to fitting bivariate data.  This time, we’ll consider the error bars on the data points.  The block of code below graphs the linear spring-stretching data that we used at the top of this notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -931,7 +942,7 @@ fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eff2973f5531b2d8c17c77d2e08f4c12f59e6048d41e8ffdec3df6417122449e.png" src="../_images/eff2973f5531b2d8c17c77d2e08f4c12f59e6048d41e8ffdec3df6417122449e.png" />
+<img alt="../_images/df3599af2fb42bb4712114443d6b40c508e0b442cf1b0bb350b5c8bd235d7cab.png" src="../_images/df3599af2fb42bb4712114443d6b40c508e0b442cf1b0bb350b5c8bd235d7cab.png" />
 </div>
 </div>
 <p>We see now that the data points have varying uncertainties – in particular that wonky-looking point at <span class="math notranslate nohighlight">\(x \approx 7\)</span> cm has a lerger error bar than the other points.  When we do a fit, our fit should try less hard to match this data point because its value is less certain!  This can be done by supplying the uncertainty values to <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p>
@@ -969,7 +980,7 @@ fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.34637885 0.31250192]
 </pre></div>
 </div>
-<img alt="../_images/493e848c8823230b6f9af2a5826a6812cc094e318786684431ffdbfc51d79530.png" src="../_images/493e848c8823230b6f9af2a5826a6812cc094e318786684431ffdbfc51d79530.png" />
+<img alt="../_images/de59827e313a9c1e4dedc2a2b838baaff15b783af610fa9bad7667f13f9d0756.png" src="../_images/de59827e313a9c1e4dedc2a2b838baaff15b783af610fa9bad7667f13f9d0756.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The optimal spring constant value is (3.3464 +/- 0.2177) N/cm
 </pre></div>
 </div>
@@ -979,7 +990,7 @@ fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 </section>
 <hr class="docutils" />
 <section id="in-summary">
-<h2><span class="section-number">2.9. </span>In summary<a class="headerlink" href="#in-summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.9. </span>In summary<a class="headerlink" href="#in-summary" title="Link to this heading">#</a></h2>
 <p>There is a large amount of detail that we’re skipping here, because it’s outside the scope of the course course.  Most of this detail is related to how <code class="docutils literal notranslate"><span class="pre">scipy</span></code> judges whether a fit is “good” and how it knows how to vary the parameter values to improve the fit.  PhD theses have been written (and continue to be written) about this procedure.  Suffice to say that:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> doesn’t just “eyeball” the fit – it uses an algorithmic process for optimizing fit parameters.  The process relies on a quantification of the difference between the function and each datapoint, and <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> knows how to wiggle parameter values to make this quantity as small as possible.</p></li>
@@ -988,45 +999,45 @@ fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 </section>
 <hr class="docutils" />
 <section id="problems">
-<h2><span class="section-number">2.10. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.10. </span>Problems<a class="headerlink" href="#problems" title="Link to this heading">#</a></h2>
 <p>Your homework is to complete <strong>two</strong> (2) of the following problems.</p>
 <section id="regulars">
-<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
+<h3>Regulars<a class="headerlink" href="#regulars" title="Link to this heading">#</a></h3>
 <section id="problem-1">
-<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h4>
 <p>The file <code class="docutils literal notranslate"><span class="pre">parab_t_and_y_error.csv</span></code> contains vertical position and time measurements of a projectile.  Fit the data in this file with the kinematic equation model given in section III of this notebook.  From this fit, extract the vertical acceleration and its associated uncertainty.  Is this value consistent with <span class="math notranslate nohighlight">\(g = 9.80\)</span> m/s<span class="math notranslate nohighlight">\(^2\)</span>?  Write a block of markdown to explain what you did and your results.</p>
 </section>
 <section id="problem-2">
-<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h4>
 <p>Return to the NBA data (again???) from a few lessons back.  Make a histogram of the half-time point differential (team2 - team1).  Configure the histogram to have 1-point-wide bins.  Fit a gaussian to this histogram to extract the mean point differential (and its uncertainty) and the standard deviation.  Does the gaussian function look like it adequately characterizes the data?  Now make a histogram of the final point differential.  Comment on whether a gaussian function would be a good description of the data.  If not, why not???  Write a block of markdown to explain your process and your results.</p>
 </section>
 <section id="problem-3">
-<h4>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h4>
+<h4>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h4>
 <p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains the temperature maxes and mins per day for the years 2000-2009 in Washington, PA.  Over 3500 data points!  Make a graph of the maximum temp versus day number.  Fit this data with a function of the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6bea4923-768a-464d-b64e-9f0622266e57">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-6bea4923-768a-464d-b64e-9f0622266e57" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-77cabe67-6517-4a12-af74-7dd54090fbfd">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-77cabe67-6517-4a12-af74-7dd54090fbfd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T(t) = A\cos\left( \omega t + \phi\right) + B
 \end{equation}\]</div>
 <p>This function has four fit parameters: <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span>, and <span class="math notranslate nohighlight">\(B\)</span>.  Make sure you supply good initial guesses for these parameters.  Use your values of <span class="math notranslate nohighlight">\(\omega\)</span> and <span class="math notranslate nohighlight">\(B\)</span> returned by the fit to estimate the length of the year.  Also estimate the average <strong>annual</strong> temperature from your fit parameters. (Note: It is likely that the biggest problem that you’ll have is determining “good” initial parameter values.  Think very hard about what type of quantity <span class="math notranslate nohighlight">\(\omega\)</span> is and how it relates to the length of a year.)</p>
 </section>
 </section>
 <section id="mega-meanies">
-<h3>Mega-Meanies<a class="headerlink" href="#mega-meanies" title="Permalink to this heading">#</a></h3>
+<h3>Mega-Meanies<a class="headerlink" href="#mega-meanies" title="Link to this heading">#</a></h3>
 <section id="problem-4">
-<h4>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h4>
+<h4>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h4>
 <p>You and a partner will be given a number of small (so-called “fun size” [<em>sic</em>]) bags of Skittles. Your job is to characterize the number <strong>yellow</strong> Skittles in an average fun-size bag (FSB).  Open <strong>each</strong> of the FSBs and count the total number of Skittles and the number of yellow Skittles in each.  Enter this data into a csv file, where each row represents a single FSB.  Then, write <code class="docutils literal notranslate"><span class="pre">python</span></code> code that plots separate histograms of the totals and the numbers of yellows.  Your histograms should be configured to have 1-unit-wide bins.  It is likely that this dataset will be described by the <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>.  In this application, the Poisson distribution tells us the that the probability of finding <span class="math notranslate nohighlight">\(k\)</span> yellows in an FSB is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46dc136a-41a1-4176-a00a-0c155ac903cb">
-<span class="eqno">(2.10)<a class="headerlink" href="#equation-46dc136a-41a1-4176-a00a-0c155ac903cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b0900fdc-fbd5-4fb7-b2a4-a5b0d59999ee">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-b0900fdc-fbd5-4fb7-b2a4-a5b0d59999ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \textrm{Pr}(k) = A\frac{\lambda^{-k}e^{\lambda}}{k!}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the “expected value” of the number of yellows in each FSB and <span class="math notranslate nohighlight">\(A\)</span> is a scale factor that will make fitting easier.  Fit this function to the histogram for yellows to extract the expected number of yellows per FSB.  Write a block of markdown to explain your process and your results.  (Note: If you want to do this exercise, you need to tell me by Thursday evening so that I can acquire Skittles.)</p>
 </section>
 <section id="problem-5">
-<h4>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h4>
+<h4>Problem 5<a class="headerlink" href="#problem-5" title="Link to this heading">#</a></h4>
 <p>Now fit a Poisson PMF to the distribution of total Skittles in an FSB. Use your your results from this and the previous problem to estimate the probability that a bag will be all yellows.</p>
 </section>
 <section id="problem-6">
-<h4>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this heading">#</a></h4>
+<h4>Problem 6<a class="headerlink" href="#problem-6" title="Link to this heading">#</a></h4>
 <p>Get the file <code class="docutils literal notranslate"><span class="pre">cobe_cmb_data.txt</span></code> from Sakai.  This file contains the data represented in the CMB first item of Section II of this notebook.  The first column of data in this file represents the oscillations of light per cm; you will have to do a simple calculation to convert this to either a wavelength or a frequency.  Look online for a functional form of the black-body spectrum. Fit this functional form to the data and extract the temperature of… the Universe!</p>
 </section>
 </section>
@@ -1058,11 +1069,10 @@ T(t) = A\cos\left( \omega t + \phi\right) + B
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="scicomp_04_datavis.html"
@@ -1070,7 +1080,7 @@ T(t) = A\cos\left( \omega t + \phi\right) + B
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p>
       </div>
     </a>
     <a class="right-next"
@@ -1078,21 +1088,20 @@ T(t) = A\cos\left( \omega t + \phi\right) + B
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Simulating solutions to differential equations</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Simulating solutions to differential equations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1100,25 +1109,25 @@ T(t) = A\cos\left( \omega t + \phi\right) + B
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">2.1. Recap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">2.2. Motivation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-model-optimization-as-an-idea">2.3. Fitting/model optimization as an idea</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-bivariate-data-the-basics">2.4. Fitting bivariate data, the basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">6.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">6.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-model-optimization-as-an-idea">6.3. Fitting/model optimization as an idea</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-bivariate-data-the-basics">6.4. Fitting bivariate data, the basics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-to-binned-1-d-data-histograms">2.5. Fitting to binned 1-d data (histograms)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gut-check">2.6. Gut check</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-to-binned-1-d-data-histograms">6.5. Fitting to binned 1-d data (histograms)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gut-check">6.6. Gut check</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-and-flexibility">1. Power and flexibility</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modularity-and-scalability">2. Modularity and scalability</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-uncertainties">3. Data uncertainties</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-uncertainties">4. Parameter uncertainties</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-fit-parameter-uncertainties">2.7. Extracting fit parameter uncertainties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-uncertainties">2.8. Fitting data with uncertainties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">2.9. In summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">2.10. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-fit-parameter-uncertainties">6.7. Extracting fit parameter uncertainties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-uncertainties">6.8. Fitting data with uncertainties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">6.9. In summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">6.10. Problems</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
@@ -1154,9 +1163,10 @@ By Mike McCracken
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1180,8 +1190,8 @@ By Mike McCracken
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,73 +1,73 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5. Manipulating tabular data with Pandas &#8212; Introduction to Computation for the Physics Sciences</title>
+    <title>9. Manipulating tabular data with Pandas &#8212; Introduction to Computation for the Physics Sciences</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_09_pandas';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Data reduction and analysis magic with Pandas" href="scicomp_10_pandas_magic.html" />
-    <link rel="prev" title="4. Monte Carlo" href="scicomp_08_montecarlo.html" />
+    <link rel="next" title="10. Data reduction and analysis magic with Pandas" href="scicomp_10_pandas_magic.html" />
+    <link rel="prev" title="8. Monte Carlo" href="scicomp_08_montecarlo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/wj_horiz_color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Introduction to Computation for the Physics Sciences - Home"/>
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-dark pst-js-only" alt="Introduction to Computation for the Physics Sciences - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -165,17 +177,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">1. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">2. Fitting models to data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">3. Simulating solutions to differential equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">4. Monte Carlo</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">5. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">6. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">7. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">8. Monte Carlo</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">10. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">1. Text as data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">2. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_06_textasdata.html">11. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">12. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
 <ul class="nav bd-sidenav">
@@ -188,14 +200,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -204,14 +221,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -364,26 +381,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -404,24 +415,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">5.1. Recap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">5.2. Motivation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pandas">5.3. What is pandas?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ahem-what-is-pandas">5.4. Ahem… What is <code class="docutils literal notranslate"><span class="pre">pandas</span></code>?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">5.5. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe">5.6. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">9.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">9.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pandas">9.3. What is pandas?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ahem-what-is-pandas">9.4. Ahem… What is <code class="docutils literal notranslate"><span class="pre">pandas</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">9.5. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe">9.6. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Warm-up problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-a-dataframe">Copying a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data-as-a-dataframe">5.7. Importing data as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data-as-a-dataframe">9.7. Importing data as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Warm-up problem</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv">5.8. Exporting to csv</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">5.9. In summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">5.10. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv">9.8. Exporting to csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">9.9. In summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">9.10. Problems</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
@@ -439,12 +450,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="manipulating-tabular-data-with-pandas">
-<h1><span class="section-number">5. </span>Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code><a class="headerlink" href="#manipulating-tabular-data-with-pandas" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code><a class="headerlink" href="#manipulating-tabular-data-with-pandas" title="Link to this heading">#</a></h1>
 <section id="recap">
-<h2><span class="section-number">5.1. </span>Recap<a class="headerlink" href="#recap" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
 <p>Let’s continue with our skills inventory with the foundations/applications dichotomy:</p>
 <ul class="simple">
 <li><p>foundational programming skills</p>
@@ -477,7 +488,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="motivation">
-<h2><span class="section-number">5.2. </span>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
 <p>Only one motivational item for you today!  After today’s class, you will have all of the basic skills necessary to start learning about Machine Learning (if you wish to do so).  A Kaggle Competition is a great place to start!</p>
 <ul class="simple">
 <li><p>Kaggle. <a class="reference external" href="https://www.kaggle.com/competitions/titanic">Titanic – Machine Learning from Disaster</a>.  Skip forward to 2:00 in the explanatory video linked.</p></li>
@@ -485,7 +496,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-is-pandas">
-<h2><span class="section-number">5.3. </span>What is pandas?<a class="headerlink" href="#what-is-pandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>What is pandas?<a class="headerlink" href="#what-is-pandas" title="Link to this heading">#</a></h2>
 <p>From <a class="reference external" href="https://en.wikipedia.org/wiki/Giant_panda">Wikipedia</a></p>
 <blockquote>
 <div><p>The giant panda (Ailuropoda melanoleuca; Chinese: 大熊猫; pinyin: dàxióngmāo) also known as the panda bear (or simply the panda), is a bear species endemic to China. It is characterised by its bold black-and-white coat and rotund body. The name “giant panda” is sometimes used to distinguish it from the red panda, a neighboring musteloid.</p>
@@ -494,7 +505,7 @@ document.write(`
 <p>OK, thanks!  Homework is due in one week.</p>
 </section>
 <section id="ahem-what-is-pandas">
-<h2><span class="section-number">5.4. </span>Ahem… What is <code class="docutils literal notranslate"><span class="pre">pandas</span></code>?<a class="headerlink" href="#ahem-what-is-pandas" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>Ahem… What is <code class="docutils literal notranslate"><span class="pre">pandas</span></code>?<a class="headerlink" href="#ahem-what-is-pandas" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> is a very popular <code class="docutils literal notranslate"><span class="pre">python</span></code> library that is built to manage tabular data.  By “tabular data” we mean something like a spreadsheet – information that is arranged into separate instances (typically rows) and features (typically columns).</p>
 <p>Now, we have already worked with tabular data in this class.  We read data from a file (usually CSV formatted) using some basic file I/O procedures (<code class="docutils literal notranslate"><span class="pre">readline()</span></code>, <code class="docutils literal notranslate"><span class="pre">string.split()</span></code>, etc.).  When we introduced this, you may have thought to yourself “There has <strong>got</strong> to be a better, more-efficient way of doing this!”  If you thought this, you were correct!  <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is the better, more-efficient way of working with tabular data in <code class="docutils literal notranslate"><span class="pre">python</span></code>.</p>
 <p>In this tutorial, we’re going to cover the basics of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> fucntionality, but it’s important to state that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is <em>soooooo powerful</em> that it is a professional-grade tool, ubiquitous in the quantitative world!  Researchers in the physical sciences, social sciences, finance, medicine, and public health use <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to work with large, complex, real-world data.  As a result, there is a great wealth of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> information and help online!</p>
@@ -502,7 +513,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="pandas-series">
-<h2><span class="section-number">5.5. </span><code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#pandas-series" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.5. </span><code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#pandas-series" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> organizes data based on two structures: <code class="docutils literal notranslate"><span class="pre">Series</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> are composed of <code class="docutils literal notranslate"><span class="pre">Series</span></code>(es).</p>
 <p>The structure of <code class="docutils literal notranslate"><span class="pre">Series</span></code> <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.Series.html">(documentation here, take a look at all of those attributes/methods!)</a> will seem familiar to you – it’s basically an ordered list with a lot of other slick features built into it!  Let’s take iport the module and initialize a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to see what it can do.</p>
 <p>We’ll start with some data stored as a basic <code class="docutils literal notranslate"><span class="pre">python</span></code> list and then convert convert it to a <code class="docutils literal notranslate"><span class="pre">Series</span></code>.  Ooh, let’s do some role-playing, too: We are the managers of a restaurant, and we want to build a dataset that contains information about our menu.</p>
@@ -582,19 +593,19 @@ Name: dish, dtype: object
 </pre>
 </div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">/var/folders/6s/cpr1t_711kj905fk6qjplyrw0000gr/T/ipykernel_58405/2769499521.py</span> in <span class="ni">?</span><span class="nt">()</span>
+<span class="nn">/var/folders/6s/cpr1t_711kj905fk6qjplyrw0000gr/T/ipykernel_42618/2769499521.py</span> in <span class="ni">?</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">new_dishes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;quesadilla&#39;</span><span class="p">,</span> <span class="s1">&#39;jollof rice&#39;</span><span class="p">,</span> <span class="s1">&#39;grilled chili peppers&#39;</span><span class="p">,</span> <span class="s1">&#39;ma la fish&#39;</span><span class="p">,</span> <span class="s1">&#39;schnitzel&#39;</span><span class="p">,</span> <span class="s1">&#39;empanadas&#39;</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">new_ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">new_dishes</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;dish&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">new_ser</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">menu_ser</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_ser</span><span class="p">))</span>
 
-<span class="nn">~/opt/miniconda3/envs/snakes/lib/python3.11/site-packages/pandas/core/generic.py</span> in <span class="ni">?</span><span class="nt">(self, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5985</span>             <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessors</span>
-<span class="g g-Whitespace">   </span><span class="mi">5986</span>             <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5987</span>         <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5988</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">5989</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="nn">~/opt/anaconda3/lib/python3.12/site-packages/pandas/core/generic.py</span> in <span class="ni">?</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6295</span>             <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessors</span>
+<span class="g g-Whitespace">   </span><span class="mi">6296</span>             <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6297</span>         <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">6298</span>             <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">6299</span>         <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
 
 <span class="ne">AttributeError</span>: &#39;Series&#39; object has no attribute &#39;append&#39;
 </pre></div>
@@ -702,7 +713,7 @@ Name: dish, dtype: object
 </section>
 <hr class="docutils" />
 <section id="pandas-dataframe">
-<h2><span class="section-number">5.6. </span><code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#pandas-dataframe" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.6. </span><code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#pandas-dataframe" title="Link to this heading">#</a></h2>
 <p>In the examples above, we were using <code class="docutils literal notranslate"><span class="pre">Series</span></code> to store and manipulate what are essentially columns in a tabular dataset.  Picture a spreadsheet in which each row is an item on a restaurant menu, and each column represents features like the item’s name, price, mass, and spiciness.  Manipulating these columns separately from one another is possible, but opens the door wide for mistakes, errors, goof-ups, oopsies, oversights, negligencies, blunders, fumbles, …</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a structure that stores this tabular all at once, manipulating rows and columns in concert.  The <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object has many built-in operations that are useful for data science, AND has lots of built-in protections to prevent us from doing things that we might not wish to do.</p>
 <p>We can create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from the individual series that we created in the previous section:</p>
@@ -775,7 +786,7 @@ Name: dish, dtype: object
 </div>
 <p>Yum, lots of great options!</p>
 <section id="warm-up-problem">
-<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up problem<a class="headerlink" href="#warm-up-problem" title="Link to this heading">#</a></h3>
 <p>Add a new item to the menu using a dictionary (Google it!).  Make up values for the relevant features!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -841,7 +852,7 @@ Name: dish, dtype: object
 </div>
 </section>
 <section id="id1">
-<h3>Warm-up problem<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up problem<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Modify the code above to make a scatter plot of price vs cost, color-coded by mass.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -853,7 +864,7 @@ Name: dish, dtype: object
 </section>
 <hr class="docutils" />
 <section id="copying-a-dataframe">
-<h3>Copying a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#copying-a-dataframe" title="Permalink to this heading">#</a></h3>
+<h3>Copying a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#copying-a-dataframe" title="Link to this heading">#</a></h3>
 <p>One thing that we haven’t addressed up to this point is how to copy some common <code class="docutils literal notranslate"><span class="pre">python</span></code> objects.  For example, let’s say we have a list of values that we need to update – perhaps it’s the list of balances in several back accounts.  We might wish to create a copy of the list that can serve as a record of the original values that were stored in the list.  You might guess that we can just initiatlize a new variable in the following way:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -919,7 +930,7 @@ Name: dish, dtype: object
 </section>
 <hr class="docutils" />
 <section id="importing-data-as-a-dataframe">
-<h2><span class="section-number">5.7. </span>Importing data as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#importing-data-as-a-dataframe" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.7. </span>Importing data as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#importing-data-as-a-dataframe" title="Link to this heading">#</a></h2>
 <p>I think you’ll agree with me that this looks incredible and very fun.  There’s only one problem: If I want to work with a (possibly very large) dataset (with many instances and features), I don’t want to build up a dataframe column by column.  That would be <strong>terrible</strong>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">pandas</span></code> people have thought of this!  There is a straight-forward way to read in data stored in some tabular-ish format (csv, tsv, Excel[!]) directly into a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <p>Let’s take a look at how this is done [you’re gonna love this] with the <code class="docutils literal notranslate"><span class="pre">movies.csv</span></code> dataset that is maintained by <a class="reference external" href="https://mine-cr.com/">Mine Çetinkaya-Rundel</a>.  This is a medium-size dataset (651 movies), so we don’t want to print the whole thing to screen.  We’ll use <code class="docutils literal notranslate"><span class="pre">head</span></code> to look at the first 20 rows.</p>
@@ -984,7 +995,7 @@ Name: dish, dtype: object
 </div>
 <p>Hmmmmm, weird!</p>
 <section id="id2">
-<h3>Warm-up problem<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up problem<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Make a bar graph that shows the numbers of films with each rating?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -997,7 +1008,7 @@ Name: dish, dtype: object
 </section>
 <hr class="docutils" />
 <section id="exporting-to-csv">
-<h2><span class="section-number">5.8. </span>Exporting to csv<a class="headerlink" href="#exporting-to-csv" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.8. </span>Exporting to csv<a class="headerlink" href="#exporting-to-csv" title="Link to this heading">#</a></h2>
 <p>Note that we can also export a dataframe to several common filetypes.  Let’s export our <code class="docutils literal notranslate"><span class="pre">menu_df</span></code> to csv:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1013,26 +1024,26 @@ Name: dish, dtype: object
 </section>
 <hr class="docutils" />
 <section id="in-summary">
-<h2><span class="section-number">5.9. </span>In summary<a class="headerlink" href="#in-summary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.9. </span>In summary<a class="headerlink" href="#in-summary" title="Link to this heading">#</a></h2>
 <p>What happened above was a somewhat involved intro to how Pandas structures <code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> – it’s probably way more information than you will need for 95% of your work with tabular data.  Usually, we simply import a dataset as a <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> and start calculating or plotting.  The problems below will give you an idea of the types of manipulations that we most often perform when doing data analysis.  Enjoy!</p>
 </section>
 <hr class="docutils" />
 <section id="problems">
-<h2><span class="section-number">5.10. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.10. </span>Problems<a class="headerlink" href="#problems" title="Link to this heading">#</a></h2>
 <p>Your homework is to complete two (2) of the following problems.</p>
 <section id="regulars">
-<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
+<h3>Regulars<a class="headerlink" href="#regulars" title="Link to this heading">#</a></h3>
 <section id="problem-1">
-<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h4>
 <p>Obtain the <a class="reference external" href="https://www.kaggle.com/datasets/ashishjangra27/ted-talks">TED Talks dataset from Kaggle</a>.  Make histograms of watches, likes, and likes per watch.  Find the title of the most ‘under-appreciated’ Talk.  (You determine what is meant by this.  What would be a good metric for under-appreciatedness?)</p>
 </section>
 <section id="problem-2">
-<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h4>
 <p>Obtain the <a class="reference external" href="https://www.kaggle.com/datasets/anandaramg/taxi-trip-data-nyc">Taxi trip data NYC</a> dataset.  Make histograms of trip duration (in minutes), trip distance (in miles), and average trip speed (in mph).  Make a scatter plot or 2-d histogram of trip duration vs trip distance.  Note that you’ll have to do some significant parsing (processing of alphanumeric strings) of the information in the time columns to calculate the ride duration!</p>
 </section>
 </section>
 <section id="meanies">
-<h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this heading">#</a></h3>
+<h3>Meanies<a class="headerlink" href="#meanies" title="Link to this heading">#</a></h3>
 <p>Obtain the <a class="reference external" href="https://www.kaggle.com/datasets/hmavrodiev/london-bike-sharing-dataset">London bike sharing dataset</a>.  Make a graph that shows number of shares (aggregated over all days in the dataset) <em>vs</em> hour of the day.  What is the peak bikeshare hour?  Make a graph that shows aggregate number of bikeshares <em>vs</em> temperature.  Are Londoners cold-weather wimps?</p>
 </section>
 </section>
@@ -1063,11 +1074,10 @@ Name: dish, dtype: object
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="scicomp_08_montecarlo.html"
@@ -1075,7 +1085,7 @@ Name: dish, dtype: object
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Monte Carlo</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Monte Carlo</p>
       </div>
     </a>
     <a class="right-next"
@@ -1083,21 +1093,20 @@ Name: dish, dtype: object
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1105,24 +1114,24 @@ Name: dish, dtype: object
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">5.1. Recap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">5.2. Motivation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pandas">5.3. What is pandas?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ahem-what-is-pandas">5.4. Ahem… What is <code class="docutils literal notranslate"><span class="pre">pandas</span></code>?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">5.5. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe">5.6. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">9.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">9.2. Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pandas">9.3. What is pandas?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ahem-what-is-pandas">9.4. Ahem… What is <code class="docutils literal notranslate"><span class="pre">pandas</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-series">9.5. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-dataframe">9.6. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-problem">Warm-up problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Warm-up problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-a-dataframe">Copying a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data-as-a-dataframe">5.7. Importing data as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data-as-a-dataframe">9.7. Importing data as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Warm-up problem</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv">5.8. Exporting to csv</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">5.9. In summary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">5.10. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv">9.8. Exporting to csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-summary">9.9. In summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">9.10. Problems</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
@@ -1152,9 +1161,10 @@ By Mike McCracken
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1178,8 +1188,8 @@ By Mike McCracken
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

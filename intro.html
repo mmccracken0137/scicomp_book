@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Welcome! &#8212; Introduction to Computation for the Physics Sciences</title>
   
@@ -15,58 +14,61 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="1. Basic syntax, variables, functions" href="chapters_ipynb/scicomp_00_basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -74,23 +76,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -98,7 +93,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -106,16 +100,27 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -128,9 +133,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="#">
+  
   
   
   
@@ -140,12 +149,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/wj_horiz_color.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/wj_horiz_color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/wj_horiz_color.png" class="logo__image only-light" alt="Introduction to Computation for the Physics Sciences - Home"/>
+    <img src="_static/wj_horiz_color.png" class="logo__image only-dark pst-js-only" alt="Introduction to Computation for the Physics Sciences - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -164,17 +180,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_04_datavis.html">1. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_05_fitting.html">2. Fitting models to data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_07_ODEs.html">3. Simulating solutions to differential equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_08_montecarlo.html">4. Monte Carlo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_09_pandas.html">5. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_04_datavis.html">5. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_05_fitting.html">6. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_07_ODEs.html">7. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_08_montecarlo.html">8. Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_09_pandas.html">9. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_10_pandas_magic.html">10. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_06_textasdata.html">1. Text as data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_11_circuitpython.html">2. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_06_textasdata.html">11. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapters_ipynb/scicomp_11_circuitpython.html">12. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
 <ul class="nav bd-sidenav">
@@ -187,14 +203,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -203,14 +224,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -332,26 +353,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -392,53 +407,53 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="welcome">
-<h1>Welcome!<a class="headerlink" href="#welcome" title="Permalink to this heading">#</a></h1>
+<h1>Welcome!<a class="headerlink" href="#welcome" title="Link to this heading">#</a></h1>
 <p>This book contains lessons from PHY 220 Introduction to the Physical Sciences course taught in the Physics Major at Washington &amp; Jefferson College.  In the context of our curriculum, these materials are intended to prepare undergraduate students to use computation in upper-level lecture and courses, as well as in research settings in the department and beyond.  They should also be useful to students who need to develop some programming proficiency to apply to studies or research in quantitive, data-driven fields.</p>
 <section id="learning-goals">
-<h2>Learning goals<a class="headerlink" href="#learning-goals" title="Permalink to this heading">#</a></h2>
+<h2>Learning goals<a class="headerlink" href="#learning-goals" title="Link to this heading">#</a></h2>
 <p>The over-arching theme of this course is that computation (or more generally computer programming) is an essential skill in science, one that has made possible new ways of investigating the physical and social systems that make our Universe worth studying. Our physics curriculum centers programming and data analysis as core skills.</p>
 <p>These materials are not designed to make students expert programmers, and we don’t really delve into many core computer-science concepts.  Rather, the emphasis is on introducing the types of problems that are amenable to computation and helping the student become comfortable reading, modifying, and writing code.</p>
 <p>The topics covered are chosen to get students up to speed with techniques necessary to start doing research.  I’m biased, of course; these materials focus on the things that high-energy physicists usually do: cleaning big datasets, exploratory data analysis and visualization, fitting, <em>etc.</em>  That said, the core ideas here have allowed our students to apply computation to course work and research in condensed matter physics, astronomy and astrophysics, mathematics, and engineering.  The process seems to work: students who have completed this course have hit the ground running in REUs and in careers in data science.</p>
 <p>This work has an epi-objective of making students more comfortable with quantitative information.  These materials engage with concepts like data <em>vs</em> results, experimental uncertainties and their propagation, interpreting graphs, and statistical thinking.</p>
 </section>
 <section id="who-is-the-student">
-<h2>Who is the student?<a class="headerlink" href="#who-is-the-student" title="Permalink to this heading">#</a></h2>
+<h2>Who is the student?<a class="headerlink" href="#who-is-the-student" title="Link to this heading">#</a></h2>
 <p>We require our physics majors to take the PHY 220 course in (or before) their fourth semester of study.  That said, the course is open to students from all majors, with prerequisites of Calculus I and an introductory course from <em>one</em> of the following disciplines: physics, chemistry, biology, or economics.  The second of these prerequisites is intended to ensure that the student has <em>some</em> scientific context in which to do programming.</p>
 <p>The materials are structured for students who are new to programming – like new new.  I’ve tried to provide enough explanatory text that a new programmer can make it through the tutorials with little guidance.  With an instructor available to walk students through the lessons, do live demos, and answer questions the materials seem to work pretty well for newbies.</p>
 <p>That said, roughly half of the students who take this course have some robust prior programming experience, typically in another language like C or Java.  These students are able to move through the lessons in Part I quickly, <em>but</em> I’ve found that the applications in Parts II and beyond are, in most cases, novel.  Said another way, scientific computation is complementary to the prior programming experience, which typically focuses on web, app, or game development.</p>
 <p>If you’d like to use the materials for a similar semester-long credit-bearing course, please contact me for other materials like syllabus and final-project assignments.</p>
 </section>
 <section id="how-to-use-these-resources">
-<h2>How to use these resources<a class="headerlink" href="#how-to-use-these-resources" title="Permalink to this heading">#</a></h2>
+<h2>How to use these resources<a class="headerlink" href="#how-to-use-these-resources" title="Link to this heading">#</a></h2>
 <section id="accessing-the-lessons">
-<h3>Accessing the lessons<a class="headerlink" href="#accessing-the-lessons" title="Permalink to this heading">#</a></h3>
+<h3>Accessing the lessons<a class="headerlink" href="#accessing-the-lessons" title="Link to this heading">#</a></h3>
 <p>The book format that you’re reading now is really just a way of gathering all of these lessons into one semi-coherent package.  If you actually want to use these notebooks (modify code, work on the homework problems) you’ll want to download the notebook (.ipynb) files and work on them locally (or on a cloud platform like Google Colab).  You can download using the appropriate icon in the upper-right of this window.</p>
 </section>
 <section id="data-files">
-<h3>Data files<a class="headerlink" href="#data-files" title="Permalink to this heading">#</a></h3>
+<h3>Data files<a class="headerlink" href="#data-files" title="Link to this heading">#</a></h3>
 <p>Some of the lessons rely on data files that I’ve generated or that freely available online.  I’ve cited sources and provided links where appropriate.  Most of the files are available in the <a class="reference external" href="https://github.com/mmccracken0137/scicomp_book/tree/main/chapters_ipynb/data_files">github repo</a> for this project.  When you download these data files, you will either need to place them in the right directory (&lt;location of your .ipynb&gt;/data_files/)
 or change the file path in the notebooks to point python to the correct location.  Note that these lessons were written on a Unix-derivative OS; if you’re using Windows your file paths might look a bit different.</p>
 </section>
 <section id="software">
-<h3>Software<a class="headerlink" href="#software" title="Permalink to this heading">#</a></h3>
+<h3>Software<a class="headerlink" href="#software" title="Link to this heading">#</a></h3>
 <p>To run these notebooks locally, you will need to have <code class="docutils literal notranslate"><span class="pre">python</span></code> and several common packages installed on your computer.  An easy way to get all of the necessary software is to install <a class="reference external" href="https://www.anaconda.com/">Anaconda</a>, an open-source distribution of python, R, and a bunch of other industry-standard data science tools.  This is a great solution for new programmers (who have enough disk space), as it’s pretty self-contained and will give you access to many of the resources you need for taking the next steps beyond these lessons.</p>
 <p>There are only two packages referenced in these lessons that aren’t included in base Anaconda.  <code class="docutils literal notranslate"><span class="pre">rich</span></code>, which gives some really nice terminal print formatting, is completely unnecessary – if you don’t want to or can’t install it, just comment out any references to it.  The packages necessary for microcontroller programming are a bit more difficult to install, but instructions are linked in the lesson on this topic.</p>
 </section>
 <section id="live-demos">
-<h3>Live demos<a class="headerlink" href="#live-demos" title="Permalink to this heading">#</a></h3>
+<h3>Live demos<a class="headerlink" href="#live-demos" title="Link to this heading">#</a></h3>
 <p>If you’re an instructor or a research advisor, please consider working through these materials <em>with</em> your students.  Most of the lessons include “warm-up” problems or “live demos”.  In class, I take a Socratic approach to these, having students guide me through coding up a solution while I’m sharing or projecting my screen.  This is a great, interactive way to get students to make guesses and test ideas… and they <em>love</em> seeing me screw things up and have to debug.  Showing students how a professional breaks software and then works through the steps of fixing it is a high-impact teaching practice.  I like to reinforce that I rarely know exactly how to solve a problem when I start coding.  Getting from A to B is rarely linear for me, and refactoring is an important process.</p>
 <p>Dan Shiffman’s approach at <a class="reference external" href="https://thecodingtrain.com/">The Coding Train</a> is an excellent model, IMO!</p>
 </section>
 </section>
 <section id="let-s-collaborate">
-<h2>Let’s collaborate!<a class="headerlink" href="#let-s-collaborate" title="Permalink to this heading">#</a></h2>
+<h2>Let’s collaborate!<a class="headerlink" href="#let-s-collaborate" title="Link to this heading">#</a></h2>
 <p>Want to contribute to this project?  Please <a class="reference external" href="mailto:mmccracken&#37;&#52;&#48;washjeff&#46;edu">get in touch with me</a>!  I’d love to collaborate to keep these materials fresh: fixing bugs, expanding tutorials, or building more projects in other scientific fields.</p>
 </section>
 <section id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">#</a></h2>
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p>Enormous thank you to the <a class="reference external" href="https://www.python.org">Python Software Foundation</a>!</p>
 <p>Most of the materials provided here are</p>
 <p>The book format that you’re looking at right now is powered by the excellent <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter Book</a></p>
@@ -497,11 +512,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
        href="chapters_ipynb/scicomp_00_basics.html"
@@ -512,17 +526,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -562,9 +575,10 @@ By Mike McCracken
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -588,8 +602,8 @@ By Mike McCracken
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

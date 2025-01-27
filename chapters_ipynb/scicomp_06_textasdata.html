@@ -1,73 +1,73 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Text as data &#8212; Introduction to Computation for the Physics Sciences</title>
+    <title>11. Text as data &#8212; Introduction to Computation for the Physics Sciences</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_06_textasdata';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. Python on microcontrollers with circuitpython" href="scicomp_11_circuitpython.html" />
-    <link rel="prev" title="6. Data reduction and analysis magic with Pandas" href="scicomp_10_pandas_magic.html" />
+    <link rel="next" title="12. Python on microcontrollers with circuitpython" href="scicomp_11_circuitpython.html" />
+    <link rel="prev" title="10. Data reduction and analysis magic with Pandas" href="scicomp_10_pandas_magic.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -75,23 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,16 +99,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,9 +130,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -141,12 +146,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/wj_horiz_color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-light" alt="Introduction to Computation for the Physics Sciences - Home"/>
+    <img src="../_static/wj_horiz_color.png" class="logo__image only-dark pst-js-only" alt="Introduction to Computation for the Physics Sciences - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -165,17 +177,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Techniques for the physical sciences</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">1. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">2. Fitting models to data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">3. Simulating solutions to differential equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">4. Monte Carlo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">5. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">6. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_04_datavis.html">5. Data visualization with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_05_fitting.html">6. Fitting models to data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_07_ODEs.html">7. Simulating solutions to differential equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_08_montecarlo.html">8. Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_09_pandas.html">9. Manipulating tabular data with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_10_pandas_magic.html">10. Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Optional (but fun)</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Text as data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">2. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Text as data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_11_circuitpython.html">12. Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
 <ul class="nav bd-sidenav">
@@ -188,14 +200,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -204,14 +221,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -364,26 +381,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -404,26 +415,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.1. Recap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-lesson-something-completely-different">1.2. This lesson: Something completely different</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-analysis">1.3. Word analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">11.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-lesson-something-completely-different">11.2. This lesson: Something completely different</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-analysis">11.3. Word analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-1">Warm-up 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-2">Warm-up 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-3">Warm-up 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-4">Warm-up 4</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis">1.4. Text analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis">11.4. Text analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-5">Warm-up 5</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-6">Warm-up 6</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-cryptography-and-cryptanalysis">1.5. Machine cryptography and cryptanalysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-cryptography-and-cryptanalysis">11.5. Machine cryptography and cryptanalysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decryption-warm-up">Decryption warm-up</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Decryption warm-up</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">1.6. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">11.6. Problems</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
@@ -455,12 +466,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="text-as-data">
-<h1><span class="section-number">1. </span>Text as data<a class="headerlink" href="#text-as-data" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Text as data<a class="headerlink" href="#text-as-data" title="Link to this heading">#</a></h1>
 <section id="recap">
-<h2><span class="section-number">1.1. </span>Recap<a class="headerlink" href="#recap" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Recap<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
 <p>We’re way past the point of no return in becoming meaningful users of computers!  Just check out this non-exhaustive list of basic skills that we’ve covered:</p>
 <ul class="simple">
 <li><p>basic mathematical operations</p></li>
@@ -480,16 +491,16 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="this-lesson-something-completely-different">
-<h2><span class="section-number">1.2. </span>This lesson: Something completely different<a class="headerlink" href="#this-lesson-something-completely-different" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>This lesson: Something completely different<a class="headerlink" href="#this-lesson-something-completely-different" title="Link to this heading">#</a></h2>
 <p>In this lesson we’re going to pause the accumulation of new skills to do some applications.  We have a lot of tools in our toolboxes!  Let’s take some time to explore how these tools can help us answer questions outside of the physical sciences.</p>
 </section>
 <section id="word-analysis">
-<h2><span class="section-number">1.3. </span>Word analysis<a class="headerlink" href="#word-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Word analysis<a class="headerlink" href="#word-analysis" title="Link to this heading">#</a></h2>
 <p>Let’s turn our attention to the quantitative analysis of textual information.  In some of your other classes, you’re learning to use the close reading or synthesis of texts to gain understanding of history, human experiences, emotions, <em>etc.</em>  This is awesome!  That’s not what we’re going to do today.</p>
 <p>Today we’re going to treat texts as data!  We’ll work with a dataset consisting of several texts that are in the public domain (<em>i.e.</em>, they’re old and can be accessed without copyright issues).  What can we learn from quantitative analysis of text?  What kinds of questions can we ask about language and narrative structure?</p>
 <p>The exception, however, is <code class="docutils literal notranslate"><span class="pre">words_alpha.txt</span></code>; this file lists 370102 English-language words.  <a class="reference external" href="https://github.com/dwyl/english-words">[Source]</a>  The question whether this is “all” of the words in the English language is perhaps not valid, but this file certainly contains a lot of them.  Let’s do some warm-up with this file.  Get ready to flex those <code class="docutils literal notranslate"><span class="pre">string</span></code>-manipulation muscles, and remember that characters in a string can be accessed by index (like elements in a list).</p>
 <section id="warm-up-1">
-<h3>Warm-up 1<a class="headerlink" href="#warm-up-1" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up 1<a class="headerlink" href="#warm-up-1" title="Link to this heading">#</a></h3>
 <p>Read in the file line by line, and determine how many words begin with the letter “m”.  Are there any that begin with “M”?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -510,7 +521,7 @@ document.write(`
 </div>
 </section>
 <section id="warm-up-2">
-<h3>Warm-up 2<a class="headerlink" href="#warm-up-2" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up 2<a class="headerlink" href="#warm-up-2" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>How long is the longest word in the list?</p></li>
 <li><p>What is the longest word in the list?</p></li>
@@ -525,7 +536,7 @@ document.write(`
 </div>
 </section>
 <section id="warm-up-3">
-<h3>Warm-up 3<a class="headerlink" href="#warm-up-3" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up 3<a class="headerlink" href="#warm-up-3" title="Link to this heading">#</a></h3>
 <p>How many five-letter words are there?  (How long before Wordle has to reuse a word?)  How many words have all five vowels in them?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -539,7 +550,7 @@ document.write(`
 <hr class="docutils" />
 </section>
 <section id="warm-up-4">
-<h3>Warm-up 4<a class="headerlink" href="#warm-up-4" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up 4<a class="headerlink" href="#warm-up-4" title="Link to this heading">#</a></h3>
 <p>Make a histogram of word lengths.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -556,7 +567,7 @@ document.write(`
 </section>
 </section>
 <section id="text-analysis">
-<h2><span class="section-number">1.4. </span>Text analysis<a class="headerlink" href="#text-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Text analysis<a class="headerlink" href="#text-analysis" title="Link to this heading">#</a></h2>
 <p>Let’s move on to datasets containing words used in their natural habitat: sentences that convey ideas!  All of the texts used below can be found on <a class="reference external" href="https://www.gutenberg.org/">Project Gutenberg’s website</a>.  Search for each novel, and download a txt/ascii version.  Enjoy!  I’ve also included a few of them in this repo.</p>
 <p>First, we have to figure out how to correctly deal with these files.  Each file contains a header and a footer that tell you about copyright information.  Obviously when we analyzed the text of the novel, we want to exclude the header and footer.  Look through the files to find the text signifying the header and footer.  I’ll show you hor to work around this when reading in the file.  Let’s work on Jane Austen’s <u>Pride &amp; Prejudice</u> first.</p>
 <div class="cell docutils container">
@@ -580,7 +591,7 @@ document.write(`
 </div>
 <p>Now we just have to be creative!  What types of questions can we ask (should we ask) of the text of a novel?  What could we learn about the author or the characters?</p>
 <section id="warm-up-5">
-<h3>Warm-up 5<a class="headerlink" href="#warm-up-5" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up 5<a class="headerlink" href="#warm-up-5" title="Link to this heading">#</a></h3>
 <p>The main character of <u>P+P</u> is Elizabeth Bennett.  Count how many times “Elizabeth”  and “Bennett” and appear in the text.  Don’t forget to consider <em>e.g.</em> “Elizabeth’s”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -591,7 +602,7 @@ document.write(`
 </div>
 </section>
 <section id="warm-up-6">
-<h3>Warm-up 6<a class="headerlink" href="#warm-up-6" title="Permalink to this heading">#</a></h3>
+<h3>Warm-up 6<a class="headerlink" href="#warm-up-6" title="Link to this heading">#</a></h3>
 <p>Elizabeth Bennet’s romantic interest in <u>P+P</u> is Mr. Fitzwilliam Darcy.  Let’s investigate how Austen (or British people in Austen’s time) used first names.  Find the numbers of appearances of “Elizabeth”, “Bennett”, “Fitzwilliam”, and “Darcy” in the text.  Calculate the ratio of first-name to last-name appearances for each character.  Calculate the ratio of these ratios – are they similar?  Do you have any theories about why the relative sizes of these ratios?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -610,7 +621,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="machine-cryptography-and-cryptanalysis">
-<h2><span class="section-number">1.5. </span>Machine cryptography and cryptanalysis<a class="headerlink" href="#machine-cryptography-and-cryptanalysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.5. </span>Machine cryptography and cryptanalysis<a class="headerlink" href="#machine-cryptography-and-cryptanalysis" title="Link to this heading">#</a></h2>
 <p>We could do an entire semester on cryptography, the science of hidden writing!  It’s a rich and fascinating (and useful and potentiall lucrative) subject.  For now, I’ll mention that you have the basic skills to do some straight-forward cryptography (coding) and cryptanalysis (de-coding) of secret messages.  For example, say you’re given the following cipher (encoded message):</p>
 <p><code class="docutils literal notranslate"><span class="pre">MWFCK</span> <span class="pre">KEYFL</span> <span class="pre">ZLRLQ</span> <span class="pre">CKZZW</span></code><br>
 <code class="docutils literal notranslate"><span class="pre">ALVVW</span> <span class="pre">VJLWZ</span> <span class="pre">ESNQA</span> <span class="pre">FKNXL</span></code><br>
@@ -627,7 +638,7 @@ document.write(`
 <code class="docutils literal notranslate"><span class="pre">HZLRL</span> <span class="pre">QCKZZ</span> <span class="pre">WVLAF</span> <span class="pre">KNEKX</span></code><br></p>
 <p>What the what???  Look familiar?  Yeah, me neither.  We can begin the decryption process by doing some simple letter-frequency analysis and comparing to a known (and hopefully representative corpus (sample).  I’ll include the cipher on Sakai as <code class="docutils literal notranslate"><span class="pre">cipher.txt</span></code>.</p>
 <section id="decryption-warm-up">
-<h3>Decryption warm-up<a class="headerlink" href="#decryption-warm-up" title="Permalink to this heading">#</a></h3>
+<h3>Decryption warm-up<a class="headerlink" href="#decryption-warm-up" title="Link to this heading">#</a></h3>
 <p>Make a bar graph of the letter frequency in the cipher.  Make a bar graph of the frequency of letters in <u>P+P</u>.  Can you see any likely letter equivalences for a single-character substitution?  Bonus points if you can sort the bars from high to low frequency.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -638,7 +649,7 @@ document.write(`
 </div>
 </section>
 <section id="id1">
-<h3>Decryption warm-up<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>Decryption warm-up<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Let’s take the result of the previous warm-up as a good estimate of the frequency of letters in the English language.  The encoded text above was produced with a simple substitution key – each letter in the cypher is a substitution for a letter in the original text.  For example (though this isn’t acutally true), all <code class="docutils literal notranslate"><span class="pre">X</span></code>’s in the cypher represent <code class="docutils literal notranslate"><span class="pre">D</span></code>’s in the original text.  Make a letter frequency bar graph for the cypher text.  Compare it to the bar graph for <u>P+P</u> and identify some likely substitutions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -660,58 +671,58 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="problems">
-<h2><span class="section-number">1.6. </span>Problems<a class="headerlink" href="#problems" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6. </span>Problems<a class="headerlink" href="#problems" title="Link to this heading">#</a></h2>
 <p>Your homework is to complete three (3) of the following problems.</p>
 <section id="regulars">
-<h3>Regulars<a class="headerlink" href="#regulars" title="Permalink to this heading">#</a></h3>
+<h3>Regulars<a class="headerlink" href="#regulars" title="Link to this heading">#</a></h3>
 <section id="problem-1">
-<h4>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h4>
+<h4>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h4>
 <p>Use <code class="docutils literal notranslate"><span class="pre">words_alpha.txt</span></code> to make a histogram displaying the number of words beginning with each letter of the alphabet.</p>
 </section>
 <section id="problem-2">
-<h4>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h4>
+<h4>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h4>
 <p>Use <code class="docutils literal notranslate"><span class="pre">words_alpha.txt</span></code> to make a bar graph displaying the frequency of each letter of the alphabet.  Hint: Use a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>!</p>
 </section>
 <section id="problem-3">
-<h4>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h4>
+<h4>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h4>
 <p>Compute how many words in <code class="docutils literal notranslate"><span class="pre">words_alpha.txt</span></code> contain the following digraphs: “ae”, “aa”, “eu”, “ph”.</p>
 </section>
 <section id="problem-4">
-<h4>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h4>
+<h4>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h4>
 <p>Compute the average sentence length (in words) of <strong>each</strong> of the Jane Austen novels.  Hint: What would be an easier way to count the number of sentences in a text?</p>
 </section>
 <section id="problem-5">
-<h4>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h4>
+<h4>Problem 5<a class="headerlink" href="#problem-5" title="Link to this heading">#</a></h4>
 <p>Determine which of the 15 books is most likely about a dog by counting the relative number of times the word “dog” appears in each.  Write a block of explanatory markdown to explain your conclusions.</p>
 </section>
 </section>
 <section id="meanies">
-<h3>Meanies<a class="headerlink" href="#meanies" title="Permalink to this heading">#</a></h3>
+<h3>Meanies<a class="headerlink" href="#meanies" title="Link to this heading">#</a></h3>
 <section id="problem-6">
-<h4>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this heading">#</a></h4>
+<h4>Problem 6<a class="headerlink" href="#problem-6" title="Link to this heading">#</a></h4>
 <p>Make a bar graph of the average sentence length for each of the following authors: Austen, Hawthorne, London, Wells, Dostoevsky.  Use all of each author’s texts to do so.</p>
 </section>
 <section id="problem-7">
-<h4>Problem 7<a class="headerlink" href="#problem-7" title="Permalink to this heading">#</a></h4>
+<h4>Problem 7<a class="headerlink" href="#problem-7" title="Link to this heading">#</a></h4>
 <p>Which of the five authors uses the biggest words (on average)?  Include a graph(s) or some text to convince me.</p>
 </section>
 </section>
 <section id="mega-meanies">
-<h3>Mega-meanies<a class="headerlink" href="#mega-meanies" title="Permalink to this heading">#</a></h3>
+<h3>Mega-meanies<a class="headerlink" href="#mega-meanies" title="Link to this heading">#</a></h3>
 <section id="problem-8">
-<h4>Problem 8<a class="headerlink" href="#problem-8" title="Permalink to this heading">#</a></h4>
+<h4>Problem 8<a class="headerlink" href="#problem-8" title="Link to this heading">#</a></h4>
 <p>Provide quantitative evidence that suggests that <u>Crime &amp; Punishment</u> was not written by Jane Austen.  Write a block of explanatory markdown to accompany your code.</p>
 </section>
 <section id="problem-9">
-<h4>Problem 9<a class="headerlink" href="#problem-9" title="Permalink to this heading">#</a></h4>
+<h4>Problem 9<a class="headerlink" href="#problem-9" title="Link to this heading">#</a></h4>
 <p>How many different proper nouns appear in <u>The Brothers Karamazov</u>?</p>
 </section>
 <section id="problem-10">
-<h4>Problem 10<a class="headerlink" href="#problem-10" title="Permalink to this heading">#</a></h4>
+<h4>Problem 10<a class="headerlink" href="#problem-10" title="Link to this heading">#</a></h4>
 <p>I made it to the end of Part I, Book II, Chapter V of <u>The Brothers Karamazov</u>.  Tell me how it ends, please.   (No don’t.)</p>
 </section>
 <section id="problem-11">
-<h4>Problem 11<a class="headerlink" href="#problem-11" title="Permalink to this heading">#</a></h4>
+<h4>Problem 11<a class="headerlink" href="#problem-11" title="Link to this heading">#</a></h4>
 <p>Continue decryption of <code class="docutils literal notranslate"><span class="pre">cipher.txt</span></code>.  Write a block of markdown that explains your process.</p>
 </section>
 </section>
@@ -743,11 +754,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="scicomp_10_pandas_magic.html"
@@ -755,7 +765,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Data reduction and analysis magic with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></p>
       </div>
     </a>
     <a class="right-next"
@@ -763,21 +773,20 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -785,26 +794,26 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">1.1. Recap</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-lesson-something-completely-different">1.2. This lesson: Something completely different</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-analysis">1.3. Word analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">11.1. Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-lesson-something-completely-different">11.2. This lesson: Something completely different</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-analysis">11.3. Word analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-1">Warm-up 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-2">Warm-up 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-3">Warm-up 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-4">Warm-up 4</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis">1.4. Text analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-analysis">11.4. Text analysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-5">Warm-up 5</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-6">Warm-up 6</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-cryptography-and-cryptanalysis">1.5. Machine cryptography and cryptanalysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-cryptography-and-cryptanalysis">11.5. Machine cryptography and cryptanalysis</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decryption-warm-up">Decryption warm-up</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Decryption warm-up</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">1.6. Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">11.6. Problems</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regulars">Regulars</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
@@ -848,9 +857,10 @@ By Mike McCracken
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -874,8 +884,8 @@ By Mike McCracken
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
