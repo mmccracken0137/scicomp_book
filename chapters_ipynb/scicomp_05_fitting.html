@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -498,8 +498,8 @@
 <p>In Lesson 4 we discussed how data visualization can help help us to turn data into understanding.  “Understanding” in this sense means something like a <em>qualitative understanding</em> of the data.</p>
 <p>Today, we’ll look at a method for turning data into quantitative results: fitting functions to data, sometimes called “model optimization”.  This is an indispensible skill/technique in the physical sciences, and it’s something that you’ve probably done many times using Excel or Logger Pro.</p>
 <p>Here is the basic idea: Often in the physical sciences, we have data that we believe should be described by some quantitative model.  For example, the data might be vertical position <em>vs</em> time measurements for a projectile, and we might assume that this data is described by one of the kinematic equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e91a6d61-9b42-4a15-b7c4-8f9c5614a995">
-<span class="eqno">(6.1)<a class="headerlink" href="#equation-e91a6d61-9b42-4a15-b7c4-8f9c5614a995" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-190dd47b-16f1-425b-a957-6db20ab2fdc4">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-190dd47b-16f1-425b-a957-6db20ab2fdc4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = \frac{1}{2}a_{y}\;t^2 + v_{0y}\;t + y_0
 \end{equation}\]</div>
 <p>This function is our <em>model</em> and it is typically the consequence of some underlying physical law (in this case, N2L).  The goal of <em>fitting the model to the data</em> is to determine the values of the physical parameters in the model that make the model <em>best characterize the data</em>.  For the kinematic model above, this means determining the optimal values of <span class="math notranslate nohighlight">\(a_y\)</span>, <span class="math notranslate nohighlight">\(v_{0y}\)</span>, and <span class="math notranslate nohighlight">\(y_0\)</span>.  We call these the “fit parameters” because they are the quantities that we will vary in order to fit the model to the data.</p>
@@ -511,8 +511,8 @@ y(t) = \frac{1}{2}a_{y}\;t^2 + v_{0y}\;t + y_0
 <section id="fitting-bivariate-data-the-basics">
 <h2><span class="section-number">6.4. </span>Fitting bivariate data, the basics<a class="headerlink" href="#fitting-bivariate-data-the-basics" title="Link to this heading">#</a></h2>
 <p>Let’s get started with the simplest meaningful fitting exercise: fitting a linear model to bivariate data.  The file <code class="docutils literal notranslate"><span class="pre">spring_stretch.csv</span></code> contains stretch distance (<span class="math notranslate nohighlight">\(x\)</span>) and spring force (<span class="math notranslate nohighlight">\(F\)</span>) data for the stretching of a spring.  We want to use this data to measure the spring constant.  For a spring that obeys Hooke’s Law, the two variables are related by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5c18851-fe0b-4904-815d-bf92fb1c95b8">
-<span class="eqno">(6.2)<a class="headerlink" href="#equation-f5c18851-fe0b-4904-815d-bf92fb1c95b8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a14c2c8d-c18d-4606-8e73-bddefc6b94b4">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-a14c2c8d-c18d-4606-8e73-bddefc6b94b4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 F_x = k x
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k\)</span> is the spring constant.  Let’s look at the data first:</p>
@@ -719,8 +719,8 @@ There are 111 elements in the edges list.
 <p>If that just looks like the profile of our histogram from above… good eye!  It is.  We’ve just graphed the data in a way that is obviously 2-d.</p>
 <p>To <em>characterize</em> the data, we’ll fit a gaussian function to the data using <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> again.  The <em>process</em> is exactly the same as it was above for the linear function, but we will need to change some of the details of the fit.</p>
 <p>In this case, we suspect that the data can be described by a gaussian function with the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9982b834-9b0d-4f96-af4b-04d11e768e9f">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-9982b834-9b0d-4f96-af4b-04d11e768e9f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f5cb8543-db49-413e-b7ff-3e282b60dd62">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-f5cb8543-db49-413e-b7ff-3e282b60dd62" title="Permalink to this equation">#</a></span>\[\begin{equation}
 g(h) = a \exp \left[ - \frac{(h-\mu)^2}{2\sigma^2} \right]
 \end{equation}\]</div>
 <p>Again, “fitting” means that we want to find the values of parameters <span class="math notranslate nohighlight">\(a\)</span> (scale), <span class="math notranslate nohighlight">\(\mu\)</span> (mean), and <span class="math notranslate nohighlight">\(\sigma\)</span> (width) that make the gaussian a good description of the number of data in each of our bins as a function of the bin center (<span class="math notranslate nohighlight">\(h\)</span>).
@@ -864,13 +864,13 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 </div>
 <p>Barf!  What is this?  This is a 6x6  (note that there are 6 fit parameters) matrix called the <strong>covariance matrix</strong>, and it stores all of the uncertainty information from the fit.  <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_matrix">The Wikipedia entry for covariance matrix</a> is pretty deece!</p>
 <p>What you need to know is that the covariance matrix stores information about uncertainties in and correlations between the fit parameters.  The latter of these is not necessary for us right now.  However, the former is what we want.  The diagonal elements of the covariance matrix are the squares of the (1 standard deviation) parameter uncertainties!  So for fit parameter <span class="math notranslate nohighlight">\(p_i\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1de7061a-34c5-4073-9f6f-b578223dc3db">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-1de7061a-34c5-4073-9f6f-b578223dc3db" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b41c2e1a-6f38-4858-9008-8aa8e43a8b7d">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-b41c2e1a-6f38-4858-9008-8aa8e43a8b7d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma_i = \sqrt{pcov2_{ii}}
 \end{equation}\]</div>
 <p>Said in words, the uncertainty of the <span class="math notranslate nohighlight">\(i^{th}\)</span> fit parameter is the <span class="math notranslate nohighlight">\((i,i)\)</span> element of the covariance matrix (an element on the diagonal).  If you’re comfortable with matrices, you might picture the covariance matrix as something like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be691509-8319-456c-9a4d-bc972fdf417e">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-be691509-8319-456c-9a4d-bc972fdf417e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9c14a520-f77a-4457-8e04-bf537a531237">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-9c14a520-f77a-4457-8e04-bf537a531237" title="Permalink to this equation">#</a></span>\[\begin{equation}
 
 pcov2 = \begin{bmatrix} 
     \sigma^{2}_{11} &amp; ? &amp; ? &amp; \dots &amp; ? \\
@@ -1014,8 +1014,8 @@ fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 <section id="problem-3">
 <h4>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h4>
 <p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains the temperature maxes and mins per day for the years 2000-2009 in Washington, PA.  Over 3500 data points!  Make a graph of the maximum temp versus day number.  Fit this data with a function of the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77cabe67-6517-4a12-af74-7dd54090fbfd">
-<span class="eqno">(6.6)<a class="headerlink" href="#equation-77cabe67-6517-4a12-af74-7dd54090fbfd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-da5a894b-6d24-4460-a43b-959e89c0dac7">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-da5a894b-6d24-4460-a43b-959e89c0dac7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T(t) = A\cos\left( \omega t + \phi\right) + B
 \end{equation}\]</div>
 <p>This function has four fit parameters: <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span>, and <span class="math notranslate nohighlight">\(B\)</span>.  Make sure you supply good initial guesses for these parameters.  Use your values of <span class="math notranslate nohighlight">\(\omega\)</span> and <span class="math notranslate nohighlight">\(B\)</span> returned by the fit to estimate the length of the year.  Also estimate the average <strong>annual</strong> temperature from your fit parameters. (Note: It is likely that the biggest problem that you’ll have is determining “good” initial parameter values.  Think very hard about what type of quantity <span class="math notranslate nohighlight">\(\omega\)</span> is and how it relates to the length of a year.)</p>
@@ -1026,8 +1026,8 @@ T(t) = A\cos\left( \omega t + \phi\right) + B
 <section id="problem-4">
 <h4>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h4>
 <p>You and a partner will be given a number of small (so-called “fun size” [<em>sic</em>]) bags of Skittles. Your job is to characterize the number <strong>yellow</strong> Skittles in an average fun-size bag (FSB).  Open <strong>each</strong> of the FSBs and count the total number of Skittles and the number of yellow Skittles in each.  Enter this data into a csv file, where each row represents a single FSB.  Then, write <code class="docutils literal notranslate"><span class="pre">python</span></code> code that plots separate histograms of the totals and the numbers of yellows.  Your histograms should be configured to have 1-unit-wide bins.  It is likely that this dataset will be described by the <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>.  In this application, the Poisson distribution tells us the that the probability of finding <span class="math notranslate nohighlight">\(k\)</span> yellows in an FSB is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0900fdc-fbd5-4fb7-b2a4-a5b0d59999ee">
-<span class="eqno">(6.7)<a class="headerlink" href="#equation-b0900fdc-fbd5-4fb7-b2a4-a5b0d59999ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ba5bdcc8-bcf4-4c0f-a6e6-ab821fc64af4">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-ba5bdcc8-bcf4-4c0f-a6e6-ab821fc64af4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \textrm{Pr}(k) = A\frac{\lambda^{-k}e^{\lambda}}{k!}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the “expected value” of the number of yellows in each FSB and <span class="math notranslate nohighlight">\(A\)</span> is a scale factor that will make fitting easier.  Fit this function to the histogram for yellows to extract the expected number of yellows per FSB.  Write a block of markdown to explain your process and your results.  (Note: If you want to do this exercise, you need to tell me by Thursday evening so that I can acquire Skittles.)</p>

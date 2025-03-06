@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -438,17 +438,16 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanie">Mega-meanie</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
 </ul>
 </li>
 </ul>
@@ -487,7 +486,7 @@
 </section>
 <section id="types-and-casting">
 <h2><span class="section-number">3.3. </span>Types and casting<a class="headerlink" href="#types-and-casting" title="Link to this heading">#</a></h2>
-<p>When we use a computer to do a calculation, the quantities input and output quantities need to be stored/accessed by the computer.  <strong>How</strong> the computer does this depends on what <strong>type</strong> of quantity we’re storing.  “Type” is an important concept in computer science.</p>
+<p>When we use a computer to do a calculation, the input and output quantities need to be stored/accessed by the computer.  <strong>How</strong> the computer does this depends on what <strong>type</strong> of quantity we’re storing.  “Type” is an important concept in computer science.</p>
 <p>We have so far encountered a few different types of quantities that <code class="docutils literal notranslate"><span class="pre">python</span></code> know about:</p>
 <section id="int-integers">
 <h3><code class="docutils literal notranslate"><span class="pre">int</span></code> –&gt; Integers<a class="headerlink" href="#int-integers" title="Link to this heading">#</a></h3>
@@ -511,7 +510,7 @@
 </section>
 <section id="float-floats">
 <h3><code class="docutils literal notranslate"><span class="pre">float</span></code> –&gt; Floats<a class="headerlink" href="#float-floats" title="Link to this heading">#</a></h3>
-<p>Floats are real numbers.  They can be expressed in regular decimal form or in scientific notation.</p>
+<p>Floats are real numbers with finite precision (a finite number of digits).  They can be expressed in regular decimal form or in scientific notation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="mf">2.71828</span>
@@ -566,7 +565,7 @@
 </div>
 </div>
 <hr class="docutils" />
-<p>There are several other data types in <code class="docutils literal notranslate"><span class="pre">python</span></code>, some of which we’ll encounter later.</p>
+<p>There are several other built-in data types in <code class="docutils literal notranslate"><span class="pre">python</span></code>, some of which we’ll encounter later.</p>
 <p>You may wonder why this is necessary.  (Do you?)  There are two reasons why type is important:</p>
 <p><strong>First</strong>, in order to make efficient use of memory, the computer stores/accesses different types of data differently.  For example, there is a maximum size real number that <code class="docutils literal notranslate"><span class="pre">python</span></code> can handle:</p>
 <div class="cell docutils container">
@@ -629,7 +628,7 @@ True
 </div>
 <p>What the WHAT!?</p>
 <p><code class="docutils literal notranslate"><span class="pre">python</span></code> is what’s called a <em>dynamically typed</em> language, meaning that it/you can change the type of a variable on the fly.  So, when we ask <code class="docutils literal notranslate"><span class="pre">python</span></code> to add <code class="docutils literal notranslate"><span class="pre">var2</span></code> to an integer, <code class="docutils literal notranslate"><span class="pre">python</span></code> <em>interprets</em> <code class="docutils literal notranslate"><span class="pre">var2</span></code> in a way that seems reasonable to it.  In fact, most languages have this equivalence between the booleans and integers: <code class="docutils literal notranslate"><span class="pre">True</span></code> –&gt; 1, <code class="docutils literal notranslate"><span class="pre">False</span></code> –&gt; 0.</p>
-<p>Another consequence of dynamic typing is that if I initialize a variable as a certain type, the type can changed based on what I do with the variable.  Let’s use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function to check the type of a variable:</p>
+<p>Another consequence of dynamic typing is that if I initialize a variable as a certain type, the type can change based on what I do with the variable.  Let’s use the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function to check the type of a variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var3</span> <span class="o">=</span> <span class="mi">2</span>
@@ -698,7 +697,7 @@ yowza
 <section id="random-number-generation">
 <h2><span class="section-number">3.4. </span>Random number generation<a class="headerlink" href="#random-number-generation" title="Link to this heading">#</a></h2>
 <p>Computing has allowed us to make amazing progress in the statistical sciences.  Generating large random or pseudo-random datasets to study is difficult.  In the old days, if I wanted to investigate the large-scale/statistical properties of something like a game of blackjack (you know, for cheating reasons), I had to actually <em>deal</em> many games of blackjack.  Ugh!  Gross.  That would take so much time!  With computers, I can generate millions of blackjack hands according to the deck properties and history with a bit of sly programming.  This hinges on a) the computer’s ability to do loops and b) the computer’s ability to generate random numbers.</p>
-<p>There are several Python libraries that provide random number generation.  We learned in Lesson 1 that a <em>library</em> is a bit of code that Python is able to use (almost like a book of extra knowledge), but that python doesn’t pre-load.  In order to have access to the built-in stuff in the random number generation library, we need to tell Python to load it before we do any calculations.</p>
+<p>There are several Python libraries that provide random number generation.  We learned in Lesson 1 that a <em>library</em> is a bit of code that Python is able to use (almost like a book of extra knowledge), but that Python doesn’t pre-load.  In order to have access to the built-in stuff in the random number generation library, we need to tell Python to load it before we do any calculations.</p>
 <p>This process is analogous to the way that humans work.  Pretend that you and I are going on a camping trip on which we’ll need to defend ourselves from bears.  You’ll need to learn the skills before we go.  You <em>are capable</em> of doing it, you just don’t know <em>how</em> to do it yet.  SO!  Before we leave and start camping, I ask you to go to the library and read the book “HOW TO DEFEND ONESELF FROM BEARS” to load the knowledge into your brain/mind.  After you do that, I can call on you to execute many bear-defense strategies: run, jump, climb tree, bear headlock, play dead, <em>etc</em>.</p>
 <p>Okay enough goofing around.  Here’s an example:</p>
 <div class="cell docutils container">
@@ -712,12 +711,12 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.41232113560878003
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1901791778630414
 </pre></div>
 </div>
 </div>
 </div>
-<p>In the first line, I imported the <code class="docutils literal notranslate"><span class="pre">random</span></code> module and called it something shorter, <code class="docutils literal notranslate"><span class="pre">rand</span></code> (a nickname of sorts so that I don’t have to type as much).  In the second line, I told python to access the <code class="docutils literal notranslate"><span class="pre">random()</span></code> function of <code class="docutils literal notranslate"><span class="pre">rand</span></code>.  This function evidently generates a random number.  Execute the above a few times to see how the random number varies.</p>
+<p>In the first line, I imported the <code class="docutils literal notranslate"><span class="pre">random</span></code> module and called it something shorter, <code class="docutils literal notranslate"><span class="pre">rand</span></code> (a nickname of sorts so that I don’t have to type as much).  In the second line, I told Python to access the <code class="docutils literal notranslate"><span class="pre">random()</span></code> function of <code class="docutils literal notranslate"><span class="pre">rand</span></code>.  This function evidently generates a random number.  Execute the above a few times to see how the random number varies.</p>
 <p>The random module has LOTS of features in addition to <code class="docutils literal notranslate"><span class="pre">random()</span></code>.  It’s quite sophisticated.</p>
 <p>Let’s put <code class="docutils literal notranslate"><span class="pre">random()</span></code> inside of a loop to generate a whole mess of numbers:</p>
 <div class="cell docutils container">
@@ -729,26 +728,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4993693822608418
-0.02380545801258549
-0.6171066813997457
-0.9754112698203483
-0.11254090157216878
-0.4775322270632155
-0.44401728289091114
-0.8647523773136943
-0.06655226704321326
-0.8797995234764177
-0.5229585435267997
-0.2018347281750269
-0.16062123464354539
-0.5824593035123908
-0.8112539076745949
-0.9767207124412512
-0.35470718844350646
-0.8178707405896878
-0.7404775683737733
-0.6957045948170094
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8766778854973862
+0.9418277418608031
+0.2508874430802738
+0.9371029216605502
+0.8213068847347875
+0.5926548801872242
+0.314650880595167
+0.6695751863274276
+0.8165188154788869
+0.27656908671640024
+0.09889715677567146
+0.7825666672532791
+0.22733253826540056
+0.6208871497682648
+0.28195286281331333
+0.6299877352229527
+0.5943311941008176
+0.811054630788144
+0.11041927700395782
+0.9407514181064625
 </pre></div>
 </div>
 </div>
@@ -765,26 +764,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.5151573801200906
--0.6280366208693069
-0.13541948293052153
--0.3964182546788768
--0.7695319072237534
-0.8670749952160304
-0.3763388392962641
-0.02432631460323753
-0.4324382906736042
-0.8484198721523455
--0.7193070381943789
--0.04351699476968429
-0.8679362048779453
--0.5709227915449135
--0.1375922373053564
--0.9955474401559907
--0.18434705094535442
--0.49515549737509157
--0.67216262333688
--0.8085583167140182
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.812927162321005
+-0.9019581175940226
+-0.09295242878467169
+0.009482932329742289
+0.6808329063337093
+0.9360406872881626
+-0.4642238923835753
+0.636393326434006
+-0.794748752938192
+-0.4939861892950994
+0.9878399846631147
+0.07626889192280517
+0.9676252996493029
+-0.2480668812336262
+0.25921555385940165
+-0.7844786745525689
+-0.7104530419951578
+0.40641371666378
+0.8385577615133635
+-0.6673264408035222
 </pre></div>
 </div>
 </div>
@@ -800,26 +799,26 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.8397442039911464, 0.05177649641402904)
-(0.2976002613082195, 0.9219626917292187)
-(0.08135298932890211, 0.4476569926051204)
-(0.8980192912285084, 0.26463605911356647)
-(0.49395167492808323, 0.22995760182979397)
-(0.8127103202853567, 0.2704220759155127)
-(0.5872023697401747, 0.7828660538592163)
-(0.3670971178141854, 0.16813550689059398)
-(0.7203719620683287, 0.7945617446498191)
-(0.7436176228719935, 0.21575590801865385)
-(0.446291124142392, 0.36813063757519593)
-(0.09181067969737344, 0.20639838098290042)
-(0.7915117285859822, 0.8500183290746152)
-(0.4807523159918443, 0.5999776174693737)
-(0.8044797685533576, 0.8429391514637593)
-(0.426413307303793, 0.6849530466845704)
-(0.6495460232704413, 0.3683794361747542)
-(0.10350067052435308, 0.7398943015812898)
-(0.6870515966264023, 0.3560478209326243)
-(0.1628611129767672, 0.20783939761284376)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.16622021979958035, 0.5058194697808448)
+(0.19584330295943797, 0.48965586233021474)
+(0.48517926512684273, 0.053510082412830395)
+(0.4078328197870581, 0.5676826198877822)
+(0.44781352697467847, 0.5367772023622936)
+(0.6595086743529083, 0.9612795761585192)
+(0.8873280115159001, 0.2764316797068591)
+(0.10737036196834138, 0.6841965382106561)
+(0.48138473943186877, 0.03481765866806863)
+(0.8365836167464563, 0.44264722708838666)
+(0.9626426688830606, 0.4116118525607563)
+(0.018929111977311397, 0.8792444983643518)
+(0.5266516404051979, 0.9100779013048688)
+(0.8909655915944789, 0.35432535439963553)
+(0.9441050217852687, 0.26712614627628306)
+(0.2779801745416166, 0.24144103078426438)
+(0.6639823484454884, 0.45774937947741356)
+(0.3903202126330809, 0.6091331707984117)
+(0.04129918389943843, 0.47930470426535254)
+(0.29766268635531656, 0.6216620851926883)
 </pre></div>
 </div>
 </div>
@@ -838,32 +837,32 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.29521901019540353
-1.1531829221632226
-1.6039114618894041
-2.7232547637193263
-0.8453928956739345
-2.890591113922716
-0.1712713905061385
-2.023488039487522
-0.9061832189437622
-0.1535873048766878
-0.8600299370012641
-0.17686656372377607
-2.1629338216442893
-0.5750083250612485
-0.20266332383718266
-0.9992379781843934
-1.453489376052623
-0.158275345374026
-2.1935624862749727
-1.6112448062447258
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.285235012915215
+1.4789373682976072
+0.9443935572235502
+2.9755570969402574
+2.838937152389672
+0.6105228881712113
+0.7305268369375582
+0.7421307517596278
+1.3955162127241254
+1.3753985695518653
+1.5216469252286609
+2.132693582211149
+1.5720780925301734
+0.6089337009954452
+0.24248575713885145
+0.14354132267833286
+0.09433173249791516
+1.0612143043334432
+1.2677808230730974
+1.2098574108705118
 </pre></div>
 </div>
 </div>
 </div>
-<p>These tools may all seem pretty weak, but they are the foundations of powerful techniques.  Physicists use the same fundamental processes to do things like study the performance of nuclear reactors, model galaxies, and simulate protein folding.  Generating random numbers is quite useful in studying quantum mechanics, too!  You may know that quantum-mechanical processes are non-deterministic; the outcome of a measurement is randomly selected according to the probabilities of all of the possible outcomes.  Computing has arguably allowed us to learn much about QM than we would have otherwise.</p>
-<p>Random floats (remember what those are) are cool, but there are some systems that exhibit discrete behavior.  For example, if I wanted to write a random number generator to simulate you randomly choosing a card from a deck, I wouldn’t want the outcome to be that you chose the 31.467459267th card.  That doesn’t make sense.</p>
+<p>These tools may all seem pretty weak, but they are the foundations of powerful techniques.  Physicists use the same fundamental processes to do things like study the performance of nuclear reactors, model galaxies, and simulate protein folding.  Generating random numbers is quite useful in studying quantum mechanics, too!  You may know that quantum-mechanical processes are non-deterministic; the outcome of a measurement is randomly selected according to the probabilities of all of the possible outcomes.  Computing has allowed us to learn much about QM than we would have otherwise.</p>
+<p>Random floats (remember what those are?) are cool, but there are some systems that exhibit discrete behavior.  For example, if I wanted to write a random number generator to simulate randomly choosing a card from a deck, I wouldn’t want the outcome to be that I chose the 31.467459267th card.  That doesn’t make sense.</p>
 <p>The random module has tools for generating random integers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -872,13 +871,13 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>69
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
 </div>
 <p>The above line generates a random integer between 1 and 100.  This is useful for many types of real-life decisions:</p>
-<p>Hey, python, how many kids whould I have:</p>
+<p>Hey, Python, how many kids whould I have:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rand</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
@@ -886,7 +885,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>77
 </pre></div>
 </div>
 </div>
@@ -900,7 +899,7 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>57
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
 </pre></div>
 </div>
 </div>
@@ -1161,16 +1160,38 @@ yowza
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have 8 elements in our list.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We have 30 elements in our list.
 
-0 	 0.020271978662655954 	 0.0004109531188991783
-1 	 0.9931953811000886 	 0.9864370650385503
-2 	 0.14620224786108393 	 0.021375097279633822
-3 	 0.14030187001752492 	 0.019684614730414458
-4 	 0.5982478863320727 	 0.3579005335007926
-5 	 0.7439205946736983 	 0.5534178511796689
-6 	 0.8427663185577805 	 0.7102550676954343
-7 	 0.789008781177267 	 0.6225348567748364
+0 	 0.08495741733609097 	 0.0072177627604187305
+1 	 0.9028297127942753 	 0.8151014903041935
+2 	 0.47129437852378353 	 0.22211839122811936
+3 	 0.8678850560159611 	 0.753224470455828
+4 	 0.15057554923686278 	 0.022672996027982888
+5 	 0.027899523865846043 	 0.000778383431940913
+6 	 0.6943514555745877 	 0.48212394385854856
+7 	 0.5207054208618167 	 0.2711341353148817
+8 	 0.5140076689711538 	 0.2642038837611592
+9 	 0.6817941322023883 	 0.4648432387056077
+10 	 0.2866816394872205 	 0.08218636241908064
+11 	 0.9420093786262442 	 0.8873816694198028
+12 	 0.22537976574405505 	 0.05079603880684513
+13 	 0.8716704505833212 	 0.7598093744201301
+14 	 0.23162602301739754 	 0.05365061453885597
+15 	 0.01426241273922868 	 0.00020341641714411254
+16 	 0.8777733609720838 	 0.7704860732322282
+17 	 0.572904045606361 	 0.3282190454721354
+18 	 0.12248438214479473 	 0.015002423869392111
+19 	 0.6963064766623488 	 0.4848427094419341
+20 	 0.10228456134842845 	 0.010462131490240422
+21 	 0.7418026778680795 	 0.5502712128922538
+22 	 0.19275688897553123 	 0.037155218247525275
+23 	 0.28295818831635955 	 0.08006533633527639
+24 	 0.2834819797943925 	 0.08036203286814836
+25 	 0.006590502661564246 	 4.343472533208541e-05
+26 	 0.832785527690182 	 0.6935317351302149
+27 	 0.7004149834029552 	 0.490581148975362
+28 	 0.396908893469497 	 0.15753666971518052
+29 	 0.7546647683999088 	 0.569518912664088
 </pre></div>
 </div>
 </div>
@@ -1230,6 +1251,7 @@ yowza
                  <span class="s1">&#39;Gaurav&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Gia&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Maddy&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Alex&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">students_year</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">students_year</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1237,8 +1259,19 @@ yowza
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt;
 </pre></div>
 </div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Abdoul&#39;: 2,
+ &#39;Aiden&#39;: 2,
+ &#39;Aimee&#39;: 2,
+ &#39;Gannon&#39;: 2,
+ &#39;Gaurav&#39;: 2,
+ &#39;Gia&#39;: 2,
+ &#39;Maddy&#39;: 1,
+ &#39;Alex&#39;: 4}
+</pre></div>
 </div>
 </div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">display</span></code> function is like a fancier version of print for containers.</p>
 <p>We can access the elements in the dictionary in the same way as for a list, but now the “indices” are the key strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1309,7 +1342,7 @@ Alex is my favorite student in year 4 !
 <hr class="docutils" />
 <section id="problems">
 <h2><span class="section-number">3.8. </span>Problems<a class="headerlink" href="#problems" title="Link to this heading">#</a></h2>
-<p>Your homework is to complete 4 of the following problems.</p>
+<p>Your homework is to complete 3 of the following problems.</p>
 <section id="regulars">
 <h3>Regulars<a class="headerlink" href="#regulars" title="Link to this heading">#</a></h3>
 <section id="problem-1">
@@ -1331,36 +1364,32 @@ return prime</p>
 </section>
 <section id="problem-2">
 <h4>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h4>
-<p>A bag of M&amp;M’s contains only 88 reds and 12 browns.  Weird!  Simulate a process in which you pull 5 M&amp;M’s out of the bag and count the number of browns.  Perform this simulation 1000 times and compute count the number of times that you pulled 2 or more browns.</p>
+<p>A bag of M&amp;M’s contains only 88 reds and 12 browns.  Weird!  Write a program that generates a list containing the colors of the 100 M&amp;M’s in the bag (probably <code class="docutils literal notranslate"><span class="pre">string</span></code> types), and then simulate a process in which you pull 5 M&amp;M’s out of the bag and count the number of browns.  Perform this simulation 1000 times and compute count the number of times that you pulled 2 or more browns.</p>
 </section>
 <section id="problem-3">
 <h4>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h4>
 <p>Write a program that generates a list of 100 random integers between 0 and 100 (inclusive), and then finds the number of pairs in the list that add to 66.</p>
 </section>
-<section id="problem-4">
-<h4>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h4>
-<p>SORT!  Write a program that generates a list of 100 random integers between 0 and 100 (inclusive), and then sorts the list in descending order.  Do not use a built-in function like <code class="docutils literal notranslate"><span class="pre">sort</span></code>!</p>
-</section>
 </section>
 <section id="meanies">
 <h3>Meanies<a class="headerlink" href="#meanies" title="Link to this heading">#</a></h3>
+<section id="problem-4">
+<h4>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h4>
+<p>SORT!  Write a program that generates a list of 10000 random integers between 0 and 100 (inclusive), and then sorts the list in descending order.  Use Google to find a way to track how long your program takes to run.  A bonus point will be awarded to the fastest sort algorithm in the class.</p>
+</section>
 <section id="problem-5">
 <h4>Problem 5<a class="headerlink" href="#problem-5" title="Link to this heading">#</a></h4>
-<p>SORT!  Write a program that generates a list of 10000 random integers between 0 and 100 (inclusive), and then sorts the list in descending order.  Use Google to find a way to track how long your program takes to run.  A bonus point will be awarded to the fastest sort algorithm in the class.</p>
+<p>Do problem 1 from above, but modify the program to generate a list of the first 10000 prime numbers.  Then write a program that checks the list to see if there are any pairs of numbers that add up to another number in the list.</p>
 </section>
 <section id="problem-6">
 <h4>Problem 6<a class="headerlink" href="#problem-6" title="Link to this heading">#</a></h4>
-<p>Do problem 1 from above, but modify the program to generate a list of the first 10000 prime numbers.  Then write a program that checks the list to see if there are any pairs of numbers that add up to another number in the list.</p>
-</section>
-<section id="problem-7">
-<h4>Problem 7<a class="headerlink" href="#problem-7" title="Link to this heading">#</a></h4>
 <p>Write a program that generates a list of 100 random integers between 0 and 10^6 (inclusive), and then finds the largest number in the list.  Your program should NOT use any built-in methods/functions like <code class="docutils literal notranslate"><span class="pre">max</span></code>.</p>
 </section>
 </section>
 <section id="mega-meanie">
 <h3>Mega-meanie<a class="headerlink" href="#mega-meanie" title="Link to this heading">#</a></h3>
-<section id="problem-8">
-<h4>Problem 8<a class="headerlink" href="#problem-8" title="Link to this heading">#</a></h4>
+<section id="problem-7">
+<h4>Problem 7<a class="headerlink" href="#problem-7" title="Link to this heading">#</a></h4>
 <p>A bag of M&amp;M’s contains a total of 100 pieces, <span class="math notranslate nohighlight">\(n\)</span> of which are red and <span class="math notranslate nohighlight">\((100-n)\)</span> of which are brown.  Let’s say that you randomly draw 8 M&amp;M’s from the bag, yielding 2 red and 6 brown.  You want to use this sampling to predict the total number of browns in the bag. Obviously this one sample doesn’t tell you exactly what’s in the bag, but it can help you to update your <em>expectations</em> of what’s in the bag.  For example, you now know that there’s a 0% probability that the bag contains only 3 brown M&amp;M’s!  So, here’s what you’re going to do:</p>
 <ul class="simple">
 <li><p>Choose a value for <span class="math notranslate nohighlight">\(n\)</span> between 6 and 98.  Perform a simulation of 1000 draws of 8 M&amp;M’s from the bag.  Calculate the percentage of these draws that yields 4 browns and 4 reds.  Call this percentage <span class="math notranslate nohighlight">\(p(n)\)</span>.</p></li>
@@ -1458,17 +1487,16 @@ return prime</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#meanies">Meanies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6">Problem 6</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mega-meanie">Mega-meanie</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8">Problem 8</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7">Problem 7</a></li>
 </ul>
 </li>
 </ul>
