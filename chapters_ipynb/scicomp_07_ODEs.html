@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -511,26 +511,26 @@
 <h2><span class="section-number">7.4. </span>ODEs by example<a class="headerlink" href="#odes-by-example" title="Link to this heading">#</a></h2>
 <p>Ok, so the previous section wasn’t that helpful.  The point that I want to make in this lesson is that differential equations arise very naturally in the analysis of physical, chemical, financial, biological, social, and many other types of systems.  Let’s see what differential equations can do for us by examining a “simple” example.  Even if you’ve not worked with differential equations before, let alone taken a DE course, you should be able to follow with this notebook. We’ll work with DEs as <em>algebraic</em> rather than <em>calculus</em> entities.</p>
 <p>Let’s consider the case of a colony of bacteria growing in a petri dish.  Assume that we know the initial conditions of our experiment: the number of bacteria <span class="math notranslate nohighlight">\(N_0\)</span> at time <span class="math notranslate nohighlight">\(t=0\)</span>.  We want to do some analysis to determine a functional dependence of the number of bacteria on time, <span class="math notranslate nohighlight">\(N(t)\)</span> – the outcome of this analysis will be a <strong>function</strong>!  We know that in some amount of time <span class="math notranslate nohighlight">\(\Delta t\)</span>, the population grows by some <em>relative</em> rate, <span class="math notranslate nohighlight">\(\gamma\)</span>.  Let me write out what this means in an equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bbaabb85-8734-4e83-82e4-959ebcad0d87">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-bbaabb85-8734-4e83-82e4-959ebcad0d87" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-06ed08db-11f8-452b-8152-1ec05204ff1c">
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-06ed08db-11f8-452b-8152-1ec05204ff1c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Delta N = \gamma \; (\Delta t)\; N(t)
 \end{equation}\]</div>
 <p>We call this a “difference equation” because it relates finite differences in the quantities <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(N\)</span>.  This equation tells us how we expect <span class="math notranslate nohighlight">\(N\)</span>, the number of bacteria to change in any given time interval <span class="math notranslate nohighlight">\(\Delta t\)</span>: <span class="math notranslate nohighlight">\(\Delta N\)</span> is proportional to the rate <span class="math notranslate nohighlight">\(\gamma\)</span>, the amount of time elapsed <span class="math notranslate nohighlight">\(\Delta t\)</span>, and the current number of bacteria <span class="math notranslate nohighlight">\(N(t)\)</span>.</p>
 <p>Please think about these dependencies for a moment.  The change in <span class="math notranslate nohighlight">\(N\)</span> depends on how long we wait, how fast the bacteria reproduce, and <strong>how many bacteria</strong> there are.  The latter of these is the interesting one – a larger population will increase more!</p>
 <p>Let’s rearrange our difference equation a bit:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c210cbb8-5f43-4d37-8738-548515c4a9ec">
-<span class="eqno">(7.2)<a class="headerlink" href="#equation-c210cbb8-5f43-4d37-8738-548515c4a9ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d0e348d7-fe40-44b1-99d0-0178c2a12ee3">
+<span class="eqno">(7.2)<a class="headerlink" href="#equation-d0e348d7-fe40-44b1-99d0-0178c2a12ee3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\Delta N}{\Delta t} = \gamma N(t)
 \end{equation}\]</div>
 <p>OK, looking interesting.  Now, what happens to the difference equation if we consider <span class="math notranslate nohighlight">\(\Delta t\)</span> to be short?  You know, like infinitesimal?  A slight change in notation, <span class="math notranslate nohighlight">\(\Delta t \rightarrow dt\)</span> and <span class="math notranslate nohighlight">\(\Delta N \rightarrow dN\)</span> yields</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab7c04d8-1c9c-4cdd-bfe7-626169e966ec">
-<span class="eqno">(7.3)<a class="headerlink" href="#equation-ab7c04d8-1c9c-4cdd-bfe7-626169e966ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cd6f9725-3dc4-4b83-8955-df05a57d4419">
+<span class="eqno">(7.3)<a class="headerlink" href="#equation-cd6f9725-3dc4-4b83-8955-df05a57d4419" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{dN(t)}{dt} = \gamma N(t)
 \end{equation}\]</div>
 <p>Wow, that’s one of those differential equations things!  This is an equation that relates the first-order time derivative of <span class="math notranslate nohighlight">\(N(t)\)</span> to the function itself!  Solving this differential equation means finding a function <span class="math notranslate nohighlight">\(N(t)\)</span> that satisfies the equation.  In words, this DE tells us that <span class="math notranslate nohighlight">\(N(t)\)</span> is a function that is equal to <span class="math notranslate nohighlight">\(1/\gamma\)</span> of its derivative.</p>
 <p>Thinking for a few moments yields the solution <span class="math notranslate nohighlight">\(N(t) = ae^{\gamma t}\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> is some constant.  Exponential growth!  To match the initial conditions, we would set <span class="math notranslate nohighlight">\(a = N_0\)</span>.  So, the solution to this DE that also satisfies the initial conditions is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78cb46fd-7c35-4995-a504-d0976e6e83b5">
-<span class="eqno">(7.4)<a class="headerlink" href="#equation-78cb46fd-7c35-4995-a504-d0976e6e83b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-18fe2361-8d15-4d6f-ae25-54d7e4be17a1">
+<span class="eqno">(7.4)<a class="headerlink" href="#equation-18fe2361-8d15-4d6f-ae25-54d7e4be17a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 N(t) = N_0 e^{\gamma t}
 \end{equation}\]</div>
 <p>If you’re interested in techniques for solving differential equations (other than just magically thinking up a solution) consider taking a course in Mathematical Physics, or Differential Equations offered by your friendly local Mathematics Department.</p>
@@ -545,19 +545,19 @@ N(t) = N_0 e^{\gamma t}
 <h2><span class="section-number">7.6. </span>Solving ODEs numerically<a class="headerlink" href="#solving-odes-numerically" title="Link to this heading">#</a></h2>
 <p>The above example was an easy one.  Very rarely does an interesting physical system present a differential equation with a “nice” solution.  In many branches of science, we have to rely on computers to <em>simulate</em> the behavior of a system from the differential equation that describes it.</p>
 <p>Let’s return to the exponential growth example from above.  Recall the difference equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b712e810-8553-45c4-ad3d-fa86c5b03198">
-<span class="eqno">(7.5)<a class="headerlink" href="#equation-b712e810-8553-45c4-ad3d-fa86c5b03198" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-77e55027-b051-49c3-ad81-015d34581a4f">
+<span class="eqno">(7.5)<a class="headerlink" href="#equation-77e55027-b051-49c3-ad81-015d34581a4f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Delta N = \gamma \times N(t) \times (\Delta t)
 \end{equation}\]</div>
 <p>To “solve” for <span class="math notranslate nohighlight">\(N(t)\)</span> numercially, we wish to predict the value of <span class="math notranslate nohighlight">\(N(t)\)</span> at all future times.  We’ll do this incrementally.  Let’s put some numbers into our system.  Let our growth constant <span class="math notranslate nohighlight">\(\gamma = 10^{-4}\)</span> s<span class="math notranslate nohighlight">\(^{-1}\)</span> and <span class="math notranslate nohighlight">\(N(t = 0) = N_0 = 10^4\)</span>.</p>
 <p>If we choose a small value for <span class="math notranslate nohighlight">\(\Delta t\)</span>, we can <em>approximate</em> the value of <span class="math notranslate nohighlight">\(N\)</span> at <span class="math notranslate nohighlight">\(t = 0 + \Delta t\)</span> using the difference equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b491498-7f07-47ba-a087-6b0081c8050b">
-<span class="eqno">(7.6)<a class="headerlink" href="#equation-9b491498-7f07-47ba-a087-6b0081c8050b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aa4293f5-13e8-42d9-8303-f822ed71f18b">
+<span class="eqno">(7.6)<a class="headerlink" href="#equation-aa4293f5-13e8-42d9-8303-f822ed71f18b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 N(0 + \Delta t) = \gamma N(0) (\Delta t)
 \end{equation}\]</div>
 <p>In fact, we can generalize this relationship to calculate <span class="math notranslate nohighlight">\(N\)</span> at any <span class="math notranslate nohighlight">\(t+\Delta t\)</span> from <span class="math notranslate nohighlight">\(N\)</span> at <span class="math notranslate nohighlight">\(t\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e8808bac-a8a2-44be-b185-51c4bb1e2ea1">
-<span class="eqno">(7.7)<a class="headerlink" href="#equation-e8808bac-a8a2-44be-b185-51c4bb1e2ea1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4ed7a23c-67ca-43cf-bc86-69adf028f598">
+<span class="eqno">(7.7)<a class="headerlink" href="#equation-4ed7a23c-67ca-43cf-bc86-69adf028f598" title="Permalink to this equation">#</a></span>\[\begin{equation}
 N(t + \Delta t) = \gamma N(t) (\Delta t)
 \end{equation}\]</div>
 <p>Well, heck!  This just sounds like recursion!  Let’s choose <span class="math notranslate nohighlight">\(\Delta t = 10^{-1}\)</span> s and code this process to approximate the value of <span class="math notranslate nohighlight">\(N(t)\)</span> for a total of 6 hours.  In the code below, I’m going to use <code class="docutils literal notranslate"><span class="pre">dt</span></code> as the variable shorthand for <span class="math notranslate nohighlight">\(\Delta t\)</span>.</p>
@@ -616,8 +616,8 @@ N(t + \Delta t) = \gamma N(t) (\Delta t)
 <section id="warm-up-completely-context-free-example">
 <h3>Warm up: Completely context-free example<a class="headerlink" href="#warm-up-completely-context-free-example" title="Link to this heading">#</a></h3>
 <p>Let’s simulate the solution to the following first-order ordinary differential equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-956a28f1-c565-44ee-8f2b-52fb84160af2">
-<span class="eqno">(7.8)<a class="headerlink" href="#equation-956a28f1-c565-44ee-8f2b-52fb84160af2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b503a55d-2f03-405a-9836-30784c319fea">
+<span class="eqno">(7.8)<a class="headerlink" href="#equation-b503a55d-2f03-405a-9836-30784c319fea" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{df}{dt} = -(0.1) f^2 + 0.5 f + 0.2
 \end{equation}\]</div>
 <p>Use <span class="math notranslate nohighlight">\(\Delta t = 10^{-3}\)</span> and <span class="math notranslate nohighlight">\(f(0) = 0\)</span> as an initial condition.  Simulate between <span class="math notranslate nohighlight">\(t = 0\)</span> and <span class="math notranslate nohighlight">\(t = 20\)</span> s.</p>
@@ -633,8 +633,8 @@ N(t + \Delta t) = \gamma N(t) (\Delta t)
 <section id="warm-up-rumor-spread-through-a-population">
 <h3>Warm up: Rumor spread through a population<a class="headerlink" href="#warm-up-rumor-spread-through-a-population" title="Link to this heading">#</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(f(t)\)</span> be the fraction of a population that have heard a rumor as a function of time.  A simple model for how this rumor (or a meme, or a virus, <em>etc.</em>) spreads through the population is that the rate of spread is proportional to the product of the fraction of people who have heard the rumor and the fraction of people who have not heard the rumor.  [Think about this for a minute!]  Mathematically, we write this as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9bcd9bdc-160a-4b99-8e01-81679713bad9">
-<span class="eqno">(7.9)<a class="headerlink" href="#equation-9bcd9bdc-160a-4b99-8e01-81679713bad9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-255db4eb-5713-4245-9db5-a4bc82d6826e">
+<span class="eqno">(7.9)<a class="headerlink" href="#equation-255db4eb-5713-4245-9db5-a4bc82d6826e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{df}{dt} = \beta f (1-f) 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\beta\)</span> is the proportionality/transmission constant.  In this model, <span class="math notranslate nohighlight">\(\beta\)</span> essentially quantifies how transmissable (or “juicy”) the rumor/meme/virus is.</p>
@@ -658,34 +658,34 @@ N(t + \Delta t) = \gamma N(t) (\Delta t)
 <section id="higher-order-odes-and-the-euler-algorithm">
 <h2><span class="section-number">7.7. </span>Higher-order ODEs and the Euler Algorithm<a class="headerlink" href="#higher-order-odes-and-the-euler-algorithm" title="Link to this heading">#</a></h2>
 <p>Hey, have you heard of this thing Newton’s Second Law?  It’s pretty good at describing how the forces acting on an object influence its motion… you know, dynamics!  Recall that N2L looks like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cae0de95-24b0-4ae6-a871-7e8a7a6090a4">
-<span class="eqno">(7.10)<a class="headerlink" href="#equation-cae0de95-24b0-4ae6-a871-7e8a7a6090a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-68bf698b-175b-40a6-b8ba-8f39fb7ca166">
+<span class="eqno">(7.10)<a class="headerlink" href="#equation-68bf698b-175b-40a6-b8ba-8f39fb7ca166" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \displaystyle \sum \vec{F} = m\frac{d^2\vec{r}}{dt^2}
 \end{equation}\]</div>
 <p>Just to remind you, N2L relates the forces acting on a particle (the left-hand side) to the motion of a particle.  In many systems, the forces that act on a particle depend on the position of the particle, meaning that the LHS of N2L will include <span class="math notranslate nohighlight">\(\vec{r}\)</span>.  The LHS might even include forces that depend on <span class="math notranslate nohighlight">\(\vec{v} = d\vec{r}/dt\)</span>.  BAM!  A second-order ODE which relates the second and first derivative(s) of position to the position.</p>
 <p>Let’s look at a more concrete example.  Consider a mass connected to a horizontal spring with spring constant <span class="math notranslate nohighlight">\(k\)</span>.  The mass can slide on a horizontal frictionless surface.  We’ll establish a <span class="math notranslate nohighlight">\(y\)</span>-axis along the mass’ direction of motion, with <span class="math notranslate nohighlight">\(y = 0\)</span> at the mass’ equilibrium point.  Applying N2L yields</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6793fd43-8768-40ae-b93c-7be7a9f661db">
-<span class="eqno">(7.11)<a class="headerlink" href="#equation-6793fd43-8768-40ae-b93c-7be7a9f661db" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d801f1ac-ab8f-4480-bd94-18370f1ae6c3">
+<span class="eqno">(7.11)<a class="headerlink" href="#equation-d801f1ac-ab8f-4480-bd94-18370f1ae6c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \displaystyle \sum F_y = -k y(t) = m \frac{d^2 y(t)}{dt^2} \longrightarrow \frac{d^2 y(t)}{dt^2} = -\frac{k}{m} y(t)
 \end{equation}\]</div>
 <p>To solve this, we seek a position function <span class="math notranslate nohighlight">\(y(t)\)</span> which satisfies this equality.  Perhaps you can guess or remember it?</p>
 <p>If we try our previous simulation technique, though, we’re stuck!  The ODE tells us the value of the <em>second</em> derivative of <span class="math notranslate nohighlight">\(y(t)\)</span>, but… how do we use this to find the <em>change</em> in <span class="math notranslate nohighlight">\(y\)</span>?!</p>
 <p>There are actually many different approaches to this problem.  We will choose the easiest of these, the so-called Euler Algorithm.  The approach is to break the second-order ODE into <em>two</em> first-order ODEs by inventing two “new” quantities:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6957a642-96ad-4698-b6bd-d4d07eff1cef">
-<span class="eqno">(7.12)<a class="headerlink" href="#equation-6957a642-96ad-4698-b6bd-d4d07eff1cef" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-57f75562-100f-4a91-a034-eb6d6f80a82c">
+<span class="eqno">(7.12)<a class="headerlink" href="#equation-57f75562-100f-4a91-a034-eb6d6f80a82c" title="Permalink to this equation">#</a></span>\[\begin{align}
   u_1(t) &amp;= y(t)\\
   u_2(t) &amp;= \frac{dy}{dt}
 \end{align}\]</div>
 <p>We can then use our original ODE to write ODEs for <span class="math notranslate nohighlight">\(u_1\)</span> and <span class="math notranslate nohighlight">\(u_2\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9735e8d4-c326-4f1d-85a4-256dc3f05247">
-<span class="eqno">(7.13)<a class="headerlink" href="#equation-9735e8d4-c326-4f1d-85a4-256dc3f05247" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b753c364-ba36-4863-a9cb-d5153c6ce2da">
+<span class="eqno">(7.13)<a class="headerlink" href="#equation-b753c364-ba36-4863-a9cb-d5153c6ce2da" title="Permalink to this equation">#</a></span>\[\begin{align}
   \frac{du_1}{dt} &amp;= u_2 \\
   \frac{du_2}{dt} &amp;= -\frac{k}{m} u_1
 \end{align}\]</div>
 <p>Splitting one DE into two DEs may seem like it <em>doubles</em> the complication of the system, but it actually provides a more straight-forward way to implement the calculation.
 We first turn these differential equations into difference equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-540c9459-04c7-46ad-aa2d-0d10d8702539">
-<span class="eqno">(7.14)<a class="headerlink" href="#equation-540c9459-04c7-46ad-aa2d-0d10d8702539" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-d813dcc6-8ebe-46db-afc1-19c3f3a59cb0">
+<span class="eqno">(7.14)<a class="headerlink" href="#equation-d813dcc6-8ebe-46db-afc1-19c3f3a59cb0" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
   \frac{\Delta u_1}{\Delta t} = u_2 &amp;\longrightarrow&amp; \Delta u_1 = u_2 \Delta t\\
   \frac{\Delta u_2}{\Delta t} = -\frac{k}{m} u_1 &amp;\longrightarrow&amp; \Delta u_2 = \left(-\frac{k}{m} u_1 \right)\Delta t
 \end{eqnarray}\]</div>
@@ -742,8 +742,8 @@ To put this in physics lingo, we’re going to calculate the acceleration, updat
 <p>Nice!  Oscillatory, simple harmonic motion!</p>
 <hr class="docutils" />
 <p>What if we complicate the system by adding a drag force that is proportional to the object’s velocity?  We could do this simply by modifying the original ODE:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-97b5d9b8-a811-417d-9231-c0039ce927ef">
-<span class="eqno">(7.15)<a class="headerlink" href="#equation-97b5d9b8-a811-417d-9231-c0039ce927ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5783beac-dfc5-4bdf-a9ce-6f8e31be1fc6">
+<span class="eqno">(7.15)<a class="headerlink" href="#equation-5783beac-dfc5-4bdf-a9ce-6f8e31be1fc6" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \displaystyle \sum F_y = -k y - b \frac{dy}{dt} = m \frac{d^2 y}{dt^2}
 \end{equation}\]</div>
 <p>This makes the ODE much harder to solve with pencil and paper, but our simulation is trivially easy to adapt.  So easy, in fact, that we’ll do it in a warm-up problem…</p>
@@ -773,8 +773,8 @@ There are other (more sophisticaed) ways to do updating/simulations such as this
 <section id="problem-1">
 <h4>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h4>
 <p>The population of a system experiences growth according to the following ODE</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2e6715e1-9382-4d92-8bb2-f95d031c692f">
-<span class="eqno">(7.16)<a class="headerlink" href="#equation-2e6715e1-9382-4d92-8bb2-f95d031c692f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8dbd2566-013f-4b55-832f-6d93441e1ab3">
+<span class="eqno">(7.16)<a class="headerlink" href="#equation-8dbd2566-013f-4b55-832f-6d93441e1ab3" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \frac{dN}{dt} = \lambda N - \eta N \cos (t / 12) 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda = 0.002\)</span> and <span class="math notranslate nohighlight">\(\eta = 0.0065\)</span>.  The system begins with <span class="math notranslate nohighlight">\(N(0) = 10^5\)</span>.  Graph the population of the system vs <span class="math notranslate nohighlight">\(t\)</span> for <span class="math notranslate nohighlight">\(t \in [0, 200]\)</span>.  Determine how long it takes for the population to increase by a factor of 10.</p>
@@ -782,8 +782,8 @@ There are other (more sophisticaed) ways to do updating/simulations such as this
 <section id="problem-2">
 <h4>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h4>
 <p>A simple, single-loop DC circuit contains a capacitor with <span class="math notranslate nohighlight">\(C = 0.15\)</span> <span class="math notranslate nohighlight">\(\mu\)</span>F, a resistor with <span class="math notranslate nohighlight">\(R = 120\)</span> k<span class="math notranslate nohighlight">\(\Omega\)</span>, a <span class="math notranslate nohighlight">\(10\)</span>-V battery, and a switch.  At <span class="math notranslate nohighlight">\(t = 0\)</span>, the capacitor is uncharged and the switch is closed.  Applying Kirchoff’s loop rule yields the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5158803-1cb6-4c64-9813-44d5ecf94cae">
-<span class="eqno">(7.17)<a class="headerlink" href="#equation-f5158803-1cb6-4c64-9813-44d5ecf94cae" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-0985da68-5826-4ac8-9ee4-3f7c136defd4">
+<span class="eqno">(7.17)<a class="headerlink" href="#equation-0985da68-5826-4ac8-9ee4-3f7c136defd4" title="Permalink to this equation">#</a></span>\[\begin{equation} 
   (10 \textrm{ V}) - IR - \frac{Q}{C} = 0
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(I\)</span> is the current in the circuit and <span class="math notranslate nohighlight">\(Q\)</span> is the charge on the capacitor.  You may recall that <span class="math notranslate nohighlight">\(dQ/dt = I\)</span>.  Write a simulation of <span class="math notranslate nohighlight">\(Q(t)\)</span> and graph <span class="math notranslate nohighlight">\(Q(t)\)</span> vs <span class="math notranslate nohighlight">\(t\)</span> from <span class="math notranslate nohighlight">\(t = 0\)</span> up to the time at which the voltage across the capacitor reaches <span class="math notranslate nohighlight">\(90\%\)</span> of its maximum value.</p>
@@ -791,8 +791,8 @@ There are other (more sophisticaed) ways to do updating/simulations such as this
 <section id="problem-3">
 <h4>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h4>
 <p>A quesadilla (<span class="math notranslate nohighlight">\(m = 0.240\)</span> kg) is dropped from an initial height of <span class="math notranslate nohighlight">\(100\)</span> m.  As it falls, it experiences a vertical force described by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eceb97c8-d928-42c5-b40c-34727c298654">
-<span class="eqno">(7.18)<a class="headerlink" href="#equation-eceb97c8-d928-42c5-b40c-34727c298654" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-4432f2db-5d31-40b7-849c-0653349f2689">
+<span class="eqno">(7.18)<a class="headerlink" href="#equation-4432f2db-5d31-40b7-849c-0653349f2689" title="Permalink to this equation">#</a></span>\[\begin{equation} 
   \displaystyle \sum F_y = - mg - b y' 
 \end{equation}\]</div>
 <p>where the second term is a drag force with drag coefficient <span class="math notranslate nohighlight">\(b = 0.3\)</span>.
@@ -802,8 +802,8 @@ What is its speed at the instant that it strikes the ground?</p>
 <section id="problem-4">
 <h4>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h4>
 <p>A pebble is dropped vertically into a pond such that its speed as it enters is <span class="math notranslate nohighlight">\(25.0\)</span> m/s.  The force on the pebble once it enters the water is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ee68d1c3-091d-4b7e-94ca-0167767b7a1a">
-<span class="eqno">(7.19)<a class="headerlink" href="#equation-ee68d1c3-091d-4b7e-94ca-0167767b7a1a" title="Permalink to this equation">#</a></span>\[\begin{equation} 
+<div class="amsmath math notranslate nohighlight" id="equation-023487fa-cbad-4b03-a6b2-80b1012ca2f7">
+<span class="eqno">(7.19)<a class="headerlink" href="#equation-023487fa-cbad-4b03-a6b2-80b1012ca2f7" title="Permalink to this equation">#</a></span>\[\begin{equation} 
   \displaystyle \sum F_y = - mg + d (y')^2 
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(d = 0.1\)</span> is a drag coefficient.  Notice that the drag force for the liquid water has a different functional form than the drag force in the previous problem.
@@ -819,8 +819,8 @@ Simulate the position of the pebble in the water and graph it as a function of t
 <section id="problem-6">
 <h4>Problem 6<a class="headerlink" href="#problem-6" title="Link to this heading">#</a></h4>
 <p>At Willy Wonka’s candy factory, a <span class="math notranslate nohighlight">\(5.0\times 10^4\)</span>-L tank initially contains <span class="math notranslate nohighlight">\(2.5\times 10^4\)</span>-L of a liquid mixture with a sugar concentration of <span class="math notranslate nohighlight">\(50\%\)</span>.  <span class="math notranslate nohighlight">\(2.0\)</span> L of the fluid drains out of the tank per second.  More liquid with a <span class="math notranslate nohighlight">\(60\%\)</span> sugar concentration is added to the tank at a rate of <span class="math notranslate nohighlight">\(3.4\)</span> L/s.  Let <span class="math notranslate nohighlight">\(s(t)\)</span> represent the amount of sugar in the tank as a function of time.  We can write the rate of change of <span class="math notranslate nohighlight">\(s\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-99aa9ea0-3916-462e-870b-b61b34cbaf6c">
-<span class="eqno">(7.20)<a class="headerlink" href="#equation-99aa9ea0-3916-462e-870b-b61b34cbaf6c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f8fd2da5-7561-4399-bed7-132071e4aac0">
+<span class="eqno">(7.20)<a class="headerlink" href="#equation-f8fd2da5-7561-4399-bed7-132071e4aac0" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \frac{ds}{dt} = (\textrm{rate of sugar in}) - (\textrm{rate of sugar out}) 
 \end{equation}\]</div>
 <p>Simulate the solution to this differential equation and graph <span class="math notranslate nohighlight">\(s(t)\)</span> vs <span class="math notranslate nohighlight">\(t\)</span>.  Determine the amount of sugar in tank when the is full.</p>
@@ -832,8 +832,8 @@ Simulate the position of the pebble in the water and graph it as a function of t
 <section id="problem-8">
 <h4>Problem 8<a class="headerlink" href="#problem-8" title="Link to this heading">#</a></h4>
 <p>A particle (<span class="math notranslate nohighlight">\(m = 1.0\)</span> kg) moves along the <span class="math notranslate nohighlight">\(x\)</span>-axis under a force described by the following:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e42525d9-66aa-473e-9387-255952ca97a1">
-<span class="eqno">(7.21)<a class="headerlink" href="#equation-e42525d9-66aa-473e-9387-255952ca97a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f01c6d5e-19d2-41cc-986b-ae6bee3140c8">
+<span class="eqno">(7.21)<a class="headerlink" href="#equation-f01c6d5e-19d2-41cc-986b-ae6bee3140c8" title="Permalink to this equation">#</a></span>\[\begin{equation}
     F_x(x)= 
 \begin{cases}
     -10\textrm{ N} &amp; \text{if } x\geq 1.0\textrm{ m}\\
@@ -861,12 +861,12 @@ Simulate the position of the pebble in the water and graph it as a function of t
 <li><p><span class="math notranslate nohighlight">\(Y\)</span> decomposes to final product <span class="math notranslate nohighlight">\(Z\)</span> with rate <span class="math notranslate nohighlight">\(k_4\)</span>: <span class="math notranslate nohighlight">\(Y\rightarrow Z\)</span>
 We consider the functions <span class="math notranslate nohighlight">\(a(t)\)</span>, <span class="math notranslate nohighlight">\(x(t)\)</span>, <span class="math notranslate nohighlight">\(y(t)\)</span>, and <span class="math notranslate nohighlight">\(z(t)\)</span> to give the concentrations of each of these molecules as functions of time.
 This process is then modeled by 4 differential equations:
-\begin{eqnarray}
-\frac{da}{dt} &amp;=&amp; -k_1 a - k_3 a y \
-\frac{dx}{dt} &amp;=&amp; k_1 a - k_2 x + k_3 a y \
-\frac{dy}{dt} &amp;=&amp; k_2 a - k_4 y \
-\frac{dz}{dt} &amp;=&amp; k_4 y
-\end{eqnarray}
+\begin{gather}
+\frac{da}{dt} = -k_1 a - k_3 a y \
+\frac{dx}{dt} = k_1 a - k_2 x + k_3 a y \
+\frac{dy}{dt} = k_2 a - k_4 y \
+\frac{dz}{dt} = k_4 y
+\end{gather}
 Using the values <span class="math notranslate nohighlight">\(k_1=1\)</span>, <span class="math notranslate nohighlight">\(k_2=0.5\)</span>, <span class="math notranslate nohighlight">\(k_3=0.1\)</span>, <span class="math notranslate nohighlight">\(k_4=0.1\)</span>, <span class="math notranslate nohighlight">\(a(0) = 1\)</span>, and <span class="math notranslate nohighlight">\(x(0)=y(0)=z(0)=0\)</span>, simulate the concentrations of the molecules until the system reaches a stable equilibrium.  Graph the four concentrations versus time on a single set of axes.</p></li>
 </ul>
 </section>
