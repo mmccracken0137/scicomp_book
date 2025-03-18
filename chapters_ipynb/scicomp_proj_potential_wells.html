@@ -65,7 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_proj_potential_wells';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Di-lepton mass spectrum from the Compact Muon Solenoid" href="scicomp_proj_z0_ll_analysis.html" />
+    <link rel="next" title="Di-lepton mass spectrum from the Compact Muon Solenoid" href="scicomp_proj_z0_ll_analysis.html" />
+    <link rel="prev" title="12. Python on microcontrollers with circuitpython" href="scicomp_11_circuitpython.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -192,8 +193,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="scicomp_proj_z0_ll_analysis.html">Di-lepton mass spectrum from the Compact Muon Solenoid</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Simulating trajectories with multiple attractors: A chaotic system?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_proj_z0_ll_analysis.html">Di-lepton mass spectrum from the Compact Muon Solenoid</a></li>
 </ul>
 
     </div>
@@ -464,7 +465,7 @@ $<span class="math notranslate nohighlight">\( |\vec{F}_a| = \frac{1}{\left( (a_
 The \)</span>d^2<span class="math notranslate nohighlight">\( in the denominator is there to prevent this force from BLOWING UP if the particle gets too close to the attractor.
 Without going through too much math, the \)</span>x<span class="math notranslate nohighlight">\( and \)</span>y$ components of this force are</p>
 <div class="amsmath math notranslate nohighlight" id="equation-4700e746-4824-4e39-b0a2-e8d95eeec9a9">
-<span class="eqno">(8)<a class="headerlink" href="#equation-4700e746-4824-4e39-b0a2-e8d95eeec9a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(1)<a class="headerlink" href="#equation-4700e746-4824-4e39-b0a2-e8d95eeec9a9" title="Permalink to this equation">#</a></span>\[\begin{equation}
     F_{ax} = |\vec{F}_a|\frac{a_x - x}{\sqrt{(x-a_x)^2 + (y-a_y)^2}}, \;\;\;\;\;
     F_{ay} = |\vec{F}_a|\frac{a_y - y}{\sqrt{(x-a_x)^2 + (y-a_y)^2}}
 \end{equation}\]</div>
@@ -473,7 +474,7 @@ $<span class="math notranslate nohighlight">\(\vec{F}_d = -(0.05)\vec{v},\)</spa
 where \)</span>\vec{v}$ is the velocity of the particle.
 Note that the components of this force are then given by</p>
 <div class="amsmath math notranslate nohighlight" id="equation-d7a0c19a-64cc-4af2-a1ae-ee2e4dbec4b0">
-<span class="eqno">(9)<a class="headerlink" href="#equation-d7a0c19a-64cc-4af2-a1ae-ee2e4dbec4b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(2)<a class="headerlink" href="#equation-d7a0c19a-64cc-4af2-a1ae-ee2e4dbec4b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
     F_{dx} = |\vec{F}_d|\frac{v_x}{\sqrt{(v_x)^2 + (v_y)^2}}, \;\;\;\;\;
     F_{dy} = |\vec{F}_d|\frac{v_y}{\sqrt{(v_x)^2 + (v_y)^2}}
 \end{equation}\]</div>
@@ -488,7 +489,7 @@ $<span class="math notranslate nohighlight">\( \vec{F}_{net} = \displaystyle\sum
 <p>Let’s do a quick recap of simulating dynamics with the Euler algorithm (what we covered in week 06).</p>
 <p>Recall N2L:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-6689ec1b-b889-4081-aa76-70642eb00501">
-<span class="eqno">(10)<a class="headerlink" href="#equation-6689ec1b-b889-4081-aa76-70642eb00501" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(3)<a class="headerlink" href="#equation-6689ec1b-b889-4081-aa76-70642eb00501" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \displaystyle \sum \vec{F} = m\frac{d^2\vec{r}}{dt^2}
 \end{equation}\]</div>
 <p>In the previous section of this notebook, I gave you some recipes for calculating the left-hand side of N2L for the 4AB.
@@ -496,7 +497,7 @@ All that’s left to do to create a simulation is to use the net force to calcul
 <p>Last week we talked all about the generalized Euler algorithm for a general second-order ODE, <em>i.e.</em> an equation that relates a function to its first and second derivatives.  You didn’t like how we did this in terms of new functions <span class="math notranslate nohighlight">\(u_1(t)\)</span> and <span class="math notranslate nohighlight">\(u_2(t)\)</span>.
 Now we can do it a little more straight-forwardly in terms of kinematic quantities: <span class="math notranslate nohighlight">\(\vec{a}\)</span>, <span class="math notranslate nohighlight">\(\vec{v}\)</span>, <span class="math notranslate nohighlight">\(\vec{r}\)</span>.</p>
 <div class="amsmath math notranslate nohighlight" id="equation-234f1b4d-82bf-480c-af56-7eb0bceabeeb">
-<span class="eqno">(11)<a class="headerlink" href="#equation-234f1b4d-82bf-480c-af56-7eb0bceabeeb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(4)<a class="headerlink" href="#equation-234f1b4d-82bf-480c-af56-7eb0bceabeeb" title="Permalink to this equation">#</a></span>\[\begin{align}
     \vec{r}(t)\\
     \vec{v}(t) &amp;= \frac{d\vec{r}}{dt}\\
     \vec{a}(t) &amp;= \frac{d\vec{v}}{dt}
@@ -504,7 +505,7 @@ Now we can do it a little more straight-forwardly in terms of kinematic quantiti
 <p>Hopefully these quantities make more intuitive sense to you than <span class="math notranslate nohighlight">\(u_1\)</span> and <span class="math notranslate nohighlight">\(u_2\)</span>.</p>
 <p>To do a simulation, we turn these derivatives into difference equations.  Changing <span class="math notranslate nohighlight">\(dt\)</span> to <span class="math notranslate nohighlight">\(\Delta t\)</span> and doing some simple algebra yields:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-3d99f365-e5c4-4df7-ae9e-b875f4cd1a36">
-<span class="eqno">(12)<a class="headerlink" href="#equation-3d99f365-e5c4-4df7-ae9e-b875f4cd1a36" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<span class="eqno">(5)<a class="headerlink" href="#equation-3d99f365-e5c4-4df7-ae9e-b875f4cd1a36" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
   \Delta \vec{r} = \vec{v} \Delta t\\
   \Delta \vec{v} = \vec{a} \Delta t
 \end{eqnarray}\]</div>
@@ -662,13 +663,22 @@ Now we can do it a little more straight-forwardly in terms of kinematic quantiti
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="scicomp_proj_z0_ll_analysis.html"
+       href="scicomp_11_circuitpython.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Python on microcontrollers with <code class="docutils literal notranslate"><span class="pre">circuitpython</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="scicomp_proj_z0_ll_analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Di-lepton mass spectrum from the Compact Muon Solenoid</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
