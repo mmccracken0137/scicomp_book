@@ -27,8 +27,8 @@ parts:
     - file: chapters_ipynb/scicomp_11_circuitpython
   - caption: "IV. Projects"
     chapters:
-    - file: chapters_ipynb/scicomp_proj_z0_ll_analysis
     - file: chapters_ipynb/scicomp_proj_potential_wells
+    - file: chapters_ipynb/scicomp_proj_z0_ll_analysis
 
 # chapters:
 # - file: chapters_ipynb/week0_python_2022spg
