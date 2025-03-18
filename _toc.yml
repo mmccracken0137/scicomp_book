@@ -28,6 +28,7 @@ parts:
   - caption: "IV. Projects"
     chapters:
     - file: chapters_ipynb/scicomp_proj_z0_ll_analysis
+    - file: chapters_ipynb/scicomp_proj_potential_wells
 
 # chapters:
 # - file: chapters_ipynb/week0_python_2022spg
