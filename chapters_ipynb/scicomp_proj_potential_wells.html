@@ -465,8 +465,8 @@
 $<span class="math notranslate nohighlight">\( |\vec{F}_a| = \frac{1}{\left( (a_x - x)^2 + (a_y - y)^2 + d^2\right)}\)</span><span class="math notranslate nohighlight">\(
 The \)</span>d^2<span class="math notranslate nohighlight">\( in the denominator is there to prevent this force from BLOWING UP if the particle gets too close to the attractor.
 Without going through too much math, the \)</span>x<span class="math notranslate nohighlight">\( and \)</span>y$ components of this force are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f9a8935e-6954-4513-8745-5ca42c833ec5">
-<span class="eqno">(1)<a class="headerlink" href="#equation-f9a8935e-6954-4513-8745-5ca42c833ec5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7e8096f0-d8d4-499f-9be4-cbc40e74c280">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7e8096f0-d8d4-499f-9be4-cbc40e74c280" title="Permalink to this equation">#</a></span>\[\begin{equation}
     F_{ax} = |\vec{F}_a|\frac{a_x - x}{\sqrt{(x-a_x)^2 + (y-a_y)^2}}, \;\;\;\;\;
     F_{ay} = |\vec{F}_a|\frac{a_y - y}{\sqrt{(x-a_x)^2 + (y-a_y)^2}}
 \end{equation}\]</div>
@@ -474,10 +474,10 @@ Without going through too much math, the \)</span>x<span class="math notranslate
 $<span class="math notranslate nohighlight">\(\vec{F}_d = -(0.05)\vec{v},\)</span><span class="math notranslate nohighlight">\(
 where \)</span>\vec{v}$ is the velocity of the particle.
 Note that the components of this force are then given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d89160af-fe5a-4362-bacc-067878a4253f">
-<span class="eqno">(2)<a class="headerlink" href="#equation-d89160af-fe5a-4362-bacc-067878a4253f" title="Permalink to this equation">#</a></span>\[\begin{equation}
-    F_{dx} = |\vec{F}_d|\frac{v_x}{\sqrt{(v_x)^2 + (v_y)^2}}, \;\;\;\;\;
-    F_{dy} = |\vec{F}_d|\frac{v_y}{\sqrt{(v_x)^2 + (v_y)^2}}
+<div class="amsmath math notranslate nohighlight" id="equation-4060d9fd-45e0-44aa-af90-3d7199aac126">
+<span class="eqno">(2)<a class="headerlink" href="#equation-4060d9fd-45e0-44aa-af90-3d7199aac126" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    F_{dx} = -|\vec{F}_d|\frac{v_x}{\sqrt{(v_x)^2 + (v_y)^2}}, \;\;\;\;\;
+    F_{dy} = -|\vec{F}_d|\frac{v_y}{\sqrt{(v_x)^2 + (v_y)^2}}
 \end{equation}\]</div>
 <p>The net force on the particle will then be the sum of all four attractor forces and the drag force:
 $<span class="math notranslate nohighlight">\( \vec{F}_{net} = \displaystyle\sum_{i=1}^{4}\vec{F}_{ai} + \vec{F}_d = \vec{F}_{a1} + \vec{F}_{a2} + \vec{F}_{a3} + \vec{F}_{a4} + \vec{F}_d\)</span>$</p>
@@ -489,24 +489,24 @@ $<span class="math notranslate nohighlight">\( \vec{F}_{net} = \displaystyle\sum
 <h3>N2L and the Euler Algorithm<a class="headerlink" href="#n2l-and-the-euler-algorithm" title="Link to this heading">#</a></h3>
 <p>Let’s do a quick recap of simulating dynamics with the Euler algorithm (what we covered in module 7).</p>
 <p>Recall N2L:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8bb1410-6648-4e7b-bc5e-84b155a5653f">
-<span class="eqno">(3)<a class="headerlink" href="#equation-f8bb1410-6648-4e7b-bc5e-84b155a5653f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7a66756e-f92e-4386-a774-5d6233f3e4e8">
+<span class="eqno">(3)<a class="headerlink" href="#equation-7a66756e-f92e-4386-a774-5d6233f3e4e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \displaystyle \sum \vec{F} = m\frac{d^2\vec{r}}{dt^2}
 \end{equation}\]</div>
 <p>In the previous section of this notebook, I gave you some recipes for calculating the left-hand side of N2L for the 4AB.
 All that’s left to do to create a simulation is to use the net force to calculate the particle’s <span class="math notranslate nohighlight">\(\vec{a}\)</span>, use <span class="math notranslate nohighlight">\(\vec{a}\)</span> to update <span class="math notranslate nohighlight">\(\vec{v}\)</span>, and use <span class="math notranslate nohighlight">\(\vec{v}\)</span> to update the <span class="math notranslate nohighlight">\(\vec{r}\)</span>.</p>
 <p>In module 7 we talked all about the generalized Euler algorithm for a general second-order ODE, <em>i.e.</em> an equation that relates a function to its first and second derivatives.  You didn’t like how we did this in terms of new functions <span class="math notranslate nohighlight">\(u_1(t)\)</span> and <span class="math notranslate nohighlight">\(u_2(t)\)</span>.
 Now we can do it a little more straight-forwardly in terms of kinematic quantities: <span class="math notranslate nohighlight">\(\vec{a}\)</span>, <span class="math notranslate nohighlight">\(\vec{v}\)</span>, <span class="math notranslate nohighlight">\(\vec{r}\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1cfb4c6e-2997-4c9c-8bad-3f55a13029e0">
-<span class="eqno">(4)<a class="headerlink" href="#equation-1cfb4c6e-2997-4c9c-8bad-3f55a13029e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c8ec20ba-1308-4cc1-b77c-2fb9b9105ec6">
+<span class="eqno">(4)<a class="headerlink" href="#equation-c8ec20ba-1308-4cc1-b77c-2fb9b9105ec6" title="Permalink to this equation">#</a></span>\[\begin{align}
     \vec{r}(t)\\
     \vec{v}(t) &amp;= \frac{d\vec{r}}{dt}\\
     \vec{a}(t) &amp;= \frac{d\vec{v}}{dt}
 \end{align}\]</div>
 <p>Hopefully these quantities make more intuitive sense to you than <span class="math notranslate nohighlight">\(u_1\)</span> and <span class="math notranslate nohighlight">\(u_2\)</span>.</p>
 <p>To do a simulation, we turn these derivatives into difference equations.  Changing <span class="math notranslate nohighlight">\(dt\)</span> to <span class="math notranslate nohighlight">\(\Delta t\)</span> and doing some simple algebra yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75edd9e3-8c56-4fd8-aba0-846a18684a9d">
-<span class="eqno">(5)<a class="headerlink" href="#equation-75edd9e3-8c56-4fd8-aba0-846a18684a9d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-65de4096-2542-437e-bc1f-71781dff602b">
+<span class="eqno">(5)<a class="headerlink" href="#equation-65de4096-2542-437e-bc1f-71781dff602b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
   \Delta \vec{r} = \vec{v} \Delta t\\
   \Delta \vec{v} = \vec{a} \Delta t
 \end{eqnarray}\]</div>
@@ -578,11 +578,11 @@ Now we can do it a little more straight-forwardly in terms of kinematic quantiti
 <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
     <span class="n">fx</span><span class="p">,</span> <span class="n">fy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_attractors</span><span class="p">):</span>
-        <span class="n">attractor_force_mag</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># use the functions above to calculate the magnitude of the force from the ith attractor</span>
+        <span class="n">attractor_f_mag</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># use the functions above to calculate the magnitude of the force from the ith attractor</span>
         <span class="n">fx</span> <span class="o">=</span> <span class="n">fx</span> <span class="o">+</span> <span class="mi">0</span>              <span class="c1"># change the 0 to the x component of the ith attractor force</span>
         <span class="n">fy</span> <span class="o">=</span> <span class="n">fy</span> <span class="o">+</span> <span class="mi">0</span>              <span class="c1"># change the 0 to the y component of the ith attractor force</span>
 
-    <span class="n">drag_force_mag</span> <span class="o">=</span> <span class="mi">0</span>           <span class="c1"># change the 0 to the magnitude of the drag force</span>
+    <span class="n">drag_f_mag</span> <span class="o">=</span> <span class="mi">0</span>               <span class="c1"># change the 0 to the magnitude of the drag force</span>
     <span class="n">fx</span> <span class="o">=</span> <span class="n">fx</span> <span class="o">+</span> <span class="mi">0</span>                  <span class="c1"># change the 0 to the x component of the drag force </span>
     <span class="n">fy</span> <span class="o">=</span> <span class="n">fy</span> <span class="o">+</span> <span class="mi">0</span>                  <span class="c1"># change the 0 to the y component of the drag force</span>
 
@@ -610,7 +610,7 @@ Now we can do it a little more straight-forwardly in terms of kinematic quantiti
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/80f5f3a13302e53304dbfa6994388667efb772e6fb704053b10d95fa0a4e5c8f.png" src="../_images/80f5f3a13302e53304dbfa6994388667efb772e6fb704053b10d95fa0a4e5c8f.png" />
+<img alt="../_images/ecaaa3110d3dcbf465a008ddb3ed9ce47f869e31021ffc455455bda7e1d2a7e8.png" src="../_images/ecaaa3110d3dcbf465a008ddb3ed9ce47f869e31021ffc455455bda7e1d2a7e8.png" />
 </div>
 </div>
 <p>If you got the code above working, you should see a pretty wild trajectory!  Note that the initial position of the particle is randomly generated.  Rerun the simulation a few times.</p>

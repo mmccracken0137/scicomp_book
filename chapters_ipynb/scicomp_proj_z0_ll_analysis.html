@@ -568,39 +568,39 @@ Though the operations of accelerators and detectors are very complicated, the ba
 <p>In the previous section, we discussed how detectors tell us the charge, energy, and momentum of the particles that pass through it.  In almost all cases, these particles are <em>relativistic</em> – their speeds are close enough to <span class="math notranslate nohighlight">\(c\)</span> that we need to take into account relativistic effects!
 (One way to think about the term “HEP” is that the detected particles have high energy compared to their rest-mass energy.)</p>
 <p>Any modern physics textbook (see “Other resources” below) will have a chapter on relativistic energy and momentum; here we review the basics that you’ll need to do the analysis below.  Recall that for a particle with rest mass <span class="math notranslate nohighlight">\(m\)</span> and velocity <span class="math notranslate nohighlight">\(\vec{u}\)</span>, relativistic energy and momentum are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0db18a1a-984e-45ac-9046-29601ea89d75">
-<span class="eqno">(6)<a class="headerlink" href="#equation-0db18a1a-984e-45ac-9046-29601ea89d75" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-984ec934-679f-4834-8644-6b58f6721032">
+<span class="eqno">(6)<a class="headerlink" href="#equation-984ec934-679f-4834-8644-6b58f6721032" title="Permalink to this equation">#</a></span>\[\begin{align}
   \vec{p} &amp;= \gamma m \vec{u} = \gamma m (u_x \hat{\imath} + u_y \hat{\jmath} + u_z \hat{k}) \\
   E &amp;= \gamma m c^2
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\gamma = \left(1 - u^2/c^2\right)^{-\frac{1}{2}}\)</span> is commonly called the Lorentz factor.</p>
 <p>The detector might also measure the speed of the particle by considering its path through the detector and the time it takes to traverse this path.</p>
 <p>For a free particle (one traveling in the absence of a potential) the total energy is composed of the kinetic and rest-mass energy terms:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6ba45fa-51ba-4eed-b5da-1722d74dbfe1">
-<span class="eqno">(7)<a class="headerlink" href="#equation-b6ba45fa-51ba-4eed-b5da-1722d74dbfe1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-32c32698-d8e6-4256-80db-426f7ed593f8">
+<span class="eqno">(7)<a class="headerlink" href="#equation-32c32698-d8e6-4256-80db-426f7ed593f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
   E^2 = p^2c^2 + m^2 c^4.
 \end{equation}\]</div>
 <p>We can rearrange this equation to yield:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b416703b-1cc2-405a-9328-82cd49c1b475">
-<span class="eqno">(8)<a class="headerlink" href="#equation-b416703b-1cc2-405a-9328-82cd49c1b475" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc3cd2b6-bf8e-46a8-aa5e-f2af8730dd76">
+<span class="eqno">(8)<a class="headerlink" href="#equation-fc3cd2b6-bf8e-46a8-aa5e-f2af8730dd76" title="Permalink to this equation">#</a></span>\[\begin{equation}
   m = \frac{1}{c^2}\sqrt{E^2 - p^2 c^2}.
 \end{equation}\]</div>
 <p>So if the detector measures the energy and momentum associated with a track, we can extract the mass of the particle that created the track.  Considering this mass and the charge (from the direction of the track’s curvature), we can identify the particle.
 As mentioned above, you’ll be working with two datasets: one with electron/positron pairs, and one with muon/anti-muon pairs.</p>
 <p>Though relativistic energy and momentum differ from their classical forms, these quantities still appear in conservation equations (independently).  Consider a process in which an unstable initial-state particle (<span class="math notranslate nohighlight">\(P\)</span>) decays into two particles <span class="math notranslate nohighlight">\(\ell_1\)</span> and <span class="math notranslate nohighlight">\(\ell_2\)</span>.  We write this decay reaction as <span class="math notranslate nohighlight">\(P \rightarrow \ell_1 \ell_2\)</span>.
 Conservation of energy forces the initial- and final-state energies to be equal,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab1122e6-b674-4a1c-9834-8daf5f354409">
-<span class="eqno">(9)<a class="headerlink" href="#equation-ab1122e6-b674-4a1c-9834-8daf5f354409" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1c1bb37-170c-4e1e-b0cf-1756f40320f8">
+<span class="eqno">(9)<a class="headerlink" href="#equation-a1c1bb37-170c-4e1e-b0cf-1756f40320f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
   E_{i} = E_{1} + E_{2} \implies E_{i}^2 = E_{1}^{2} + E_{2}^{2} + 2 E_{1}E_{2}
 \end{equation}\]</div>
 <p>and conservation of momentum foces the initial- and final-state momenta to be equal,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf1fabdf-fb4c-4970-ab79-f08254de8f2c">
-<span class="eqno">(10)<a class="headerlink" href="#equation-bf1fabdf-fb4c-4970-ab79-f08254de8f2c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9084dbf7-f779-4122-b059-6db0911c0ca2">
+<span class="eqno">(10)<a class="headerlink" href="#equation-9084dbf7-f779-4122-b059-6db0911c0ca2" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \vec{p}_{i} = \vec{p}_{1} + \vec{p}_{2} \implies p_{i}^{2} = p_{iz}^{2} +p_{iy}^{2} +p_{iz}^{2} = p_{1}^{2} + p_{2}^{2} + 2\vec{p}_{1}\cdot \vec{p}_{2}.
 \end{equation}\]</div>
 <p>Combining all of this, we can write the mass of the parent particle as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80d62cbf-b984-4d65-9b31-e4f84c695d85">
-<span class="eqno">(11)<a class="headerlink" href="#equation-80d62cbf-b984-4d65-9b31-e4f84c695d85" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8fcc9fa9-4e3c-456a-8b43-567d3b0d6e24">
+<span class="eqno">(11)<a class="headerlink" href="#equation-8fcc9fa9-4e3c-456a-8b43-567d3b0d6e24" title="Permalink to this equation">#</a></span>\[\begin{equation}
   m_P = \frac{1}{c^2}\sqrt{E_{i}^{2} - p_{i}^{2}c^2} = \; ... \; = \frac{1}{c^2} \sqrt{E_{i}^{2} - c^2 \left( p_{ix}^{2} + p_{iy}^{2} + {p}_{iz}^{2}\right)}
 \end{equation}\]</div>
 <p>This expression is sometimes referred to as the <em>invariant mass</em> of particles 1 and 2.
@@ -770,8 +770,8 @@ If you’re interested in a more compact way to write all of this, you can read 
 </div>
 </div>
 <p>Now we can define the function that we want to fit to the data.  We’ll go with a Gaussian because I happen to know that a Gaussian was used to generate this data.  Recall that a Gaussian has the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d029d317-f0bc-4df9-a7e5-53aeda4da2b3">
-<span class="eqno">(12)<a class="headerlink" href="#equation-d029d317-f0bc-4df9-a7e5-53aeda4da2b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2129819d-4a4a-46aa-afd5-2a786272202e">
+<span class="eqno">(12)<a class="headerlink" href="#equation-2129819d-4a4a-46aa-afd5-2a786272202e" title="Permalink to this equation">#</a></span>\[\begin{equation}
   g(x) = A \exp\left( -\frac{(x-\mu)^2}{2\sigma^2}\right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean and <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the distribution.</p>
