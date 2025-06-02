@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_proj_potential_wells';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Di-lepton mass spectrum from the Compact Muon Solenoid" href="scicomp_proj_z0_ll_analysis.html" />
+    <link rel="next" title="Data analysis with Pandas: Monte Carlo’s Pizzeria" href="scicomp_proj_mcpizzeria.html" />
     <link rel="prev" title="12. Python on microcontrollers with circuitpython" href="scicomp_11_circuitpython.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,6 +194,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Projects</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Simulating trajectories with multiple attractors: A chaotic system?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scicomp_proj_mcpizzeria.html">Data analysis with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>: Monte Carlo’s Pizzeria</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scicomp_proj_z0_ll_analysis.html">Di-lepton mass spectrum from the Compact Muon Solenoid</a></li>
 </ul>
 
@@ -465,8 +466,8 @@
 $<span class="math notranslate nohighlight">\( |\vec{F}_a| = \frac{1}{\left( (a_x - x)^2 + (a_y - y)^2 + d^2\right)}\)</span><span class="math notranslate nohighlight">\(
 The \)</span>d^2<span class="math notranslate nohighlight">\( in the denominator is there to prevent this force from BLOWING UP if the particle gets too close to the attractor.
 Without going through too much math, the \)</span>x<span class="math notranslate nohighlight">\( and \)</span>y$ components of this force are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e8096f0-d8d4-499f-9be4-cbc40e74c280">
-<span class="eqno">(1)<a class="headerlink" href="#equation-7e8096f0-d8d4-499f-9be4-cbc40e74c280" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3e6ea692-4cb5-4d8b-993c-83a3af074a46">
+<span class="eqno">(1)<a class="headerlink" href="#equation-3e6ea692-4cb5-4d8b-993c-83a3af074a46" title="Permalink to this equation">#</a></span>\[\begin{equation}
     F_{ax} = |\vec{F}_a|\frac{a_x - x}{\sqrt{(x-a_x)^2 + (y-a_y)^2}}, \;\;\;\;\;
     F_{ay} = |\vec{F}_a|\frac{a_y - y}{\sqrt{(x-a_x)^2 + (y-a_y)^2}}
 \end{equation}\]</div>
@@ -474,8 +475,8 @@ Without going through too much math, the \)</span>x<span class="math notranslate
 $<span class="math notranslate nohighlight">\(\vec{F}_d = -(0.05)\vec{v},\)</span><span class="math notranslate nohighlight">\(
 where \)</span>\vec{v}$ is the velocity of the particle.
 Note that the components of this force are then given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4060d9fd-45e0-44aa-af90-3d7199aac126">
-<span class="eqno">(2)<a class="headerlink" href="#equation-4060d9fd-45e0-44aa-af90-3d7199aac126" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1d493002-d88b-4f77-8201-19210db2e259">
+<span class="eqno">(2)<a class="headerlink" href="#equation-1d493002-d88b-4f77-8201-19210db2e259" title="Permalink to this equation">#</a></span>\[\begin{equation}
     F_{dx} = -|\vec{F}_d|\frac{v_x}{\sqrt{(v_x)^2 + (v_y)^2}}, \;\;\;\;\;
     F_{dy} = -|\vec{F}_d|\frac{v_y}{\sqrt{(v_x)^2 + (v_y)^2}}
 \end{equation}\]</div>
@@ -489,24 +490,24 @@ $<span class="math notranslate nohighlight">\( \vec{F}_{net} = \displaystyle\sum
 <h3>N2L and the Euler Algorithm<a class="headerlink" href="#n2l-and-the-euler-algorithm" title="Link to this heading">#</a></h3>
 <p>Let’s do a quick recap of simulating dynamics with the Euler algorithm (what we covered in module 7).</p>
 <p>Recall N2L:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a66756e-f92e-4386-a774-5d6233f3e4e8">
-<span class="eqno">(3)<a class="headerlink" href="#equation-7a66756e-f92e-4386-a774-5d6233f3e4e8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6aded4bb-6967-4af4-9242-45c34529f6e7">
+<span class="eqno">(3)<a class="headerlink" href="#equation-6aded4bb-6967-4af4-9242-45c34529f6e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \displaystyle \sum \vec{F} = m\frac{d^2\vec{r}}{dt^2}
 \end{equation}\]</div>
 <p>In the previous section of this notebook, I gave you some recipes for calculating the left-hand side of N2L for the 4AB.
 All that’s left to do to create a simulation is to use the net force to calculate the particle’s <span class="math notranslate nohighlight">\(\vec{a}\)</span>, use <span class="math notranslate nohighlight">\(\vec{a}\)</span> to update <span class="math notranslate nohighlight">\(\vec{v}\)</span>, and use <span class="math notranslate nohighlight">\(\vec{v}\)</span> to update the <span class="math notranslate nohighlight">\(\vec{r}\)</span>.</p>
 <p>In module 7 we talked all about the generalized Euler algorithm for a general second-order ODE, <em>i.e.</em> an equation that relates a function to its first and second derivatives.  You didn’t like how we did this in terms of new functions <span class="math notranslate nohighlight">\(u_1(t)\)</span> and <span class="math notranslate nohighlight">\(u_2(t)\)</span>.
 Now we can do it a little more straight-forwardly in terms of kinematic quantities: <span class="math notranslate nohighlight">\(\vec{a}\)</span>, <span class="math notranslate nohighlight">\(\vec{v}\)</span>, <span class="math notranslate nohighlight">\(\vec{r}\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8ec20ba-1308-4cc1-b77c-2fb9b9105ec6">
-<span class="eqno">(4)<a class="headerlink" href="#equation-c8ec20ba-1308-4cc1-b77c-2fb9b9105ec6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1b3e9efa-e7af-49d1-b4ca-c0363be580a0">
+<span class="eqno">(4)<a class="headerlink" href="#equation-1b3e9efa-e7af-49d1-b4ca-c0363be580a0" title="Permalink to this equation">#</a></span>\[\begin{align}
     \vec{r}(t)\\
     \vec{v}(t) &amp;= \frac{d\vec{r}}{dt}\\
     \vec{a}(t) &amp;= \frac{d\vec{v}}{dt}
 \end{align}\]</div>
 <p>Hopefully these quantities make more intuitive sense to you than <span class="math notranslate nohighlight">\(u_1\)</span> and <span class="math notranslate nohighlight">\(u_2\)</span>.</p>
 <p>To do a simulation, we turn these derivatives into difference equations.  Changing <span class="math notranslate nohighlight">\(dt\)</span> to <span class="math notranslate nohighlight">\(\Delta t\)</span> and doing some simple algebra yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-65de4096-2542-437e-bc1f-71781dff602b">
-<span class="eqno">(5)<a class="headerlink" href="#equation-65de4096-2542-437e-bc1f-71781dff602b" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-fdcd8e36-3411-4597-8724-34e4b825f21a">
+<span class="eqno">(5)<a class="headerlink" href="#equation-fdcd8e36-3411-4597-8724-34e4b825f21a" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
   \Delta \vec{r} = \vec{v} \Delta t\\
   \Delta \vec{v} = \vec{a} \Delta t
 \end{eqnarray}\]</div>
@@ -610,7 +611,7 @@ Now we can do it a little more straight-forwardly in terms of kinematic quantiti
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ecaaa3110d3dcbf465a008ddb3ed9ce47f869e31021ffc455455bda7e1d2a7e8.png" src="../_images/ecaaa3110d3dcbf465a008ddb3ed9ce47f869e31021ffc455455bda7e1d2a7e8.png" />
+<img alt="../_images/d481bc7097e757e3233186723698b695eb3c98b44d12ded181d6028643cffa56.png" src="../_images/d481bc7097e757e3233186723698b695eb3c98b44d12ded181d6028643cffa56.png" />
 </div>
 </div>
 <p>If you got the code above working, you should see a pretty wild trajectory!  Note that the initial position of the particle is randomly generated.  Rerun the simulation a few times.</p>
@@ -677,11 +678,11 @@ Now we can do it a little more straight-forwardly in terms of kinematic quantiti
       </div>
     </a>
     <a class="right-next"
-       href="scicomp_proj_z0_ll_analysis.html"
+       href="scicomp_proj_mcpizzeria.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Di-lepton mass spectrum from the Compact Muon Solenoid</p>
+        <p class="prev-next-title">Data analysis with <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>: Monte Carlo’s Pizzeria</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

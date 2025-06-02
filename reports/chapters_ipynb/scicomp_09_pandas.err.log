@@ -28,7 +28,7 @@ print(menu_ser.append(new_ser))
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAttributeError[0m                            Traceback (most recent call last)
-[0;32m/var/folders/6s/cpr1t_711kj905fk6qjplyrw0000gr/T/ipykernel_53248/2769499521.py[0m in [0;36m?[0;34m()[0m
+[0;32m/var/folders/6s/cpr1t_711kj905fk6qjplyrw0000gr/T/ipykernel_80476/2769499521.py[0m in [0;36m?[0;34m()[0m
 [1;32m      1[0m [0mnew_dishes[0m [0;34m=[0m [0;34m[[0m[0;34m'quesadilla'[0m[0;34m,[0m [0;34m'jollof rice'[0m[0;34m,[0m [0;34m'grilled chili peppers'[0m[0;34m,[0m [0;34m'ma la fish'[0m[0;34m,[0m [0;34m'schnitzel'[0m[0;34m,[0m [0;34m'empanadas'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [1;32m      2[0m [0mnew_ser[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mSeries[0m[0;34m([0m[0mnew_dishes[0m[0;34m,[0m [0mname[0m[0;34m=[0m[0;34m'dish'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      3[0m [0mprint[0m[0;34m([0m[0mnew_ser[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
