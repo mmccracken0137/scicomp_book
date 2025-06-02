@@ -28,6 +28,7 @@ parts:
   - caption: "IV. Projects"
     chapters:
     - file: chapters_ipynb/scicomp_proj_potential_wells
+    - file: chapters_ipynb/scicomp_proj_mcpizzeria
     - file: chapters_ipynb/scicomp_proj_z0_ll_analysis
 
 # chapters:
