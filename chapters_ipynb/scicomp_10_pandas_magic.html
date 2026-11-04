@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -45,7 +45,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -58,8 +58,6 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_10_pandas_magic';</script>
@@ -166,7 +164,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome!
+                    Introduction to Computation for the Physical Sciences
                 </a>
             </li>
         </ul>
@@ -519,8 +517,8 @@
 <p>On 12 Dec 2023 Netflix <a class="reference external" href="https://about.netflix.com/en/news/what-we-watched-a-netflix-engagement-report">broke its silence</a> about the popularity of content on its platform between.  Prior to this, Netflix would rank its top performers, but wouldn’t release any absolute data on how much people watched each show/movie what it calls “engagement”.  The report that Netflix released gives viewership information for titles between January and June of 2023.  A <code class="docutils literal notranslate"><span class="pre">csv</span></code> file of this data exists in the <code class="docutils literal notranslate"><span class="pre">data_files/</span></code> directory.  Let’s load it up!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">netflix_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data_files/netflix_engagement_report_2023jan-jun.csv&#39;</span><span class="p">)</span>
 </pre></div>
@@ -762,7 +760,7 @@
 <p>Let’s begin by writing a function which converts a single string such as this to an integer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convert_bad_number</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_bad_number</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># replaces commas with nothing</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e6</span>      <span class="c1"># unit conversion, divides by 1 million</span>
     <span class="k">return</span> <span class="n">n</span>
@@ -916,9 +914,9 @@
 <p>I’m going to use the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module to speed things up.  If you haven’t worked with <code class="docutils literal notranslate"><span class="pre">datetime</span></code> before, that’s fine.  Read through the function and see if you can figure how it works.  Note that we have to build in a conditional for those titles that don’t have a release date.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
 
-<span class="k">def</span> <span class="nf">calc_age</span><span class="p">(</span><span class="n">release_date</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_age</span><span class="p">(</span><span class="n">release_date</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">release_date</span><span class="p">):</span> <span class="c1"># if the release date is NaN</span>
         <span class="k">return</span> <span class="kc">None</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1189,7 +1187,7 @@
 <p>Let’s write a function that grabs all of the stuff before the colon (“:”) in a title an puts it in a new column called <code class="docutils literal notranslate"><span class="pre">property</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">property</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">property</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="n">prop</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">prop</span>
 
@@ -1339,7 +1337,7 @@
 <p>Below is a function that determines whether ‘Season’ or ‘Series’ appears in a string.  Write some code that applies this function to the titles in the dataframe to produce a new column called ‘series?’.  Later we’ll use this to approximate whether each title is more like a TV show or a movie.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">season_in_title</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">season_in_title</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="k">if</span> <span class="s1">&#39;Season&#39;</span> <span class="ow">in</span> <span class="n">t</span> <span class="ow">or</span> <span class="s1">&#39;Series&#39;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1598,7 +1596,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">roman_chars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abcdcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890!.,;:?&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">get_non_roman_chars</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_non_roman_chars</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="n">non_roman_chars</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">s_arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s_arr</span><span class="p">:</span>
@@ -2819,18 +2817,18 @@ Name: megahours_viewed, dtype: float64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File ~/opt/anaconda3/lib/python3.12/site-packages/pandas/core/indexes/base.py:3805,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3804</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3805</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3806</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="nn">File ~/opt/anaconda3/lib/python3.12/site-packages/pandas/core/indexes/base.py:3812,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3811</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3812</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3813</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
-<span class="nn">File index.pyx:167,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+<span class="nn">File pandas/_libs/index.pyx:167,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
 
-<span class="nn">File index.pyx:196,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+<span class="nn">File pandas/_libs/index.pyx:196,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
 
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7081,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7088,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
 
-<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7089,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
+<span class="nn">File pandas/_libs/hashtable_class_helper.pxi:7096,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
 
 <span class="ne">KeyError</span>: &#39;series?&#39;
 
@@ -2841,25 +2839,25 @@ Name: megahours_viewed, dtype: float64
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">series_df</span> <span class="o">=</span> <span class="n">netflix_df</span><span class="p">[</span><span class="n">netflix_df</span><span class="p">[</span><span class="s1">&#39;series?&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">display</span><span class="p">(</span><span class="n">series_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.12/site-packages/pandas/core/frame.py:4102,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4100</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">4101</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4102</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4103</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">4104</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+<span class="nn">File ~/opt/anaconda3/lib/python3.12/site-packages/pandas/core/frame.py:4113,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4111</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4112</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4113</span> <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4114</span> <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">4115</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
 
-<span class="nn">File ~/opt/anaconda3/lib/python3.12/site-packages/pandas/core/indexes/base.py:3812,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3808</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3809</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3810</span>     <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3811</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3812</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">3813</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3815</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3816</span>     <span class="c1">#  the TypeError.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3817</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="nn">File ~/opt/anaconda3/lib/python3.12/site-packages/pandas/core/indexes/base.py:3819,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3814</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3815</span>         <span class="nb">isinstance</span><span class="p">(</span><span class="n">casted_key</span><span class="p">,</span> <span class="n">abc</span><span class="o">.</span><span class="n">Iterable</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3816</span>         <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3817</span>     <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3818</span>         <span class="k">raise</span> <span class="n">InvalidIndexError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3819</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3820</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3821</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3822</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3823</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3824</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
 <span class="ne">KeyError</span>: &#39;series?&#39;
 </pre></div>
@@ -2937,14 +2935,14 @@ Name: megahours_viewed, dtype: float64
 <p>I know what you’re thinking: the above examples with Netflix data were really, really, really great, but I’m trying to be a scientist over here!  How can these skills help me do science?</p>
 <p>Let’s turn our attention to a large (but not nearly the whole thing) dataset from the <a class="reference external" href="https://en.wikipedia.org/wiki/Sloan_Digital_Sky_Survey">Sloan Digital Sky Survey</a> (SDSS).  Please click that link to read through the SDSS Wikipedia entry – it is an amazing instrument that has led to some excellent science!  The Tl;dr is that SDSS is a telescope in New Mexico that has taken spectra of over <span class="math notranslate nohighlight">\(10^6\)</span> astronomical objects (stars, galaxies, quasars).  You’re now going to analyze some of that data!</p>
 <p>A quick aside about how we got the data you’re about to analyze.  SDSS makes all of its data available to the public.  Because the data is so voluminous (many, many objects) and complicated (position information, spectra, optical images) there is a sophisticated (SQL) web interface called SkyServer that is used to select and download subsets of the data.  You can find SkyServer <a class="reference external" href="https://skyserver.sdss.org/dr16/en/tools/search/sql.aspx">here</a>. The SQL codee that I used to generate the dataset below is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">TOP</span> <span class="mi">100000</span>
-   <span class="n">s</span><span class="o">.</span><span class="n">specobjid</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">class</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">z</span> <span class="k">as</span> <span class="n">redshift</span><span class="p">,</span>
-   <span class="n">s</span><span class="o">.</span><span class="n">plate</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">mjd</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">fiberid</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">dec</span><span class="p">,</span>
-   <span class="n">s</span><span class="o">.</span><span class="n">fiberid</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">zErr</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">zWarning</span><span class="p">,</span>
-   <span class="n">s</span><span class="o">.</span><span class="n">subClass</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">velDisp</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">velDispErr</span><span class="p">,</span>
-   <span class="n">s</span><span class="o">.</span><span class="n">spectroFlux_u</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">spectroFlux_g</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">spectroFlux_r</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">spectroFlux_i</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">spectroFlux_z</span><span class="p">,</span>
-   <span class="n">s</span><span class="o">.</span><span class="n">elodieObject</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">elodieSpType</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">elodieBV</span>
-<span class="n">FROM</span> <span class="n">SpecObj</span> <span class="k">as</span> <span class="n">s</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT TOP 100000
+   s.specobjid, s.class, s.z as redshift,
+   s.plate, s.mjd, s.fiberid, s.ra, s.dec,
+   s.fiberid, s.zErr, s.zWarning,
+   s.subClass, s.velDisp, s.velDispErr,
+   s.spectroFlux_u, s.spectroFlux_g, s.spectroFlux_r, s.spectroFlux_i, s.spectroFlux_z,
+   s.elodieObject, s.elodieSpType, s.elodieBV
+FROM SpecObj as s
 </pre></div>
 </div>
 <p>You do <strong>not</strong> need to know any of this, but I’m including it here for completeness.</p>
@@ -2991,7 +2989,7 @@ Name: megahours_viewed, dtype: float64
 
 <span class="n">sdss_df</span> <span class="o">=</span> <span class="n">sdss_df</span><span class="p">[</span><span class="n">sdss_df</span><span class="p">[</span><span class="s1">&#39;zWarning&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># this removes objects with some suspicious features</span>
 
-<span class="k">def</span> <span class="nf">negative_z</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">negative_z</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>

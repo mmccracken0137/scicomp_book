@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -45,7 +45,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -58,8 +58,6 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_04_datavis';</script>
@@ -166,7 +164,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome!
+                    Introduction to Computation for the Physical Sciences
                 </a>
             </li>
         </ul>
@@ -530,8 +528,8 @@ Examples would be like US household incomes from a census, or students’ grades
 <p>Histograms are very useful, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> has quite a bit of built-in histogram capability that will allow you to make professional plots easily!  Let’s take it for a test drive!  In addition to <code class="docutils literal notranslate"><span class="pre">numpy</span></code> we’ll need to import <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>, the core plotting module.  Let’s work with the <code class="docutils literal notranslate"><span class="pre">dice_data.txt</span></code> file from last lesson’s homework assignment.  We’ll make a simple histogram for total dice value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">infile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/dice_data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">total_rolls</span> <span class="o">=</span> <span class="p">[]</span>
@@ -557,7 +555,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/063d3f13e758ef84b633a33720d500f9d1229b78e2ee414ea3781f2ab8c5cf63.png" src="../_images/063d3f13e758ef84b633a33720d500f9d1229b78e2ee414ea3781f2ab8c5cf63.png" />
+<img alt="../_images/f565acf566eeb2ac25bfd8b0c8f3276778a2f3a1228e9c0aa9a826e6e192738c.png" src="../_images/f565acf566eeb2ac25bfd8b0c8f3276778a2f3a1228e9c0aa9a826e6e192738c.png" />
 </div>
 </div>
 <p>I’ll walk you through each piece of the code above, but there are two things to mention explicitly.</p>
@@ -594,7 +592,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c6ddd5ad6df03188186be818af33e39a5f599ec3c1cfb10e37fc56bc634bf36a.png" src="../_images/c6ddd5ad6df03188186be818af33e39a5f599ec3c1cfb10e37fc56bc634bf36a.png" />
+<img alt="../_images/ce6ca6c29e8a67e222867accbe0392ec3657876e9127b88562ab3c400f6ac5f8.png" src="../_images/ce6ca6c29e8a67e222867accbe0392ec3657876e9127b88562ab3c400f6ac5f8.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -629,7 +627,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5183bfb9a02d88ac1e5658b79aaff94d1f21be29f88da9b30a242a1148676fe7.png" src="../_images/5183bfb9a02d88ac1e5658b79aaff94d1f21be29f88da9b30a242a1148676fe7.png" />
+<img alt="../_images/bc7415323d704d97e1d5482d1542c02740683023fb9704182ee98494e2614973.png" src="../_images/bc7415323d704d97e1d5482d1542c02740683023fb9704182ee98494e2614973.png" />
 </div>
 </div>
 <p>Holy cats, that looks good!  It’s important to point out that all of the business of making this histogram happens in the last seven (!) lines of code of the cell above.  WOW!</p>
@@ -678,14 +676,14 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f8cc640f3ede6b5837ca30acfb08b942f7952430d2fc96677753a537306b2a75.png" src="../_images/f8cc640f3ede6b5837ca30acfb08b942f7952430d2fc96677753a537306b2a75.png" />
+<img alt="../_images/8bb8d17a694d288613dd55ff950af242bbd534916aaad3f5fa0ac3c06321aa16.png" src="../_images/8bb8d17a694d288613dd55ff950af242bbd534916aaad3f5fa0ac3c06321aa16.png" />
 </div>
 </div>
 <p>Very interesting!  This is an example of a <strong>time-series</strong> visualization or time-series data – we’re seeing the variation in a quantity versus time.  Change the code above to look at data from other US cities and see if you can formulate some demographic hypotheses!</p>
 <p>The above should convince you how important visualization is/can be in the process of doing modern science.  To figure out the programming structures that allow us to do this, let’s turn back to our parabolic trajectory data from our last lesson.  The block of code below is very similar to a bit of the previous notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">in_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data_files/parab_t_and_y.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">t_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -698,7 +696,7 @@ Examples would be like US household incomes from a census, or students’ grades
     <span class="n">line</span> <span class="o">=</span> <span class="n">in_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
     
 <span class="c1"># now comes the graphing code!</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">t_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_list</span><span class="p">)</span>         
 <span class="n">y_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_list</span><span class="p">)</span>         
 
@@ -711,7 +709,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f84fad5fbf51c3390aa34341a372fa3fc39eebe0a599ab45a2050ea0fb0cd1ed.png" src="../_images/f84fad5fbf51c3390aa34341a372fa3fc39eebe0a599ab45a2050ea0fb0cd1ed.png" />
+<img alt="../_images/8dd6b79611d610fdb76bb08d7ae51644ecc84df5571333e38d9080295687d53d.png" src="../_images/8dd6b79611d610fdb76bb08d7ae51644ecc84df5571333e38d9080295687d53d.png" />
 </div>
 </div>
 <p>So, that’s how you make a simple plot!  The independent variable quantities are represented by a numpy array (<code class="docutils literal notranslate"><span class="pre">t_arr</span></code>) and the dependent variable quantities are represented by another numpy array (<code class="docutils literal notranslate"><span class="pre">y_arr</span></code>).  The default formatting of the graph is pretty good looking.</p>
@@ -721,10 +719,10 @@ Examples would be like US household incomes from a census, or students’ grades
 <p>I know what you’re thinking: “Wow, this is great and life affirming, but what if I just want to graph a function… this seems like overkill.”  Let me show you a basic way to graph a function(s), and then you can decide for yourself.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">function2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">function2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 <span class="n">xlist</span><span class="p">,</span> <span class="n">f1list</span><span class="p">,</span> <span class="n">f2list</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
@@ -757,7 +755,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0ee439843410a510d605981bf07166adfb33e785d717432a0de21daf5e0c2e71.png" src="../_images/0ee439843410a510d605981bf07166adfb33e785d717432a0de21daf5e0c2e71.png" />
+<img alt="../_images/6becfabd255935bf8293b01d5ee7479ebb466e25acdf2054daf47a718b480e92.png" src="../_images/6becfabd255935bf8293b01d5ee7479ebb466e25acdf2054daf47a718b480e92.png" />
 </div>
 </div>
 <p>Yowza, that looks professional.  So, what’s going on here is that we generate arrays of x and y values that <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> will then graph.  We can’t just tell <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> what the function is and then ask it to make a graph.  This might sound like an extra step, but it gives us a lot of control that we might want to exercise later.</p>
@@ -786,7 +784,7 @@ Examples would be like US household incomes from a census, or students’ grades
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/442656a3c9c007c780062e6d49cc6795882fbf22e453d83b2eb0931cba0dc7c0.png" src="../_images/442656a3c9c007c780062e6d49cc6795882fbf22e453d83b2eb0931cba0dc7c0.png" />
+<img alt="../_images/fb66af8be37ac409f7090be3f44bc820f8faba8cbff6f75657e07afc060d34df.png" src="../_images/fb66af8be37ac409f7090be3f44bc820f8faba8cbff6f75657e07afc060d34df.png" />
 </div>
 </div>
 </section>
@@ -833,7 +831,7 @@ In a bivariate visualization of discrete data points this is typically done with
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2037a22ad2d6704516f33fb36bb573f8883d88b7a67d6a923bcade3302e9a996.png" src="../_images/2037a22ad2d6704516f33fb36bb573f8883d88b7a67d6a923bcade3302e9a996.png" />
+<img alt="../_images/584c7f6c161050a24d4d3297300af4b53c3f9bc8bfbbc4c3f0fc3ad5ca8475aa.png" src="../_images/584c7f6c161050a24d4d3297300af4b53c3f9bc8bfbbc4c3f0fc3ad5ca8475aa.png" />
 </div>
 </div>
 <p>The crosses in the plot above are NOT just markers!  There is information contained in the lengths of the error bars.  We’ll talk about how we use that information in the next lesson.</p>
@@ -861,7 +859,7 @@ In a bivariate visualization of discrete data points this is typically done with
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/21653a2c17f7c3d55bdd08921b4f08239d02466cf041da2cd71d4fa9bdb78768.png" src="../_images/21653a2c17f7c3d55bdd08921b4f08239d02466cf041da2cd71d4fa9bdb78768.png" />
+<img alt="../_images/debe6925481127341567a624660c405dfdf0c8d25e694987f96bb57565b3735e.png" src="../_images/debe6925481127341567a624660c405dfdf0c8d25e694987f96bb57565b3735e.png" />
 </div>
 </div>
 <p>The data here is meaningless, but one of your future projects will be to make a scatter plot that displays 3 or more dimensions of information.</p>

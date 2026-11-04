@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -45,7 +45,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -58,8 +58,6 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_05_fitting';</script>
@@ -166,7 +164,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome!
+                    Introduction to Computation for the Physical Sciences
                 </a>
             </li>
         </ul>
@@ -500,8 +498,8 @@
 <p>In Lesson 4 we discussed how data visualization can help help us to turn data into understanding.  “Understanding” in this sense means something like a <em>qualitative understanding</em> of the data.</p>
 <p>Today, we’ll look at a method for turning data into quantitative results: fitting functions to data, sometimes called “model optimization”.  This is an indispensible skill/technique in the physical sciences, and it’s something that you’ve probably done many times using Excel or Logger Pro.</p>
 <p>Here is the basic idea: Often in the physical sciences, we have data that we believe should be described by some quantitative model.  For example, the data might be vertical position <em>vs</em> time measurements for a projectile, and we might assume that this data is described by one of the kinematic equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39ea941c-9e5c-4dba-bf51-cb38e978886a">
-<span class="eqno">(6.1)<a class="headerlink" href="#equation-39ea941c-9e5c-4dba-bf51-cb38e978886a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-653c5cf9-0ed5-463c-af98-c804e984df21">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-653c5cf9-0ed5-463c-af98-c804e984df21" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y(t) = \frac{1}{2}a_{y}\;t^2 + v_{0y}\;t + y_0
 \end{equation}\]</div>
 <p>This function is our <em>model</em> and it is typically the consequence of some underlying physical law (in this case, N2L).  The goal of <em>fitting the model to the data</em> is to determine the values of the physical parameters in the model that make the model <em>best characterize the data</em>.  For the kinematic model above, this means determining the optimal values of <span class="math notranslate nohighlight">\(a_y\)</span>, <span class="math notranslate nohighlight">\(v_{0y}\)</span>, and <span class="math notranslate nohighlight">\(y_0\)</span>.  We call these the “fit parameters” because they are the quantities that we will vary in order to fit the model to the data.</p>
@@ -513,16 +511,16 @@ y(t) = \frac{1}{2}a_{y}\;t^2 + v_{0y}\;t + y_0
 <section id="fitting-bivariate-data-the-basics">
 <h2><span class="section-number">6.4. </span>Fitting bivariate data, the basics<a class="headerlink" href="#fitting-bivariate-data-the-basics" title="Link to this heading">#</a></h2>
 <p>Let’s get started with the simplest meaningful fitting exercise: fitting a linear model to bivariate data.  The file <code class="docutils literal notranslate"><span class="pre">spring_stretch.csv</span></code> contains stretch distance (<span class="math notranslate nohighlight">\(x\)</span>) and spring force (<span class="math notranslate nohighlight">\(F\)</span>) data for the stretching of a spring.  We want to use this data to measure the spring constant.  For a spring that obeys Hooke’s Law, the two variables are related by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b3811001-8b3d-4f76-9432-df8b45150198">
-<span class="eqno">(6.2)<a class="headerlink" href="#equation-b3811001-8b3d-4f76-9432-df8b45150198" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb8ab29f-aae1-4c22-bd52-560807bb3ed9">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-cb8ab29f-aae1-4c22-bd52-560807bb3ed9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 F_x = k x
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(k\)</span> is the spring constant.  Let’s look at the data first:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from rich import print # if you&#39;re able to install rich, I recommend doing so!</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">fil</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data_files/spring_stretch.csv&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 
@@ -545,13 +543,13 @@ F_x = k x
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c62b098b7530251af49be44b843e3bbdc2f455e3203c725af75aba567a513f31.png" src="../_images/c62b098b7530251af49be44b843e3bbdc2f455e3203c725af75aba567a513f31.png" />
+<img alt="../_images/12822b7043d65b74521ac2d2f05441f930200ee73cbfb7dd0cefe8f797685e98.png" src="../_images/12822b7043d65b74521ac2d2f05441f930200ee73cbfb7dd0cefe8f797685e98.png" />
 </div>
 </div>
 <p>Ok, looks great.  Except for the point at <span class="math notranslate nohighlight">\(x \approx 7.0\)</span> cm, the data certainly <em>look</em> like they follow a linear trend.  We should expect that our linear model will work.  We now endeavour to fit a model to this data.  We first define a function that corresponds to our model:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">linear_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
 </pre></div>
 </div>
@@ -561,7 +559,7 @@ F_x = k x
 <p>The <code class="docutils literal notranslate"><span class="pre">scipy</span></code> (scientific python) <code class="docutils literal notranslate"><span class="pre">optimize</span></code> module contains the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function that we will use to… ya know, fit the curve to the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
 
 <span class="n">spring_popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">linear_function</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 </pre></div>
@@ -602,7 +600,7 @@ F_x = k x
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7efe54938ec2aa12e609019f35324d20e5097ae2db0aa0272fd5b9b42cd29d79.png" src="../_images/7efe54938ec2aa12e609019f35324d20e5097ae2db0aa0272fd5b9b42cd29d79.png" />
+<img alt="../_images/316451eceeb1f33c51302d9173970136eb63422e6b71ada7e347de768afbff11.png" src="../_images/316451eceeb1f33c51302d9173970136eb63422e6b71ada7e347de768afbff11.png" />
 </div>
 </div>
 <section id="warm-up-problem">
@@ -640,7 +638,7 @@ F_x = k x
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/041bf7c8d8e6a8b62122cf0d8518139e421d234954b34690255631b31120aca9.png" src="../_images/041bf7c8d8e6a8b62122cf0d8518139e421d234954b34690255631b31120aca9.png" />
+<img alt="../_images/7060ed64b3b5d2f0f03aaafb37b2b87e8e4d90e0d2560477237cc955605a4a8f.png" src="../_images/7060ed64b3b5d2f0f03aaafb37b2b87e8e4d90e0d2560477237cc955605a4a8f.png" />
 </div>
 </div>
 <p>Cool!  So, as we would expect, the data appear to be distributed according to a gaussian (or bell curve), possibly with some “funky stuff” happening on the low-end (left) tail.</p>
@@ -696,7 +694,7 @@ There are 111 elements in the edges list.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[110.5, 111.5, 112.5, 113.5, 114.5, 115.5, 116.5, 117.5, 118.5, 119.5]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[np.float64(110.5), np.float64(111.5), np.float64(112.5), np.float64(113.5), np.float64(114.5), np.float64(115.5), np.float64(116.5), np.float64(117.5), np.float64(118.5), np.float64(119.5)]
 110
 </pre></div>
 </div>
@@ -715,14 +713,14 @@ There are 111 elements in the edges list.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c4d7474767d46d44cbf1b546730a6ed26f0485c6ae86a69c16eb36a66e67fc6b.png" src="../_images/c4d7474767d46d44cbf1b546730a6ed26f0485c6ae86a69c16eb36a66e67fc6b.png" />
+<img alt="../_images/d7982368a1997b6b5e36931d3f00e1362e4ab4d0693209a81dda162e695b42f9.png" src="../_images/d7982368a1997b6b5e36931d3f00e1362e4ab4d0693209a81dda162e695b42f9.png" />
 </div>
 </div>
 <p>If that just looks like the profile of our histogram from above… good eye!  It is.  We’ve just graphed the data in a way that is obviously 2-d.</p>
 <p>To <em>characterize</em> the data, we’ll fit a gaussian function to the data using <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> again.  The <em>process</em> is exactly the same as it was above for the linear function, but we will need to change some of the details of the fit.</p>
 <p>In this case, we suspect that the data can be described by a gaussian function with the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-064fac4f-4ddf-491c-b741-f38646e6cd83">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-064fac4f-4ddf-491c-b741-f38646e6cd83" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e8a5a1fb-7c21-421a-8e99-e68b703b0a2f">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-e8a5a1fb-7c21-421a-8e99-e68b703b0a2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 g(h) = a \exp \left[ - \frac{(h-\mu)^2}{2\sigma^2} \right]
 \end{equation}\]</div>
 <p>Again, “fitting” means that we want to find the values of parameters <span class="math notranslate nohighlight">\(a\)</span> (scale), <span class="math notranslate nohighlight">\(\mu\)</span> (mean), and <span class="math notranslate nohighlight">\(\sigma\)</span> (width) that make the gaussian a good description of the number of data in each of our bins as a function of the bin center (<span class="math notranslate nohighlight">\(h\)</span>).
@@ -731,7 +729,7 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, we&#39;ll define our gaussian function</span>
-<span class="k">def</span> <span class="nf">single_gauss</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">single_gauss</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># then we&#39;ll call curve fit.  Notice the initial parameter values supplied in p0</span>
@@ -743,7 +741,7 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[662.10864557 173.01077254  11.10796728]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[662.10864555 173.01077254  11.10796728]
 </pre></div>
 </div>
 </div>
@@ -766,7 +764,7 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/25c6b5af43d070bf9729c196e76eecdc0d6eb1e6491725e60f86711c62917039.png" src="../_images/25c6b5af43d070bf9729c196e76eecdc0d6eb1e6491725e60f86711c62917039.png" />
+<img alt="../_images/953128a0a17280d68adad94a740c556528f5fed3b633147f1c08da2745a5677a.png" src="../_images/953128a0a17280d68adad94a740c556528f5fed3b633147f1c08da2745a5677a.png" />
 </div>
 </div>
 <p>Wow!  That looks pretty… um… well, it looks <em>okay</em>.  That funky lower tail is bugging me.  Let’s construct a more general function that is a sum of two gaussians to try to fit both contributions.  We can use the same procedure as before:</p>
@@ -774,7 +772,7 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a function that tis the sum of two gaussians...</span>
 <span class="c1"># more parameters means more freedom to fit the data</span>
-<span class="k">def</span> <span class="nf">double_gauss</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">double_gauss</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">m1</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">m2</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
     <span class="n">g1</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">m1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="n">s1</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">g2</span> <span class="o">=</span> <span class="n">a2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">m2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="n">s2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">g1</span> <span class="o">+</span> <span class="n">g2</span>
@@ -803,11 +801,11 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[674.71713643 173.30245567  10.56013208  86.99174829 141.52885415
-   7.78617905]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[674.71713663 173.30245568  10.56013207  86.9917488  141.52885417
+   7.78617906]
 </pre></div>
 </div>
-<img alt="../_images/fa9363339ede07b8817ca50137cf2d6dbbb4d8fb04f65a3c164b6c57b37c665d.png" src="../_images/fa9363339ede07b8817ca50137cf2d6dbbb4d8fb04f65a3c164b6c57b37c665d.png" />
+<img alt="../_images/6e2413fc7276712f41c2829f837bfc244e506e56565b242b7adb78851a5f5512.png" src="../_images/6e2413fc7276712f41c2829f837bfc244e506e56565b242b7adb78851a5f5512.png" />
 </div>
 </div>
 <p>The green curve is our double-gaussian distribution.  NOW <strong>THAT’S</strong> A FIT.  WOO WOO.</p>
@@ -848,31 +846,31 @@ WE supply the functional form, but <code class="docutils literal notranslate"><s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.03634221e+01  4.58130748e-02 -2.64954823e-01  1.17724314e+00
-   5.10333329e-01  3.92992224e-01]
- [ 4.58130748e-02  8.51766398e-03 -2.93106817e-03 -3.09644301e-02
-   2.13540780e-02  2.49982746e-02]
- [-2.64954823e-01 -2.93106817e-03  1.02429801e-02 -2.63147281e-03
-  -2.97455143e-02 -3.01055834e-02]
- [ 1.17724314e+00 -3.09644301e-02 -2.63147281e-03  2.63477614e+01
-  -6.07701159e-02 -1.64357748e+00]
- [ 5.10333329e-01  2.13540780e-02 -2.97455143e-02 -6.07701159e-02
-   3.90363568e-01  1.19844580e-01]
- [ 3.92992224e-01  2.49982746e-02 -3.01055834e-02 -1.64357748e+00
-   1.19844580e-01  4.10415881e-01]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2.03634224e+01  4.58130809e-02 -2.64954831e-01  1.17724373e+00
+   5.10333373e-01  3.92992251e-01]
+ [ 4.58130809e-02  8.51766418e-03 -2.93106843e-03 -3.09644260e-02
+   2.13540799e-02  2.49982761e-02]
+ [-2.64954831e-01 -2.93106843e-03  1.02429804e-02 -2.63148407e-03
+  -2.97455164e-02 -3.01055848e-02]
+ [ 1.17724373e+00 -3.09644260e-02 -2.63148407e-03  2.63477610e+01
+  -6.07700889e-02 -1.64357744e+00]
+ [ 5.10333373e-01  2.13540799e-02 -2.97455164e-02 -6.07700889e-02
+   3.90363584e-01  1.19844591e-01]
+ [ 3.92992251e-01  2.49982761e-02 -3.01055848e-02 -1.64357744e+00
+   1.19844591e-01  4.10415892e-01]]
 </pre></div>
 </div>
 </div>
 </div>
 <p>Barf!  What is this?  This is a 6x6  (note that there are 6 fit parameters) matrix called the <strong>covariance matrix</strong>, and it stores all of the uncertainty information from the fit.  <a class="reference external" href="https://en.wikipedia.org/wiki/Covariance_matrix">The Wikipedia entry for covariance matrix</a> is pretty deece!</p>
 <p>What you need to know is that the covariance matrix stores information about uncertainties in and correlations between the fit parameters.  The latter of these is not necessary for us right now.  However, the former is what we want.  The diagonal elements of the covariance matrix are the squares of the (1 standard deviation) parameter uncertainties!  So for fit parameter <span class="math notranslate nohighlight">\(p_i\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bbb7f96f-be0e-4011-a179-85e85a4edf99">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-bbb7f96f-be0e-4011-a179-85e85a4edf99" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f3681799-5245-4bce-9c8f-cac558499601">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-f3681799-5245-4bce-9c8f-cac558499601" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma_i = \sqrt{pcov2_{ii}}
 \end{equation}\]</div>
 <p>Said in words, the uncertainty of the <span class="math notranslate nohighlight">\(i^{th}\)</span> fit parameter is the <span class="math notranslate nohighlight">\((i,i)\)</span> element of the covariance matrix (an element on the diagonal).  If you’re comfortable with matrices, you might picture the covariance matrix as something like this:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e3188b8-0b82-4c7a-98c9-9f35afc05223">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-7e3188b8-0b82-4c7a-98c9-9f35afc05223" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-44f7e194-8796-40b4-a205-e20aec67020c">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-44f7e194-8796-40b4-a205-e20aec67020c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 
 pcov2 = \begin{bmatrix} 
     \sigma^{2}_{11} &amp; ? &amp; ? &amp; \dots &amp; ? \\
@@ -896,12 +894,12 @@ pcov2 = \begin{bmatrix}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fit parameter 0:	674.7171364332785	 +/- 4.512584860486272
-fit parameter 1:	173.3024556745698	 +/- 0.09229119123353281
-fit parameter 2:	10.56013207663665	 +/- 0.10120760902506033
-fit parameter 3:	86.99174828603886	 +/- 5.133007052227747
-fit parameter 4:	141.5288541485409	 +/- 0.6247908197774175
-fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fit parameter 0:	674.7171366342894	 +/- 4.512584890224879
+fit parameter 1:	173.3024556775425	 +/- 0.0922911922964398
+fit parameter 2:	10.560132071545413	 +/- 0.10120761037418727
+fit parameter 3:	86.99174880207718	 +/- 5.13300701095807
+fit parameter 4:	141.52885417177268	 +/- 0.6247908323322975
+fit parameter 5:	7.786179061284611	 +/- 0.6406370981752059
 </pre></div>
 </div>
 </div>
@@ -944,14 +942,14 @@ fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/df3599af2fb42bb4712114443d6b40c508e0b442cf1b0bb350b5c8bd235d7cab.png" src="../_images/df3599af2fb42bb4712114443d6b40c508e0b442cf1b0bb350b5c8bd235d7cab.png" />
+<img alt="../_images/e89ee6bb97d5e1f5dce9ad623a3bdebc75f8f58f59bcea4fdea47cf7183c4903.png" src="../_images/e89ee6bb97d5e1f5dce9ad623a3bdebc75f8f58f59bcea4fdea47cf7183c4903.png" />
 </div>
 </div>
 <p>We see now that the data points have varying uncertainties – in particular that wonky-looking point at <span class="math notranslate nohighlight">\(x \approx 7\)</span> cm has a lerger error bar than the other points.  When we do a fit, our fit should try less hard to match this data point because its value is less certain!  This can be done by supplying the uncertainty values to <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code>.</p>
 <p>Note that we’re only going to supply the uncertainties in the force, not the uncertainties in distance.  Doing both requires more sophisticated methods (which <code class="docutils literal notranslate"><span class="pre">scipy</span></code> has, but we’ll ignore).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear_func_error</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">linear_func_error</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
 
 
@@ -979,10 +977,10 @@ fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.34637885 0.31250192]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.34637885 0.31250188]
 </pre></div>
 </div>
-<img alt="../_images/de59827e313a9c1e4dedc2a2b838baaff15b783af610fa9bad7667f13f9d0756.png" src="../_images/de59827e313a9c1e4dedc2a2b838baaff15b783af610fa9bad7667f13f9d0756.png" />
+<img alt="../_images/43c0192ced39f5d332dcee07dba8f355a0477271afa06c5d5b7b2936807983c3.png" src="../_images/43c0192ced39f5d332dcee07dba8f355a0477271afa06c5d5b7b2936807983c3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The optimal spring constant value is (3.3464 +/- 0.2177) N/cm
 </pre></div>
 </div>
@@ -1016,8 +1014,8 @@ fit parameter 5:	7.786179049908211	 +/- 0.640637089950523
 <section id="problem-3">
 <h4>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h4>
 <p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains the temperature maxes and mins per day for the years 2000-2009 in Washington, PA.  Over 3500 data points!  Make a graph of the maximum temp versus day number.  Fit this data with a function of the following form:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a369f843-2046-4903-9a5b-664a89462f15">
-<span class="eqno">(6.6)<a class="headerlink" href="#equation-a369f843-2046-4903-9a5b-664a89462f15" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dde7b337-00db-42a8-be01-09d69888f0b7">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-dde7b337-00db-42a8-be01-09d69888f0b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T(t) = A\cos\left( \omega t + \phi\right) + B
 \end{equation}\]</div>
 <p>This function has four fit parameters: <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span>, and <span class="math notranslate nohighlight">\(B\)</span>.  Make sure you supply good initial guesses for these parameters.  Use your values of <span class="math notranslate nohighlight">\(\omega\)</span> and <span class="math notranslate nohighlight">\(B\)</span> returned by the fit to estimate the length of the year.  Also estimate the average <strong>annual</strong> temperature from your fit parameters. (Note: It is likely that the biggest problem that you’ll have is determining “good” initial parameter values.  Think very hard about what type of quantity <span class="math notranslate nohighlight">\(\omega\)</span> is and how it relates to the length of a year.)</p>
@@ -1028,8 +1026,8 @@ T(t) = A\cos\left( \omega t + \phi\right) + B
 <section id="problem-4">
 <h4>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h4>
 <p>You and a partner will be given a number of small (so-called “fun size” [<em>sic</em>]) bags of Skittles. Your job is to characterize the number <strong>yellow</strong> Skittles in an average fun-size bag (FSB).  Open <strong>each</strong> of the FSBs and count the total number of Skittles and the number of yellow Skittles in each.  Enter this data into a csv file, where each row represents a single FSB.  Then, write <code class="docutils literal notranslate"><span class="pre">python</span></code> code that plots separate histograms of the totals and the numbers of yellows.  Your histograms should be configured to have 1-unit-wide bins.  It is likely that this dataset will be described by the <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>.  In this application, the Poisson distribution tells us the that the probability of finding <span class="math notranslate nohighlight">\(k\)</span> yellows in an FSB is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb03ad0c-5290-4e40-b030-02d36aae341f">
-<span class="eqno">(6.7)<a class="headerlink" href="#equation-fb03ad0c-5290-4e40-b030-02d36aae341f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-baf4879b-3eb8-48b6-be56-278e52e60073">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-baf4879b-3eb8-48b6-be56-278e52e60073" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \textrm{Pr}(k) = A\frac{\lambda^{-k}e^{\lambda}}{k!}
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the “expected value” of the number of yellows in each FSB and <span class="math notranslate nohighlight">\(A\)</span> is a scale factor that will make fitting easier.  Fit this function to the histogram for yellows to extract the expected number of yellows per FSB.  Write a block of markdown to explain your process and your results.  (Note: If you want to do this exercise, you need to tell me by Thursday evening so that I can acquire Skittles.)</p>

@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -45,7 +45,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -58,8 +58,6 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_proj_z0_ll_analysis';</script>
@@ -165,7 +163,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome!
+                    Introduction to Computation for the Physical Sciences
                 </a>
             </li>
         </ul>
@@ -569,39 +567,39 @@ Though the operations of accelerators and detectors are very complicated, the ba
 <p>In the previous section, we discussed how detectors tell us the charge, energy, and momentum of the particles that pass through it.  In almost all cases, these particles are <em>relativistic</em> – their speeds are close enough to <span class="math notranslate nohighlight">\(c\)</span> that we need to take into account relativistic effects!
 (One way to think about the term “HEP” is that the detected particles have high energy compared to their rest-mass energy.)</p>
 <p>Any modern physics textbook (see “Other resources” below) will have a chapter on relativistic energy and momentum; here we review the basics that you’ll need to do the analysis below.  Recall that for a particle with rest mass <span class="math notranslate nohighlight">\(m\)</span> and velocity <span class="math notranslate nohighlight">\(\vec{u}\)</span>, relativistic energy and momentum are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-92a45fe4-f5eb-461d-a4e7-7dc1051eef85">
-<span class="eqno">(6)<a class="headerlink" href="#equation-92a45fe4-f5eb-461d-a4e7-7dc1051eef85" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a280e34e-6cf0-4132-a216-8e636b3b4a48">
+<span class="eqno">(6)<a class="headerlink" href="#equation-a280e34e-6cf0-4132-a216-8e636b3b4a48" title="Permalink to this equation">#</a></span>\[\begin{align}
   \vec{p} &amp;= \gamma m \vec{u} = \gamma m (u_x \hat{\imath} + u_y \hat{\jmath} + u_z \hat{k}) \\
   E &amp;= \gamma m c^2
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\gamma = \left(1 - u^2/c^2\right)^{-\frac{1}{2}}\)</span> is commonly called the Lorentz factor.</p>
 <p>The detector might also measure the speed of the particle by considering its path through the detector and the time it takes to traverse this path.</p>
 <p>For a free particle (one traveling in the absence of a potential) the total energy is composed of the kinetic and rest-mass energy terms:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e152567f-796f-484c-a168-8f9af7d83dcc">
-<span class="eqno">(7)<a class="headerlink" href="#equation-e152567f-796f-484c-a168-8f9af7d83dcc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-208708e0-2e06-47f0-b388-f48511cc0825">
+<span class="eqno">(7)<a class="headerlink" href="#equation-208708e0-2e06-47f0-b388-f48511cc0825" title="Permalink to this equation">#</a></span>\[\begin{equation}
   E^2 = p^2c^2 + m^2 c^4.
 \end{equation}\]</div>
 <p>We can rearrange this equation to yield:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a17577df-69e5-4db6-9b68-85e70679ae6e">
-<span class="eqno">(8)<a class="headerlink" href="#equation-a17577df-69e5-4db6-9b68-85e70679ae6e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-982cec1f-00a3-46c5-9c5b-29adc8718c99">
+<span class="eqno">(8)<a class="headerlink" href="#equation-982cec1f-00a3-46c5-9c5b-29adc8718c99" title="Permalink to this equation">#</a></span>\[\begin{equation}
   m = \frac{1}{c^2}\sqrt{E^2 - p^2 c^2}.
 \end{equation}\]</div>
 <p>So if the detector measures the energy and momentum associated with a track, we can extract the mass of the particle that created the track.  Considering this mass and the charge (from the direction of the track’s curvature), we can identify the particle.
 As mentioned above, you’ll be working with two datasets: one with electron/positron pairs, and one with muon/anti-muon pairs.</p>
 <p>Though relativistic energy and momentum differ from their classical forms, these quantities still appear in conservation equations (independently).  Consider a process in which an unstable initial-state particle (<span class="math notranslate nohighlight">\(P\)</span>) decays into two particles <span class="math notranslate nohighlight">\(\ell_1\)</span> and <span class="math notranslate nohighlight">\(\ell_2\)</span>.  We write this decay reaction as <span class="math notranslate nohighlight">\(P \rightarrow \ell_1 \ell_2\)</span>.
 Conservation of energy forces the initial- and final-state energies to be equal,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ccd76949-4959-4ec5-9c50-85faeeaf802a">
-<span class="eqno">(9)<a class="headerlink" href="#equation-ccd76949-4959-4ec5-9c50-85faeeaf802a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0192ee20-9a60-40a7-b8fa-19ce85d5178f">
+<span class="eqno">(9)<a class="headerlink" href="#equation-0192ee20-9a60-40a7-b8fa-19ce85d5178f" title="Permalink to this equation">#</a></span>\[\begin{equation}
   E_{i} = E_{1} + E_{2} \implies E_{i}^2 = E_{1}^{2} + E_{2}^{2} + 2 E_{1}E_{2}
 \end{equation}\]</div>
 <p>and conservation of momentum foces the initial- and final-state momenta to be equal,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-893fc8cd-a21b-44e9-9e6a-e5c7594e5c23">
-<span class="eqno">(10)<a class="headerlink" href="#equation-893fc8cd-a21b-44e9-9e6a-e5c7594e5c23" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3142a54a-b552-4231-89ce-2a502052d9aa">
+<span class="eqno">(10)<a class="headerlink" href="#equation-3142a54a-b552-4231-89ce-2a502052d9aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
   \vec{p}_{i} = \vec{p}_{1} + \vec{p}_{2} \implies p_{i}^{2} = p_{iz}^{2} +p_{iy}^{2} +p_{iz}^{2} = p_{1}^{2} + p_{2}^{2} + 2\vec{p}_{1}\cdot \vec{p}_{2}.
 \end{equation}\]</div>
 <p>Combining all of this, we can write the mass of the parent particle as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c929821d-cc01-4272-b5b6-0fd965bbec63">
-<span class="eqno">(11)<a class="headerlink" href="#equation-c929821d-cc01-4272-b5b6-0fd965bbec63" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d7b790df-e16e-4518-a305-240931dc32c0">
+<span class="eqno">(11)<a class="headerlink" href="#equation-d7b790df-e16e-4518-a305-240931dc32c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
   m_P = \frac{1}{c^2}\sqrt{E_{i}^{2} - p_{i}^{2}c^2} = \; ... \; = \frac{1}{c^2} \sqrt{E_{i}^{2} - c^2 \left( p_{ix}^{2} + p_{iy}^{2} + {p}_{iz}^{2}\right)}
 \end{equation}\]</div>
 <p>This expression is sometimes referred to as the <em>invariant mass</em> of particles 1 and 2.
@@ -676,8 +674,8 @@ If you’re interested in a more compact way to write all of this, you can read 
 <p>In this module, you’ll analyze two datasets with a combined <span class="math notranslate nohighlight">\(2\times 10^5\)</span> events.  You’re not going to do so with pen and paper, and you’re certainly not going to do so with Excel.  So, dust off your old Python skills!  Let’s recall how to histogram and fit to data using a file containing fake data (<code class="docutils literal notranslate"><span class="pre">testdata.asci</span></code>).  First we’ll import some libraries and read in our data file line-by-line (which has two columns).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 
@@ -724,7 +722,7 @@ If you’re interested in a more compact way to write all of this, you can read 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d323b1bd454017660f501ea3ebdabfd6039dcbb1dfacb52f4f7ebbad79686bb6.png" src="../_images/d323b1bd454017660f501ea3ebdabfd6039dcbb1dfacb52f4f7ebbad79686bb6.png" />
+<img alt="../_images/bb5e055c2a90504583f60716a0e5b56640fb210635b7a69cec53b791b352e191.png" src="../_images/bb5e055c2a90504583f60716a0e5b56640fb210635b7a69cec53b791b352e191.png" />
 </div>
 </div>
 <p>Looks like the first column is just a flat distribution between 0 and 1, while the second column is roughly Gaussian-distributed values.  We can fit to the histogram of the second column data to extract the mean and width (standard deviation) of the distriubtion.  First, we have to generate an array of bin centers and an array of bin occupancies of the histogram.  When we called <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> above, the output was information about the bin edges and occupancies.  Let’s check these out and then make another array of the values of the bin centers.</p>
@@ -765,20 +763,20 @@ If you’re interested in a more compact way to write all of this, you can read 
  1.384 1.388 1.392 1.396 1.4  ]
 100
 101
-[1.002, 1.006, 1.01, 1.014, 1.018, 1.022, 1.026, 1.03, 1.034, 1.038, 1.042, 1.046, 1.05, 1.054, 1.058, 1.062, 1.066, 1.07, 1.074, 1.078, 1.082, 1.086, 1.09, 1.094, 1.098, 1.102, 1.106, 1.1099999999999999, 1.1139999999999999, 1.1179999999999999, 1.1219999999999999, 1.126, 1.13, 1.134, 1.138, 1.142, 1.146, 1.15, 1.154, 1.158, 1.162, 1.166, 1.17, 1.174, 1.178, 1.182, 1.186, 1.19, 1.194, 1.198, 1.202, 1.206, 1.21, 1.214, 1.218, 1.222, 1.226, 1.23, 1.234, 1.238, 1.242, 1.246, 1.25, 1.254, 1.258, 1.262, 1.266, 1.27, 1.274, 1.278, 1.282, 1.2859999999999998, 1.2899999999999998, 1.2939999999999998, 1.2979999999999998, 1.3019999999999998, 1.3059999999999998, 1.3099999999999998, 1.3139999999999998, 1.3179999999999998, 1.3219999999999998, 1.3259999999999998, 1.3299999999999998, 1.3339999999999999, 1.3379999999999999, 1.3419999999999999, 1.3459999999999999, 1.3499999999999999, 1.3539999999999999, 1.3579999999999999, 1.3619999999999999, 1.3659999999999999, 1.3699999999999999, 1.3739999999999999, 1.378, 1.382, 1.386, 1.39, 1.394, 1.398]
+[np.float64(1.002), np.float64(1.006), np.float64(1.01), np.float64(1.014), np.float64(1.018), np.float64(1.022), np.float64(1.026), np.float64(1.03), np.float64(1.034), np.float64(1.038), np.float64(1.042), np.float64(1.046), np.float64(1.05), np.float64(1.054), np.float64(1.058), np.float64(1.062), np.float64(1.066), np.float64(1.07), np.float64(1.074), np.float64(1.078), np.float64(1.082), np.float64(1.086), np.float64(1.09), np.float64(1.094), np.float64(1.098), np.float64(1.102), np.float64(1.106), np.float64(1.1099999999999999), np.float64(1.1139999999999999), np.float64(1.1179999999999999), np.float64(1.1219999999999999), np.float64(1.126), np.float64(1.13), np.float64(1.134), np.float64(1.138), np.float64(1.142), np.float64(1.146), np.float64(1.15), np.float64(1.154), np.float64(1.158), np.float64(1.162), np.float64(1.166), np.float64(1.17), np.float64(1.174), np.float64(1.178), np.float64(1.182), np.float64(1.186), np.float64(1.19), np.float64(1.194), np.float64(1.198), np.float64(1.202), np.float64(1.206), np.float64(1.21), np.float64(1.214), np.float64(1.218), np.float64(1.222), np.float64(1.226), np.float64(1.23), np.float64(1.234), np.float64(1.238), np.float64(1.242), np.float64(1.246), np.float64(1.25), np.float64(1.254), np.float64(1.258), np.float64(1.262), np.float64(1.266), np.float64(1.27), np.float64(1.274), np.float64(1.278), np.float64(1.282), np.float64(1.2859999999999998), np.float64(1.2899999999999998), np.float64(1.2939999999999998), np.float64(1.2979999999999998), np.float64(1.3019999999999998), np.float64(1.3059999999999998), np.float64(1.3099999999999998), np.float64(1.3139999999999998), np.float64(1.3179999999999998), np.float64(1.3219999999999998), np.float64(1.3259999999999998), np.float64(1.3299999999999998), np.float64(1.3339999999999999), np.float64(1.3379999999999999), np.float64(1.3419999999999999), np.float64(1.3459999999999999), np.float64(1.3499999999999999), np.float64(1.3539999999999999), np.float64(1.3579999999999999), np.float64(1.3619999999999999), np.float64(1.3659999999999999), np.float64(1.3699999999999999), np.float64(1.3739999999999999), np.float64(1.378), np.float64(1.382), np.float64(1.386), np.float64(1.39), np.float64(1.394), np.float64(1.398)]
 </pre></div>
 </div>
 </div>
 </div>
 <p>Now we can define the function that we want to fit to the data.  We’ll go with a Gaussian because I happen to know that a Gaussian was used to generate this data.  Recall that a Gaussian has the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-475861e5-75e1-4745-b606-25d56824cd6f">
-<span class="eqno">(12)<a class="headerlink" href="#equation-475861e5-75e1-4745-b606-25d56824cd6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-05e6b659-26dc-4737-b751-c2a0686fc7c0">
+<span class="eqno">(12)<a class="headerlink" href="#equation-05e6b659-26dc-4737-b751-c2a0686fc7c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
   g(x) = A \exp\left( -\frac{(x-\mu)^2}{2\sigma^2}\right),
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean and <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="p">):</span>
     <span class="k">return</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -787,7 +785,7 @@ If you’re interested in a more compact way to write all of this, you can read 
 <p>And to fit this function to the data (<em>i.e.</em>, ask PytHon to find values of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> that make this function best describe the data), we import and use <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> library:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">curve_fit</span>
 
 <span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">gaussian</span><span class="p">,</span> <span class="n">bin_centers</span><span class="p">,</span> <span class="n">bin_occupancies</span><span class="p">,</span> <span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
 
@@ -797,10 +795,10 @@ If you’re interested in a more compact way to write all of this, you can read 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9.51914856e+01 1.19945798e+00 5.04369481e-02]
-[[ 1.56771559e+00  3.07799921e-10 -5.53762597e-04]
- [ 3.07799921e-10  5.86805487e-07 -2.29728660e-13]
- [-5.53762597e-04 -2.29728660e-13  5.86811364e-07]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9.51914855e+01 1.19945798e+00 5.04369481e-02]
+[[ 1.56771558e+00  3.06556468e-10 -5.53762594e-04]
+ [ 3.06556468e-10  5.86805486e-07 -2.29308724e-13]
+ [-5.53762594e-04 -2.29308724e-13  5.86811362e-07]]
 </pre></div>
 </div>
 </div>
@@ -819,7 +817,7 @@ If you’re interested in a more compact way to write all of this, you can read 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/34d41bc8669a6541c6195e04bfe0cee9f167789ce76898ff19f1250023b7045b.png" src="../_images/34d41bc8669a6541c6195e04bfe0cee9f167789ce76898ff19f1250023b7045b.png" />
+<img alt="../_images/276cb7117d3d2f866be185f6a755fa53d81311e39886191b6a91918530380162.png" src="../_images/276cb7117d3d2f866be185f6a755fa53d81311e39886191b6a91918530380162.png" />
 </div>
 </div>
 <p>Holy buckets, that’s a good fit!  Recall that the outputs of the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function are two arrays – the first is the optimal parameter values and the second is the covariance matrix.  It is up to you to remember how to use the covariance matrix to extract parameter uncertainties.  From this fit, we find that the distribution is described by a Gaussian with <span class="math notranslate nohighlight">\(\mu \approx 1.200\)</span> and <span class="math notranslate nohighlight">\(\sigma \approx 5.04 \times 10^{-2}\)</span>.</p>

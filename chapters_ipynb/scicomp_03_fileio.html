@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -45,7 +45,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -58,8 +58,6 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_03_fileio';</script>
@@ -166,7 +164,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome!
+                    Introduction to Computation for the Physical Sciences
                 </a>
             </li>
         </ul>
@@ -787,7 +785,7 @@ honey
 <p>Be sure to download the data file and put it in the same directory as this notebook!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">in_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data_files/parab_t_and_y.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">t_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -802,7 +800,7 @@ honey
     <span class="n">line</span> <span class="o">=</span> <span class="n">in_file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
     
 <span class="c1"># everything below here we&#39;ll worry about next week...</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">t_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_list</span><span class="p">)</span>         
 <span class="n">y_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_list</span><span class="p">)</span>         
 
@@ -815,7 +813,7 @@ honey
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f84fad5fbf51c3390aa34341a372fa3fc39eebe0a599ab45a2050ea0fb0cd1ed.png" src="../_images/f84fad5fbf51c3390aa34341a372fa3fc39eebe0a599ab45a2050ea0fb0cd1ed.png" />
+<img alt="../_images/8dd6b79611d610fdb76bb08d7ae51644ecc84df5571333e38d9080295687d53d.png" src="../_images/8dd6b79611d610fdb76bb08d7ae51644ecc84df5571333e38d9080295687d53d.png" />
 </div>
 </div>
 <p>The data file that was read in above is a “csv” or “comma-separated-value” file.  This is very similar to the way that, say, Excel stores data, but we’re able to access it directly.   : )</p>
@@ -835,8 +833,8 @@ honey
 <section id="problem-1">
 <h4>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h4>
 <p>The file <code class="docutils literal notranslate"><span class="pre">wash_pa_temps_only.csv</span></code> contains temperature data from a weather station in Washington, PA for the years 2000-2009.  Write a block of code that reads in the data from this file and computes the average and standard deviation for high and low temperatures.  Your code should print these averages to screen in a nicely formatted way.  Recall/behold that the standard deviation of quantity <span class="math notranslate nohighlight">\(x\)</span> with average value <span class="math notranslate nohighlight">\(\bar{x}\)</span> is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f7c9dff-45fc-4fe0-9388-8b7527d7bd67">
-<span class="eqno">(4.1)<a class="headerlink" href="#equation-6f7c9dff-45fc-4fe0-9388-8b7527d7bd67" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aee2d3c5-a328-4b26-b36d-af0d3b7871a6">
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-aee2d3c5-a328-4b26-b36d-af0d3b7871a6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sigma^2 = \displaystyle \frac{\sum_{i=1}^{i=N}\left(x_i - \bar{x}\right)^2}{N-1}
 \end{equation}\]</div>
 </section>

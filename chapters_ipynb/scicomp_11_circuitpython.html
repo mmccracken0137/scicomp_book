@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -45,7 +45,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -58,8 +58,6 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters_ipynb/scicomp_11_circuitpython';</script>
@@ -166,7 +164,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome!
+                    Introduction to Computation for the Physical Sciences
                 </a>
             </li>
         </ul>
@@ -554,7 +552,7 @@ If you get stuck, Adafruit provides a LOTS of great info <a class="reference ext
 <hr class="docutils" />
 <p>Before we move on to uploading programs to the microcontroller, let’s take a look at the built-in accessories that our board knows about.  We can do this by importing the <code class="docutils literal notranslate"><span class="pre">board</span></code> module.  Paste the following two lines in the CLI:</p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">board</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">board</span>
 <span class="nb">dir</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -563,9 +561,9 @@ If you get stuck, Adafruit provides a LOTS of great info <a class="reference ext
 <p>Now let’s move onto some microcontroller-specific uses.  For each block of code below, enter the code into the <code class="docutils literal notranslate"><span class="pre">Mu</span></code> editor.  Save the code and then copy it to the IB as <code class="docutils literal notranslate"><span class="pre">code.py</span></code>.  You may need to reset the Serial monitor or the board to get the code to run.  Don’t forget to check the Serial monitor for errors (or you can use the “Check” feature in <code class="docutils literal notranslate"><span class="pre">Mu</span></code> before transferring your code).</p>
 <p>One of the output components that is built into your ItsyBitsy is an LED.  The program below initializes the LED and then flashes it at a constant rate using an indefinite loop.  Note that the condition of the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is “True”… which is <em>always</em> true, so this loop will run forever (or until you power off the board).</p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">board</span>
-<span class="kn">import</span> <span class="nn">digitalio</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">board</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">digitalio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
 <span class="n">led</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">DigitalInOut</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">LED</span><span class="p">)</span>
 <span class="n">led</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="n">digitalio</span><span class="o">.</span><span class="n">Direction</span><span class="o">.</span><span class="n">OUTPUT</span>
@@ -586,9 +584,9 @@ If you get stuck, Adafruit provides a LOTS of great info <a class="reference ext
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># SPDX-FileCopyrightText: 2021 Kattni Rembor for Adafruit Industries</span>
 <span class="c1"># SPDX-License-Identifier: MIT</span>
 <span class="sd">&quot;&quot;&quot;CircuitPython status NeoPixel red, green, blue example.&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">board</span>
-<span class="kn">import</span> <span class="nn">neopixel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">board</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">neopixel</span>
 
 <span class="n">pixel</span> <span class="o">=</span> <span class="n">neopixel</span><span class="o">.</span><span class="n">NeoPixel</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">NEOPIXEL</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
@@ -607,9 +605,9 @@ If you get stuck, Adafruit provides a LOTS of great info <a class="reference ext
 <hr class="docutils" />
 <p>The previous programs were examples of generating output (albeit not very rich output).  This last example program demonstrates how the board can read analog input. The ItsyBitsy uses a 16-bit Analog-to-Digital-Converter (ADC) to read an analog voltage on one of its input pins anc convert it to a digital value between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2^{16}-1 = 65535\)</span>.  Your instructor will show you how to wire a potentiometer to one of the analog input pins on your board.  The block of code below will read the analog voltage on this pin and print the digital value to screen four times per second.</p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">board</span>
-<span class="kn">from</span> <span class="nn">analogio</span> 
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">board</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">analogio</span><span class="w"> </span>
 <span class="kn">import</span> <span class="n">AnalogIn</span>
 
 <span class="n">analog_in</span> <span class="o">=</span> <span class="n">AnalogIn</span><span class="p">(</span><span class="n">board</span><span class="o">.</span><span class="n">A1</span><span class="p">)</span>
