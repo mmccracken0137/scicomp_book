@@ -1,6 +1,8 @@
-# Welcome!
+# Introduction to Computation for the Physical Sciences
 
-This book contains lessons from PHY 220 Introduction to the Physical Sciences course taught in the Physics Major at Washington & Jefferson College.  In the context of our curriculum, these materials are intended to prepare undergraduate students to use computation in upper-level lecture and courses, as well as in research settings in the department and beyond.  They should also be useful to students who need to develop some programming proficiency to apply to studies or research in quantitive, data-driven fields.
+## Welcome!
+
+This bains lessons from PHY 220 Introduction to the Physical Sciences course taught in the Physics Major at Washington & Jefferson College.  In the context of our curriculum, these materials are intended to prepare undergraduate students to use computation in upper-level lecture and courses, as well as in research settings in the department and beyond.  They should also be useful to students who need to develop some programming proficiency to apply to studies or research in quantitive, data-driven fields.
 
 ## Learning goals
 
