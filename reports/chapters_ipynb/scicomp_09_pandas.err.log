@@ -28,7 +28,7 @@ print(menu_ser.append(new_ser))
 
 [31m---------------------------------------------------------------------------[39m
 [31mAttributeError[39m                            Traceback (most recent call last)
-[32m/var/folders/6s/cpr1t_711kj905fk6qjplyrw0000gr/T/ipykernel_88079/2769499521.py[39m in [36m?[39m[34m()[39m
+[32m/var/folders/6s/cpr1t_711kj905fk6qjplyrw0000gr/T/ipykernel_63414/2769499521.py[39m in [36m?[39m[34m()[39m
 [32m      1[39m new_dishes = [[33m'quesadilla'[39m, [33m'jollof rice'[39m, [33m'grilled chili peppers'[39m, [33m'ma la fish'[39m, [33m'schnitzel'[39m, [33m'empanadas'[39m]
 [32m      2[39m new_ser = pd.Series(new_dishes, name=[33m'dish'[39m)
 [32m      3[39m print(new_ser)

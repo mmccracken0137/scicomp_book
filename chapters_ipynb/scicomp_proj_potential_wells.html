@@ -464,8 +464,8 @@
 $<span class="math notranslate nohighlight">\( |\vec{F}_a| = \frac{1}{\left( (a_x - x)^2 + (a_y - y)^2 + d^2\right)}\)</span><span class="math notranslate nohighlight">\(
 The \)</span>d^2<span class="math notranslate nohighlight">\( in the denominator is there to prevent this force from BLOWING UP if the particle gets too close to the attractor.
 Without going through too much math, the \)</span>x<span class="math notranslate nohighlight">\( and \)</span>y$ components of this force are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8817e7bc-d280-4782-915b-1720ddb6c632">
-<span class="eqno">(1)<a class="headerlink" href="#equation-8817e7bc-d280-4782-915b-1720ddb6c632" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-956c62b6-f942-4545-8276-d4a8a7bc4a01">
+<span class="eqno">(1)<a class="headerlink" href="#equation-956c62b6-f942-4545-8276-d4a8a7bc4a01" title="Permalink to this equation">#</a></span>\[\begin{equation}
     F_{ax} = |\vec{F}_a|\frac{a_x - x}{\sqrt{(x-a_x)^2 + (y-a_y)^2}}, \;\;\;\;\;
     F_{ay} = |\vec{F}_a|\frac{a_y - y}{\sqrt{(x-a_x)^2 + (y-a_y)^2}}
 \end{equation}\]</div>
@@ -473,8 +473,8 @@ Without going through too much math, the \)</span>x<span class="math notranslate
 $<span class="math notranslate nohighlight">\(\vec{F}_d = -(0.05)\vec{v},\)</span><span class="math notranslate nohighlight">\(
 where \)</span>\vec{v}$ is the velocity of the particle.
 Note that the components of this force are then given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a25f512e-8309-4672-a740-2d71f6047ef7">
-<span class="eqno">(2)<a class="headerlink" href="#equation-a25f512e-8309-4672-a740-2d71f6047ef7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-43fc4318-4883-4afe-9839-8919e1d5feff">
+<span class="eqno">(2)<a class="headerlink" href="#equation-43fc4318-4883-4afe-9839-8919e1d5feff" title="Permalink to this equation">#</a></span>\[\begin{equation}
     F_{dx} = -|\vec{F}_d|\frac{v_x}{\sqrt{(v_x)^2 + (v_y)^2}}, \;\;\;\;\;
     F_{dy} = -|\vec{F}_d|\frac{v_y}{\sqrt{(v_x)^2 + (v_y)^2}}
 \end{equation}\]</div>
@@ -488,24 +488,24 @@ $<span class="math notranslate nohighlight">\( \vec{F}_{net} = \displaystyle\sum
 <h3>N2L and the Euler Algorithm<a class="headerlink" href="#n2l-and-the-euler-algorithm" title="Link to this heading">#</a></h3>
 <p>Let’s do a quick recap of simulating dynamics with the Euler algorithm (what we covered in module 7).</p>
 <p>Recall N2L:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ce9479d-87e5-4fec-a9df-6ab7072701b5">
-<span class="eqno">(3)<a class="headerlink" href="#equation-6ce9479d-87e5-4fec-a9df-6ab7072701b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ec77d82f-03e6-4aab-8775-de9d456fe339">
+<span class="eqno">(3)<a class="headerlink" href="#equation-ec77d82f-03e6-4aab-8775-de9d456fe339" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \displaystyle \sum \vec{F} = m\frac{d^2\vec{r}}{dt^2}
 \end{equation}\]</div>
 <p>In the previous section of this notebook, I gave you some recipes for calculating the left-hand side of N2L for the 4AB.
 All that’s left to do to create a simulation is to use the net force to calculate the particle’s <span class="math notranslate nohighlight">\(\vec{a}\)</span>, use <span class="math notranslate nohighlight">\(\vec{a}\)</span> to update <span class="math notranslate nohighlight">\(\vec{v}\)</span>, and use <span class="math notranslate nohighlight">\(\vec{v}\)</span> to update the <span class="math notranslate nohighlight">\(\vec{r}\)</span>.</p>
 <p>In module 7 we talked all about the generalized Euler algorithm for a general second-order ODE, <em>i.e.</em> an equation that relates a function to its first and second derivatives.  You didn’t like how we did this in terms of new functions <span class="math notranslate nohighlight">\(u_1(t)\)</span> and <span class="math notranslate nohighlight">\(u_2(t)\)</span>.
 Now we can do it a little more straight-forwardly in terms of kinematic quantities: <span class="math notranslate nohighlight">\(\vec{a}\)</span>, <span class="math notranslate nohighlight">\(\vec{v}\)</span>, <span class="math notranslate nohighlight">\(\vec{r}\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-59a42fed-1f3e-40c8-8b94-4d1e1520c96a">
-<span class="eqno">(4)<a class="headerlink" href="#equation-59a42fed-1f3e-40c8-8b94-4d1e1520c96a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fb5b4487-45c4-40e5-94c0-b0bddd2b9fa2">
+<span class="eqno">(4)<a class="headerlink" href="#equation-fb5b4487-45c4-40e5-94c0-b0bddd2b9fa2" title="Permalink to this equation">#</a></span>\[\begin{align}
     \vec{r}(t)\\
     \vec{v}(t) &amp;= \frac{d\vec{r}}{dt}\\
     \vec{a}(t) &amp;= \frac{d\vec{v}}{dt}
 \end{align}\]</div>
 <p>Hopefully these quantities make more intuitive sense to you than <span class="math notranslate nohighlight">\(u_1\)</span> and <span class="math notranslate nohighlight">\(u_2\)</span>.</p>
 <p>To do a simulation, we turn these derivatives into difference equations.  Changing <span class="math notranslate nohighlight">\(dt\)</span> to <span class="math notranslate nohighlight">\(\Delta t\)</span> and doing some simple algebra yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6f8ec33-799e-4a4e-a203-aad8f6417b8d">
-<span class="eqno">(5)<a class="headerlink" href="#equation-b6f8ec33-799e-4a4e-a203-aad8f6417b8d" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
+<div class="amsmath math notranslate nohighlight" id="equation-8270e3c7-5900-4dde-a8f4-1b70bdd13f00">
+<span class="eqno">(5)<a class="headerlink" href="#equation-8270e3c7-5900-4dde-a8f4-1b70bdd13f00" title="Permalink to this equation">#</a></span>\[\begin{eqnarray}
   \Delta \vec{r} = \vec{v} \Delta t\\
   \Delta \vec{v} = \vec{a} \Delta t
 \end{eqnarray}\]</div>
@@ -609,7 +609,7 @@ Now we can do it a little more straight-forwardly in terms of kinematic quantiti
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/07dc1521b6998ae5571855ee5ffcf984757ecef39b959969a6c8b52bb4d13d05.png" src="../_images/07dc1521b6998ae5571855ee5ffcf984757ecef39b959969a6c8b52bb4d13d05.png" />
+<img alt="../_images/7c87fb3b19e5afae6d7d43bf8960db113a27704cc2201f331bbd2e3361122c01.png" src="../_images/7c87fb3b19e5afae6d7d43bf8960db113a27704cc2201f331bbd2e3361122c01.png" />
 </div>
 </div>
 <p>If you got the code above working, you should see a pretty wild trajectory!  Note that the initial position of the particle is randomly generated.  Rerun the simulation a few times.</p>
